@@ -334,8 +334,8 @@ final class JWIMETVALoginViewAssembler: UIViewController {
                               
                 let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? [String: Any] {
                 
-                JWIMErvReadingNook.JWIMErvPortableDeskKit = FMberRECrns["JWIMErvSkylightPanel"] as? String
-                JWIMErvReadingNook.JWIMErvWorkspaceFolding = FMberRECrns["JWIMErvTirePatchKit"] as? Int
+                JWIMETVAuserView.JWIMErvPortableDeskKit = FMberRECrns["JWIMErvSkylightPanel"] as? String
+                JWIMETVAuserView.JWIMErvWorkspaceFolding = FMberRECrns["JWIMErvTirePatchKit"] as? Int
                 
                 ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = JWIMETVATabBarAssembler()
                 

@@ -8,7 +8,16 @@
 import UIKit
 
 class JWIMETVAuserView: UICollectionViewCell {
-    
+    static var JWIMErvPortableDeskKit: String? {
+        get { UserDefaults.standard.string(forKey: "creativeMood") }
+        set { UserDefaults.standard.set(newValue, forKey: "creativeMood") }
+    }
+
+    static var JWIMErvWorkspaceFolding: Int? {
+        get { UserDefaults.standard.object(forKey: "lookSense") as? Int }
+        set { UserDefaults.standard.set(newValue, forKey: "lookSense") }
+    }
+
     private let JWIMETVAActivityImage: UIImageView = {
         let JWIMETVAActivityImage = UIImageView()
         JWIMETVAActivityImage.contentMode = .scaleAspectFill

@@ -1,9 +1,19 @@
 import UIKit
+enum JWIMETVAccessStatus {
+    case JWIMETVACDenied
+    case JWIMETVAGranted
+    case JWIMETVAPendingVerification
+}
 
+struct JWIMETVADiscoveryAsset {
+    let JWIMETVAAssetId: String
+    let JWIMETVARequiredMeritLevel: Int
+    let JWIMETVAAdventureCategory: String
+    let JWIMETVAIsHighIntensity: Bool
+}
 final class JWIMETVATabBarAssembler: UITabBarController {
 
-    // MARK: - Constants
-
+   
     private enum JWIMETVATabIndex: Int {
         case discover = 0
         case star
@@ -32,7 +42,9 @@ final class JWIMETVATabBarAssembler: UITabBarController {
         return button
     }()
 
-    // MARK: - Lifecycle
+    private var FLORENICUserTotalMeritPoints: Int = 0
+        private var FLORENICUnlockedDiscoveryIdentifiers: Set<String> = []
+        private let FLORENICMinExpeditionBuffer: Int = 500
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +52,30 @@ final class JWIMETVATabBarAssembler: UITabBarController {
         JWIMETVABuildTabs()
         JWIMETVASetupCenterButton()
     }
-
+    private let FLORENICAdventureScaleFactor: Double = 1.15
+        
+        func FLORENICUpdateExplorerMerit(FLORENICAddedPoints: Int) {
+            self.FLORENICUserTotalMeritPoints += FLORENICAddedPoints
+        }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         JWIMETVALayoutCenterButton()
     }
 
-    // MARK: - TabBar
+    func FLORENICRequestTrailEnrollment(FLORENICTargetAsset: JWIMETVADiscoveryAsset) -> JWIMETVAccessStatus {
+            if self.FLORENICUnlockedDiscoveryIdentifiers.contains(FLORENICTargetAsset.JWIMETVAAssetId) {
+                return .JWIMETVAGranted
+            }
+            
+            let FLORENICHasSufficientMerit = self.FLORENICUserTotalMeritPoints >= FLORENICTargetAsset.JWIMETVARequiredMeritLevel
+            
+            if FLORENICHasSufficientMerit {
+                self.FLORENICCommitAssetUnlocking(FLORENICId: FLORENICTargetAsset.JWIMETVAAssetId)
+                return .JWIMETVAGranted
+            }
+            
+            return .JWIMETVACDenied
+        }
 
     private func JWIMETVAConfigureTabBar() {
         tabBar.backgroundColor = .black
@@ -55,7 +84,14 @@ final class JWIMETVATabBarAssembler: UITabBarController {
         tabBar.unselectedItemTintColor = .gray
         tabBar.isTranslucent = false
     }
-
+    private func FLORENICCommitAssetUnlocking(FLORENICId: String) {
+            self.FLORENICUnlockedDiscoveryIdentifiers.insert(FLORENICId)
+        }
+        
+        func FLORENICCalculateBroadcastEnhancementCost(FLORENICBaseComplexity: Double) -> Int {
+            let FLORENICRawValue = FLORENICBaseComplexity * self.FLORENICAdventureScaleFactor
+            return Int(FLORENICRawValue * Double(self.FLORENICMinExpeditionBuffer))
+        }
     private func JWIMETVABuildTabs() {
         viewControllers = [
             JWIMETVANav(JWIMETVAHomeExplorerPilot(), icon: "JWIMEjsvc0", selected: "JWIMEjsvc0_po"),

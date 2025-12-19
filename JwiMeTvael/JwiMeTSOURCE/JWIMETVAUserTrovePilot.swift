@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//我的
+
 class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVAScrollContainer: UIScrollView = {
@@ -133,7 +133,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         JWIMETVAPopulateGrid()
         
         JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/jpbttvyvkifolhz/dwjee", JWIMErvCargoSafetyLatch: ["JWIMErvBugScreenPanel":JWIMErvReadingNook.JWIMErvWorkspaceFolding ?? 0]) { JWIMETVAsresult in
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/jpbttvyvkifolhz/dwjee", JWIMErvCargoSafetyLatch: ["JWIMErvBugScreenPanel":JWIMETVAuserView.JWIMErvWorkspaceFolding ?? 0]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               

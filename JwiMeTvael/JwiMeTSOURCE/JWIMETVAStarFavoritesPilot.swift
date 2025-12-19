@@ -35,9 +35,9 @@ struct JWIMETVAPostModel {
 final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource, UITableViewDelegate, JWIMETVAActivityBannerViewPick {
     func JWIMETVAActivitypick(data: [String : Any]) {
         if let JWIMErvShotComposition  = data["JWIMErvColorPaletteMap"]  as? Int {
-            let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvCampsiteTimecode,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
-            vc.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(vc, animated: true)
+            let JWIMErvvc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvCampsiteTimecode,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
+            JWIMErvvc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(JWIMErvvc, animated: true)
         }
     }
     
@@ -222,12 +222,9 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
                 let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
-//                if seletype ==  2 {
-//                    self.JWIMETVADisplayPosts = Array(FMberRECrns.suffix(2))
-//                }else{
+
                     self.JWIMETVADisplayPosts = FMberRECrns
-//                }
-               
+
                 self.JWIMETVASocialContent.reloadData()
             }
    
@@ -476,7 +473,7 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         
         JWIMETVAPilotName.text = JWIMETVAPost["JWIMErvCabinAcoustics"] as? String
         
-        JWIMETVAElapsedTime.text = "\(JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)"
+        JWIMETVAElapsedTime.text =  FLORENICFormatExpeditionTime(FLORENICTime: TimeInterval((JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)/1000))
         
         JWIMETVASubmissionText.text = JWIMETVAPost["JWIMErvCabinLighting"] as? String
         
@@ -490,4 +487,18 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         
        
     }
+    
+     func FLORENICFormatExpeditionTime(FLORENICTime: TimeInterval) -> String {
+        let FLORENICDate = Date(timeIntervalSince1970: FLORENICTime)
+        let FLORENICFormatter = DateFormatter()
+        
+        // 设置你需要的格式
+        FLORENICFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        // 建议固定时区，避免不同地区用户看到的时间不一致
+        FLORENICFormatter.timeZone = TimeZone.current
+        
+        return FLORENICFormatter.string(from: FLORENICDate)
+    }
 }
+
