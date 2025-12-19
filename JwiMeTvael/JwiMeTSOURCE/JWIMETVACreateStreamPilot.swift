@@ -7,9 +7,6 @@
 import UIKit
 import WebKit
 
-
-
-//web
 class JWIMETVACreateStreamPilot:  UIViewController {
     private lazy var JWIMErvCabinAtmosphere: UIActivityIndicatorView = {
         let JWIMErvCabinAtmosphere = UIActivityIndicatorView.init()
@@ -255,30 +252,30 @@ extension UIImageView{
 
 
 enum JWIMErvCabinYogaMat: String {
-    case JWIMErvSkyTrailBound = "JWIMETVApages/CreateRoom/index?"
-    case JWIMErvCabinVision = "JWIMETVApages/JoinLiveRoom/index?channel=&"
-    case JWIMErvCabinAtmosphere = "JWIMETVApages/LiveRoomRest/index?liveId="
-    case JWIMErvRoamingMindset = "JWIMETVApages/LiveRoomVideo/index?liveId="
-    case JWIMErvTrailDiscovery = "JWIMETVApages/privateChat/index?userId="
-    case JWIMErvCabinJourneyFlow = "JWIMETVApages/MineCenter/index?"
-    case JWIMErvHorizonChaser = "JWIMETVApages/AttentionMy/index?"
-    case JWIMErvOpenRoadRhythm = "JWIMETVApages/Concerned/index?"
-    case JWIMErvNomadSpirit = "JWIMETVApages/MyPost/index?"
-    case JWIMErvFreedomJourney = "JWIMETVApages/PostDetails/index?dynamicId="
-    case JWIMErvRouteHarmony = "JWIMETVApages/homepage/index?userId="
-    case JWIMErvCampfireMemory = "JWIMETVApages/LiveHistory/index?"
-    case JWIMErvTrailExperience = "JWIMETVApages/report/index?"
-    case JWIMErvCabinHarmony = "JWIMETVApages/MyGoods/index?"
-    case JWIMErvAdventureSignal = "JWIMETVApages/MyAddress/index?"
-    case JWIMErvExplorerToolkit = "JWIMETVApages/MyOrder/index?"
-    case JWIMErvJourneyEssentials = "JWIMETVApages/CreatePost/index?"
-    case JWIMErvTravelMoodTag = "JWIMETVApages/Setting/index?"
-    case JWIMErvCabinInsight = "JWIMETVApages/EditData/index?"
-    case JWIMErvWildlandChronicle = "JWIMETVApages/Agreement/index?type=1&"
-    case JWIMErvAdventureLogbook = "JWIMETVApages/Agreement/index?type=2&"
-    case JWIMErvCampsiteTimecode = "JWIMETVApages/ActiveDetails/index?activityId="
-    case JWIMErvRouteReplay = "JWIMETVApages/CreateActive/index?"
-    case JWIMErvJourneyPlanner = "JWIMETVApages/myActivities/index?"
+    case JWIMErvSkyTrailBound = "JWIMETVApages/CreateJWIMETVARoom/index?"
+    case JWIMErvCabinVision = "JWIMETVApages/JoinLiveJWIMETVARoom/index?channel=&"
+    case JWIMErvCabinAtmosphere = "JWIMETVApages/LiveJWIMETVARoomRest/index?liveId="
+    case JWIMErvRoamingMindset = "JWIMETVApages/LiveRoomJWIMETVAVideo/index?liveId="
+    case JWIMErvTrailDiscovery = "JWIMETVApages/privateJWIMETVAChat/index?userId="
+    case JWIMErvCabinJourneyFlow = "JWIMETVApages/MineJWIMETVACenter/index?"
+    case JWIMErvHorizonChaser = "JWIMETVApages/JWIMETVAAttentionMy/index?"
+    case JWIMErvOpenRoadRhythm = "JWIMETVApages/JWIMETVAConcerned/index?"
+    case JWIMErvNomadSpirit = "JWIMETVApages/MyJWIMETVAPost/index?"
+    case JWIMErvFreedomJourney = "JWIMETVApages/PostJWIMETVADetails/index?dynamicId="
+    case JWIMErvRouteHarmony = "JWIMETVApages/homepageJWIMETVA/index?userId="
+    case JWIMErvCampfireMemory = "JWIMETVApages/LiveJWIMETVAHistory/index?"
+    case JWIMErvTrailExperience = "JWIMETVApages/reportJWIMETVA/index?"
+    case JWIMErvCabinHarmony = "JWIMETVApages/MyJWIMETVAGoods/index?"
+    case JWIMErvAdventureSignal = "JWIMETVApages/MyJWIMETVAAddress/index?"
+    case JWIMErvExplorerToolkit = "JWIMETVApages/MyJWIMETVAOrder/index?"
+    case JWIMErvJourneyEssentials = "JWIMETVApages/CreateJWIMETVAPost/index?"
+    case JWIMErvTravelMoodTag = "JWIMETVApages/JWIMETVASetting/index?"
+    case JWIMErvCabinInsight = "JWIMETVApages/EditJWIMETVAData/index?"
+    case JWIMErvWildlandChronicle = "JWIMETVApages/JWIMETVAAgreement/index?type=1&"
+    case JWIMErvAdventureLogbook = "JWIMETVApages/JWIMETVAAgreement/index?type=2&"
+    case JWIMErvCampsiteTimecode = "JWIMETVApages/JWIMETVAActiveDetails/index?activityId="
+    case JWIMErvRouteReplay = "JWIMETVApages/CreateJWIMETVAActive/index?"
+    case JWIMErvJourneyPlanner = "JWIMETVApages/myJWIMETVAActivities/index?"
     case JWIMErvCabinTimekeeper = "JWIMETVA"
    
     func JWIMErvTrailCompass(JWIMErvStarChartGuide: String) -> String {
@@ -293,7 +290,7 @@ enum JWIMErvCabinYogaMat: String {
         
         var JWIMErvCampfireCircle = "JWIMETVAhttps://cybermatrix208.xyz/#".JWIMETVAtime
         
-        JWIMErvCampfireCircle += self.rawValue.JWIMETVAtime + JWIMErvTreeStrapKit
+        JWIMErvCampfireCircle += self.rawValue.replacing("JWIMETVA", with: "") + JWIMErvTreeStrapKit
         JWIMErvCampfireCircle += "JWIMETVAtoken=".JWIMETVAtime + "\(JWIMErvReadingNook.JWIMErvPortableDeskKit ?? "")"
         JWIMErvCampfireCircle += "JWIMETVA&appID=".JWIMETVAtime + "\(JWIMErvReadingNook.JWIMErvCabinTexturePack)"
         
