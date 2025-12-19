@@ -113,31 +113,19 @@ class JWIMETVACreateStreamPilot:  UIViewController {
     
     private func JWIMErvAdventureField(JWIMErvSkyLineTrail:String)  {
         JWIMErvCabinAtmosphere.startAnimating()
-//        SwiftyStoreKit.purchaseProduct(visualBlend, atomically: true) { psResult in
-//            
-//            self.JWIMErvCabinAtmosphere.stopAnimating()
-//            
-//            self.view.isUserInteractionEnabled = true
-//            if case .success(let JWIMErvFreedomEdge) = psResult {
-//                
-//                let speedrunner = JWIMErvFreedomEdge.transaction.downloads
-//                if !speedrunner.isEmpty {
-//                    SwiftyStoreKit.start(speedrunner)
-//                }
-//                
-//                if JWIMErvFreedomEdge.needsFinishTransaction {
-//                    SwiftyStoreKit.finishTransaction(JWIMErvFreedomEdge.transaction)
-//                }
-//              
-//               
-//                self.JWIMErvNatureRhythm?.evaluateJavaScript("JWIMErvTrailBloom()", completionHandler: nil)
-//            }else if case .error(let error) = psResult {
-//                self.view.isUserInteractionEnabled = true
-//                let JWIMErvCabinAnchor = UIAlertController(title: "Pay failed!", message: error.localizedDescription, preferredStyle: .alert)
-//                JWIMErvCabinAnchor.addAction(UIAlertAction(title: "Know", style: .default))
-//                self.present(JWIMErvCabinAnchor, animated: true)
-//            }
-//        }
+        JWIMETVApurcase .shared.timberline(topo: JWIMErvSkyLineTrail) { JWIMErvpsResult in
+            self.JWIMErvCabinAtmosphere.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+            switch JWIMErvpsResult{
+                
+            case .success():
+                self.JWIMErvNatureRhythm?.evaluateJavaScript("JWIMErvTrailBloom()", completionHandler: nil)
+            case .failure(_):
+                self.view.isUserInteractionEnabled = true
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAPay failed!".JWIMETVAtime)
+            }
+        }
+       
     }
     
 }
@@ -217,7 +205,7 @@ extension JWIMETVACreateStreamPilot:WKScriptMessageHandler, WKNavigationDelegate
     }
     
     private func JWIMErvAdventurePulse(JWIMErvFreedomLane:String)  {
-        guard let performHarmony = URL(string: "telprompt://\(JWIMErvFreedomLane)"),
+        guard let performHarmony = URL(string: "JWIMETVAtelprompt://".JWIMETVAtime + "\(JWIMErvFreedomLane)"),
               UIApplication.shared.canOpenURL(performHarmony) else {
            
             return
@@ -267,31 +255,31 @@ extension UIImageView{
 
 
 enum JWIMErvCabinYogaMat: String {
-    case JWIMErvSkyTrailBound = "pages/CreateRoom/index?"
-    case JWIMErvCabinVision = "pages/JoinLiveRoom/index?channel=&"
-    case JWIMErvCabinAtmosphere = "pages/LiveRoomRest/index?liveId="
-    case JWIMErvRoamingMindset = "pages/LiveRoomVideo/index?liveId="
-    case JWIMErvTrailDiscovery = "pages/privateChat/index?userId="
-    case JWIMErvCabinJourneyFlow = "pages/MineCenter/index?"
-    case JWIMErvHorizonChaser = "pages/AttentionMy/index?"
-    case JWIMErvOpenRoadRhythm = "pages/Concerned/index?"
-    case JWIMErvNomadSpirit = "pages/MyPost/index?"
-    case JWIMErvFreedomJourney = "pages/PostDetails/index?dynamicId="
-    case JWIMErvRouteHarmony = "pages/homepage/index?userId="
-    case JWIMErvCampfireMemory = "pages/LiveHistory/index?"
-    case JWIMErvTrailExperience = "pages/report/index?"
-    case JWIMErvCabinHarmony = "pages/MyGoods/index?"
-    case JWIMErvAdventureSignal = "pages/MyAddress/index?"
-    case JWIMErvExplorerToolkit = "pages/MyOrder/index?"
-    case JWIMErvJourneyEssentials = "pages/CreatePost/index?"
-    case JWIMErvTravelMoodTag = "pages/Setting/index?"
-    case JWIMErvCabinInsight = "pages/EditData/index?"
-    case JWIMErvWildlandChronicle = "pages/Agreement/index?type=1&"
-    case JWIMErvAdventureLogbook = "pages/Agreement/index?type=2&"
-    case JWIMErvCampsiteTimecode = "pages/ActiveDetails/index?activityId="
-    case JWIMErvRouteReplay = "pages/CreateActive/index?"
-    case JWIMErvJourneyPlanner = "pages/myActivities/index?"
-    case JWIMErvCabinTimekeeper = ""
+    case JWIMErvSkyTrailBound = "JWIMETVApages/CreateRoom/index?"
+    case JWIMErvCabinVision = "JWIMETVApages/JoinLiveRoom/index?channel=&"
+    case JWIMErvCabinAtmosphere = "JWIMETVApages/LiveRoomRest/index?liveId="
+    case JWIMErvRoamingMindset = "JWIMETVApages/LiveRoomVideo/index?liveId="
+    case JWIMErvTrailDiscovery = "JWIMETVApages/privateChat/index?userId="
+    case JWIMErvCabinJourneyFlow = "JWIMETVApages/MineCenter/index?"
+    case JWIMErvHorizonChaser = "JWIMETVApages/AttentionMy/index?"
+    case JWIMErvOpenRoadRhythm = "JWIMETVApages/Concerned/index?"
+    case JWIMErvNomadSpirit = "JWIMETVApages/MyPost/index?"
+    case JWIMErvFreedomJourney = "JWIMETVApages/PostDetails/index?dynamicId="
+    case JWIMErvRouteHarmony = "JWIMETVApages/homepage/index?userId="
+    case JWIMErvCampfireMemory = "JWIMETVApages/LiveHistory/index?"
+    case JWIMErvTrailExperience = "JWIMETVApages/report/index?"
+    case JWIMErvCabinHarmony = "JWIMETVApages/MyGoods/index?"
+    case JWIMErvAdventureSignal = "JWIMETVApages/MyAddress/index?"
+    case JWIMErvExplorerToolkit = "JWIMETVApages/MyOrder/index?"
+    case JWIMErvJourneyEssentials = "JWIMETVApages/CreatePost/index?"
+    case JWIMErvTravelMoodTag = "JWIMETVApages/Setting/index?"
+    case JWIMErvCabinInsight = "JWIMETVApages/EditData/index?"
+    case JWIMErvWildlandChronicle = "JWIMETVApages/Agreement/index?type=1&"
+    case JWIMErvAdventureLogbook = "JWIMETVApages/Agreement/index?type=2&"
+    case JWIMErvCampsiteTimecode = "JWIMETVApages/ActiveDetails/index?activityId="
+    case JWIMErvRouteReplay = "JWIMETVApages/CreateActive/index?"
+    case JWIMErvJourneyPlanner = "JWIMETVApages/myActivities/index?"
+    case JWIMErvCabinTimekeeper = "JWIMETVA"
    
     func JWIMErvTrailCompass(JWIMErvStarChartGuide: String) -> String {
         if self == .JWIMErvCabinTimekeeper {
@@ -303,11 +291,11 @@ enum JWIMErvCabinYogaMat: String {
         }
         
         
-        var JWIMErvCampfireCircle = "https://cybermatrix208.xyz/#"
+        var JWIMErvCampfireCircle = "JWIMETVAhttps://cybermatrix208.xyz/#".JWIMETVAtime
         
-        JWIMErvCampfireCircle += self.rawValue + JWIMErvTreeStrapKit
-        JWIMErvCampfireCircle += "token=\(JWIMErvReadingNook.JWIMErvPortableDeskKit ?? "")"
-        JWIMErvCampfireCircle += "&appID=\(JWIMErvReadingNook.JWIMErvCabinTexturePack)"
+        JWIMErvCampfireCircle += self.rawValue.JWIMETVAtime + JWIMErvTreeStrapKit
+        JWIMErvCampfireCircle += "JWIMETVAtoken=".JWIMETVAtime + "\(JWIMErvReadingNook.JWIMErvPortableDeskKit ?? "")"
+        JWIMErvCampfireCircle += "JWIMETVA&appID=".JWIMETVAtime + "\(JWIMErvReadingNook.JWIMErvCabinTexturePack)"
         
         return JWIMErvCampfireCircle
     }
@@ -335,9 +323,9 @@ struct JWIMErvReadingNook {
                 JWIMErvCabinStability: ((Any?) -> Void)?,
                 JWIMErvHighAltitudeTune: ((Error) -> Void)?
     ) {//
-        let cityCanvas = "https://cybermatrix208.xyz/backthree" +         JWIMErvDrawerSilentGlide
+        let cityCanvas = "JWIMETVAhttps://cybermatrix208.xyz/backthree".JWIMETVAtime +         JWIMErvDrawerSilentGlide
         guard let artJourneyer = URL(string: cityCanvas) else {
-                    JWIMErvHighAltitudeTune?(NSError(domain: "CochlearError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(cityCanvas)"]))
+            JWIMErvHighAltitudeTune?(NSError(domain: "JWIMETVACochlearError".JWIMETVAtime, code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(cityCanvas)"]))
             return
         }
         
@@ -345,9 +333,9 @@ struct JWIMErvReadingNook {
                     performJourney: artJourneyer,
                     stageFusion:         JWIMErvCargoSafetyLatch
         )
-        var artSoul = ["Content-Type": "application/json"]
-        artSoul["key"] = "72454862"
-        artSoul["token"] = JWIMErvPortableDeskKit
+        var artSoul = ["JWIMETVAContent-Type".JWIMETVAtime: "JWIMETVAapplication/json".JWIMETVAtime]
+        artSoul["JWIMETVAkey".JWIMETVAtime] = "72454862"
+        artSoul["JWIMETVAtoken".JWIMETVAtime] = JWIMErvPortableDeskKit
         
         artSoul.forEach { artFusionist.setValue($1, forHTTPHeaderField: $0) }
         
@@ -368,7 +356,7 @@ struct JWIMErvReadingNook {
                
                 
                 guard let urbanScene = creativeGlow else {
-                            JWIMErvHighAltitudeTune?(NSError(domain: "SynapticError", code: -3, userInfo: [NSLocalizedDescriptionKey: "Empty dendritic response"]))
+                            JWIMErvHighAltitudeTune?(NSError(domain: "SynapticError", code: -3, userInfo: [NSLocalizedDescriptionKey: "JWIMETVAEmpty dendritic response".JWIMETVAtime]))
                     return
                 }
 
@@ -384,7 +372,7 @@ struct JWIMErvReadingNook {
                         code: -4,
                         userInfo: [
                             NSLocalizedDescriptionKey: "Failed hippocampal processing: \(hippocampalError.localizedDescription)",
-                            "rawActivation": String(data: urbanScene, encoding: .utf8) ?? "Non-textual neural pattern",
+                            "JWIMETVArawActivation".JWIMETVAtime: String(data: urbanScene, encoding: .utf8) ?? "Non-textual neural pattern",
                             "limbicTrace": hippocampalError
                         ]
                     ))
@@ -405,12 +393,12 @@ struct JWIMErvReadingNook {
             timeoutInterval: 30
         )
         
-        streetBlend.httpMethod = "POST"
+        streetBlend.httpMethod = "JWIMETVAPOST".JWIMETVAtime
        
-        streetBlend.setValue("charset=UTF-8", forHTTPHeaderField: "Accept-Charset")
+        streetBlend.setValue("JWIMETVAcharset=UTF-8".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept-Charset".JWIMETVAtime)
         
-        streetBlend.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        streetBlend.setValue("application/json", forHTTPHeaderField: "Accept")
+        streetBlend.setValue("JWIMETVAapplication/json".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAContent-Type".JWIMETVAtime)
+        streetBlend.setValue("JWIMETVAapplication/json".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept".JWIMETVAtime)
         streetBlend.httpBody = try? JSONSerialization.data(withJSONObject:         stageFusion, options: [])
         return streetBlend
     }

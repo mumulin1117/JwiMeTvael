@@ -98,7 +98,7 @@ class JWIMETVAAppIndicatorMannager {
                 JWIMETVAstack.trailingAnchor.constraint(equalTo: JWIMETVAcontainer.trailingAnchor, constant: -16),
             ])
             
-//            JWIMETVAwindow.makeKeyAndVisible()
+            JWIMETVAwindow.makeKeyAndVisible()
             
             JWIMETVAoverlayWindow = JWIMETVAwindow
             JWIMETVAcontainerView = JWIMETVAcontainer

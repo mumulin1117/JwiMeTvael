@@ -89,6 +89,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         JWIMETVAActivityBanner.WIMETVAdelegate = self
         JWIMETVAActivityBanner.JWIMETVAFollowedButton.addTarget(self, action: #selector(switchJWIMETVAfollow), for: .touchUpInside)
         JWIMETVAActivityBanner.JWIMETVAPostButton.addTarget(self, action: #selector(switchJWIMETVApost), for: .touchUpInside)
+        JWIMETVAActivityBanner.JWIMETVAPostCreateButton.addTarget(self, action: #selector(JWIMETVApost), for: .touchUpInside)
         return JWIMETVAActivityBanner
     }()
     
@@ -111,7 +112,12 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
     }
     
    
-
+    @objc func JWIMETVApost()  {
+        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvRouteReplay,JWIMErvNatureDrift:false)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     private func JWIMETVAPlaceComponents() {
         self.view.addSubview(jwimeTimingBelt)
         self.view.addSubview(JWIMETVATitleText)
@@ -195,12 +201,12 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         
      
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "Loading....")
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/tgdriewgwxrtifz/xeuxed", JWIMErvCargoSafetyLatch: ["JWIMErvSoftLightBlend":"72454862"]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? Array<[String: Any]> {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
                 
                 self.JWIMETVAActivityBanner.WIMETVAisLISDTY = FMberRECrns
                 self.JWIMETVAActivityBanner.JWIMETVAContentView.reloadData()
@@ -215,7 +221,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
             
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? Array<[String: Any]> {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
 //                if seletype ==  2 {
 //                    self.JWIMETVADisplayPosts = Array(FMberRECrns.suffix(2))
 //                }else{
@@ -470,7 +476,7 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         
         JWIMETVAPilotName.text = JWIMETVAPost["JWIMErvCabinAcoustics"] as? String
         
-        JWIMETVAElapsedTime.text =  "time "//JWIMETVAPost["JWIMErvRoofCoating"] as? Int
+        JWIMETVAElapsedTime.text = "\(JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)"
         
         JWIMETVASubmissionText.text = JWIMETVAPost["JWIMErvCabinLighting"] as? String
         

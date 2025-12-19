@@ -71,7 +71,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVAPersonaName: UILabel = {
         let JWIMETVAPersonaName = UILabel()
-        JWIMETVAPersonaName.text = "User Name"
+        JWIMETVAPersonaName.text = "JWIMETVAUser Name".JWIMETVAtime
         JWIMETVAPersonaName.textColor = .white
         JWIMETVAPersonaName.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         JWIMETVAPersonaName.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +99,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVASpaceSectionTitle: UILabel = {
         let JWIMETVASpaceSectionTitle = UILabel()
-        JWIMETVASpaceSectionTitle.text = "🌙 My Space"
+        JWIMETVASpaceSectionTitle.text = "JWIMETVA🌙 My Space".JWIMETVAtime
         JWIMETVASpaceSectionTitle.textColor = .white
         JWIMETVASpaceSectionTitle.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         JWIMETVASpaceSectionTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +117,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVAGalleryTitle: UILabel = {
         let JWIMETVAGalleryTitle = UILabel()
-        JWIMETVAGalleryTitle.text = "📷 My Activity"
+        JWIMETVAGalleryTitle.text = "JWIMETVA📷 My Activity".JWIMETVAtime
         JWIMETVAGalleryTitle.textColor = .white
         JWIMETVAGalleryTitle.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         JWIMETVAGalleryTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -132,19 +132,19 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         JWIMETVAPopulateMetrics()
         JWIMETVAPopulateGrid()
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "Loading....")
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/jpbttvyvkifolhz/dwjee", JWIMErvCargoSafetyLatch: ["JWIMErvBugScreenPanel":JWIMErvReadingNook.JWIMErvWorkspaceFolding ?? 0]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? [String: Any] {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? [String: Any] {
                
                 if let imgback = FMberRECrns["JWIMErvMosquitoDeflector"] as? String {
                     self.JWIMETVABackdropLayer.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
                     self.JWIMETVAPortraitFrame.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
                 }
-                self.JWIMETVAPersonaName.text = FMberRECrns["JWIMErvLedBeamCaster"] as? String
-                self.JWIMETVABioTeaser.text =  FMberRECrns["JWIMErvLedBeamCaster"] as? String
+                self.JWIMETVAPersonaName.text = FMberRECrns["JWIMErvLedBeamCaster"] as? String ?? "JWIMETVANoname".JWIMETVAtime
+                self.JWIMETVABioTeaser.text =  FMberRECrns["JWIMErvLedBeamCaster"] as? String ?? "JWIMETVANo signature".JWIMETVAtime
             }
         } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
@@ -232,7 +232,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     }
 
     private func JWIMETVAPopulateMetrics() {
-        let JWIMETVAData = [("0", "Follow me"), ("0", "Post"), ("0", "History")]
+        let JWIMETVAData = [("0", "JWIMETVAFollow me".JWIMETVAtime), ("0", "JWIMETVAPost".JWIMETVAtime), ("0", "JWIMETVAHistory".JWIMETVAtime)]
         for i in 0...(JWIMETVAData.count - 1) {
             let JWIMETVABox = UIStackView()
             JWIMETVABox.axis = .vertical
@@ -314,3 +314,12 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     
 }
 
+extension String {
+
+    var JWIMETVAtime: String {
+        if hasPrefix("JWIMETVA") {
+            return String(dropFirst("JWIMETVA".count))
+        }
+        return self
+    }
+}

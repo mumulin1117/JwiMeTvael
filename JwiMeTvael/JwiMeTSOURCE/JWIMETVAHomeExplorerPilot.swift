@@ -26,10 +26,10 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
     
     private var JWIMETVADisplayData: Array<[String: Any]> = Array<[String: Any]>()
     
-    enum JWIMETVASortCategory: String {
-        case popular = "Popular"
-        case new = "New"
-        case moment = "Moment"
+    enum JWIMETVASortCategory {
+        case popular
+        case new
+        case moment
     }
 
     private let jwimeTimingBelt: UIImageView = {
@@ -211,12 +211,12 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         if JWIMETVACurrentSelection == .popular {
             seletype =  2
         }
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "Loading....")
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/zbirbz/dyodyjwwrsjyk", JWIMErvCargoSafetyLatch: ["JWIMErvTripSegment":"72454862","JWIMErvTravelJournal":10,"JWIMErvRouteDiary":seletype]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? Array<[String: Any]> {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
                 self.JWIMETVADisplayData = FMberRECrns
                 self.JWIMETVAContentView.reloadData()
           
@@ -285,6 +285,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         }
         let JWIMETVAModel = self.JWIMETVADisplayData[indexPath.item]
         JWIMETVACell.JWIMETVASetupContent(JWIMETVAStream: JWIMETVAModel)
+        JWIMETVACell.JWIMETVALiveMoreDisplay.addTarget(self, action: #selector(JWIMETVAOrepoer), for: .touchUpInside)
         return JWIMETVACell
     }
 

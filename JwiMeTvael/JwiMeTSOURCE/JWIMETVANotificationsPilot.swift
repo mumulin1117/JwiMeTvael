@@ -93,12 +93,12 @@ class JWIMETVANotificationsPilot: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "Loading....")
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/aopogxpvwtkiz/idapkfyeooug", JWIMErvCargoSafetyLatch: ["JWIMErvInteriorLayout":"72454862"]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? Array<[String: Any]> {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
                 self.JWIMETVADisplayData = FMberRECrns
                 self.JWIMETVAContentView.reloadData()
           
@@ -112,7 +112,7 @@ class JWIMETVANotificationsPilot: UIViewController {
             
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? Array<[String: Any]> {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
                 self.JWIMETVADisplaymesgsData = self.JWIMETVABuildConversationPreviewList(from: FMberRECrns)
             
                 self.JWIMETVAmesgContentView.reloadData()

@@ -31,7 +31,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
     private let JWIMETVATitleText: UILabel = {
         let JWIMETVATitleText = UILabel()
-        JWIMETVATitleText.text = "If the account does not exist, we will create one for you"
+        JWIMETVATitleText.text = "JWIMETVAIf the account does not exist, we will create one for you".JWIMETVAtime
         JWIMETVATitleText.textColor = .white
         JWIMETVATitleText.textAlignment = .center
         JWIMETVATitleText.numberOfLines = 2
@@ -43,7 +43,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
     private let JWIMETVAInputEmailField: UITextField = {
         let JWIMETVAInputEmailField = UITextField()
         let JWIMETVAEmailPlaceholder = NSAttributedString(
-            string: "Email Address",
+            string: "JWIMETVAEmail Address".JWIMETVAtime,
             attributes: [.foregroundColor: UIColor.lightGray]
         )
         JWIMETVAInputEmailField.attributedPlaceholder = JWIMETVAEmailPlaceholder
@@ -69,7 +69,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
     private let JWIMETVASecretPassField: UITextField = {
         let JWIMETVASecretPassField = UITextField()
         let JWIMETVAPassPlaceholder = NSAttributedString(
-            string: "Enter secret key",
+            string: "JWIMETVAEnter secret key".JWIMETVAtime,
             attributes: [.foregroundColor: UIColor.lightGray]
         )
         JWIMETVASecretPassField.attributedPlaceholder = JWIMETVAPassPlaceholder
@@ -118,7 +118,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let JWIMETVATermsPolicyDisplay = UILabel()
         JWIMETVATermsPolicyDisplay.numberOfLines = 0
 
-        let JWIMETVAFullText = "By continuing you agree to our <Terms of Service> and <Privacy Policy>."
+        let JWIMETVAFullText = "JWIMETVABy continuing you agree to our <Terms of Service> and <Privacy Policy>.".JWIMETVAtime
         let JWIMETVAMutableString = NSMutableAttributedString(string: JWIMETVAFullText)
 
         let JWIMETVAFullRange = NSRange(location: 0, length: JWIMETVAMutableString.length)
@@ -128,7 +128,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         ], range: JWIMETVAFullRange)
 
         // Terms of Service
-        if let range = JWIMETVAFullText.range(of: "<Terms of Service>") {
+        if let range = JWIMETVAFullText.range(of: "JWIMETVA<Terms of Service>".JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
                 .foregroundColor: UIColor.white,
@@ -138,7 +138,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         }
 
         // Privacy Policy
-        if let range = JWIMETVAFullText.range(of: "<Privacy Policy>") {
+        if let range = JWIMETVAFullText.range(of: "JWIMETVA<Privacy Policy>".JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
                 .foregroundColor: UIColor.white,
@@ -316,7 +316,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
     @objc private func JWIMETVAInitiateConnect() {
         guard JWIMETVAAgreementCheckbox.isSelected else {
-            self.JWIMETVADisplayAlert(message: "Agreement terms must be accepted.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAAgreement terms must be accepted.".JWIMETVAtime)
             return
         }
         
@@ -324,24 +324,24 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let JWIMETVAEnteredPassword = JWIMETVASecretPassField.text ?? ""
         
         if JWIMETVAEnteredEmail.isEmpty || JWIMETVAEnteredPassword.isEmpty {
-            self.JWIMETVADisplayAlert(message: "Email and secret key cannot be empty.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAEmail and secret key cannot be empty.".JWIMETVAtime)
             return
         }
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "Login....")
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALogin....".JWIMETVAtime)
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/aukohjrmz/kffyyhfok", JWIMErvCargoSafetyLatch: ["JWIMErvCabinMicArray":"72454862","JWIMErvHeadlampFocus":JWIMETVAEnteredEmail,"JWIMErvDashCamAngle":JWIMETVAEnteredPassword]) { JWIMETVAsresult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
                               
-                let FMberRECrns = FMberRECglsss["data"] as? [String: Any] {
+                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? [String: Any] {
                 
                 JWIMErvReadingNook.JWIMErvPortableDeskKit = FMberRECrns["JWIMErvSkylightPanel"] as? String
                 JWIMErvReadingNook.JWIMErvWorkspaceFolding = FMberRECrns["JWIMErvTirePatchKit"] as? Int
                 
                 ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = JWIMETVATabBarAssembler()
                 
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: "log in successful!")
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: "JWIMETVAlog in successful!".JWIMETVAtime)
             } else {
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "log in Failed!")
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAlog in Failed!".JWIMETVAtime)
                 
             }
             

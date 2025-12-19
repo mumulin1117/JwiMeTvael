@@ -41,7 +41,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
     }()
     
     //more
-    private let JWIMETVALiveMoreDisplay: UIButton = {
+     let JWIMETVALiveMoreDisplay: UIButton = {
         let JWIMETVALiveCountDisplay = UIButton()
        
         JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEmore"), for: .normal)
@@ -160,7 +160,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
             JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAitol"), for: .normal)
         }else{
             JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEmusic"), for: .normal)
-            JWIMETVALiveCountDisplay.setTitle("\(JWIMETVARandomInt) online", for: .normal)
+            JWIMETVALiveCountDisplay.setTitle("\(JWIMETVARandomInt) " + "JWIMETVAonline".JWIMETVAtime, for: .normal)
         }
         
        

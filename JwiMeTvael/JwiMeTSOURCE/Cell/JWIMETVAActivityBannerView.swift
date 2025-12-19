@@ -65,7 +65,7 @@ class JWIMETVAActivityBannerView: UIView, UICollectionViewDataSource, UICollecti
         return JWIMETVAPostButton
     }()
     
-    private let JWIMETVAPostCreateButton: UIButton = {
+     let JWIMETVAPostCreateButton: UIButton = {
         let JWIMETVAPostCreateButton = UIButton()
         JWIMETVAPostCreateButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMepostcenterl"), for: .normal)
         JWIMETVAPostCreateButton.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +154,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
     
     private let JWIMETVAtimeButton: UIButton = {
         let JWIMETVAJoinButton = UIButton()
-        JWIMETVAJoinButton.setTitle("mon 08/08", for: .normal)
+       
         JWIMETVAJoinButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         JWIMETVAJoinButton.setTitleColor(.white, for: .normal)
         JWIMETVAJoinButton.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvExploreCircle"), for: .normal)
@@ -164,7 +164,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
     
     private let JWIMETVAlocationBtton: UIButton = {
         let JWIMETVAJoinButton = UIButton()
-        JWIMETVAJoinButton.setTitle("Griffi", for: .normal)
+       
         JWIMETVAJoinButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         JWIMETVAJoinButton.setTitleColor(.white, for: .normal)
         JWIMETVAJoinButton.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvForestEcho"), for: .normal)
@@ -282,7 +282,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
         JWIMETVAtimeButton.setTitle(JWIMETVAStream["JWIMErvClipTrimTool"] as? String ?? "", for: .normal)
         
         JWIMETVAlocationBtton.setTitle(JWIMETVAStream["JWIMErvSceneSequencer"] as? String ?? "", for: .normal)
-        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) Joined"
+        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) " + "JWIMETVAJoined".JWIMETVAtime
     }
     
     
