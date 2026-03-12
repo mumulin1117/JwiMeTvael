@@ -23,7 +23,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
     private let JWIMETVACameraLogo: UIImageView = {
         let JWIMETVACameraLogo = UIImageView()
-        JWIMETVACameraLogo.image = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEguidelo")
+        JWIMETVACameraLogo.image = UIImage(named: "JWIMEguidelo")//JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEguidelo")
         JWIMETVACameraLogo.contentMode = .scaleAspectFit
         JWIMETVACameraLogo.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVACameraLogo
@@ -259,43 +259,37 @@ final class JWIMETVALoginViewAssembler: UIViewController {
                 
         NotificationCenter.default.addObserver(self, selector: #selector(JWIMErvSceneSequencer), name: UIResponder.keyboardWillHideNotification, object: nil)
         NSLayoutConstraint.activate([
-            // Logo
+            
             JWIMETVACameraLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             JWIMETVACameraLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 71),
             JWIMETVACameraLogo.widthAnchor.constraint(equalToConstant: 130),
             JWIMETVACameraLogo.heightAnchor.constraint(equalToConstant: 130),
 
-            // Title
             JWIMETVATitleText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             JWIMETVATitleText.topAnchor.constraint(equalTo: JWIMETVACameraLogo.bottomAnchor, constant: 25),
             JWIMETVATitleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             JWIMETVATitleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            // Email Field
             JWIMETVAInputEmailField.topAnchor.constraint(equalTo: JWIMETVATitleText.bottomAnchor, constant: 50),
             JWIMETVAInputEmailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             JWIMETVAInputEmailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             JWIMETVAInputEmailField.heightAnchor.constraint(equalToConstant: 56),
 
-            // Password Field
             JWIMETVASecretPassField.topAnchor.constraint(equalTo: JWIMETVAInputEmailField.bottomAnchor, constant: 20),
             JWIMETVASecretPassField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             JWIMETVASecretPassField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             JWIMETVASecretPassField.heightAnchor.constraint(equalToConstant: 56),
 
-            // Login Button
             JWIMETVAInstantConnectButton.topAnchor.constraint(equalTo: JWIMETVASecretPassField.bottomAnchor, constant: 50),
             JWIMETVAInstantConnectButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             JWIMETVAInstantConnectButton.widthAnchor.constraint(equalToConstant: 256),
             JWIMETVAInstantConnectButton.heightAnchor.constraint(equalToConstant: 56),
             
-            // Checkbox
             JWIMETVAAgreementCheckbox.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: JWIMETVAPaddingUnit),
             JWIMETVAAgreementCheckbox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             JWIMETVAAgreementCheckbox.widthAnchor.constraint(equalToConstant: 24),
             JWIMETVAAgreementCheckbox.heightAnchor.constraint(equalToConstant: 24),
-            
-            // Terms and Policy Text
+        
             JWIMETVATermsPolicyDisplay.centerYAnchor.constraint(equalTo: JWIMETVAAgreementCheckbox.centerYAnchor),
             JWIMETVATermsPolicyDisplay.leadingAnchor.constraint(equalTo: JWIMETVAAgreementCheckbox.trailingAnchor, constant: 8),
             JWIMETVATermsPolicyDisplay.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -JWIMETVAPaddingUnit)

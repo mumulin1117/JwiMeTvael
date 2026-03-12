@@ -23,10 +23,11 @@ class JWIMETVACreateStreamPilot:  UIViewController {
         case FLORENICHazard = "FLORENIC_DANGER"
     }
     private lazy var JWIMErvCabinAtmosphere: UIActivityIndicatorView = {
-        let JWIMErvCabinAtmosphere = UIActivityIndicatorView.init()
-        JWIMErvCabinAtmosphere.color = .white
+        let JWIMErvCabinAtmosphere = UIActivityIndicatorView.init(style: .large)
+        
+        JWIMErvCabinAtmosphere.color = .purple
         JWIMErvCabinAtmosphere.hidesWhenStopped = true
-        JWIMErvCabinAtmosphere.frame.size = CGSize.init(width: 70, height: 70)
+        JWIMErvCabinAtmosphere.frame.size = CGSize.init(width: 100, height: 100)
         return JWIMErvCabinAtmosphere
     }()
     private var JWIMErvNatureRhythm:WKWebView?
@@ -189,16 +190,20 @@ class JWIMETVACreateStreamPilot:  UIViewController {
     private func JWIMErvAdventureField(JWIMErvSkyLineTrail:String)  {
         JWIMErvCabinAtmosphere.startAnimating()
         JWIMETVApurcase .shared.FLORENICInitiateResourceAcquisition(FLORENICTrailID: JWIMErvSkyLineTrail) { JWIMErvpsResult in
-            self.JWIMErvCabinAtmosphere.stopAnimating()
-            self.view.isUserInteractionEnabled = true
-            switch JWIMErvpsResult{
-                
-            case .success():
-                self.JWIMErvNatureRhythm?.evaluateJavaScript("JWIMErvTrailBloom()", completionHandler: nil)
-            case .failure(_):
+            
+            DispatchQueue.main.async {
+                self.JWIMErvCabinAtmosphere.stopAnimating()
                 self.view.isUserInteractionEnabled = true
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAPay failed!".JWIMETVAtime)
+                switch JWIMErvpsResult{
+                    
+                case .success():
+                    self.JWIMErvNatureRhythm?.evaluateJavaScript("JWIMErvTrailBloom()", completionHandler: nil)
+                case .failure(_):
+                    self.view.isUserInteractionEnabled = true
+                    JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAPay failed!".JWIMETVAtime)
+                }
             }
+            
         }
        
     }
@@ -346,7 +351,7 @@ struct JWIMErvReadingNook {
     private static let FLORENICSyncSignature = "FLORENIC_NODE_72454862"
    
     private static func FLORENICBuildExpeditionRequest(FLORENICURL: URL, FLORENICParams: [String: Any]) -> URLRequest {
-            // 这里的逻辑必须通过原有方法名或原生构造完成，以保证不报错
+           
             return JWIMErvurbanshareney(performJWIMErv: FLORENICURL, JWIMErvFusion: FLORENICParams)
         }
 
@@ -387,7 +392,7 @@ struct JWIMErvReadingNook {
                     JWIMErvCabinStability: ((Any?) -> Void)?,
                     JWIMErvHighAltitudeTune: ((Error) -> Void)?
         ) {
-            // 1️⃣ 构造具有特色的探险路径
+       
             let FLORENICBaseLink = "JWIMETVAhttps://cybermatrix208.xyz/backthree".JWIMETVAtime
             let FLORENICFullRoute = FLORENICBaseLink + JWIMErvDrawerSilentGlide
             
@@ -398,25 +403,21 @@ struct JWIMErvReadingNook {
                 return
             }
 
-            // 2️⃣ 通过辅助方法生成请求（解耦原本的 arJWIMErvsionist）
             var FLORENICRequest = FLORENICBuildExpeditionRequest(FLORENICURL: FLORENICTrailURL, FLORENICParams: JWIMErvCargoSafetyLatch)
             
-            // 3️⃣ 注入身份认证（保持原有逻辑不改变结果）
             let FLORENICAuthHeaders = FLORENICGenerateVibeHeaders()
             FLORENICAuthHeaders.forEach { FLORENICRequest.setValue($1, forHTTPHeaderField: $0) }
 
-            // 4️⃣ 执行异步数据脉冲
             let FLORENICSession = FLORENICCreateSecureSession()
             FLORENICSession.dataTask(with: FLORENICRequest) { FLORENICRawPulse, FLORENICResponse, FLORENICFault in
                 
                 DispatchQueue.main.async {
-                    // 处理网络故障
+                   
                     if let FLORENICSignalError = FLORENICFault {
                         JWIMErvHighAltitudeTune?(FLORENICSignalError)
                         return
                     }
-                    
-                    // 校验数据流
+            
                     guard let FLORENICDataStream = FLORENICRawPulse else {
                         let FLORENICEmptyError = NSError(domain: "FLORENIC_DATA_VOID", code: -103,
                                                         userInfo: [NSLocalizedDescriptionKey: "Empty Pulse"])
@@ -424,7 +425,6 @@ struct JWIMErvReadingNook {
                         return
                     }
 
-                    // 5️⃣ 委托解析逻辑
                     FLORENICProcessDiscoveryPayload(FLORENICDataStream,
                                                     FLORENICSuccess: JWIMErvCabinStability,
                                                     FLORENICFailure: JWIMErvHighAltitudeTune)

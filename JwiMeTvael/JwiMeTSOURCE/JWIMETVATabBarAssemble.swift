@@ -140,7 +140,6 @@ final class JWIMETVATabBarAssembler: UITabBarController {
 
     @objc private func JWIMETVAPresentCreator() {
 
-        // 防止重复 present
         guard presentedViewController == nil else { return }
 
         let creatorVC = JWIMETVACreateStreamPilot(

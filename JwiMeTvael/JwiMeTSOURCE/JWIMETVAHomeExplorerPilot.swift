@@ -10,12 +10,10 @@ struct JWIMETVAStreamModel {
     let JWIMETVAPilotImage: String
 }
 
-// MARK: - JWIMETVAHomeExplorerPilot Class
 //home
 final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    // MARK: - Constants and State
-    
+ 
     private let JWIMETVACellIdentifier = "JWIMETVAStreamContentCell"
     private let JWIMETVAHeaderHeight: CGFloat = 48
     private let JWIMETVATopMargin: CGFloat = 16
@@ -196,8 +194,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         ])
     }
     
-    // MARK: - Data and State Management
-
+ 
     private func JWIMETVAInitializeData() {
         var seletype:Int = 0
         if JWIMETVACurrentSelection == .moment {

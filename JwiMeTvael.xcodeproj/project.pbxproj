@@ -145,8 +145,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JwiMeTvael/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Holly;
 				INFOPLIST_KEY_NSCameraUsageDescription = "JwiMe uses the camera to help travelers capture their RV moments, scenic routes, and outdoor discoveries so they can record and preserve the details of their journeys.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "JwiMe requires access to the microphone so users can add natural sound, personal notes, and travel impressions while documenting their RV adventures.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "JwiMe accesses the photo library to allow travelers to select, organize, and share the memorable moments they have captured throughout their journeys.";
@@ -160,7 +162,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tateve.JwiMeTvael.JwiMeTvael;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tateve.holly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -179,8 +181,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JwiMeTvael/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Holly;
 				INFOPLIST_KEY_NSCameraUsageDescription = "JwiMe uses the camera to help travelers capture their RV moments, scenic routes, and outdoor discoveries so they can record and preserve the details of their journeys.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "JwiMe requires access to the microphone so users can add natural sound, personal notes, and travel impressions while documenting their RV adventures.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "JwiMe accesses the photo library to allow travelers to select, organize, and share the memorable moments they have captured throughout their journeys.";
@@ -194,7 +198,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tateve.JwiMeTvael.JwiMeTvael;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tateve.holly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -111,7 +111,12 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         self.view.backgroundColor = .black
     }
     
-   
+    @objc func JWIMETVAOrepoer()  {
+        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTrailExperience,JWIMErvNatureDrift:false)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     @objc func JWIMETVApost()  {
         let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvRouteReplay,JWIMErvNatureDrift:false)
         vc.hidesBottomBarWhenPushed = true
@@ -160,32 +165,42 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         let JWIMETVACell = tableView.dequeueReusableCell(withIdentifier: JWIMETVARowID, for: indexPath) as! JWIMETVAPostStreamCell
         let JWIMETVAModel = self.JWIMETVADisplayPosts[indexPath.row]
         JWIMETVACell.JWIMETVASetupContent(JWIMETVAPost: JWIMETVAModel)
-        print(JWIMETVAModel)
+        JWIMETVACell.JWIMETVAmore.addTarget(self, action: #selector(JWIMETVAOrepoer), for: .touchUpInside)
+        JWIMETVACell.JWIMETVAvidoBt.tag = indexPath.row
+        JWIMETVACell.JWIMETVAchafBt.tag = indexPath.row
+        JWIMETVACell.JWIMETVAvidoBt.addTarget(self, action: #selector(chageBeaddder(asit:)), for: .touchUpInside)
+        
+        JWIMETVACell.JWIMETVAchafBt.addTarget(self, action: #selector(chageBeaddder(asit:)), for: .touchUpInside)
         return JWIMETVACell
     }
     
-    // MARK: - UITableViewDelegate
+    
+    @objc func chageBeaddder(asit:UIButton)  {
+        let JWIMETVAModel = self.JWIMETVADisplayPosts[asit.tag]
+        let uid = JWIMETVAModel["JWIMErvAmbientGlow"] as? String ?? "0"
+        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTrailDiscovery,JWIMErvNomadFlow: "\(uid)",JWIMErvNatureDrift:false)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+   
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 350
-//        let JWIMETVAModel = self.JWIMETVADisplayPosts[indexPath.row]
-//        // Dynamic height calculation based on content (approximate)
-//        let JWIMETVAShellHeight: CGFloat = 130 // User info + bottom actions + padding
-//        let JWIMETVAMultimediaRatio: CGFloat = (JWIMETVAModel.JWIMETVAImageCount > 0) ? 300 : 0 // Height for images
-//        return JWIMETVAShellHeight + JWIMETVAMultimediaRatio
+
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 228 + 37 + 20 + 30
     }
     
-    
-//
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
         return self.JWIMETVAActivityBanner
     }
     
+    
+
     
     // MARK: - Data and State Management
 
@@ -262,10 +277,11 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let JWIMErvShotComposition  = self.JWIMETVADisplayPosts[indexPath.item]["JWIMErvMudGuardShield"]  as? Int {
+        if let JWIMErvShotComposition  = self.JWIMETVADisplayPosts[indexPath.item]["JWIMErvVentilationGrid"]  as? Int {
             let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvFreedomJourney,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
 }
@@ -310,13 +326,7 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         JWIMETVASubmissionText.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVASubmissionText
     }()
-//    
-//    private let JWIMETVAMultimediaContainer: UIView = {
-//        let JWIMETVAMultimediaContainer = UIView()
-//        JWIMETVAMultimediaContainer.backgroundColor = .clear
-//        JWIMETVAMultimediaContainer.translatesAutoresizingMaskIntoConstraints = false
-//        return JWIMETVAMultimediaContainer
-//    }()
+
 
     private let JWIMETVAImageA: UIImageView = {
         let JWIMETVAImageA = UIImageView()
@@ -338,36 +348,36 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         return JWIMETVAImageB
     }()
     
-    private  lazy var JWIMETVAmore: UIButton = {
+      lazy var JWIMETVAmore: UIButton = {
         let allin = UIButton.init()
         allin.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAmore"), for: .normal)
         allin.translatesAutoresizingMaskIntoConstraints = false
         return allin
     }()
     
-    private lazy var JWIMETVAvidoBt: UIButton = {
+     lazy var JWIMETVAvidoBt: UIButton = {
         let iamghu =   UIButton.init()
         iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAvioip"), for: .normal)
         iamghu.translatesAutoresizingMaskIntoConstraints = false
-        iamghu.isUserInteractionEnabled = false
+       
         return iamghu
     }()
     
-    private lazy var JWIMETVAsegmentBt: UIButton = {
+     lazy var JWIMETVAsegmentBt: UIButton = {
         let iamghu =   UIButton.init()
         iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
         iamghu.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAheiairt"), for: .normal)
-        iamghu.isUserInteractionEnabled = false
+         iamghu.isUserInteractionEnabled = false
         iamghu.translatesAutoresizingMaskIntoConstraints = false
         return iamghu
      
     }()
     
-    private lazy var JWIMETVAchafBt: UIButton = {
+     lazy var JWIMETVAchafBt: UIButton = {
         let iamghu =   UIButton.init()
         iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
         iamghu.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAchainj"), for: .normal)
-        iamghu.isUserInteractionEnabled = false
+      
         iamghu.translatesAutoresizingMaskIntoConstraints = false
         return iamghu
       
@@ -473,7 +483,7 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         
         JWIMETVAPilotName.text = JWIMETVAPost["JWIMErvCabinAcoustics"] as? String
         
-        JWIMETVAElapsedTime.text =  FLORENICFormatExpeditionTime(FLORENICTime: TimeInterval((JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)/1000))
+        JWIMETVAElapsedTime.text =  WIMETVExpeditionTime(WIMETVCTime: TimeInterval((JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)/1000))
         
         JWIMETVASubmissionText.text = JWIMETVAPost["JWIMErvCabinLighting"] as? String
         
@@ -488,17 +498,15 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
        
     }
     
-     func FLORENICFormatExpeditionTime(FLORENICTime: TimeInterval) -> String {
-        let FLORENICDate = Date(timeIntervalSince1970: FLORENICTime)
-        let FLORENICFormatter = DateFormatter()
+     func WIMETVExpeditionTime(WIMETVCTime: TimeInterval) -> String {
+        let WIMETVDate = Date(timeIntervalSince1970: WIMETVCTime)
+        let    WIMETVMaing = DateFormatter()
+    
+           WIMETVMaing.dateFormat = "yyyy-MM-dd HH:mm"
         
-        // 设置你需要的格式
-        FLORENICFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            WIMETVMaing.timeZone = TimeZone.current
         
-        // 建议固定时区，避免不同地区用户看到的时间不一致
-        FLORENICFormatter.timeZone = TimeZone.current
-        
-        return FLORENICFormatter.string(from: FLORENICDate)
+        return   WIMETVMaing.string(from: WIMETVDate)
     }
 }
 
