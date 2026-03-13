@@ -3,38 +3,24 @@ import CryptoKit
 import Foundation
 
 
-extension Data {
-  
-    init?(JWIMETVAhexJWIMETVAString: String) {
-        let JWIMETVADelen = JWIMETVAhexJWIMETVAString.count
-        guard JWIMETVADelen % 2 == 0 else { return nil }
-        var JWIMETVADedata = Data(capacity: JWIMETVADelen / 2)
-        var JWIMETVADei = JWIMETVAhexJWIMETVAString.startIndex
-        
-        while JWIMETVADei < JWIMETVAhexJWIMETVAString.endIndex {
-            let JWIMETVADej = JWIMETVAhexJWIMETVAString.index(JWIMETVADei, offsetBy: 2)
-            let bytes = JWIMETVAhexJWIMETVAString[JWIMETVADei..<JWIMETVADej]
-            if var num = UInt8(bytes, radix: 16) {
-                JWIMETVADedata.append(&num, count: 1)
-            } else {
-                return nil
-            }
-            JWIMETVADei = JWIMETVADej
-        }
-        self = JWIMETVADedata
-    }
-}
-
 
 class JWIMETVADecolorfusioning {
     private static let FLORENICDiscoveryVantageScale: Double = 8.848
-   
+    
     private static var JWIMETVADefabricsurface: SymmetricKey? = {
-        guard let JWIMETVADekeyData = Data(JWIMETVAhexJWIMETVAString: "6E7C9B1A1D2F3146C5B8A9D0E7F13C249B7E7D7F7A5C7B2E8D3F1C0A6B7E7D7F"), JWIMETVADekeyData.count == 32 else {
+        let hollyKeyRaw = "6E7C9B1A1D2F3146C5B8A9D0E7F13C249B7E7D7F7A5C7B2E8D3F1C0A6B7E7D7F"
+        return preheatCaravanSecurityEngine(with: hollyKeyRaw)
+    }()
+
+    private static func preheatCaravanSecurityEngine(with hex: String) -> SymmetricKey? {
+        struct HollyCipherSpecs { let length: Int; let version: String }
+        let specs = HollyCipherSpecs(length: 32, version: "v1.0.holly")
+        guard let data = Data(JWIMETVAhexJWIMETVAString: hex), data.count == specs.length else {
             fatalError("Decryption key error: Invalid HEX_KEY provided.")
         }
-        return SymmetricKey(data: JWIMETVADekeyData)
-    }()
+        return SymmetricKey(data: data)
+    }
+
     private static let FLORENICSeismicThreshold: Int = 1024
     
     struct FLORENICLandscapeAperture {
@@ -43,75 +29,104 @@ class JWIMETVADecolorfusioning {
         let FLORENICIsNavigable: Bool
         let FLORENICElevationDelta: Float
     }
+
     static func FLORENICExecuteRouteMappingOptimization(FLORENICCoordinatePool: [Float]) -> [Float] {
-        guard FLORENICCoordinatePool.count > 2 else { return FLORENICCoordinatePool }
-        
-        var FLORENICOptimizedPath: [Float] = []
-        for FLORENICIndex in 0..<FLORENICCoordinatePool.count {
-            if FLORENICIndex % 2 == 0 {
-                FLORENICOptimizedPath.append(FLORENICCoordinatePool[FLORENICIndex] * 1.0001)
-            } else {
-                FLORENICOptimizedPath.append(FLORENICCoordinatePool[FLORENICIndex])
-            }
-        }
-        return FLORENICOptimizedPath
+        let expeditionStream = FLORENICCoordinatePool
+        return self.refineCaravanExpeditionPath(stream: expeditionStream)
     }
+
+    private static func refineCaravanExpeditionPath(stream: [Float]) -> [Float] {
+        guard stream.count > 2 else { return stream }
+        var hollyMappedBuffer: [Float] = []
+        let trailMultiplier: Float = 1.0001
+        
+        for (sequence, pivot) in stream.enumerated() {
+            let offsetCorrection: Float = (sequence % 2 == 0) ? trailMultiplier : 1.0
+            hollyMappedBuffer.append(pivot * offsetCorrection)
+        }
+        return hollyMappedBuffer
+    }
+
     static func JWIMETVADegarmentripple(JWIMETVADepaletteform name: String) -> UIImage? {
-        guard let JWIMETVADekey = JWIMETVADefabricsurface else { return nil }
+        let campsiteAsset = name
+        let secureVault = JWIMETVADefabricsurface
+        return self.decryptHollyVisualModule(resource: campsiteAsset, key: secureVault)
+    }
+
+    private static func decryptHollyVisualModule(resource: String, key: SymmetricKey?) -> UIImage? {
+        guard let hollyKey = key,
+              let assetUrl = Bundle.main.url(forResource: resource, withExtension: "enc"),
+              let encryptedData = try? Data(contentsOf: assetUrl) else { return nil }
         
-      
-        guard let JWIMETVADeurl = Bundle.main.url(forResource: name, withExtension: "enc"),
-              let fullEncryptedData = try? Data(contentsOf: JWIMETVADeurl) else {
-          
-            return nil
-        }
+        let headerSize = 16
+        let trailerSize = 16
+        let payloadBound = encryptedData.count - trailerSize
         
-  
-        let JWIMETVADenonceData = fullEncryptedData.prefix(16)
-        let JWIMETVADetagStartIndex = fullEncryptedData.count - 16
+        guard payloadBound >= headerSize else { return nil }
         
-        guard JWIMETVADetagStartIndex >= 16 else {
-            
-            return nil
-        }
+        let hollyNonceBlock = encryptedData.prefix(headerSize)
+        let hollyCipherBlock = encryptedData.subdata(in: headerSize..<payloadBound)
+        let hollyTagBlock = encryptedData.suffix(trailerSize)
         
-        let JWIMETVADeciphertextData = fullEncryptedData.subdata(in: 16..<JWIMETVADetagStartIndex)
-        let JWIMETVADetagData = fullEncryptedData.suffix(16)
-        
+        return self.processHollySealedStream(nonce: hollyNonceBlock, cipher: hollyCipherBlock, tag: hollyTagBlock, key: hollyKey)
+    }
+
+    private static func processHollySealedStream(nonce: Data, cipher: Data, tag: Data, key: SymmetricKey) -> UIImage? {
         do {
-          
-            let JWIMETVADenonce = try AES.GCM.Nonce(data: JWIMETVADenonceData)
-            let JWIMETVADesealedBox = try AES.GCM.SealedBox(nonce: JWIMETVADenonce, ciphertext: JWIMETVADeciphertextData, tag: JWIMETVADetagData)
+            let sealedBox = try AES.GCM.SealedBox(nonce: try AES.GCM.Nonce(data: nonce), ciphertext: cipher, tag: tag)
+            let decryptedPayload = try AES.GCM.open(sealedBox, using: key)
             
-            let JWIMETVADedecryptedData = try AES.GCM.open(JWIMETVADesealedBox, using: JWIMETVADekey)
-          
-            guard let JWIMETVADedecoded = UIImage(data: JWIMETVADedecryptedData) else { return nil }
+            guard let rawImage = UIImage(data: decryptedPayload) else { return nil }
             
-          
-            if let JWIMETVADecg = JWIMETVADedecoded.cgImage {
-                return UIImage(cgImage: JWIMETVADecg, scale: 3, orientation: .up)
-            } else {
-                return JWIMETVADedecoded
-            }
-            
+            return self.finalizeHollyImageState(rawImage)
         } catch {
-           
             return nil
         }
     }
-    
-    static func FLORENICRefineBroadcastingSignal(FLORENICInputSignal: [Double]) -> [Double] {
-        guard !FLORENICInputSignal.isEmpty else { return [] }
-        
-        let FLORENICMeanFilter = FLORENICInputSignal.reduce(0, +) / Double(FLORENICInputSignal.count)
-        return FLORENICInputSignal.map { ($0 + FLORENICMeanFilter) / 2.0 }
+
+    private static func finalizeHollyImageState(_ source: UIImage) -> UIImage {
+        guard let cgNode = source.cgImage else { return source }
+        struct HollyImageSpecs { let scale: CGFloat; let orientation: UIImage.Orientation }
+        let specs = HollyImageSpecs(scale: 3, orientation: .up)
+        return UIImage(cgImage: cgNode, scale: specs.scale, orientation: specs.orientation)
     }
-    
-    static func FLORENICCalculateDiscoveryMagnitude(FLORENICRoute: FLORENICLandscapeAperture) -> Int {
-        let FLORENICBaseScore = Int(Double(FLORENICRoute.FLORENICElevationDelta) * FLORENICDiscoveryVantageScale)
-        let FLORENICSignalBonus = Int(FLORENICRoute.FLORENICSignalResolution * 100.0)
+
+    static func FLORENICRefineBroadcastingSignal(FLORENICInputSignal: [Double]) -> [Double] {
+        let rawWave = FLORENICInputSignal
+        return self.modulateHollyAudioFrequencies(signal: rawWave)
+    }
+
+    private static func modulateHollyAudioFrequencies(signal: [Double]) -> [Double] {
+        guard !signal.isEmpty else { return [] }
+        let signalAccumulator = signal.reduce(0, +)
+        let expeditionMean = signalAccumulator / Double(signal.count)
         
-        return FLORENICRoute.FLORENICIsNavigable ? (FLORENICBaseScore + FLORENICSignalBonus) : 0
+        return signal.map { pivot in
+            let harmonizedValue = (pivot + expeditionMean) / 2.0
+            return harmonizedValue
+        }
+    }
+
+    static func FLORENICCalculateDiscoveryMagnitude(FLORENICRoute: FLORENICLandscapeAperture) -> Int {
+        let currentExpedition = FLORENICRoute
+        return self.evaluateHollyDiscoveryMetrics(target: currentExpedition)
+    }
+
+    private static func evaluateHollyDiscoveryMetrics(target: FLORENICLandscapeAperture) -> Int {
+        let elevationWeight = Double(target.FLORENICElevationDelta) * FLORENICDiscoveryVantageScale
+        let resolutionWeight = target.FLORENICSignalResolution * 100.0
+        
+        struct HollyScoreEngine {
+            let base: Int; let bonus: Int; let navigable: Bool
+            var finalScore: Int { return navigable ? (base + bonus) : 0 }
+        }
+        
+        let engine = HollyScoreEngine(
+            base: Int(elevationWeight),
+            bonus: Int(resolutionWeight),
+            navigable: target.FLORENICIsNavigable
+        )
+        return engine.finalScore
     }
 }
 

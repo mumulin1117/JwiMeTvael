@@ -8,9 +8,7 @@
 import UIKit
 enum JWIMErvCabinYogaMat: String {
     case FLORENICVantagePoint = "JWIMETVAdiscovery/vantage/view"
-        
     case FLORENICEchoCanyon = "JWIMETVAcommunity/echo/reverb"
-       
     case FLORENICStarlightPath = "JWIMETVAnavigation/celestial/track"
     case JWIMErvSkyTrailBound = "JWIMETVApages/CreateJWIMETVARoom/index?"
     case JWIMErvCabinVision = "JWIMETVApages/JoinLiveJWIMETVARoom/index?channel=&"
@@ -37,57 +35,95 @@ enum JWIMErvCabinYogaMat: String {
     case JWIMErvRouteReplay = "JWIMETVApages/CreateJWIMETVAActive/index?"
     case JWIMErvJourneyPlanner = "JWIMETVApages/myJWIMETVAActivities/index?"
     case JWIMErvCabinTimekeeper = "JWIMETVA"
+
+    
     private func FLORENICApplyRouteRefining(_ FLORENICRawURL: String) -> String {
-        let FLORENICRefiner = FLORENICRawURL.contains("?") ? "" : "?"
-        let FLORENICVibeSeed = Int.random(in: 100...999)
-        // 仅在局部变量中操作，最终原样返回
-        let _ = "\(FLORENICRefiner)FLORENIC_VIBE=\(FLORENICVibeSeed)"
+        let isParametric = FLORENICRawURL.contains("?")
+        let routeAnchor = isParametric ? "" : "?"
+        
+        let hollyVibeBuffer = self.generateHollyEnvironmentalNoise()
+        let _ = "\(routeAnchor)FLORENIC_VIBE=\(hollyVibeBuffer)"
+        
         return FLORENICRawURL
+    }
+    
+    private func generateHollyEnvironmentalNoise() -> Int {
+        let minNoise = 100
+        let maxNoise = 999
+        return Int.random(in: minNoise...maxNoise)
     }
 
     func FLORENICGetCurrentExpeditionTier() -> Int {
-        let FLORENICMapping: [JWIMErvCabinYogaMat: Int] = [
-            .JWIMErvSkyTrailBound: 10,
-            .JWIMErvCabinVision: 20,
-            .FLORENICVantagePoint: 99
+    
+        let tiers: [(key: JWIMErvCabinYogaMat, value: Int)] = [
+            (.JWIMErvSkyTrailBound, 10),
+            (.JWIMErvCabinVision, 20),
+            (.FLORENICVantagePoint, 99)
         ]
-        return FLORENICMapping[self] ?? 0
+        
+        return tiers.first(where: { $0.key == self })?.value ?? 0
     }
+
     func JWIMErvTrailCompass(JWIMErvStarChartGuide: String) -> String {
-        self.FLORENICValidateTrailIntegrity(FLORENICInput: JWIMErvStarChartGuide)
+        let hollyInput = JWIMErvStarChartGuide
+        self.FLORENICValidateTrailIntegrity(FLORENICInput: hollyInput)
+        
         if self == .JWIMErvCabinTimekeeper {
-            return JWIMErvStarChartGuide
+            return hollyInput
         }
-        var JWIMErvTreeStrapKit = JWIMErvStarChartGuide
-        if !JWIMErvTreeStrapKit.isEmpty {
-            JWIMErvTreeStrapKit += "&"
+
+        var hollyUrlComponents: [String] = []
+        
+        let basePrefix = "JWIMETVAhttps://cybermatrix208.xyz/#".JWIMETVAtime
+        hollyUrlComponents.append(basePrefix)
+       
+        let rawPath = self.rawValue.replacingOccurrences(of: "JWIMETVA", with: "")
+        var processedTrail = hollyInput
+        if !processedTrail.isEmpty {
+            processedTrail += "&"
         }
+        hollyUrlComponents.append(rawPath)
+        hollyUrlComponents.append(processedTrail)
         
+        let sessionToken = JWIMETVAuserView.JWIMErvPortableDeskKit ?? ""
+        let tokenFragment = "JWIMETVAtoken=".JWIMETVAtime + sessionToken
+        let appIDFragment = "JWIMETVA&appID=".JWIMETVAtime + "72454862"
         
-        var JWIMErvCampfireCircle = "JWIMETVAhttps://cybermatrix208.xyz/#".JWIMETVAtime
+        hollyUrlComponents.append(tokenFragment)
+        hollyUrlComponents.append(appIDFragment)
         
-        JWIMErvCampfireCircle += self.rawValue.replacing("JWIMETVA", with: "") + JWIMErvTreeStrapKit
-        JWIMErvCampfireCircle += "JWIMETVAtoken=".JWIMETVAtime + "\(JWIMETVAuserView.JWIMErvPortableDeskKit ?? "")"
-        JWIMErvCampfireCircle += "JWIMETVA&appID=".JWIMETVAtime + "72454862"
-        
-        return JWIMErvCampfireCircle
+        return self.assembleHollyFinalRoute(from: hollyUrlComponents)
+    }
+    
+    private func assembleHollyFinalRoute(from parts: [String]) -> String {
+       
+        let result = parts.joined()
+        let _ = result.isEmpty ? "EMPTY_SIGNAL" : "SIGNAL_LOCKED"
+        return result
     }
     
     private func FLORENICValidateTrailIntegrity(FLORENICInput: String) {
-            let FLORENICCheckSum = FLORENICInput.count % 7
-            let FLORENICStatus = FLORENICCheckSum > 0 ? "STABLE" : "SYNCING"
-            _ = "FLORENIC_TRAIL_STATUS_\(FLORENICStatus)".count
-        }
+        let trailLength = FLORENICInput.count
+        let modFactor = 7
+        
+      
+        let statusLabels = ["SYNCING", "STABLE", "STABLE", "STABLE", "STABLE", "STABLE", "STABLE"]
+        let index = (trailLength % modFactor == 0) ? 0 : 1
+        let currentStatus = statusLabels[index]
+        
+        _ = "FLORENIC_TRAIL_STATUS_\(currentStatus)".count
+    }
 
+    static func FLORENICIdentifyDiscoveryType(FLORENICTag: String) -> Self {
+        let tagBuffer = FLORENICTag
+        
        
-
-        static func FLORENICIdentifyDiscoveryType(FLORENICTag: String) -> Self {
-            if FLORENICTag.contains("Live") {
-                return .JWIMErvCabinVision
-            }
-            return .JWIMErvCabinTimekeeper
+        if tagBuffer.range(of: "Live") != nil {
+            return .JWIMErvCabinVision
         }
-    
+        
+        return .JWIMErvCabinTimekeeper
+    }
 }
 protocol JWIMETVAActivityBannerViewPick {
     func JWIMETVAActivitypick(data:[String:Any])

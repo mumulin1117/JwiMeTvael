@@ -64,13 +64,13 @@ class JWIMETVAuserView: UICollectionViewCell {
 
     private func JWIMETVABuildLayouts() {
         NSLayoutConstraint.activate([
-            // Activity Image
+           
             JWIMETVAActivityImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             JWIMETVAActivityImage.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
             JWIMETVAActivityImage.widthAnchor.constraint(equalToConstant: 64),
             JWIMETVAActivityImage.heightAnchor.constraint(equalToConstant: 64),
             
-            // Name Label
+           
             JWIMETVANameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
             JWIMETVANameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0),
             JWIMETVANameLabel.topAnchor.constraint(equalTo: JWIMETVAActivityImage.bottomAnchor, constant: 4)

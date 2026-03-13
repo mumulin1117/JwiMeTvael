@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//live cell
+
 final class JWIMETVAStreamContentCell: UICollectionViewCell {
     
     // MARK: - Component Declarations (Cell)
@@ -25,7 +25,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
         JWIMETVAPosterImage.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAPosterImage
     }()
-    //在线人数
+  
     private let JWIMETVALiveCountDisplay: UIButton = {
         let JWIMETVALiveCountDisplay = UIButton()
         JWIMETVALiveCountDisplay.setTitleColor(.black, for: .normal)
@@ -40,7 +40,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
         return JWIMETVALiveCountDisplay
     }()
     
-    //more
+    
      let JWIMETVALiveMoreDisplay: UIButton = {
         let JWIMETVALiveCountDisplay = UIButton()
        
@@ -76,8 +76,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
         return JWIMETVASubstreamInfo
     }()
 
-    // MARK: - Initializer
-
+ 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.JWIMETVAPlaceElements()
@@ -111,13 +110,12 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
             JWIMETVABackgroundView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             JWIMETVABackgroundView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.8),
 
-            // Poster Image
+        
             JWIMETVAPosterImage.topAnchor.constraint(equalTo: JWIMETVABackgroundView.topAnchor),
             JWIMETVAPosterImage.leadingAnchor.constraint(equalTo: JWIMETVABackgroundView.leadingAnchor),
             JWIMETVAPosterImage.trailingAnchor.constraint(equalTo: JWIMETVABackgroundView.trailingAnchor),
             JWIMETVAPosterImage.bottomAnchor.constraint(equalTo: JWIMETVABackgroundView.bottomAnchor),
-            
-            // Live Count Display
+       
             JWIMETVALiveCountDisplay.topAnchor.constraint(equalTo: JWIMETVAPosterImage.topAnchor, constant: JWIMETVAMiniPadding),
             JWIMETVALiveCountDisplay.leadingAnchor.constraint(equalTo: JWIMETVAPosterImage.leadingAnchor, constant: JWIMETVAMiniPadding),
             JWIMETVALiveCountDisplay.heightAnchor.constraint(equalToConstant: 21),
@@ -134,19 +132,17 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
             JWIMETVAUserPhoto.widthAnchor.constraint(equalToConstant: 36),
             JWIMETVAUserPhoto.heightAnchor.constraint(equalToConstant: 36),
             
-            // Pilot Name
+         
             JWIMETVAPilotName.leadingAnchor.constraint(equalTo:JWIMETVAUserPhoto.trailingAnchor, constant: 6),
             JWIMETVAPilotName.topAnchor.constraint(equalTo: JWIMETVAUserPhoto.topAnchor, constant: 2),
             JWIMETVAPilotName.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -JWIMETVAMiniPadding),
-            
-            // Substream Info
+          
             JWIMETVASubstreamInfo.leadingAnchor.constraint(equalTo: JWIMETVAPilotName.leadingAnchor),
             JWIMETVASubstreamInfo.topAnchor.constraint(equalTo: JWIMETVAPilotName.bottomAnchor, constant: 2),
             JWIMETVASubstreamInfo.trailingAnchor.constraint(equalTo: JWIMETVAPilotName.trailingAnchor)
         ])
     }
     
-    // MARK: - Content Assignment
 
     func JWIMETVASetupContent(JWIMETVAStream: Dictionary<String,Any>) {
 

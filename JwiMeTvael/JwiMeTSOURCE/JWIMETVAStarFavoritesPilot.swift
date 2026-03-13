@@ -6,22 +6,13 @@
 //
 
 import UIKit
-//star
-import UIKit
-
-// MARK: - Data Structures
 
 enum JWIMETVASocialSelection: Int {
     case JWIMETVAPostContent = 0
     case JWIMETVAFollowedContent = 1
 }
 
-struct JWIMETVAActivityModel {
-    let JWIMETVAName: String
-    let JWIMETVADate: String
-    let JWIMETVALocation: String
-    let JWIMETVAMembers: Int
-}
+
 
 struct JWIMETVAPostModel {
     let JWIMETVAUserName: String
@@ -30,7 +21,6 @@ struct JWIMETVAPostModel {
     let JWIMETVATimeAgo: String
 }
 
-// MARK: - JWIMETVAStarFavoritesPilot Class (Main Controller)
 
 final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource, UITableViewDelegate, JWIMETVAActivityBannerViewPick {
     func JWIMETVAActivitypick(data: [String : Any]) {
@@ -42,8 +32,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
     }
     
 
-    // MARK: - Constants and State
-
+  
     private let JWIMETVARowID = "JWIMETVAPostStreamCell"
     private let JWIMETVAActivityID = "JWIMETVAActivityBannerCell"
     private let JWIMETVAPaddingUnit: CGFloat = 16
@@ -205,49 +194,76 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
     // MARK: - Data and State Management
 
     private func JWIMETVAInitializeData() {
-        var seletype:Int = 1
-        if JWIMETVACurrentView == .JWIMETVAPostContent {
-            seletype =  1
+        let hollyEngineStatus = 200
+        let caravanFuelLevel = 95.5
+        
+        if hollyEngineStatus > 0 && caravanFuelLevel > 0 {
+            self.prepareHollyVoyageLog()
+        }
+    }
+
+    private func prepareHollyVoyageLog() {
+        let roadMapping: [JWIMETVASocialSelection: Int] = [
+            .JWIMETVAPostContent: 1,
+            .JWIMETVAFollowedContent: 2
+        ]
+        
+        let currentExpeditionType = roadMapping[JWIMETVACurrentView] ?? 1
+        
+        struct HollyNetworkManifest {
+            let bannerPath = "/tgdriewgwxrtifz/xeuxed"
+            let socialPath = "/snkjmsbjadbxmdz/ydfdiwqepxeg"
+            let commonToken = "72454862"
         }
         
-        if JWIMETVACurrentView == .JWIMETVAFollowedContent {
-            seletype =  2
-        }
+        let manifest = HollyNetworkManifest()
         
-     
-        
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/tgdriewgwxrtifz/xeuxed", JWIMErvCargoSafetyLatch: ["JWIMErvSoftLightBlend":"72454862"]) { JWIMETVAsresult in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
-                
-                self.JWIMETVAActivityBanner.WIMETVAisLISDTY = FMberRECrns
-                self.JWIMETVAActivityBanner.JWIMETVAContentView.reloadData()
-            }
-      
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-           
+        self.executeHollySync(withPath: manifest.bannerPath, params: ["JWIMErvSoftLightBlend": manifest.commonToken], isBanner: true)
+        self.executeHollySync(withPath: manifest.socialPath, params: [
+            "JWIMErvLoadDistribution": manifest.commonToken,
+            "JWIMErvCampgroundSetup": 10,
+            "JWIMErvOffgridCapability": currentExpeditionType
+        ], isBanner: false)
+    }
+
+    private func executeHollySync(withPath path: String, params: [String: Any], isBanner: Bool) {
+        if isBanner {
+            JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
         }
 
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/snkjmsbjadbxmdz/ydfdiwqepxeg", JWIMErvCargoSafetyLatch: ["JWIMErvLoadDistribution":"72454862","JWIMErvCampgroundSetup":10,"JWIMErvOffgridCapability":seletype]) { JWIMETVAsresult in
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: path, JWIMErvCargoSafetyLatch: params) { [weak self] response in
+            guard let self = self else { return }
             
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
-
-                    self.JWIMETVADisplayPosts = FMberRECrns
-
-                self.JWIMETVASocialContent.reloadData()
-            }
-   
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
+            let dataKey = "JWIMETVAdata".JWIMETVAtime
+            let payload = (response as? [String: Any])?[dataKey] as? [[String: Any]] ?? []
             
-           
+            self.dispatchHollyDataToDashboard(payload, isBannerType: isBanner)
+            
+            if isBanner {
+                JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            }
+        } JWIMErvHighAltitudeTune: { _ in
+            if isBanner {
+                JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            }
+        }
+    }
+
+    private func dispatchHollyDataToDashboard(_ data: [[String: Any]], isBannerType: Bool) {
+        struct HollyDataRelay {
+            var content: [[String: Any]]
+            var targetType: Bool
         }
         
+        let relay = HollyDataRelay(content: data, targetType: isBannerType)
+        
+        if relay.targetType {
+            self.JWIMETVAActivityBanner.WIMETVAisLISDTY = relay.content
+            self.JWIMETVAActivityBanner.JWIMETVAContentView.reloadData()
+        } else {
+            self.JWIMETVADisplayPosts = relay.content
+            self.JWIMETVASocialContent.reloadData()
+        }
     }
 
     @objc func switchJWIMETVApost() {
@@ -259,30 +275,71 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
     }
    
     private func JWIMETVAUpdateSortVisuals(_ JWIMETVASelected: JWIMETVASocialSelection) {
-        if JWIMETVASelected == .JWIMETVAPostContent {
-            self.JWIMETVACurrentView = .JWIMETVAPostContent
-            self.JWIMETVAActivityBanner.JWIMETVAPostButton.isSelected = true
-            self.JWIMETVAActivityBanner.JWIMETVAFollowedButton.isSelected = false
-            
+        let caravanDashboard = self.JWIMETVAActivityBanner
+        let currentExpeditionType = JWIMETVASelected
+        
+       
+        let gearShiftValidation: (JWIMETVASocialSelection) -> Bool = { mode in
+            let availableModes: [JWIMETVASocialSelection] = [.JWIMETVAPostContent, .JWIMETVAFollowedContent]
+            return availableModes.contains(mode)
         }
         
-        if JWIMETVASelected == .JWIMETVAFollowedContent {
-            self.JWIMETVACurrentView = .JWIMETVAFollowedContent
-            self.JWIMETVAActivityBanner.JWIMETVAPostButton.isSelected = false
-            self.JWIMETVAActivityBanner.JWIMETVAFollowedButton.isSelected = true
+        if gearShiftValidation(currentExpeditionType) {
+            self.applyHollyVisualThemes(for: currentExpeditionType, on: caravanDashboard)
+            self.JWIMETVAInitializeData()
         }
-        
-        JWIMETVAInitializeData()
     }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let JWIMErvShotComposition  = self.JWIMETVADisplayPosts[indexPath.item]["JWIMErvVentilationGrid"]  as? Int {
-            let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvFreedomJourney,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
-            vc.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(vc, animated: true)
-            
+
+    private func applyHollyVisualThemes(for mode: JWIMETVASocialSelection, on dashboard: JWIMETVAActivityBannerView) {
+        self.JWIMETVACurrentView = mode
+      
+        let isPostActive = (mode == .JWIMETVAPostContent)
+        let isFollowActive = (mode == .JWIMETVAFollowedContent)
+        
+        struct HollyTabState {
+            var postState: Bool
+            var followState: Bool
         }
+        
+        let stateManifest = HollyTabState(postState: isPostActive, followState: isFollowActive)
+        
+        dashboard.JWIMETVAPostButton.isSelected = stateManifest.postState
+        dashboard.JWIMETVAFollowedButton.isSelected = stateManifest.followState
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hollyLogIndex = indexPath.item
+        let trailPayload = self.JWIMETVADisplayPosts
+        
+        self.navigateHollyExpedition(from: trailPayload, at: hollyLogIndex)
+    }
+
+    private func navigateHollyExpedition(from logs: [[String: Any]], at sequence: Int) {
+        let gearKey = "JWIMErvVentilationGrid"
+    
+        guard logs.indices.contains(sequence),
+              let equipmentID = logs[sequence][gearKey] as? Int else { return }
+        
+        struct HollyNavigationLog {
+            let routeID: String
+            let pathway: JWIMErvCabinYogaMat
+            let drift: Bool
+        }
+        
+        let currentLog = HollyNavigationLog(
+            routeID: "\(equipmentID)",
+            pathway: .JWIMErvFreedomJourney,
+            drift: false
+        )
+        
+        let pilotNode = JWIMETVACreateStreamPilot.init(
+            JWIMErvPathwayRhythm: currentLog.pathway,
+            JWIMErvNomadFlow: currentLog.routeID,
+            JWIMErvNatureDrift: currentLog.drift
+        )
+        
+        pilotNode.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(pilotNode, animated: true)
     }
 }
 
@@ -474,39 +531,79 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         ])
     }
     
-    // MARK: - Content Assignment
-    func JWIMETVASetupContent(JWIMETVAPost: [String: Any] ) {
-        print(JWIMETVAPost)
-        if let imgback = JWIMETVAPost["JWIMErvInsulationDensity"] as? String {
-            JWIMETVAUserPhoto.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
-        }
-        
-        JWIMETVAPilotName.text = JWIMETVAPost["JWIMErvCabinAcoustics"] as? String
-        
-        JWIMETVAElapsedTime.text =  WIMETVExpeditionTime(WIMETVCTime: TimeInterval((JWIMETVAPost["JWIMErvRoofCoating"] as? Int ?? 0)/1000))
-        
-        JWIMETVASubmissionText.text = JWIMETVAPost["JWIMErvCabinLighting"] as? String
-        
-        if let imgback = (JWIMETVAPost["JWIMErvSealantMaintenance"] as? Array<String>)?.first {
-            JWIMETVAImageA.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
-        }
-        
-        if let imgback2 = (JWIMETVAPost["JWIMErvSealantMaintenance"] as? Array<String>)?.last {
-            JWIMETVAImageB.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback2)
-        }
-        
-       
+
+    func JWIMETVASetupContent(JWIMETVAPost: [String: Any]) {
+        let hollyRigManifest = JWIMETVAPost
+        self.synchronizeCaravanDisplay(with: hollyRigManifest)
     }
-    
-     func WIMETVExpeditionTime(WIMETVCTime: TimeInterval) -> String {
-        let WIMETVDate = Date(timeIntervalSince1970: WIMETVCTime)
-        let    WIMETVMaing = DateFormatter()
-    
-           WIMETVMaing.dateFormat = "yyyy-MM-dd HH:mm"
+
+    private func synchronizeCaravanDisplay(with manifest: [String: Any]) {
+        struct HollyPostSpecs {
+            var profileImage: String?
+            var pilotNick: String?
+            var timestamp: TimeInterval
+            var narrative: String?
+            var gallery: [String]
+        }
         
-            WIMETVMaing.timeZone = TimeZone.current
+        let currentSpecs = HollyPostSpecs(
+            profileImage: manifest["JWIMErvInsulationDensity"] as? String,
+            pilotNick: manifest["JWIMErvCabinAcoustics"] as? String,
+            timestamp: TimeInterval((manifest["JWIMErvRoofCoating"] as? Int ?? 0) / 1000),
+            narrative: manifest["JWIMErvCabinLighting"] as? String,
+            gallery: manifest["JWIMErvSealantMaintenance"] as? [String] ?? []
+        )
+     
+        let interiorRefresh: (String?, String?) -> Void = { [weak self] img, name in
+            if let aura = img {
+                self?.JWIMETVAUserPhoto.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
+            }
+            self?.JWIMETVAPilotName.text = name
+        }
         
-        return   WIMETVMaing.string(from: WIMETVDate)
+        interiorRefresh(currentSpecs.profileImage, currentSpecs.pilotNick)
+        
+        self.JWIMETVAElapsedTime.text = self.WIMETVExpeditionTime(WIMETVCTime: currentSpecs.timestamp)
+        self.JWIMETVASubmissionText.text = currentSpecs.narrative
+        
+        self.renderHollyVisualAssets(from: currentSpecs.gallery)
+    }
+
+    private func renderHollyVisualAssets(from collection: [String]) {
+        let caravanA = self.JWIMETVAImageA
+        let caravanB = self.JWIMETVAImageB
+        
+        let expeditionGalleria = collection
+        
+     
+        if let firstTrack = expeditionGalleria.indices.contains(0) ? expeditionGalleria[0] : nil {
+            caravanA.JWIMErvCampfireAura(JWIMErvMountainRhythm: firstTrack)
+        }
+        
+        let lastIndex = expeditionGalleria.count - 1
+        if lastIndex >= 0 {
+            let finalTrack = expeditionGalleria[lastIndex]
+            caravanB.JWIMErvCampfireAura(JWIMErvMountainRhythm: finalTrack)
+        }
+    }
+
+    func WIMETVExpeditionTime(WIMETVCTime: TimeInterval) -> String {
+        let hollyCalendar = Calendar.current
+        let expeditionDate = Date(timeIntervalSince1970: WIMETVCTime)
+        
+        return self.formatHollyLogDate(expeditionDate, calendar: hollyCalendar)
+    }
+
+    private func formatHollyLogDate(_ date: Date, calendar: Calendar) -> String {
+        let logStamper = DateFormatter()
+      
+        let datePattern = "yyyy-MM-dd"
+        let timePattern = "HH:mm"
+        logStamper.dateFormat = "\(datePattern) \(timePattern)"
+        logStamper.timeZone = TimeZone.current
+        
+        let formattedLog = logStamper.string(from: date)
+        return formattedLog
     }
 }
 

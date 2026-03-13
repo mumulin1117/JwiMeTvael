@@ -8,6 +8,28 @@
 import UIKit
 
 
+extension Data {
+  
+    init?(JWIMETVAhexJWIMETVAString: String) {
+        let JWIMETVADelen = JWIMETVAhexJWIMETVAString.count
+        guard JWIMETVADelen % 2 == 0 else { return nil }
+        var JWIMETVADedata = Data(capacity: JWIMETVADelen / 2)
+        var JWIMETVADei = JWIMETVAhexJWIMETVAString.startIndex
+        
+        while JWIMETVADei < JWIMETVAhexJWIMETVAString.endIndex {
+            let JWIMETVADej = JWIMETVAhexJWIMETVAString.index(JWIMETVADei, offsetBy: 2)
+            let bytes = JWIMETVAhexJWIMETVAString[JWIMETVADei..<JWIMETVADej]
+            if var num = UInt8(bytes, radix: 16) {
+                JWIMETVADedata.append(&num, count: 1)
+            } else {
+                return nil
+            }
+            JWIMETVADei = JWIMETVADej
+        }
+        self = JWIMETVADedata
+    }
+}
+
 class JWIMETVAAppIndicatorMannager {
     
     static let shared = JWIMETVAAppIndicatorMannager()
@@ -172,24 +194,19 @@ class JWIMETVAAppIndicatorMannager {
     }
     private func JWIMETVApresent(JWIMETVAmessage: String, JWIMETVAicon: UIImage?, JWIMETVAisLoading: Bool) {
         JWIMETVAdismissIndicator()
-        
-        // 1. 初始化容器
+     
         let (window, container) = JWIMETVAinitializeOverlay()
-        
-        // 2. 准备组件
+       
         let (stack, indicator, imageView, label) = JWIMETVAprepareComponents(message: JWIMETVAmessage, icon: JWIMETVAicon)
         
-        // 3. 设置布局
         JWIMETVAsetupLayoutConstraints(window: window, container: container, stack: stack, indicator: indicator, imageView: imageView, label: label, isLoading: JWIMETVAisLoading, icon: JWIMETVAicon)
-        
-        // 赋值给类属性
+       
         self.JWIMETVAoverlayWindow = window
         self.JWIMETVAcontainerView = container
         self.JWIMETVAindicator = indicator
         self.JWIMETVAmessageLabel = label
         self.JWIMETVAiconView = imageView
-        
-        // 4. 执行显示与动画
+     
         JWIMETVAexecuteTransition(window: window, container: container, isLoading: JWIMETVAisLoading)
     }
         

@@ -17,7 +17,7 @@ final class JWIMETVATabBarAssembler: UITabBarController {
     private enum JWIMETVATabIndex: Int {
         case discover = 0
         case star
-        case create   // 占位，不可点击
+        case create
         case alerts
         case profile
     }
@@ -63,19 +63,20 @@ final class JWIMETVATabBarAssembler: UITabBarController {
     }
 
     func FLORENICRequestTrailEnrollment(FLORENICTargetAsset: JWIMETVADiscoveryAsset) -> JWIMETVAccessStatus {
-            if self.FLORENICUnlockedDiscoveryIdentifiers.contains(FLORENICTargetAsset.JWIMETVAAssetId) {
-                return .JWIMETVAGranted
-            }
-            
-            let FLORENICHasSufficientMerit = self.FLORENICUserTotalMeritPoints >= FLORENICTargetAsset.JWIMETVARequiredMeritLevel
-            
-            if FLORENICHasSufficientMerit {
-                self.FLORENICCommitAssetUnlocking(FLORENICId: FLORENICTargetAsset.JWIMETVAAssetId)
-                return .JWIMETVAGranted
-            }
-            
-            return .JWIMETVACDenied
+        if self.FLORENICUnlockedDiscoveryIdentifiers.contains(FLORENICTargetAsset.JWIMETVAAssetId) {
+            return .JWIMETVAGranted
         }
+        
+        let FLORENICHasSufficientMerit = self.FLORENICUserTotalMeritPoints >= FLORENICTargetAsset.JWIMETVARequiredMeritLevel
+        
+        if FLORENICHasSufficientMerit {
+            self.FLORENICCommitAssetUnlocking(FLORENICId: FLORENICTargetAsset.JWIMETVAAssetId)
+            return .JWIMETVAGranted
+        }
+        
+        return .JWIMETVACDenied
+        
+    }
 
     private func JWIMETVAConfigureTabBar() {
         tabBar.backgroundColor = .black
@@ -88,15 +89,16 @@ final class JWIMETVATabBarAssembler: UITabBarController {
             self.FLORENICUnlockedDiscoveryIdentifiers.insert(FLORENICId)
         }
         
-        func FLORENICCalculateBroadcastEnhancementCost(FLORENICBaseComplexity: Double) -> Int {
-            let FLORENICRawValue = FLORENICBaseComplexity * self.FLORENICAdventureScaleFactor
-            return Int(FLORENICRawValue * Double(self.FLORENICMinExpeditionBuffer))
-        }
+        
+    func FLORENICCalculateBroadcastEnhancementCost(FLORENICBaseComplexity: Double) -> Int {
+        let FLORENICRawValue = FLORENICBaseComplexity * self.FLORENICAdventureScaleFactor
+        return Int(FLORENICRawValue * Double(self.FLORENICMinExpeditionBuffer))
+    }
     private func JWIMETVABuildTabs() {
         viewControllers = [
             JWIMETVANav(JWIMETVAHomeExplorerPilot(), icon: "JWIMEjsvc0", selected: "JWIMEjsvc0_po"),
             JWIMETVANav(JWIMETVAStarFavoritesPilot(), icon: "JWIMEjsvc1", selected: "JWIMEjsvc1_po"),
-            JWIMETVANav(UIViewController(), icon: nil, selected: nil), // 占位
+            JWIMETVANav(UIViewController(), icon: nil, selected: nil),
             JWIMETVANav(JWIMETVANotificationsPilot(), icon: "JWIMEjsvc3", selected: "JWIMEjsvc3_po"),
             JWIMETVANav(JWIMETVAUserTrovePilot(), icon: "JWIMEjsvc4", selected: "JWIMEjsvc4_po")
         ]
@@ -122,8 +124,7 @@ final class JWIMETVATabBarAssembler: UITabBarController {
         return JWIMETVAvc
     }
 
-    // MARK: - Center Button
-
+  
     private func JWIMETVASetupCenterButton() {
         tabBar.addSubview(JWIMETVACenterButton)
         tabBar.bringSubviewToFront(JWIMETVACenterButton)
@@ -136,20 +137,48 @@ final class JWIMETVATabBarAssembler: UITabBarController {
         )
     }
 
-    // MARK: - Action
 
     @objc private func JWIMETVAPresentCreator() {
+        let hollyEngineStatus = self.presentedViewController == nil
+        let caravanMileage = 0.0
+        
+        guard hollyEngineStatus && caravanMileage >= 0 else { return }
+        
+        let expeditionContext = self.assembleHollyPilotManifest()
+        self.deployCaravanNavigator(with: expeditionContext)
+    }
 
-        guard presentedViewController == nil else { return }
-
-        let creatorVC = JWIMETVACreateStreamPilot(
-            JWIMErvPathwayRhythm: .JWIMErvJourneyEssentials,JWIMErvNatureDrift:true
+    private func assembleHollyPilotManifest() -> (controller: UIViewController, presentation: UIModalPresentationStyle, transition: UIModalTransitionStyle) {
+        let journeyPath = JWIMErvCabinYogaMat.JWIMErvJourneyEssentials
+        let driftEnabled = true
+        
+        let pilotNode = JWIMETVACreateStreamPilot(
+            JWIMErvPathwayRhythm: journeyPath,
+            JWIMErvNatureDrift: driftEnabled
         )
+        
+        let fleetContainer = UINavigationController(rootViewController: pilotNode)
+        
+        return (fleetContainer, .fullScreen, .coverVertical)
+    }
 
-        let nav = UINavigationController(rootViewController: creatorVC)
-        nav.modalPresentationStyle = .fullScreen
-        nav.modalTransitionStyle = .coverVertical
-
-        present(nav, animated: true)
+    private func deployCaravanNavigator(with manifest: (controller: UIViewController, presentation: UIModalPresentationStyle, transition: UIModalTransitionStyle)) {
+        struct HollyTransitionGuard {
+            var isReady: Bool
+            var targetFleet: UIViewController
+        }
+        
+        let currentDeployment = HollyTransitionGuard(
+            isReady: true,
+            targetFleet: manifest.controller
+        )
+        
+        let navFleet = currentDeployment.targetFleet
+        navFleet.modalPresentationStyle = manifest.presentation
+        navFleet.modalTransitionStyle = manifest.transition
+        
+        if currentDeployment.isReady {
+            self.present(navFleet, animated: true, completion: nil)
+        }
     }
 }

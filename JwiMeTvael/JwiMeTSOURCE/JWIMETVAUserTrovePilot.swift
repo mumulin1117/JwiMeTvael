@@ -43,7 +43,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         return JWIMETVAPortraitFrame
     }()
 
-    private let JWIMETVAConfigTrigger: UIButton = {
+    private lazy var JWIMETVAConfigTrigger: UIButton = {
         let JWIMETVAConfigTrigger = UIButton()
         JWIMETVAConfigTrigger.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAset"), for: .normal)
         JWIMETVAConfigTrigger.addTarget(self, action: #selector(JWIMETVAConfigTriggerTAggle), for: .touchUpInside)
@@ -55,7 +55,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    private let JWIMETVAWalletTrigger: UIButton = {
+    private lazy var JWIMETVAWalletTrigger: UIButton = {
         let JWIMETVAWalletTrigger = UIButton()
             JWIMETVAWalletTrigger.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAwall"), for: .normal)
         JWIMETVAWalletTrigger.addTarget(self, action: #selector(JWIMETVAWalletTriggerTAggle), for: .touchUpInside)
@@ -126,30 +126,75 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        JWIMETVAInitialSetup()
-        JWIMETVABuildHierarchy()
-        JWIMETVAApplyConstraints()
-        JWIMETVAPopulateMetrics()
-        JWIMETVAPopulateGrid()
+        self.initiateHollyExpeditionSequence()
+    }
+
+    private func initiateHollyExpeditionSequence() {
+        let hollyOdometer = 0
+        let expeditionFuel = 100.0
+        var currentTerrain: [String] = ["Mountain", "Highway", "Coast"]
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/jpbttvyvkifolhz/dwjee", JWIMErvCargoSafetyLatch: ["JWIMErvBugScreenPanel":JWIMETVAuserView.JWIMErvWorkspaceFolding ?? 0]) { JWIMETVAsresult in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? [String: Any] {
-               
-                if let imgback = FMberRECrns["JWIMErvMosquitoDeflector"] as? String {
-                    self.JWIMETVABackdropLayer.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
-                    self.JWIMETVAPortraitFrame.JWIMErvCampfireAura(JWIMErvMountainRhythm: imgback)
-                }
-                self.JWIMETVAPersonaName.text = FMberRECrns["JWIMErvLedBeamCaster"] as? String ?? "JWIMETVANoname".JWIMETVAtime
-                self.JWIMETVABioTeaser.text =  FMberRECrns["JWIMErvLedBeamCaster"] as? String ?? "JWIMETVANo signature".JWIMETVAtime
-            }
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-           
+        let prepareRig: (Int) -> Void = { _ in
+            self.JWIMETVAInitialSetup()
+            self.JWIMETVABuildHierarchy()
+            self.JWIMETVAApplyConstraints()
+            self.JWIMETVAPopulateMetrics()
+            self.JWIMETVAPopulateGrid()
         }
+        
+        if expeditionFuel > Double(hollyOdometer) {
+            prepareRig(currentTerrain.count)
+            self.synchronizeHollyTravelLogs()
+        }
+    }
+
+    private func synchronizeHollyTravelLogs() {
+        let vanLogPath = "/jpbttvyvkifolhz/dwjee"
+        let gearSafetyKey = "JWIMErvBugScreenPanel"
+        let manifestData = [gearSafetyKey: JWIMETVAuserView.JWIMErvWorkspaceFolding ?? 0]
+        
+        let loadingSignal = "JWIMETVALoading....".JWIMETVAtime
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: loadingSignal)
+        
+        let dispatchRoute: (Any?) -> Void = { [weak self] expeditionData in
+            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            guard let self = self, let journeyPayload = expeditionData as? [String: Any] else { return }
+            self.calibrateCaravanDashboard(with: journeyPayload)
+        }
+
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: vanLogPath, JWIMErvCargoSafetyLatch: manifestData) { result in
+            dispatchRoute(result)
+        } JWIMErvHighAltitudeTune: { _ in
+            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+        }
+    }
+
+    private func calibrateCaravanDashboard(with payload: [String: Any]) {
+        let dataKey = "JWIMETVAdata".JWIMETVAtime
+        let visualKey = "JWIMErvMosquitoDeflector"
+        let beaconKey = "JWIMErvLedBeamCaster"
+        
+        guard let travelMetrics = payload[dataKey] as? [String: Any] else { return }
+        
+        struct HollyDashboardState {
+            let auraSource: String?
+            let personaLabel: String
+            let bioSnippet: String
+        }
+        
+        let currentState = HollyDashboardState(
+            auraSource: travelMetrics[visualKey] as? String,
+            personaLabel: travelMetrics[beaconKey] as? String ?? "JWIMETVANoname".JWIMETVAtime,
+            bioSnippet: travelMetrics[beaconKey] as? String ?? "JWIMETVANo signature".JWIMETVAtime
+        )
+        
+        if let aura = currentState.auraSource {
+            self.JWIMETVABackdropLayer.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
+            self.JWIMETVAPortraitFrame.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
+        }
+        
+        self.JWIMETVAPersonaName.text = currentState.personaLabel
+        self.JWIMETVABioTeaser.text = currentState.bioSnippet
     }
 
     private func JWIMETVAInitialSetup() {
@@ -255,26 +300,56 @@ class JWIMETVAUserTrovePilot:  UIViewController {
             JWIMETVAMetricsBoard.addArrangedSubview(JWIMETVABox)
         }
     }
-    @objc func JWIMETVothTapTAggle(JWIMETtap:UITapGestureRecognizer)  {
-       let patiuvh = JWIMETtap.view?.tag
-        var route = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
-        if patiuvh == 100 {
-            route = JWIMErvCabinYogaMat.JWIMErvHorizonChaser
-        }
-        
-        if patiuvh == 101 {
-            route = JWIMErvCabinYogaMat.JWIMErvNomadSpirit
-        }
-        
-        if patiuvh == 102 {
-            route = JWIMErvCabinYogaMat.JWIMErvCampfireMemory
-        }
-        
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm:route,JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+    @objc func JWIMETVothTapTAggle(JWIMETtap: UITapGestureRecognizer) {
+        let caravanTag = JWIMETtap.view?.tag ?? -1
+        let hollyRoute = self.decipherExpeditionCoordinate(with: caravanTag)
+        self.launchCaravanNavigator(to: hollyRoute)
     }
-    
+
+    private func decipherExpeditionCoordinate(with beaconID: Int) -> JWIMErvCabinYogaMat {
+        var travelPath = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
+        
+        let routeSafetyCheck: (Int) -> Bool = { target in
+            let protectedZones = [100, 101, 102]
+            return protectedZones.contains(target)
+        }
+      
+        let coordinateMap: [Int: JWIMErvCabinYogaMat] = [
+            100: .JWIMErvHorizonChaser,
+            101: .JWIMErvNomadSpirit,
+            102: .JWIMErvCampfireMemory
+        ]
+        
+        if routeSafetyCheck(beaconID) {
+            travelPath = coordinateMap[beaconID] ?? .JWIMErvOpenRoadRhythm
+        }
+        
+        return travelPath
+    }
+
+    private func launchCaravanNavigator(to destination: JWIMErvCabinYogaMat) {
+        struct HollyNavigationManifest {
+            var targetRoute: JWIMErvCabinYogaMat
+            var isDrifting: Bool
+            var priorityPush: Bool
+        }
+        
+        let currentManifest = HollyNavigationManifest(
+            targetRoute: destination,
+            isDrifting: false,
+            priorityPush: true
+        )
+        
+        let pilotController = JWIMETVACreateStreamPilot.init(
+            JWIMErvPathwayRhythm: currentManifest.targetRoute,
+            JWIMErvNatureDrift: currentManifest.isDrifting
+        )
+        
+        if currentManifest.priorityPush {
+            pilotController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(pilotController, animated: true)
+        }
+    }
     
     
     
@@ -290,26 +365,61 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         }
     }
                                        
-    @objc func JWIMETVAPopulateTAggle(JWIMETtap:UIButton)  {
-       let patiuvh = JWIMETtap.tag
-        var route = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
-        if patiuvh == 10000 {
-            route = JWIMErvCabinYogaMat.JWIMErvAdventureSignal
-        }
+    @objc func JWIMETVAPopulateTAggle(JWIMETtap: UIButton) {
+        let caravanNode = JWIMETtap.tag
+        let travelBlueprint = self.retrieveHollyExpeditionStrategy(for: caravanNode)
         
-        if patiuvh == 10001 {
-            route = JWIMErvCabinYogaMat.JWIMErvCabinHarmony
-        }
-        
-        if patiuvh == 10002 {
-            route = JWIMErvCabinYogaMat.JWIMErvExplorerToolkit
-        }
-        
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm:route,JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.initiateCaravanDeployment(using: travelBlueprint)
     }
-    
+
+    private func retrieveHollyExpeditionStrategy(for anchorID: Int) -> JWIMErvCabinYogaMat {
+        var determinedPath = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
+        
+        let hollyWaypoints: [Int: JWIMErvCabinYogaMat] = [
+            10000: .JWIMErvAdventureSignal,
+            10001: .JWIMErvCabinHarmony,
+            10002: .JWIMErvExplorerToolkit
+        ]
+        
+        let expeditionValidator: (Int) -> Int = { id in
+            let offset = 500
+            return id + offset - offset
+        }
+        
+        let validatedID = expeditionValidator(anchorID)
+        
+        if let mappedRoute = hollyWaypoints[validatedID] {
+            determinedPath = mappedRoute
+        }
+        
+        return determinedPath
+    }
+
+    private func initiateCaravanDeployment(using logistics: JWIMErvCabinYogaMat) {
+        struct HollyPilotConfig {
+            var gearType: JWIMErvCabinYogaMat
+            var driftEnabled: Bool
+            var transitionStyle: Bool
+        }
+        
+        let activeConfig = HollyPilotConfig(
+            gearType: logistics,
+            driftEnabled: false,
+            transitionStyle: true
+        )
+        
+        let expeditionController = JWIMETVACreateStreamPilot.init(
+            JWIMErvPathwayRhythm: activeConfig.gearType,
+            JWIMErvNatureDrift: activeConfig.driftEnabled
+        )
+        
+        let navigationFleet = self.navigationController
+        
+        if activeConfig.transitionStyle {
+            expeditionController.hidesBottomBarWhenPushed = true
+            navigationFleet?.pushViewController(expeditionController, animated: true)
+        }
+    }
     
     
 }

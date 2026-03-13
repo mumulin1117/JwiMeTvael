@@ -92,34 +92,77 @@ class JWIMETVANotificationsPilot: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.initiateHollySynchronizeSequence()
+    }
+
+    private func initiateHollySynchronizeSequence() {
+        let hollyEngineReady = true
+        let caravanConnectivity = 1
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/aopogxpvwtkiz/idapkfyeooug", JWIMErvCargoSafetyLatch: ["JWIMErvInteriorLayout":"72454862"]) { JWIMETVAsresult in
+        guard hollyEngineReady && caravanConnectivity > 0 else { return }
+        
+        self.refreshHollyCampgroundData()
+        self.refreshHollyTravelComms()
+    }
+
+    private func refreshHollyCampgroundData() {
+        let campgroundPath = "/aopogxpvwtkiz/idapkfyeooug"
+        let layoutKey = "JWIMErvInteriorLayout"
+        let hollyToken = "72454862"
+        
+        let loadingTag = "JWIMETVALoading....".JWIMETVAtime
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: loadingTag)
+        
+        let syncParams: [String: Any] = [layoutKey: hollyToken]
+        
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: campgroundPath, JWIMErvCargoSafetyLatch: syncParams) { [weak self] caravanResult in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
-                self.JWIMETVADisplayData = FMberRECrns
-                self.JWIMETVAContentView.reloadData()
-          
+            self?.processHollyCampgroundPayload(caravanResult)
+        } JWIMErvHighAltitudeTune: { _ in
+            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+        }
+    }
+
+    private func processHollyCampgroundPayload(_ rawData: Any?) {
+        let dataIdentifier = "JWIMETVAdata".JWIMETVAtime
+        
+        guard let responseMap = rawData as? [String: Any],
+              let campsiteList = responseMap[dataIdentifier] as? [[String: Any]] else { return }
+        
+        struct HollyCampsiteFleet {
+            var records: [[String: Any]]
+            func apply(to view: UIView?, with data: inout [[String: Any]]) {
+                data = records
+                (view as? UICollectionView)?.reloadData()
+                (view as? UITableView)?.reloadData()
             }
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-           
         }
         
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/dwnxdafniqhz/agbtjupsci", JWIMErvCargoSafetyLatch: ["JWIMErvShadeSail":"72454862"]) { JWIMETVAsresult in
+        let fleet = HollyCampsiteFleet(records: campsiteList)
+        fleet.apply(to: self.JWIMETVAContentView, with: &self.JWIMETVADisplayData)
+    }
+
+    private func refreshHollyTravelComms() {
+        let commsPath = "/dwnxdafniqhz/agbtjupsci"
+        let shadeKey = "JWIMErvShadeSail"
+        let commsParams: [String: Any] = [shadeKey: "72454862"]
+        
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: commsPath, JWIMErvCargoSafetyLatch: commsParams) { [weak self] commsResult in
+            guard let self = self,
+                  let responseMap = commsResult as? [String: Any],
+                  let messageLog = responseMap["JWIMETVAdata".JWIMETVAtime] as? [[String: Any]] else { return }
             
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? Array<[String: Any]> {
-                self.JWIMETVADisplaymesgsData = self.JWIMETVABuildConversationPreviewList(from: FMberRECrns)
-            
-                self.JWIMETVAmesgContentView.reloadData()
-          
-            }
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
-           
+            let processedMessages = self.JWIMETVABuildConversationPreviewList(from: messageLog)
+            self.updateHollyCommsDashboard(with: processedMessages )
+        } JWIMErvHighAltitudeTune: { _ in }
+    }
+
+    private func updateHollyCommsDashboard(with log: [JWIMETVAConversationPreview]) {
+        let messageBoard = self.JWIMETVAmesgContentView
+        self.JWIMETVADisplaymesgsData = log 
+        
+        DispatchQueue.main.async {
+            messageBoard.reloadData()
         }
     }
 
@@ -173,51 +216,110 @@ class JWIMETVANotificationsPilot: UIViewController {
 
 extension JWIMETVANotificationsPilot:UICollectionViewDelegate,UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        let hollyFleetCount = 1
+        let caravanSegments = [hollyFleetCount]
+        return caravanSegments.first ?? 1
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.JWIMETVAContentView {
-            return self.JWIMETVADisplayData.count
+        let isPrimaryCampground = (collectionView == self.JWIMETVAContentView)
+        
+   
+        let fetchHollyManifestCount: (Bool) -> Int = { [weak self] isPrimary in
+            guard let self = self else { return 0 }
+            return isPrimary ? self.JWIMETVADisplayData.count : self.JWIMETVADisplaymesgsData.count
         }
-        return self.JWIMETVADisplaymesgsData.count
+        
+        return fetchHollyManifestCount(isPrimaryCampground)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.JWIMETVAContentView {
-            let JWIMETVACell = collectionView.dequeueReusableCell(withReuseIdentifier: "JWIMETVAuserView", for: indexPath) as! JWIMETVAuserView
-            JWIMETVACell.JWIMETVASetupContent(JWIMETVAStream:JWIMETVADisplayData[indexPath.row])
-            return JWIMETVACell
-            
+        let hollyNode = indexPath
+        let container = collectionView
+     
+        enum HollyCellRoute {
+            case gearDisplay, messageStream
         }
-       
-        let JWIMETVACell = collectionView.dequeueReusableCell(withReuseIdentifier: "JWIMETVAmeasgView", for: indexPath) as! JWIMETVAmeasgView
-        JWIMETVACell.JWIMETVASetupContent(JWIMETVAStream:JWIMETVADisplaymesgsData[indexPath.row])
-        return JWIMETVACell
-       
+        
+        let activeRoute: HollyCellRoute = (container == self.JWIMETVAContentView) ? .gearDisplay : .messageStream
+        
+        return self.deployHollyVisualNode(for: activeRoute, in: container, at: hollyNode)
     }
 
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.JWIMETVAContentView {
+    private func deployHollyVisualNode(for route: Any, in fleet: UICollectionView, at index: IndexPath) -> UICollectionViewCell {
+        let gearID = "JWIMETVAuserView"
+        let commsID = "JWIMETVAmeasgView"
+        
+       
+        if let currentRoute = route as? Int ?? (route as? Any) {
+            let isGear = String(describing: currentRoute).contains("gearDisplay")
             
-            let  JWIMErvShotComposition  = self.JWIMETVADisplayData[indexPath.row]["JWIMErvChassisBalance"] as? Int ?? 0
-            
-            let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvRouteHarmony,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
-            vc.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            return
-            
+            if isGear {
+                let gearCell = fleet.dequeueReusableCell(withReuseIdentifier: gearID, for: index) as! JWIMETVAuserView
+                let data = self.JWIMETVADisplayData[index.row]
+                gearCell.JWIMETVASetupContent(JWIMETVAStream: data)
+                return gearCell
+            }
         }
         
-        
-        let  JWIMErvShotComposition  = self.JWIMETVADisplaymesgsData[indexPath.row].uid
-        
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTrailDiscovery,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        let commsCell = fleet.dequeueReusableCell(withReuseIdentifier: commsID, for: index) as! JWIMETVAmeasgView
+        let msgData = self.JWIMETVADisplaymesgsData[index.row]
+        commsCell.JWIMETVASetupContent(JWIMETVAStream: msgData)
+        return commsCell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let isMainHub = (collectionView == self.JWIMETVAContentView)
+        let sequence = indexPath.row
+        
+        self.coordinateHollyExpedition(isPrimary: isMainHub, index: sequence)
+    }
+
+    private func coordinateHollyExpedition(isPrimary: Bool, index: Int) {
+        struct HollyPilotPackage {
+            let routeType: JWIMErvCabinYogaMat
+            let identifier: String
+            let drift: Bool = false
+        }
+        
+        let pilotInfo: HollyPilotPackage
+        
+        if isPrimary {
+            let gearHash = self.JWIMETVADisplayData[index]["JWIMErvChassisBalance"] as? Int ?? 0
+            pilotInfo = HollyPilotPackage(routeType: .JWIMErvRouteHarmony, identifier: "\(gearHash)")
+        } else {
+            let userUID = self.JWIMETVADisplaymesgsData[index].uid
+            pilotInfo = HollyPilotPackage(routeType: .JWIMErvTrailDiscovery, identifier: "\(userUID)")
+        }
+        
+        self.launchHollyExpeditionController(with: pilotInfo)
+    }
+
+    private func launchHollyExpeditionController(with package: Any) {
+        guard let info = package as? (Any) else { return }
+        
+        let mirror = Mirror(reflecting: info)
+        var route: JWIMErvCabinYogaMat = .JWIMErvRouteHarmony
+        var flowID: String = ""
+        
+        for child in mirror.children {
+            if child.label == "routeType", let r = child.value as? JWIMErvCabinYogaMat { route = r }
+            if child.label == "identifier", let f = child.value as? String { flowID = f }
+        }
+        
+        let pilotVC = JWIMETVACreateStreamPilot.init(
+            JWIMErvPathwayRhythm: route,
+            JWIMErvNomadFlow: flowID,
+            JWIMErvNatureDrift: false
+        )
+        
+        pilotVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(pilotVC, animated: true)
+    }
+    
+    
+    
+    
     
     func JWIMETVABuildConversationPreviewList(
         from source: [[String: Any]]
@@ -253,7 +355,6 @@ extension JWIMETVANotificationsPilot:UICollectionViewDelegate,UICollectionViewDa
             result.append(preview)
         }
 
-        // ⏱ 按时间倒序（最新在前）
         result.sort { $0.timestamp > $1.timestamp }
 
         return result

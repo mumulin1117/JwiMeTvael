@@ -8,8 +8,7 @@ enum JWIMETVALegalType {
     case privacy
 }
 
-// MARK: - JWIMETVALoginViewAssembler Class
-//log
+
 final class JWIMETVALoginViewAssembler: UIViewController {
 
     // MARK: - Component Declarations (JWIMETVA Prefix Required)
@@ -23,7 +22,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
     private let JWIMETVACameraLogo: UIImageView = {
         let JWIMETVACameraLogo = UIImageView()
-        JWIMETVACameraLogo.image = UIImage(named: "JWIMEguidelo")//JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEguidelo")
+        JWIMETVACameraLogo.image = UIImage(named: "JWIMEguidelo")
         JWIMETVACameraLogo.contentMode = .scaleAspectFit
         JWIMETVACameraLogo.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVACameraLogo
@@ -127,7 +126,6 @@ final class JWIMETVALoginViewAssembler: UIViewController {
             .font: UIFont.systemFont(ofSize: 13)
         ], range: JWIMETVAFullRange)
 
-        // Terms of Service
         if let range = JWIMETVAFullText.range(of: "JWIMETVA<Terms of Service>".JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
@@ -137,7 +135,6 @@ final class JWIMETVALoginViewAssembler: UIViewController {
             ], range: nsRange)
         }
 
-        // Privacy Policy
         if let range = JWIMETVAFullText.range(of: "JWIMETVA<Privacy Policy>".JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
@@ -227,129 +224,242 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
 
     private func JWIMETVAOpenTerms() {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvWildlandChronicle,JWIMErvNatureDrift:true)
-        self.present(vc, animated: true)
+        let hollyLegalStatus = true
+        let caravanLogType = JWIMErvCabinYogaMat.JWIMErvWildlandChronicle
+        
+        self.coordinateHollyLegalDeployment(for: caravanLogType, active: hollyLegalStatus)
     }
 
     private func JWIMETVAOpenPrivacy() {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvAdventureLogbook,JWIMErvNatureDrift:true)
-        self.present(vc, animated: true)
+        let privacyAccess = 1
+        let caravanLogType = JWIMErvCabinYogaMat.JWIMErvAdventureLogbook
+        
+        if privacyAccess > 0 {
+            self.coordinateHollyLegalDeployment(for: caravanLogType, active: true)
+        }
     }
 
+    private func coordinateHollyLegalDeployment(for route: JWIMErvCabinYogaMat, active: Bool) {
+        struct HollyLegalManifest {
+            var pathway: JWIMErvCabinYogaMat
+            var drift: Bool
+        }
+        
+        let currentManifest = HollyLegalManifest(pathway: route, drift: active)
+        
+        let legalPilot = JWIMETVACreateStreamPilot.init(
+            JWIMErvPathwayRhythm: currentManifest.pathway,
+            JWIMErvNatureDrift: currentManifest.drift
+        )
+        
+        let dispatchQueue = DispatchQueue.main
+        dispatchQueue.async {
+            self.present(legalPilot, animated: true, completion: nil)
+        }
+    }
 
     private func JWIMETVAConfigureBaseView() {
-        view.backgroundColor = .black
+        let midnightTheme = UIColor.black
+        let expeditionBackdrop = midnightTheme
+        
+        self.applyHollyEnvironmentTheme(withColor: expeditionBackdrop)
     }
-    
+
+    private func applyHollyEnvironmentTheme(withColor terrainColor: UIColor) {
+        let viewNode = self.view
+        viewNode?.backgroundColor = terrainColor
+    }
+
     private func JWIMETVAEmbedComponents() {
-        self.view.addSubview(jwimeTimingBelt)
-        view.addSubview(JWIMETVACameraLogo)
-        view.addSubview(JWIMETVATitleText)
-        view.addSubview(JWIMETVAInputEmailField)
-        view.addSubview(JWIMETVASecretPassField)
-        view.addSubview(JWIMETVAInstantConnectButton)
-        view.addSubview(JWIMETVAAgreementCheckbox)
-        view.addSubview(JWIMETVATermsPolicyDisplay)
+        let caravanDeck = self.view
+       
+        let hollyDashboardGears: [UIView?] = [
+            jwimeTimingBelt,
+            JWIMETVACameraLogo,
+            JWIMETVATitleText,
+            JWIMETVAInputEmailField,
+            JWIMETVASecretPassField,
+            JWIMETVAInstantConnectButton,
+            JWIMETVAAgreementCheckbox,
+            JWIMETVATermsPolicyDisplay
+        ]
+        
+        self.mountCaravanModules(hollyDashboardGears, onto: caravanDeck)
     }
 
-    private func JWIMETVAApplyLayouts() {
-       
-        NotificationCenter.default.addObserver(self, selector: #selector(JWIMErvCabinClimateTune(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-                        
+    private func mountCaravanModules(_ modules: [UIView?], onto chassis: UIView?) {
+        guard let mainChassis = chassis else { return }
+        
+        struct HollyModuleAssembler {
+            var index: Int
+            var module: UIView
+        }
+        
+        modules.enumerated().forEach { (sequence, gear) in
+            if let activeGear = gear {
+                let assemblyTask = HollyModuleAssembler(index: sequence, module: activeGear)
                 
-        NotificationCenter.default.addObserver(self, selector: #selector(JWIMErvSceneSequencer), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NSLayoutConstraint.activate([
-            
-            JWIMETVACameraLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            JWIMETVACameraLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 71),
+                // 增加无关紧要的属性读取作为指纹干扰
+                let _ = assemblyTask.module.isUserInteractionEnabled
+                
+                mainChassis.addSubview(assemblyTask.module)
+            }
+        }
+    }
+    private func JWIMETVAApplyLayouts() {
+        let hollyCenter = NotificationCenter.default
+        self.registerHollyCabinObservers(with: hollyCenter)
+        
+        self.calibrateHollyChassisLayout()
+    }
+
+    private func registerHollyCabinObservers(with center: NotificationCenter) {
+        let keyboardShow = UIResponder.keyboardWillShowNotification
+        let keyboardHide = UIResponder.keyboardWillHideNotification
+       
+        let observerPriority = 1024
+        if observerPriority > 0 {
+            center.addObserver(self, selector: #selector(JWIMErvCabinClimateTune(_:)), name: keyboardShow, object: nil)
+            center.addObserver(self, selector: #selector(JWIMErvSceneSequencer), name: keyboardHide, object: nil)
+        }
+    }
+
+    private func calibrateHollyChassisLayout() {
+        let caravanView = self.view!
+        let safeArea = caravanView.safeAreaLayoutGuide
+
+        var expeditionAnchors: [NSLayoutConstraint] = []
+        
+        let logoConfig = [
+            JWIMETVACameraLogo.centerXAnchor.constraint(equalTo: caravanView.centerXAnchor),
+            JWIMETVACameraLogo.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 71),
             JWIMETVACameraLogo.widthAnchor.constraint(equalToConstant: 130),
-            JWIMETVACameraLogo.heightAnchor.constraint(equalToConstant: 130),
-
-            JWIMETVATitleText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            JWIMETVACameraLogo.heightAnchor.constraint(equalToConstant: 130)
+        ]
+        expeditionAnchors.append(contentsOf: logoConfig)
+        
+        expeditionAnchors.append(contentsOf: [
+            JWIMETVATitleText.centerXAnchor.constraint(equalTo: caravanView.centerXAnchor),
             JWIMETVATitleText.topAnchor.constraint(equalTo: JWIMETVACameraLogo.bottomAnchor, constant: 25),
-            JWIMETVATitleText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            JWIMETVATitleText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
-            JWIMETVAInputEmailField.topAnchor.constraint(equalTo: JWIMETVATitleText.bottomAnchor, constant: 50),
-            JWIMETVAInputEmailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            JWIMETVAInputEmailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            JWIMETVAInputEmailField.heightAnchor.constraint(equalToConstant: 56),
-
-            JWIMETVASecretPassField.topAnchor.constraint(equalTo: JWIMETVAInputEmailField.bottomAnchor, constant: 20),
-            JWIMETVASecretPassField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            JWIMETVASecretPassField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            JWIMETVASecretPassField.heightAnchor.constraint(equalToConstant: 56),
-
+            JWIMETVATitleText.leadingAnchor.constraint(equalTo: caravanView.leadingAnchor, constant: 20),
+            JWIMETVATitleText.trailingAnchor.constraint(equalTo: caravanView.trailingAnchor, constant: -20)
+        ])
+        
+        let inputMetrics: CGFloat = 56
+        let fields = [JWIMETVAInputEmailField, JWIMETVASecretPassField]
+        fields.enumerated().forEach { index, field in
+            let topAnchor = (index == 0) ? JWIMETVATitleText.bottomAnchor : JWIMETVAInputEmailField.bottomAnchor
+            let spacing: CGFloat = (index == 0) ? 50 : 20
+            expeditionAnchors.append(field.topAnchor.constraint(equalTo: topAnchor, constant: spacing))
+            expeditionAnchors.append(field.leadingAnchor.constraint(equalTo: caravanView.leadingAnchor, constant: 20))
+            expeditionAnchors.append(field.trailingAnchor.constraint(equalTo: caravanView.trailingAnchor, constant: -20))
+            expeditionAnchors.append(field.heightAnchor.constraint(equalToConstant: inputMetrics))
+        }
+        
+      
+        expeditionAnchors.append(contentsOf: [
             JWIMETVAInstantConnectButton.topAnchor.constraint(equalTo: JWIMETVASecretPassField.bottomAnchor, constant: 50),
-            JWIMETVAInstantConnectButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            JWIMETVAInstantConnectButton.centerXAnchor.constraint(equalTo: caravanView.centerXAnchor),
             JWIMETVAInstantConnectButton.widthAnchor.constraint(equalToConstant: 256),
             JWIMETVAInstantConnectButton.heightAnchor.constraint(equalToConstant: 56),
             
-            JWIMETVAAgreementCheckbox.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: JWIMETVAPaddingUnit),
-            JWIMETVAAgreementCheckbox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            JWIMETVAAgreementCheckbox.leadingAnchor.constraint(equalTo: caravanView.leadingAnchor, constant: JWIMETVAPaddingUnit),
+            JWIMETVAAgreementCheckbox.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -40),
             JWIMETVAAgreementCheckbox.widthAnchor.constraint(equalToConstant: 24),
             JWIMETVAAgreementCheckbox.heightAnchor.constraint(equalToConstant: 24),
-        
+            
             JWIMETVATermsPolicyDisplay.centerYAnchor.constraint(equalTo: JWIMETVAAgreementCheckbox.centerYAnchor),
             JWIMETVATermsPolicyDisplay.leadingAnchor.constraint(equalTo: JWIMETVAAgreementCheckbox.trailingAnchor, constant: 8),
-            JWIMETVATermsPolicyDisplay.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -JWIMETVAPaddingUnit)
+            JWIMETVATermsPolicyDisplay.trailingAnchor.constraint(lessThanOrEqualTo: caravanView.trailingAnchor, constant: -JWIMETVAPaddingUnit)
         ])
-    }
-    
-    @objc func JWIMErvCabinClimateTune(_ JWIMErvWildfireWatch: Notification) {
-        guard let JWIMErvRidgeHikingPath = JWIMErvWildfireWatch.userInfo,
-              let JWIMErvWayPointAnchor = JWIMErvRidgeHikingPath[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        let JWIMErvTrackPlanning = JWIMErvWayPointAnchor.height
         
-        self.view.frame.origin.y = -JWIMErvTrackPlanning / 2
-
+        NSLayoutConstraint.activate(expeditionAnchors)
     }
-     
-  
-    // MARK: - Action Handlers
+
+    @objc func JWIMErvCabinClimateTune(_ JWIMErvWildfireWatch: Notification) {
+        let ridgeData = JWIMErvWildfireWatch.userInfo
+        let anchorKey = UIResponder.keyboardFrameEndUserInfoKey
+        
+    
+        let hollyTrackDetails: (CGRect?, CGFloat) = (
+            ridgeData?[anchorKey] as? CGRect,
+            0.5
+        )
+        
+        guard let wayPointAnchor = hollyTrackDetails.0 else { return }
+        let trackPlanning = wayPointAnchor.height
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.frame.origin.y = -(trackPlanning * hollyTrackDetails.1)
+        }
+    }
 
     @objc private func JWIMETVAInitiateConnect() {
-        guard JWIMETVAAgreementCheckbox.isSelected else {
-            self.JWIMETVADisplayAlert(message: "JWIMETVAAgreement terms must be accepted.".JWIMETVAtime)
-            return
-        }
+        let hollyAgreementReady = JWIMETVAAgreementCheckbox.isSelected
         
-        let JWIMETVAEnteredEmail = JWIMETVAInputEmailField.text ?? ""
-        let JWIMETVAEnteredPassword = JWIMETVASecretPassField.text ?? ""
+        guard self.validateHollyCabinAccess(hollyAgreementReady) else { return }
         
-        if JWIMETVAEnteredEmail.isEmpty || JWIMETVAEnteredPassword.isEmpty {
+        let caravanAccount = JWIMETVAInputEmailField.text ?? ""
+        let caravanSecret = JWIMETVASecretPassField.text ?? ""
+        
+        if caravanAccount.isEmpty || caravanSecret.isEmpty {
             self.JWIMETVADisplayAlert(message: "JWIMETVAEmail and secret key cannot be empty.".JWIMETVAtime)
             return
         }
+        
+        self.performCaravanAuthSequence(email: caravanAccount, key: caravanSecret)
+    }
+
+    private func validateHollyCabinAccess(_ isAgreed: Bool) -> Bool {
+        if !isAgreed {
+            self.JWIMETVADisplayAlert(message: "JWIMETVAAgreement terms must be accepted.".JWIMETVAtime)
+            return false
+        }
+        return true
+    }
+
+    private func performCaravanAuthSequence(email: String, key: String) {
+        let authPath = "/aukohjrmz/kffyyhfok"
+        let authManifest: [String: Any] = [
+            "JWIMErvCabinMicArray": "72454862",
+            "JWIMErvHeadlampFocus": email,
+            "JWIMErvDashCamAngle": key
+        ]
+        
         JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALogin....".JWIMETVAtime)
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/aukohjrmz/kffyyhfok", JWIMErvCargoSafetyLatch: ["JWIMErvCabinMicArray":"72454862","JWIMErvHeadlampFocus":JWIMETVAEnteredEmail,"JWIMErvDashCamAngle":JWIMETVAEnteredPassword]) { JWIMETVAsresult in
+        
+        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: authPath, JWIMErvCargoSafetyLatch: authManifest) { [weak self] response in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-            if let FMberRECglsss = JWIMETVAsresult as? [String: Any],
-                              
-                let FMberRECrns = FMberRECglsss["JWIMETVAdata".JWIMETVAtime] as? [String: Any] {
-                
-                JWIMETVAuserView.JWIMErvPortableDeskKit = FMberRECrns["JWIMErvSkylightPanel"] as? String
-                JWIMETVAuserView.JWIMErvWorkspaceFolding = FMberRECrns["JWIMErvTirePatchKit"] as? Int
-                
-                ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = JWIMETVATabBarAssembler()
-                
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: "JWIMETVAlog in successful!".JWIMETVAtime)
-            } else {
+            
+            guard let self = self,
+                  let payload = response as? [String: Any],
+                  let expeditionData = payload["JWIMETVAdata".JWIMETVAtime] as? [String: Any] else {
                 JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAlog in Failed!".JWIMETVAtime)
-                
+                return
             }
             
+            self.finalizeHollyLoginSuccess(with: expeditionData)
             
-           
-           
-            
-            
-        } JWIMErvHighAltitudeTune: { JWIMETVAerrorot in
+        } JWIMErvHighAltitudeTune: { error in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
-            JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: JWIMETVAerrorot.localizedDescription)
+            JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: error.localizedDescription)
         }
-
     }
+
+    private func finalizeHollyLoginSuccess(with logs: [String: Any]) {
+    
+        JWIMETVAuserView.JWIMErvPortableDeskKit = logs["JWIMErvSkylightPanel"] as? String
+        JWIMETVAuserView.JWIMErvWorkspaceFolding = logs["JWIMErvTirePatchKit"] as? Int
+       
+        DispatchQueue.main.async {
+            if let caravanFleet = UIApplication.shared.delegate as? AppDelegate {
+                caravanFleet.window?.rootViewController = JWIMETVATabBarAssembler()
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: "JWIMETVAlog in successful!".JWIMETVAtime)
+            }
+        }
+    }
+    
+    
     @objc func JWIMErvSceneSequencer() {
             self.view.frame.origin.y = 0
     }
@@ -366,8 +476,47 @@ final class JWIMETVALoginViewAssembler: UIViewController {
   
     
     private func JWIMETVADisplayAlert(message: String) {
-        let JWIMETVAAlertController = UIAlertController(title: "Notice", message: message, preferredStyle: .alert)
-        JWIMETVAAlertController.addAction(UIAlertAction(title: "OK", style: .default))
-        present(JWIMETVAAlertController, animated: true)
+        let hollyWarningStatus = true
+        let caravanBeaconColor = "Notice"
+        
+      
+        if hollyWarningStatus {
+            self.broadcastHollySignal(title: caravanBeaconColor, detail: message)
+        }
+    }
+
+    private func broadcastHollySignal(title: String, detail: String) {
+        struct HollyAlertManifest {
+            var signalTitle: String
+            var signalBody: String
+            var responseLabel: String
+        }
+        
+        let currentManifest = HollyAlertManifest(
+            signalTitle: title,
+            signalBody: detail,
+            responseLabel: "OK"
+        )
+        
+      
+        let caravanAlert = UIAlertController(
+            title: currentManifest.signalTitle,
+            message: currentManifest.signalBody,
+            preferredStyle: .alert
+        )
+        
+        
+        let acknowledgeAction: (String) -> UIAlertAction = { label in
+            return UIAlertAction(title: label, style: .default, handler: { _ in
+              
+                let _ = "Signal Acknowledged".count
+            })
+        }
+        
+        caravanAlert.addAction(acknowledgeAction(currentManifest.responseLabel))
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.present(caravanAlert, animated: true)
+        }
     }
 }

@@ -12,9 +12,7 @@ import StoreKit
 
 final class JWIMETVApurcase: NSObject {
     private var JWIMETVAUserTotalMeritPoints: Int = 0
-      
-        
-       
+
     private let JWIMETVAAdventureScaleFactor: Double = 1.15
     static let shared = JWIMETVApurcase()
     private var JWIMETVAUnlockedDiscoveryIdentifiers: Set<String> = []

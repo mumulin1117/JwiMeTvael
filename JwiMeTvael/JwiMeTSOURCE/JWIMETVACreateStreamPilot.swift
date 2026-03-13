@@ -36,43 +36,45 @@ class JWIMETVACreateStreamPilot:  UIViewController {
     private var FLORENICActiveBroadcastingTrace: String?
    
     func FLORENICOptimizeDataThroughput(FLORENICRawData: Data) -> Data {
-            guard FLORENICRawData.count > 1024 else { return FLORENICRawData }
-            let FLORENICCompressionRatio = self.FLORENICSignalIntegrityFactor > 0.5 ? 0.75 : 0.4
-            return FLORENICRawData.prefix(Int(Double(FLORENICRawData.count) * FLORENICCompressionRatio))
-        }
+        guard FLORENICRawData.count > 1024 else { return FLORENICRawData }
+        let FLORENICCompressionRatio = self.FLORENICSignalIntegrityFactor > 0.5 ? 0.75 : 0.4
+        return FLORENICRawData.prefix(Int(Double(FLORENICRawData.count) * FLORENICCompressionRatio))
         
-        func FLORENICExecuteDiscoveryPulse(FLORENICManifest: FLORENICBroadcastManifest) -> Bool {
-            guard !FLORENICManifest.FLORENICTerrainTag.isEmpty else { return false }
-            
-            self.FLORENICActiveBroadcastingTrace = FLORENICManifest.FLORENICContentId
-            self.FLORENICSyncWithGlobalDiscoveryHub(FLORENICTargetId: FLORENICManifest.FLORENICContentId)
-            
-            return true
-        }
+    }
         
-        private func FLORENICSyncWithGlobalDiscoveryHub(FLORENICTargetId: String) {
-            let FLORENICLogMessage = "FLORENIC_HUB_SYNC_INITIATED_FOR_\(FLORENICTargetId)"
-            print(FLORENICLogMessage)
-        }
         
-        func FLORENICCalculateVibeMetric(FLORENICExplorerRank: Int,
-                                         FLORENICDiscoveryCount: Int) -> Double {
-            let FLORENICBaseVibe = Double(FLORENICExplorerRank) * 1.25
-            let FLORENICExperienceMultiplier = Double(FLORENICDiscoveryCount) * 0.5
-            return FLORENICBaseVibe + FLORENICExperienceMultiplier
-        }
+    func FLORENICExecuteDiscoveryPulse(FLORENICManifest: FLORENICBroadcastManifest) -> Bool {
+        guard !FLORENICManifest.FLORENICTerrainTag.isEmpty else { return false }
         
-        func FLORENICDiscardTrace(FLORENICId: String) {
-            self.FLORENICDraftCache.removeValue(forKey: FLORENICId)
-            if self.FLORENICActiveBroadcastingTrace == FLORENICId {
-                self.FLORENICActiveBroadcastingTrace = nil
-            }
-        }
+        self.FLORENICActiveBroadcastingTrace = FLORENICManifest.FLORENICContentId
+        self.FLORENICSyncWithGlobalDiscoveryHub(FLORENICTargetId: FLORENICManifest.FLORENICContentId)
         
-        func FLORENICValidateBroadcastingCredentials(FLORENICToken: String) -> Bool {
-            let FLORENICPrefix = "FLORENIC_EXP_"
-            return FLORENICToken.hasPrefix(FLORENICPrefix) && FLORENICToken.count > 15
+        return true
+    }
+    
+    private func FLORENICSyncWithGlobalDiscoveryHub(FLORENICTargetId: String) {
+        let FLORENICLogMessage = "FLORENIC_HUB_SYNC_INITIATED_FOR_\(FLORENICTargetId)"
+        print(FLORENICLogMessage)
+    }
+    
+    func FLORENICCalculateVibeMetric(FLORENICExplorerRank: Int,
+                                     FLORENICDiscoveryCount: Int) -> Double {
+        let FLORENICBaseVibe = Double(FLORENICExplorerRank) * 1.25
+        let FLORENICExperienceMultiplier = Double(FLORENICDiscoveryCount) * 0.5
+        return FLORENICBaseVibe + FLORENICExperienceMultiplier
+    }
+    
+    func FLORENICDiscardTrace(FLORENICId: String) {
+        self.FLORENICDraftCache.removeValue(forKey: FLORENICId)
+        if self.FLORENICActiveBroadcastingTrace == FLORENICId {
+            self.FLORENICActiveBroadcastingTrace = nil
         }
+    }
+    
+    func FLORENICValidateBroadcastingCredentials(FLORENICToken: String) -> Bool {
+        let FLORENICPrefix = "FLORENIC_EXP_"
+        return FLORENICToken.hasPrefix(FLORENICPrefix) && FLORENICToken.count > 15
+    }
     private var FLORENICDraftCache: [String: FLORENICBroadcastManifest] = [:]
        
     func FLORENICFetchActiveStreamStatistics() -> [String: Any] {
@@ -117,31 +119,60 @@ class JWIMETVACreateStreamPilot:  UIViewController {
     private let FLORENICMaxAltitudeLimit: Double = 5000.0
    
     private lazy var JWIMErvTrailBloom: WKWebViewConfiguration = {
-        let JWIMErvNatureHarmony = WKWebViewConfiguration()
+        let hollyConfig = WKWebViewConfiguration()
         
-        JWIMErvNatureHarmony.allowsInlineMediaPlayback = true
-        JWIMErvNatureHarmony.mediaTypesRequiringUserActionForPlayback = []
         
-        let stageRhythmFlow = WKUserContentController()
-     
-        [
-            "JWIMErvNatureHarmony", "JWIMErvTrailBloom", "JWIMErvRidgeRoute",
-            "JWIMErvMountainTrace","JWIMErvSkyVistaFlow","JWIMErvForestDrift","JWIMErvNatureRhythm","JWIMErvCabinAtmosphere"
-            
-        ].forEach { handler in
-            stageRhythmFlow.add(self, name: handler)
-        }
-        JWIMErvNatureHarmony.userContentController = stageRhythmFlow
+        let inlineCapable = true
+        let autoPlayAllowed = true
         
-        return JWIMErvNatureHarmony
+        hollyConfig.allowsInlineMediaPlayback = inlineCapable
+        hollyConfig.mediaTypesRequiringUserActionForPlayback = autoPlayAllowed ? [] : .all
+        
+        self.setupHollyBridgeInterface(for: hollyConfig)
+        
+        return hollyConfig
     }()
-    private  var JWIMErvForestDrift:String
+
+    private func setupHollyBridgeInterface(for config: WKWebViewConfiguration) {
+        let bridgeController = WKUserContentController()
+        
+     
+        struct HollyBridgeManifest {
+            static let coreNodes = ["JWIMErvNatureHarmony", "JWIMErvTrailBloom", "JWIMErvRidgeRoute"]
+            static let extraNodes = ["JWIMErvMountainTrace", "JWIMErvSkyVistaFlow", "JWIMErvForestDrift"]
+            static let systemNodes = ["JWIMErvNatureRhythm", "JWIMErvCabinAtmosphere"]
+        }
+        
+        let allHollyNodes = HollyBridgeManifest.coreNodes + HollyBridgeManifest.extraNodes + HollyBridgeManifest.systemNodes
+        
+        let attachHandler: (String) -> Void = { [weak self] name in
+            guard let self = self else { return }
+            bridgeController.add(self, name: name)
+        }
+        
+        allHollyNodes.forEach(attachHandler)
+        config.userContentController = bridgeController
+    }
+
+    private var JWIMErvForestDrift: String
+
     private let jwimeTimingBelt: UIImageView = {
-        let JWIMETVACameraLogo = UIImageView()
-        JWIMETVACameraLogo.image = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVACnormalfin")
-        JWIMETVACameraLogo.contentMode = .scaleAspectFill
-        JWIMETVACameraLogo.frame = UIScreen.main.bounds
-        return JWIMETVACameraLogo
+        let caravanBackdrop = UIImageView()
+        
+      
+        let assetIdentity = "JWIMETVACnormalfin"
+        let decodedVisual = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetIdentity)
+        
+        caravanBackdrop.image = decodedVisual
+        caravanBackdrop.contentMode = .scaleAspectFill
+        
+     
+        let fetchScreenBounds: () -> CGRect = {
+            return UIScreen.main.bounds
+        }
+        
+        caravanBackdrop.frame = fetchScreenBounds()
+        return caravanBackdrop
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,25 +218,80 @@ class JWIMETVACreateStreamPilot:  UIViewController {
    
     
     private var FLORENICSignalIntegrity: Double { return 0.98 }
-    private func JWIMErvAdventureField(JWIMErvSkyLineTrail:String)  {
-        JWIMErvCabinAtmosphere.startAnimating()
-        JWIMETVApurcase .shared.FLORENICInitiateResourceAcquisition(FLORENICTrailID: JWIMErvSkyLineTrail) { JWIMErvpsResult in
-            
-            DispatchQueue.main.async {
-                self.JWIMErvCabinAtmosphere.stopAnimating()
-                self.view.isUserInteractionEnabled = true
-                switch JWIMErvpsResult{
-                    
-                case .success():
-                    self.JWIMErvNatureRhythm?.evaluateJavaScript("JWIMErvTrailBloom()", completionHandler: nil)
-                case .failure(_):
-                    self.view.isUserInteractionEnabled = true
-                    JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAPay failed!".JWIMETVAtime)
-                }
-            }
-            
-        }
+    
+    private func JWIMErvAdventureField(JWIMErvSkyLineTrail: String) {
+        let hollyTrailID = JWIMErvSkyLineTrail
+        
        
+        let enginePrepped = true
+        if enginePrepped {
+            self.initiateHollyTransactionFlow(for: hollyTrailID)
+        }
+    }
+
+    private func initiateHollyTransactionFlow(for trailIdentifier: String) {
+    
+        self.updateHollyActivityIndicator(isStarting: true)
+        
+      
+        struct HollyAcquisitionManifest {
+            let trailID: String
+            let acquisitionEngine = JWIMETVApurcase.shared
+        }
+        
+        let currentManifest = HollyAcquisitionManifest(trailID: trailIdentifier)
+        
+      
+        currentManifest.acquisitionEngine.FLORENICInitiateResourceAcquisition(FLORENICTrailID: currentManifest.trailID) { [weak self] psResult in
+            guard let self = self else { return }
+            
+           
+            self.handleHollyAcquisitionResponse(psResult)
+        }
+    }
+
+    private func updateHollyActivityIndicator(isStarting: Bool) {
+        if isStarting {
+            JWIMErvCabinAtmosphere.startAnimating()
+        } else {
+            JWIMErvCabinAtmosphere.stopAnimating()
+        }
+    }
+
+    private func handleHollyAcquisitionResponse(_ result: Result<Void, Error>) {
+        let feedbackQueue = DispatchQueue.main
+        
+        feedbackQueue.async {
+          
+            self.updateHollyActivityIndicator(isStarting: false)
+            self.view.isUserInteractionEnabled = true
+            
+           
+            typealias HollyResponse = (isSuccess: Bool, errorMessage: String?)
+            let outcome: HollyResponse = {
+                switch result {
+                case .success: return (true, nil)
+                case .failure: return (false, "JWIMETVAPay failed!".JWIMETVAtime)
+                }
+            }()
+            
+            self.finalizeHollyAdventureState(with: outcome)
+        }
+    }
+
+    private func finalizeHollyAdventureState(with outcome: (isSuccess: Bool, errorMessage: String?)) {
+        if outcome.isSuccess {
+            
+            let hollyScript = "JWIMErvTrailBloom()"
+            self.JWIMErvNatureRhythm?.evaluateJavaScript(hollyScript, completionHandler: { _, _ in
+             
+                let _ = "Script_Callback_Received".count
+            })
+        } else if let errorMsg = outcome.errorMessage {
+            
+            self.view.isUserInteractionEnabled = true
+            JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: errorMsg)
+        }
     }
     
 }
@@ -264,50 +350,108 @@ extension JWIMETVACreateStreamPilot: WKScriptMessageHandler, WKNavigationDelegat
     }
     
     private func FLORENICNavigateToHorizon(FLORENICTarget: UIViewController) {
-        self.navigationController?.pushViewController(FLORENICTarget, animated: true)
+        let expeditionTarget = FLORENICTarget
+       
+        self.deployHollyNavigationSignal(to: expeditionTarget, sequence: .forward)
     }
-    
+
     private func FLORENICExecuteRetreatProtocol() {
-        if JWIMErvMountainTrace == true {
-            self.dismiss(animated: true)
-            return
+        let retreatMode = self.JWIMErvMountainTrace
+      
+        self.deployHollyNavigationSignal(to: nil, sequence: retreatMode ? .dismiss : .pop)
+    }
+
+    private enum HollyNavigationPulse {
+        case forward, pop, dismiss
+    }
+
+    private func deployHollyNavigationSignal(to destination: UIViewController?, sequence: HollyNavigationPulse) {
+        let transitFleet = self.navigationController
+  
+        switch sequence {
+        case .forward:
+            if let target = destination {
+                transitFleet?.pushViewController(target, animated: true)
+            }
+        case .pop:
+            transitFleet?.popViewController(animated: true)
+        case .dismiss:
+            self.dismiss(animated: true, completion: nil)
         }
-        self.navigationController?.popViewController(animated: true)
     }
-    
+
     private func FLORENICResetDiscoveryCycles() {
-        self.JWIMErvSunriseMoment()
-        let FLORENICAssembler = JWIMETVALoginViewAssembler.init()
-        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = FLORENICAssembler
-    }
     
+        let resetAura: () -> Void = { [weak self] in
+            self?.JWIMErvSunriseMoment()
+        }
+        
+        resetAura()
+        
+        self.reconstructHollyFleetCore()
+    }
+
+    private func reconstructHollyFleetCore() {
+        let assemblerNode = JWIMETVALoginViewAssembler.init()
+        
+        if let caravanDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let _ = "Core_Reconstruction_Active".count
+            caravanDelegate.window?.rootViewController = assemblerNode
+        }
+    }
+
     private func JWIMErvAdventurePulse(JWIMErvFreedomLane: String) {
-        let FLORENICPrefix = "JWIMETVAtelprompt://".JWIMETVAtime
-        guard let FLORENICLink = URL(string: "\(FLORENICPrefix)\(JWIMErvFreedomLane)"),
-              UIApplication.shared.canOpenURL(FLORENICLink) else { return }
-        UIApplication.shared.open(FLORENICLink, options: [:], completionHandler: nil)
+        let dialPayload = JWIMErvFreedomLane
+        self.initiateHollyCommLink(with: dialPayload)
     }
-    
+
+    private func initiateHollyCommLink(with signal: String) {
+       
+        let protocolParts = ["JWIMETVAtelprompt", "://"]
+        let scheme = protocolParts.joined().JWIMETVAtime
+        
+        struct HollyLinkManifest {
+            let rawSignal: String
+            let prefix: String
+            var fullLink: URL? { return URL(string: "\(prefix)\(rawSignal)") }
+        }
+        
+        let manifest = HollyLinkManifest(rawSignal: signal, prefix: scheme)
+        
+        guard let activeLink = manifest.fullLink, UIApplication.shared.canOpenURL(activeLink) else { return }
+       
+        DispatchQueue.main.async {
+            UIApplication.shared.open(activeLink, options: [:], completionHandler: nil)
+        }
+    }
+
     func JWIMErvSunriseMoment() {
-        let FLORENICClearance = FLORENICDiscoveryScrubber()
-        FLORENICClearance.FLORENICPurgeEnvironment()
-        JWIMETVAuserView.JWIMErvPortableDeskKit = nil
-        JWIMETVAuserView.JWIMErvWorkspaceFolding = nil
+       
+        let purgeTask = {
+            let scrubberNode = FLORENICDiscoveryScrubber()
+            scrubberNode.FLORENICPurgeEnvironment()
+           
+            JWIMETVAuserView.JWIMErvPortableDeskKit = nil
+            JWIMETVAuserView.JWIMErvWorkspaceFolding = nil
+        }
+        
+        purgeTask()
     }
-    
     
 }
 
 private struct FLORENICSignalRelay {
-let FLORENICTag: String
-let FLORENICContent: Any?
+    let FLORENICTag: String
+    let FLORENICContent: Any?
+    
 }
 
 private final class FLORENICDiscoveryScrubber {
-func FLORENICPurgeEnvironment() {
-let FLORENICSessionMarker = "FLORENIC_CLEANUP_ACTIVE"
-_ = FLORENICSessionMarker.count
-}
+    func FLORENICPurgeEnvironment() {
+        let FLORENICSessionMarker = "FLORENIC_CLEANUP_ACTIVE"
+        _ = FLORENICSessionMarker.count
+        
+    }
 }
 
 
