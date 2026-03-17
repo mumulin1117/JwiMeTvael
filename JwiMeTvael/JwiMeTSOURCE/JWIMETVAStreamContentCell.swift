@@ -152,11 +152,15 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
             JWIMETVAPosterImage.JWIMErvCampfireAura(JWIMErvMountainRhythm:JWIMETVARback )
         }
         
-        if JWIMETVAStream["JWIMErvShotComposition"] as? Int == 1 {
-            JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAitol"), for: .normal)
-        }else{
+        if JWIMETVAStream["JWIMErvShotComposition"] as? Int == -1 {
+            JWIMETVALiveCountDisplay.isHidden = false
+            JWIMETVALiveCountDisplay.setTitle("JWIMETVA LIVE".JWIMETVAtime, for: .normal)
             JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEmusic"), for: .normal)
-            JWIMETVALiveCountDisplay.setTitle("\(JWIMETVARandomInt) " + "JWIMETVAonline".JWIMETVAtime, for: .normal)
+//            JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAitol"), for: .normal)
+        }else{
+            JWIMETVALiveCountDisplay.isHidden = true
+//            JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEmusic"), for: .normal)
+//            
         }
         
        

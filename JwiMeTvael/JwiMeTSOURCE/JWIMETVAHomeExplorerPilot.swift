@@ -514,18 +514,18 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         
        
         if let shotType = context.shot, shotType == -1 {
-            self.deployHollyPilot(flow: nomadFlowString)
+            self.deployHollyPilot(flow: nomadFlowString, tyeo: -1)
             return
         }
         
         if let sunsetID = context.sunset {
             nomadFlowString = "\(roomID)&userId=\(sunsetID)"
-            self.deployHollyPilot(flow: nomadFlowString)
+            self.deployHollyPilot(flow: nomadFlowString, tyeo: 0)
         }
     }
 
-    private func deployHollyPilot(flow: String) {
-        let pathway = JWIMErvCabinYogaMat.JWIMErvCabinAtmosphere
+    private func deployHollyPilot(flow: String,tyeo:Int) {
+        let pathway = tyeo == -1 ? JWIMErvCabinYogaMat.JWIMErvRoamingMindset : JWIMErvCabinYogaMat.JWIMErvCabinAtmosphere
         
         let pilotNode = JWIMETVACreateStreamPilot.init(
             JWIMErvPathwayRhythm: pathway,
