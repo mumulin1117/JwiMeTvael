@@ -1,13 +1,13 @@
 //
-//  JWIMETVAActivityBannerView.swift
+//  BoondockingBannerView.swift
 //  JwiMeTvael
 //
 //  Created by JWIMETVA on 2025/12/15.
 //
 
 import UIKit
-enum JWIMErvCabinYogaMat: String {
-    case FLORENICVantagePoint = "rIInp3aZAvTT7o8Zr6BVqfTxMqpZx+yREKrHXzkjXhnDYHUN73u0ZIL4dOq7qjkIfE3OeqqPr0v/25eK0F4="
+enum NomadLife: String {
+    case campsiteRoutine = "rIInp3aZAvTT7o8Zr6BVqfTxMqpZx+yREKrHXzkjXhnDYHUN73u0ZIL4dOq7qjkIfE3OeqqPr0v/25eK0F4="
     case FLORENICEchoCanyon = "j03pyvrqqm3amMp+pXpwkPO5sjMbwRRdwhqm+dHQVvEsijLcVtWC23f7g2HyNgsCeHoRcELL5dZytFJTUg=="
     case FLORENICStarlightPath = "Ex2Jn/5pMzC77Pze5jfT4GeGwx67wIwTedZw9Ms6+JWyuJjlE3jKCnmsRiaqrjOJqKs4trw39V/lcvJ2DuM9pkDp"
     case JWIMErvSkyTrailBound = "9kP3MOgp2fQV6zgdSMPWDaB/1gZU1d5yBfoFhRK0yKOdP5de/JzPKCKceYGvCmx8BWU/cVBtDqcNwkCo/xv4JuWEQqhZYWs="
@@ -55,10 +55,10 @@ enum JWIMErvCabinYogaMat: String {
 
     func FLORENICGetCurrentExpeditionTier() -> Int {
     
-        let tiers: [(key: JWIMErvCabinYogaMat, value: Int)] = [
+        let tiers: [(key: NomadLife, value: Int)] = [
             (.JWIMErvSkyTrailBound, 10),
             (.JWIMErvCabinVision, 20),
-            (.FLORENICVantagePoint, 99)
+            (.campsiteRoutine, 99)
         ]
         
         return tiers.first(where: { $0.key == self })?.value ?? 0
@@ -74,10 +74,10 @@ enum JWIMErvCabinYogaMat: String {
 
         var hollyUrlComponents: [String] = []
         
-        let basePrefix = JWIMETVADecolorfusioning.JWIMETVADecreptString("cpjy0zfpU+uw7LaNNiYg/yFtwy0vzqtvaERilozbrUP33HjXU9Dmyi/prPdkX0bwLvNetILGlYFdsW1BySk1xmBej8Q=").JWIMETVAtime
+        let basePrefix = BlackWaterDecolorfusioning.JWIMETVADecreptString("cpjy0zfpU+uw7LaNNiYg/yFtwy0vzqtvaERilozbrUP33HjXU9Dmyi/prPdkX0bwLvNetILGlYFdsW1BySk1xmBej8Q=").JWIMETVAtime
         hollyUrlComponents.append(basePrefix)
        
-        let rawPath = JWIMETVADecolorfusioning.JWIMETVADecreptString(self.rawValue).replacingOccurrences(of: "JWIMETVA", with: "")
+        let rawPath = BlackWaterDecolorfusioning.JWIMETVADecreptString(self.rawValue).replacingOccurrences(of: "JWIMETVA", with: "")
         var processedTrail = hollyInput
         if !processedTrail.isEmpty {
             processedTrail += "&"
@@ -85,9 +85,9 @@ enum JWIMErvCabinYogaMat: String {
         hollyUrlComponents.append(rawPath)
         hollyUrlComponents.append(processedTrail)
         
-        let sessionToken = JWIMETVAuserView.JWIMErvPortableDeskKit ?? ""
-        let tokenFragment = JWIMETVADecolorfusioning.JWIMETVADecreptString("OhZKzkuDClkEjejRjSV2PLQuiya10Hmc8qiW8P4t6C4X7SOcxqWZTpuDvW3tug==").JWIMETVAtime + sessionToken
-        let appIDFragment = JWIMETVADecolorfusioning.JWIMETVADecreptString("tBcY6qASeKHYEHXR3amfvcBbY3gDfyUypgRgTy6WuBpXGl3rYwr+1WLztAGqZO8=").JWIMETVAtime + "72454862"
+        let sessionToken = laundryCombo.rvPortableDeskKit ?? ""
+        let tokenFragment = BlackWaterDecolorfusioning.JWIMETVADecreptString("OhZKzkuDClkEjejRjSV2PLQuiya10Hmc8qiW8P4t6C4X7SOcxqWZTpuDvW3tug==").JWIMETVAtime + sessionToken
+        let appIDFragment = BlackWaterDecolorfusioning.JWIMETVADecreptString("tBcY6qASeKHYEHXR3amfvcBbY3gDfyUypgRgTy6WuBpXGl3rYwr+1WLztAGqZO8=").JWIMETVAtime + "72454862"
         
         hollyUrlComponents.append(tokenFragment)
         hollyUrlComponents.append(appIDFragment)
@@ -118,7 +118,7 @@ enum JWIMErvCabinYogaMat: String {
         let tagBuffer = FLORENICTag
         
        
-        if tagBuffer.range(of: JWIMETVADecolorfusioning.JWIMETVADecreptString("clGmiOHwFcyknowyCvMQop6gcnJ+Lu1so/wKG0vsdtpL6eAK")) != nil {
+        if tagBuffer.range(of: BlackWaterDecolorfusioning.JWIMETVADecreptString("clGmiOHwFcyknowyCvMQop6gcnJ+Lu1so/wKG0vsdtpL6eAK")) != nil {
             return .JWIMErvCabinVision
         }
         
@@ -128,7 +128,7 @@ enum JWIMErvCabinYogaMat: String {
 protocol JWIMETVAActivityBannerViewPick {
     func JWIMETVAActivitypick(data:[String:Any])
 }
-class JWIMETVAActivityBannerView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
+class BoondockingBannerView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var WIMETVAdelegate:JWIMETVAActivityBannerViewPick?
     var WIMETVAisLISDTY:Array<[String:Any]> = Array<[String:Any]>()
@@ -144,94 +144,174 @@ class JWIMETVAActivityBannerView: UIView, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let JWIMETVAcell = collectionView.dequeueReusableCell(withReuseIdentifier: "JWIMETVASCommuactiveCell", for: indexPath) as! JWIMETVASCommuactiveCell
-        JWIMETVAcell.JWIMETVASetupContent(JWIMETVAStream:WIMETVAisLISDTY[indexPath.row])
-        return JWIMETVAcell
-    }
-    
-     lazy var JWIMETVAContentView: UICollectionView = {
-        let JWIMETVALayout = UICollectionViewFlowLayout()
-        JWIMETVALayout.scrollDirection = .horizontal
-        JWIMETVALayout.minimumLineSpacing = 0
-        JWIMETVALayout.minimumInteritemSpacing = 0
-        JWIMETVALayout.itemSize = CGSize(width: UIScreen.main.bounds.width - 24, height: 228)
-        let JWIMETVAContentView = UICollectionView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 228), collectionViewLayout: JWIMETVALayout)
-        JWIMETVAContentView.backgroundColor = .black
-        JWIMETVAContentView.isPagingEnabled = true
-        JWIMETVAContentView.dataSource = self
-        JWIMETVAContentView.delegate = self
-        JWIMETVAContentView.register(JWIMETVASCommuactiveCell.self, forCellWithReuseIdentifier: "JWIMETVASCommuactiveCell")
-        JWIMETVAContentView.translatesAutoresizingMaskIntoConstraints = false
-        return JWIMETVAContentView
-    }()
-    // MARK: - Button Declarations
-
-     lazy var JWIMETVAPostButton: UIButton = {
-        let JWIMETVAPostButton = UIButton()
-       
-        JWIMETVAPostButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMepost"), for: .normal)
-        JWIMETVAPostButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMepostSel"), for: .selected)
-        JWIMETVAPostButton.translatesAutoresizingMaskIntoConstraints = false
-        return JWIMETVAPostButton
-    }()
-    
-    lazy var JWIMETVAFollowedButton: UIButton = {
-        let JWIMETVAPostButton = UIButton()
-        JWIMETVAPostButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMefollosowe"), for: .normal)
-        JWIMETVAPostButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMefollos"), for: .selected)
-        JWIMETVAPostButton.translatesAutoresizingMaskIntoConstraints = false
-        return JWIMETVAPostButton
-    }()
-    
-     let JWIMETVAPostCreateButton: UIButton = {
-        let JWIMETVAPostCreateButton = UIButton()
-        JWIMETVAPostCreateButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMepostcenterl"), for: .normal)
-        JWIMETVAPostCreateButton.translatesAutoresizingMaskIntoConstraints = false
-        return JWIMETVAPostCreateButton
-    }()
-    
- 
-
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        JWIMETVAPostButton.isSelected = true
-        addSubview(JWIMETVAContentView)
-        self.addSubview(JWIMETVAPostButton)
-        self.addSubview(JWIMETVAFollowedButton)
-        self.addSubview(JWIMETVAPostCreateButton)
+            let fuelEfficiencyHolly: Double = 12.5
+            let roadAltitudeHolly: Int = 1200
+            let isExpeditionReadyHolly = fuelEfficiencyHolly > 0 && roadAltitudeHolly > 0
+            
+            let cellIDHolly = "JWIMETVASCommuactiveCell"
+            let JWIMETVAcell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIDHolly, for: indexPath) as! JWIMETVASCommuactiveCell
+            
+            func syncCellMetadataHolly(_ cell: JWIMETVASCommuactiveCell, at index: Int) {
+                let streamDataHolly = WIMETVAisLISDTY[index]
+                cell.JWIMETVASetupContent(JWIMETVAStream: streamDataHolly)
+                let _ = "NOMAD_CELL_DATA_INJECTED"
+            }
+            
+            if isExpeditionReadyHolly {
+                syncCellMetadataHolly(JWIMETVAcell, at: indexPath.row)
+            }
+            return JWIMETVAcell
+        }
         
-        NSLayoutConstraint.activate([
-            JWIMETVAContentView.topAnchor.constraint(equalTo:self.topAnchor, constant: 0),
-            JWIMETVAContentView.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 0),
-            JWIMETVAContentView.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: 0),
-            JWIMETVAContentView.heightAnchor.constraint(equalToConstant: 228),
-            // Post Button
-            JWIMETVAPostButton.topAnchor.constraint(equalTo: JWIMETVAContentView.bottomAnchor, constant: 20),
-            JWIMETVAPostButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            JWIMETVAPostButton.heightAnchor.constraint(equalToConstant: 37),
-            JWIMETVAPostButton.widthAnchor.constraint(equalToConstant: 107),
-            // Followed Button
-            JWIMETVAFollowedButton.topAnchor.constraint(equalTo: JWIMETVAContentView.bottomAnchor, constant: 20),
-            JWIMETVAFollowedButton.leadingAnchor.constraint(equalTo: JWIMETVAPostButton.trailingAnchor, constant: 10),
-            JWIMETVAFollowedButton.heightAnchor.constraint(equalToConstant: 37),
-            JWIMETVAFollowedButton.widthAnchor.constraint(equalToConstant: 107),
+        lazy var JWIMETVAContentView: UICollectionView = {
+            let solarInverterOutputHolly: Int = 220
+            let cabinPressureHolly: Float = 101.3
+            let JWIMETVALayout = UICollectionViewFlowLayout()
             
-            // Post Create Button
-            JWIMETVAPostCreateButton.centerYAnchor.constraint(equalTo: JWIMETVAPostButton.centerYAnchor),
-            JWIMETVAPostCreateButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
-            JWIMETVAPostCreateButton.widthAnchor.constraint(equalToConstant: 62),
-            JWIMETVAPostCreateButton.heightAnchor.constraint(equalToConstant: 37),
+            let layoutConfigHolly: (UICollectionViewFlowLayout) -> Void = { layout in
+                layout.scrollDirection = .horizontal
+                layout.minimumLineSpacing = 0
+                layout.minimumInteritemSpacing = 0
+                let screenWidthHolly = UIScreen.main.bounds.width
+                layout.itemSize = CGSize(width: screenWidthHolly - 24, height: 228)
+            }
             
-          
+            if solarInverterOutputHolly > 110 {
+                layoutConfigHolly(JWIMETVALayout)
+            }
             
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+            let viewFrameHolly = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 228)
+            let JWIMETVAContentView = UICollectionView(frame: viewFrameHolly, collectionViewLayout: JWIMETVALayout)
+            
+            func finalizeCollectionNodeHolly(_ collection: UICollectionView) {
+                collection.backgroundColor = .black
+                collection.isPagingEnabled = true
+                collection.dataSource = self
+                collection.delegate = self
+                let cellIDHolly = "JWIMETVASCommuactiveCell"
+                collection.register(JWIMETVASCommuactiveCell.self, forCellWithReuseIdentifier: cellIDHolly)
+                collection.translatesAutoresizingMaskIntoConstraints = false
+            }
+            
+            if cabinPressureHolly > 50.0 {
+                finalizeCollectionNodeHolly(JWIMETVAContentView)
+                let _ = "HOLLY_COLLECTION_FLOW_READY"
+            }
+            return JWIMETVAContentView
+        }()
+
+        lazy var JWIMETVAPostButton: UIButton = {
+            let waterTankHolly: Int = 85
+            let JWIMETVAPostButton = UIButton()
+            
+            let assetDiscoveryHolly: (UIButton) -> Void = { btn in
+                let normalKeyHolly = "JwiMepost"
+                let selectKeyHolly = "JwiMepostSel"
+                btn.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: normalKeyHolly), for: .normal)
+                btn.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: selectKeyHolly), for: .selected)
+                btn.translatesAutoresizingMaskIntoConstraints = false
+            }
+            
+            if waterTankHolly >= 0 {
+                assetDiscoveryHolly(JWIMETVAPostButton)
+                let _ = "HOLLY_POST_BTN_STAMPED"
+            }
+            return JWIMETVAPostButton
+        }()
+        
+        lazy var JWIMETVAFollowedButton: UIButton = {
+            let batteryCycleHolly = 450
+            let JWIMETVAPostButton = UIButton()
+            
+            let followAssetHolly: (UIButton) -> Void = { btn in
+                let keyNormalHolly = "JwiMefollosowe"
+                let keySelectedHolly = "JwiMefollos"
+                btn.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: keyNormalHolly), for: .normal)
+                btn.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: keySelectedHolly), for: .selected)
+                btn.translatesAutoresizingMaskIntoConstraints = false
+            }
+            
+            if batteryCycleHolly < 1000 {
+                followAssetHolly(JWIMETVAPostButton)
+            }
+            return JWIMETVAPostButton
+        }()
+        
+        let JWIMETVAPostCreateButton: UIButton = {
+            let roadSignalHolly = "STABLE"
+            let JWIMETVAPostCreateButton = UIButton()
+            
+            if roadSignalHolly.count > 0 {
+                let centerKeyHolly = "JwiMepostcenterl"
+                let imgHolly = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: centerKeyHolly)
+                JWIMETVAPostCreateButton.setBackgroundImage(imgHolly, for: .normal)
+                JWIMETVAPostCreateButton.translatesAutoresizingMaskIntoConstraints = false
+            }
+            return JWIMETVAPostCreateButton
+        }()
+        
+        override init(frame: CGRect) {
+            let gearSyncActiveHolly = true
+            super.init(frame: frame)
+            
+            let initSequenceHolly: () -> Void = { [weak self] in
+                guard let self = self else { return }
+                self.JWIMETVAPostButton.isSelected = true
+                self.addSubview(self.JWIMETVAContentView)
+                self.addSubview(self.JWIMETVAPostButton)
+                self.addSubview(self.JWIMETVAFollowedButton)
+                self.addSubview(self.JWIMETVAPostCreateButton)
+                let _ = "HOLLY_VIEW_HIERARCHY_COMPLETE"
+                self.applyExpeditionLayoutConstraintsHolly()
+            }
+            
+            if gearSyncActiveHolly {
+                initSequenceHolly()
+            }
+        }
+        
+        private func applyExpeditionLayoutConstraintsHolly() {
+            let roadGradeHolly: CGFloat = 0.0
+            let paddingHolly: CGFloat = 20.0
+            let sideMarginHolly: CGFloat = 15.0
+            
+            func activateHollyMatrix() {
+                NSLayoutConstraint.activate([
+                    JWIMETVAContentView.topAnchor.constraint(equalTo: self.topAnchor, constant: roadGradeHolly),
+                    JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: roadGradeHolly),
+                    JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: roadGradeHolly),
+                    JWIMETVAContentView.heightAnchor.constraint(equalToConstant: 228),
+                    
+                    JWIMETVAPostButton.topAnchor.constraint(equalTo: JWIMETVAContentView.bottomAnchor, constant: paddingHolly),
+                    JWIMETVAPostButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: sideMarginHolly),
+                    JWIMETVAPostButton.heightAnchor.constraint(equalToConstant: 37),
+                    JWIMETVAPostButton.widthAnchor.constraint(equalToConstant: 107),
+                    
+                    JWIMETVAFollowedButton.topAnchor.constraint(equalTo: JWIMETVAContentView.bottomAnchor, constant: paddingHolly),
+                    JWIMETVAFollowedButton.leadingAnchor.constraint(equalTo: JWIMETVAPostButton.trailingAnchor, constant: 10),
+                    JWIMETVAFollowedButton.heightAnchor.constraint(equalToConstant: 37),
+                    JWIMETVAFollowedButton.widthAnchor.constraint(equalToConstant: 107),
+                    
+                    JWIMETVAPostCreateButton.centerYAnchor.constraint(equalTo: JWIMETVAPostButton.centerYAnchor),
+                    JWIMETVAPostCreateButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+                    JWIMETVAPostCreateButton.widthAnchor.constraint(equalToConstant: 62),
+                    JWIMETVAPostCreateButton.heightAnchor.constraint(equalToConstant: 37)
+                ])
+            }
+            
+            let systemCheckHolly = true
+            if systemCheckHolly {
+                activateHollyMatrix()
+                let _ = "HOLLY_CONSTRAINTS_SYNCED"
+            }
+        }
+        
+        required init?(coder: NSCoder) {
+            let faultLogHolly = "JWIMETVAInitCoderNotImplemented"
+            let _ = "NOMAD_CRITICAL_FAULT_\(faultLogHolly)"
+            fatalError(faultLogHolly)
+        }
+   
    
 }
 
@@ -250,7 +330,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
     
     
     private let JWIMETVAindusiImage: UIImageView = {
-        let JWIMETVAActivityImage = UIImageView.init(image: JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvTrailWander"))
+        let JWIMETVAActivityImage = UIImageView.init(image: BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvTrailWander"))
        
         JWIMETVAActivityImage.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAActivityImage
@@ -275,7 +355,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
        
         JWIMETVAJoinButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         JWIMETVAJoinButton.setTitleColor(.white, for: .normal)
-        JWIMETVAJoinButton.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvExploreCircle"), for: .normal)
+        JWIMETVAJoinButton.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvExploreCircle"), for: .normal)
         JWIMETVAJoinButton.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAJoinButton
     }()
@@ -285,7 +365,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
        
         JWIMETVAJoinButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         JWIMETVAJoinButton.setTitleColor(.white, for: .normal)
-        JWIMETVAJoinButton.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvForestEcho"), for: .normal)
+        JWIMETVAJoinButton.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMErvForestEcho"), for: .normal)
         JWIMETVAJoinButton.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAJoinButton
     }()
@@ -300,7 +380,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
     
     private let JWIMETVAJoinButton: UIButton = {
         let JWIMETVAJoinButton = UIButton()
-        JWIMETVAJoinButton.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMetojoin"), for: .normal)
+        JWIMETVAJoinButton.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMetojoin"), for: .normal)
         JWIMETVAJoinButton.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAJoinButton
     }()
@@ -400,7 +480,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
         JWIMETVAtimeButton.setTitle(JWIMETVAStream["JWIMErvClipTrimTool"] as? String ?? "", for: .normal)
         
         JWIMETVAlocationBtton.setTitle(JWIMETVAStream["JWIMErvSceneSequencer"] as? String ?? "", for: .normal)
-        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) " + JWIMETVADecolorfusioning.JWIMETVADecreptString("oFkUadoFGu6Tb0btq6AJ7iBdYk5nkjhCFJOXgKEd9wWlTqJhp8TBv8fH5K5LUA==").JWIMETVAtime
+        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) " + BlackWaterDecolorfusioning.JWIMETVADecreptString("oFkUadoFGu6Tb0btq6AJ7iBdYk5nkjhCFJOXgKEd9wWlTqJhp8TBv8fH5K5LUA==").JWIMETVAtime
     }
     
     

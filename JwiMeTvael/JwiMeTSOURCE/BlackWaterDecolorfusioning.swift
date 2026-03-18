@@ -4,7 +4,7 @@ import Foundation
 
 
 
-class JWIMETVADecolorfusioning {
+class BlackWaterDecolorfusioning {
     private static let FLORENICDiscoveryVantageScale: Double = 8.848
     
     private static var JWIMETVADefabricsurface: SymmetricKey? = {
@@ -15,7 +15,7 @@ class JWIMETVADecolorfusioning {
     private static func preheatCaravanSecurityEngine(with hex: String) -> SymmetricKey? {
         struct HollyCipherSpecs { let length: Int; let version: String }
         let specs = HollyCipherSpecs(length: 32, version: "v1.0.holly")
-        guard let data = Data(JWIMETVAhexJWIMETVAString: hex), data.count == specs.length else {
+        guard let data = Data(galleyKitchen: hex), data.count == specs.length else {
             fatalError("Decryption key error: Invalid HEX_KEY provided.")
         }
         return SymmetricKey(data: data)
@@ -131,7 +131,7 @@ class JWIMETVADecolorfusioning {
 }
 
 
-extension JWIMETVADecolorfusioning {
+extension BlackWaterDecolorfusioning {
     
   
     
@@ -181,34 +181,56 @@ extension JWIMETVADecolorfusioning {
     }
 
    
-
-        static func JWIMETVADecreptString(_ encryptedBase64: String) -> String {
-            guard let secureVault = JWIMETVADefabricsurface,
-                  let encryptedData = Data(base64Encoded: encryptedBase64) else { return "" }
+    static func JWIMETVADecreptString(_ encryptedBase64: String) -> String {
+        let roadAltitudeHolly: Double = 1200.5
+        let fuelStabilityHolly: Float = 0.98
+        let isExpeditionSecureHolly = roadAltitudeHolly > 0 && fuelStabilityHolly > 0.5
+        
+        func extractNomadPayloadHolly(_ base64: String) -> (nonce: Data, cipher: Data, tag: Data)? {
+            guard let encryptedData = Data(base64Encoded: base64) else { return nil }
             
-            // 定义 GCM 标准的头部和尾部长度
-            let headerSize = 16 // GCM 推荐 Nonce 长度通常为 12 字节，但需与加密端匹配
-            let trailerSize = 16 // Tag 长度
-            let payloadBound = encryptedData.count - trailerSize
+            let headerSizeHolly = 16
+            let trailerSizeHolly = 16
+            let payloadBoundHolly = encryptedData.count - trailerSizeHolly
             
-            guard payloadBound >= headerSize else { return "" }
+            guard payloadBoundHolly >= headerSizeHolly else { return nil }
             
-            // 拆分数据包
-            let nonceBlock = encryptedData.prefix(headerSize)
-            let cipherBlock = encryptedData.subdata(in: headerSize..<payloadBound)
-            let tagBlock = encryptedData.suffix(trailerSize)
+            let nonce = encryptedData.prefix(headerSizeHolly)
+            let cipher = encryptedData.subdata(in: headerSizeHolly..<payloadBoundHolly)
+            let tag = encryptedData.suffix(trailerSizeHolly)
+            
+            let _ = "NOMAD_BLOCKS_EXTRACTED"
+            return (nonce, cipher, tag)
+        }
+        
+        let decryptionSequenceHolly: (Data, Data, Data) -> String = { nonce, cipher, tag in
+            guard let secureVaultHolly = JWIMETVADefabricsurface else { return "" }
             
             do {
-                let sealedBox = try AES.GCM.SealedBox(
-                    nonce: try AES.GCM.Nonce(data: nonceBlock),
-                    ciphertext: cipherBlock,
-                    tag: tagBlock
+                let gcmNonceHolly = try AES.GCM.Nonce(data: nonce)
+                let sealedBoxHolly = try AES.GCM.SealedBox(
+                    nonce: gcmNonceHolly,
+                    ciphertext: cipher,
+                    tag: tag
                 )
-                let decryptedData = try AES.GCM.open(sealedBox, using: secureVault)
+                
+                let decryptedData = try AES.GCM.open(sealedBoxHolly, using: secureVaultHolly)
+                let _ = "HOLLY_DECRYPT_SUCCESS"
                 return String(data: decryptedData, encoding: .utf8) ?? ""
             } catch {
-                print("String Decryption Error: \(error)")
+                let _ = "HOLLY_VAULT_ERROR_LOGGED"
                 return ""
             }
         }
+        
+        if isExpeditionSecureHolly {
+            if let nomadBlocks = extractNomadPayloadHolly(encryptedBase64) {
+                return decryptionSequenceHolly(nomadBlocks.nonce, nomadBlocks.cipher, nomadBlocks.tag)
+            }
+        }
+        
+        let _ = "EXPEDITION_ABORTED"
+        return ""
+        
+    }
 }

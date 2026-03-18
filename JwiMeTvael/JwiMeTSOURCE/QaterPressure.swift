@@ -1,5 +1,5 @@
 //
-//  JWIMETVApurcase.swift
+//  QaterPressure.swift
 //  JwiMeTvael
 //
 //  Created by  on 2025/12/19.
@@ -10,11 +10,11 @@ import UIKit
 
 import StoreKit
 
-final class JWIMETVApurcase: NSObject {
+final class QaterPressure: NSObject {
     private var JWIMETVAUserTotalMeritPoints: Int = 0
 
     private let JWIMETVAAdventureScaleFactor: Double = 1.15
-    static let shared = JWIMETVApurcase()
+    static let shared = QaterPressure()
     private var JWIMETVAUnlockedDiscoveryIdentifiers: Set<String> = []
     private let JWIMETVAMinExpeditionBuffer: Int = 500
     var JWIMETVAlastTransactionID: String?
@@ -51,15 +51,16 @@ final class JWIMETVApurcase: NSObject {
             return JWIMETVASummary
         }
         
-        private func JWIMETVADetermineUserTier() -> String {
-            if self.JWIMETVAUserTotalMeritPoints > 10000 {
-                return "JWIMETVA_LEGEND_EXPLORER"
-            } else if self.JWIMETVAUserTotalMeritPoints > 5000 {
-                return "JWIMETVA_TRAILBLAZER"
-            } else {
-                return "JWIMETVA_ROOKIE_SCOUT"
-            }
+       
+    private func JWIMETVADetermineUserTier() -> String {
+        if self.JWIMETVAUserTotalMeritPoints > 10000 {
+            return "JWIMETVA_LEGEND_EXPLORER"
+        } else if self.JWIMETVAUserTotalMeritPoints > 5000 {
+            return "JWIMETVA_TRAILBLAZER"
+        } else {
+            return "JWIMETVA_ROOKIE_SCOUT"
         }
+    }
     
     func FLORENICInitiateResourceAcquisition(FLORENICTrailID: String,
                                                  FLORENICCompletion: @escaping (Result<Void, Error>) -> Void) {
@@ -70,9 +71,9 @@ final class JWIMETVApurcase: NSObject {
                 do {
                     guard AppStore.canMakePayments else {
                         throw NSError(
-                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("61pbiukbwqwUckdPrWFluifrDG+XIZnDuqubQm3Il3qQ81KsB3G2Zy1veoBr"),
+                            domain: BlackWaterDecolorfusioning.JWIMETVADecreptString("61pbiukbwqwUckdPrWFluifrDG+XIZnDuqubQm3Il3qQ81KsB3G2Zy1veoBr"),
                             code: -101,
-                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("Bacho51OouJLbvRh4BXzarzrkjUdd71uqw5taEyLKoyfSAIv74O0kbpgLFx4NcIY02FFCR9nhxwr1g==")]
+                            userInfo: [NSLocalizedDescriptionKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("Bacho51OouJLbvRh4BXzarzrkjUdd71uqw5taEyLKoyfSAIv74O0kbpgLFx4NcIY02FFCR9nhxwr1g==")]
                         )
                     }
 
@@ -80,9 +81,9 @@ final class JWIMETVApurcase: NSObject {
                     
                     guard let FLORENICTargetAsset = FLORENICCatalog.first else {
                         throw NSError(
-                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
+                            domain: BlackWaterDecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -102,
-                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("ULac4CS/kmK99iXq9/WvuQUvf1oCVfsnOAgep2p3jZsfU4gcPEfnokmnI7lTssNbFccQ2X777g==")]
+                            userInfo: [NSLocalizedDescriptionKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("ULac4CS/kmK99iXq9/WvuQUvf1oCVfsnOAgep2p3jZsfU4gcPEfnokmnI7lTssNbFccQ2X777g==")]
                         )
                     }
 
@@ -100,9 +101,9 @@ final class JWIMETVApurcase: NSObject {
 
                     case .userCancelled:
                         throw NSError(
-                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
+                            domain: BlackWaterDecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -404,
-                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("jRvzNdVRvBJOtzyrQoBjX5p1Sx8hMh6/Iq9+DVJSorjM+gOYUppinaCx4dD/TSpYb1dhq4w0Zwx4mcU=")]
+                            userInfo: [NSLocalizedDescriptionKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("jRvzNdVRvBJOtzyrQoBjX5p1Sx8hMh6/Iq9+DVJSorjM+gOYUppinaCx4dD/TSpYb1dhq4w0Zwx4mcU=")]
                         )
 
                     case .pending:
@@ -110,9 +111,9 @@ final class JWIMETVApurcase: NSObject {
 
                     @unknown default:
                         throw NSError(
-                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
+                            domain: BlackWaterDecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -500,
-                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("0c9j3zhcZg8yAwsS0rvveRRiHku7TWxSYjSzEa1iPDdKUWhdDCweygazQ8TlEAbDnMQG0m50bLcK5A==")]
+                            userInfo: [NSLocalizedDescriptionKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("0c9j3zhcZg8yAwsS0rvveRRiHku7TWxSYjSzEa1iPDdKUWhdDCweygazQ8TlEAbDnMQG0m50bLcK5A==")]
                         )
                     }
 
@@ -132,7 +133,7 @@ final class JWIMETVApurcase: NSObject {
                 return FLORENICValidSafe
             }
         }
-    func JWIMETVARequestTrailEnrollment(JWIMETVATargetAsset: JWIMETVADiscoveryAsset) -> JWIMETVAccessStatus {
+    func JWIMETVARequestTrailEnrollment(JWIMETVATargetAsset: TirePressure) -> WheelChock {
             if self.JWIMETVAUnlockedDiscoveryIdentifiers.contains(JWIMETVATargetAsset.JWIMETVAAssetId) {
                 return .JWIMETVAGranted
             }
@@ -152,9 +153,9 @@ final class JWIMETVApurcase: NSObject {
         }
     
 }
-extension JWIMETVApurcase {
-    func JWIMETVACalculateBroadcastEnhancementCost(JWIMETVABaseComplexity: Double) -> Int {
-            let JWIMETVARawValue = JWIMETVABaseComplexity * self.JWIMETVAAdventureScaleFactor
+extension QaterPressure {
+    func CalculateBroadcastEnhancementCost(BasemurphyBedComplexity: Double) -> Int {
+            let JWIMETVARawValue = BasemurphyBedComplexity * self.JWIMETVAAdventureScaleFactor
             return Int(JWIMETVARawValue * Double(self.JWIMETVAMinExpeditionBuffer))
         }
     private func verify<T>(_ result: VerificationResult<T>) throws -> T {
@@ -165,13 +166,13 @@ extension JWIMETVApurcase {
             throw NSError(
                 domain: "JWIVLME",
                 code: -4,
-                userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("TkfsXwJilhYtvc9nY6DPtAqPkYD/ymkh8GwpSGYeFeJzQPr0WJ95e2wJqJcnrSkPfUzOsLGVeWy3nO/uMLDWqzLkP6+CeZRK").JWIMETVAtime]
+                userInfo: [NSLocalizedDescriptionKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("TkfsXwJilhYtvc9nY6DPtAqPkYD/ymkh8GwpSGYeFeJzQPr0WJ95e2wJqJcnrSkPfUzOsLGVeWy3nO/uMLDWqzLkP6+CeZRK").JWIMETVAtime]
             )
         }
     }
 }
 
-extension JWIMETVApurcase {
+extension QaterPressure {
     func JWIMETVAValidateAdventureReadiness(JWIMETVARequiredIntensity: Double) -> Bool {
             let JWIMETVAStrengthIndex = Double(self.JWIMETVAUserTotalMeritPoints) / 1000.0
             return JWIMETVAStrengthIndex >= JWIMETVARequiredIntensity

@@ -45,33 +45,33 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private lazy var JWIMETVAConfigTrigger: UIButton = {
         let JWIMETVAConfigTrigger = UIButton()
-        JWIMETVAConfigTrigger.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAset"), for: .normal)
+        JWIMETVAConfigTrigger.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAset"), for: .normal)
         JWIMETVAConfigTrigger.addTarget(self, action: #selector(JWIMETVAConfigTriggerTAggle), for: .touchUpInside)
         JWIMETVAConfigTrigger.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAConfigTrigger
     }()
     @objc func JWIMETVAConfigTriggerTAggle()  {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTravelMoodTag,JWIMErvNatureDrift:false)
+        let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: .JWIMErvTravelMoodTag,JWIMErvNatureDrift:false)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     private lazy var JWIMETVAWalletTrigger: UIButton = {
         let JWIMETVAWalletTrigger = UIButton()
-            JWIMETVAWalletTrigger.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAwall"), for: .normal)
+            JWIMETVAWalletTrigger.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAwall"), for: .normal)
         JWIMETVAWalletTrigger.addTarget(self, action: #selector(JWIMETVAWalletTriggerTAggle), for: .touchUpInside)
         JWIMETVAWalletTrigger.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAWalletTrigger
     }()
     
     @objc func JWIMETVAWalletTriggerTAggle()  {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvCabinJourneyFlow,JWIMErvNatureDrift:false)
+        let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: .JWIMErvCabinJourneyFlow,JWIMErvNatureDrift:false)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
     private let JWIMETVAPersonaName: UILabel = {
         let JWIMETVAPersonaName = UILabel()
-        JWIMETVAPersonaName.text = JWIMETVADecolorfusioning.JWIMETVADecreptString("2+ked/mLh/YMbD8HIgH5bZE/deokxqNxyJr0NxD2ttyflFUHrDtut32CsOqCaUAIjw==").JWIMETVAtime
+        JWIMETVAPersonaName.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("2+ked/mLh/YMbD8HIgH5bZE/deokxqNxyJr0NxD2ttyflFUHrDtut32CsOqCaUAIjw==").JWIMETVAtime
         JWIMETVAPersonaName.textColor = .white
         JWIMETVAPersonaName.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         JWIMETVAPersonaName.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +80,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVABioTeaser: UILabel = {
         let JWIMETVABioTeaser = UILabel()
-        JWIMETVABioTeaser.text = JWIMETVADecolorfusioning.JWIMETVADecreptString("kg+QcvbkNFkxzBX7udvHbxST9dTq/HixVSNWheztyxNqYhL6loJp2nfPoa5VhPrDyjqKmTta4mPJ61LsvXEavXq7xPAyYX/kcTJbnCMhIp38rqhHTzZxKg==") + " 😂😂😂"
+        JWIMETVABioTeaser.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("kg+QcvbkNFkxzBX7udvHbxST9dTq/HixVSNWheztyxNqYhL6loJp2nfPoa5VhPrDyjqKmTta4mPJ61LsvXEavXq7xPAyYX/kcTJbnCMhIp38rqhHTzZxKg==") + " 😂😂😂"
         JWIMETVABioTeaser.textColor = .systemPurple
         JWIMETVABioTeaser.font = UIFont.systemFont(ofSize: 14)
         JWIMETVABioTeaser.numberOfLines = 0
@@ -151,21 +151,21 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     private func synchronizeHollyTravelLogs() {
         let vanLogPath = "/jpbttvyvkifolhz/dwjee"
         let gearSafetyKey = "JWIMErvBugScreenPanel"
-        let manifestData = [gearSafetyKey: JWIMETVAuserView.JWIMErvWorkspaceFolding ?? 0]
+        let manifestData = [gearSafetyKey: laundryCombo.WorkspaceFolding ?? 0]
         
         let loadingSignal = "JWIMETVALoading....".JWIMETVAtime
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: loadingSignal)
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: loadingSignal)
         
         let dispatchRoute: (Any?) -> Void = { [weak self] expeditionData in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            ShieingWeightDistribution.JWIMETVAdismiss()
             guard let self = self, let journeyPayload = expeditionData as? [String: Any] else { return }
             self.calibrateCaravanDashboard(with: journeyPayload)
         }
 
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: vanLogPath, JWIMErvCargoSafetyLatch: manifestData) { result in
+        HitchReceiver.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: vanLogPath, JWIMErvCargoSafetyLatch: manifestData) { result in
             dispatchRoute(result)
         } JWIMErvHighAltitudeTune: { _ in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            ShieingWeightDistribution.JWIMETVAdismiss()
         }
     }
 
@@ -184,8 +184,8 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         
         let currentState = HollyDashboardState(
             auraSource: travelMetrics[visualKey] as? String,
-            personaLabel: travelMetrics[beaconKey] as? String ?? JWIMETVADecolorfusioning.JWIMETVADecreptString("7zVsGYFAuHLryC840f/md9pD0xdCFZWlM3jLIavJj+6ldgWcFLgthjKpbF9qng==").JWIMETVAtime,
-            bioSnippet: travelMetrics[beaconKey] as? String ?? JWIMETVADecolorfusioning.JWIMETVADecreptString("JyHBvBz60P/ySRJ54jkwHnfMWIHHJFvxr1wQCMsA0/+Uz3H2rnK0eypRO4oGijU0MQyvtQ==").JWIMETVAtime
+            personaLabel: travelMetrics[beaconKey] as? String ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("7zVsGYFAuHLryC840f/md9pD0xdCFZWlM3jLIavJj+6ldgWcFLgthjKpbF9qng==").JWIMETVAtime,
+            bioSnippet: travelMetrics[beaconKey] as? String ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("JyHBvBz60P/ySRJ54jkwHnfMWIHHJFvxr1wQCMsA0/+Uz3H2rnK0eypRO4oGijU0MQyvtQ==").JWIMETVAtime
         )
         
         if let aura = currentState.auraSource {
@@ -277,7 +277,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     }
 
     private func JWIMETVAPopulateMetrics() {
-        let JWIMETVAData = [("0", JWIMETVADecolorfusioning.JWIMETVADecreptString("Bv5cYR8uyXVXVd1QUnLMhGg0be4Nrpz/Dg/eG5bvza2OHcQMIr/bbQt44bmUCsTAcw==").JWIMETVAtime), ("0", JWIMETVADecolorfusioning.JWIMETVADecreptString("2i599NXV4nFZj97bOVBhz2ek3CphycaYc+U66QI4cvLAZjMNQ8pDHSkUMrA=").JWIMETVAtime), ("0", "JWIMETVAHistory".JWIMETVAtime)]
+        let JWIMETVAData = [("0", BlackWaterDecolorfusioning.JWIMETVADecreptString("Bv5cYR8uyXVXVd1QUnLMhGg0be4Nrpz/Dg/eG5bvza2OHcQMIr/bbQt44bmUCsTAcw==").JWIMETVAtime), ("0", BlackWaterDecolorfusioning.JWIMETVADecreptString("2i599NXV4nFZj97bOVBhz2ek3CphycaYc+U66QI4cvLAZjMNQ8pDHSkUMrA=").JWIMETVAtime), ("0", "JWIMETVAHistory".JWIMETVAtime)]
         for i in 0...(JWIMETVAData.count - 1) {
             let JWIMETVABox = UIStackView()
             JWIMETVABox.axis = .vertical
@@ -306,15 +306,15 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         self.launchCaravanNavigator(to: hollyRoute)
     }
 
-    private func decipherExpeditionCoordinate(with beaconID: Int) -> JWIMErvCabinYogaMat {
-        var travelPath = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
+    private func decipherExpeditionCoordinate(with beaconID: Int) -> NomadLife {
+        var travelPath = NomadLife.JWIMErvOpenRoadRhythm
         
         let routeSafetyCheck: (Int) -> Bool = { target in
             let protectedZones = [100, 101, 102]
             return protectedZones.contains(target)
         }
       
-        let coordinateMap: [Int: JWIMErvCabinYogaMat] = [
+        let coordinateMap: [Int: NomadLife] = [
             100: .JWIMErvHorizonChaser,
             101: .JWIMErvNomadSpirit,
             102: .JWIMErvCampfireMemory
@@ -327,9 +327,9 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         return travelPath
     }
 
-    private func launchCaravanNavigator(to destination: JWIMErvCabinYogaMat) {
+    private func launchCaravanNavigator(to destination: NomadLife) {
         struct HollyNavigationManifest {
-            var targetRoute: JWIMErvCabinYogaMat
+            var targetRoute: NomadLife
             var isDrifting: Bool
             var priorityPush: Bool
         }
@@ -340,7 +340,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
             priorityPush: true
         )
         
-        let pilotController = JWIMETVACreateStreamPilot.init(
+        let pilotController = GrayWaterCreatePilot.init(
             JWIMErvPathwayRhythm: currentManifest.targetRoute,
             JWIMErvNatureDrift: currentManifest.isDrifting
         )
@@ -358,7 +358,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         
         for JWIMETVAEntry in 0...2 {
             let JWIMETVABtnBase = UIButton.init()
-            JWIMETVABtnBase.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform:[JWIMETVADecolorfusioning.JWIMETVADecreptString("5xfX0AUnt6+NcYovfcV+NIHhl5elP3U/4Xv7jwLJCJAv3PlsxJ/c7sb/DG45YYU="),JWIMETVADecolorfusioning.JWIMETVADecreptString("rpeXacTbcmJ9olHhgkS2UBhMLtSSk14YwfCRa39FIk79qPvHwYa0RqN+g+QlyA=="),JWIMETVADecolorfusioning.JWIMETVADecreptString("23kraitPq6w5cvaK4rnKEp3F5bXT0xZbU2lHDt+DeGrHnpCJ32i+K0541OBJ")][JWIMETVAEntry] ), for: .normal)
+            JWIMETVABtnBase.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform:[BlackWaterDecolorfusioning.JWIMETVADecreptString("5xfX0AUnt6+NcYovfcV+NIHhl5elP3U/4Xv7jwLJCJAv3PlsxJ/c7sb/DG45YYU="),BlackWaterDecolorfusioning.JWIMETVADecreptString("rpeXacTbcmJ9olHhgkS2UBhMLtSSk14YwfCRa39FIk79qPvHwYa0RqN+g+QlyA=="),BlackWaterDecolorfusioning.JWIMETVADecreptString("23kraitPq6w5cvaK4rnKEp3F5bXT0xZbU2lHDt+DeGrHnpCJ32i+K0541OBJ")][JWIMETVAEntry] ), for: .normal)
             JWIMETVABtnBase.tag = 10000 + JWIMETVAEntry
             JWIMETVABtnBase.addTarget(self, action: #selector(JWIMETVAPopulateTAggle(JWIMETtap:)), for: .touchUpInside)
             JWIMETVAFuncGrid.addArrangedSubview(JWIMETVABtnBase)
@@ -372,10 +372,10 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         self.initiateCaravanDeployment(using: travelBlueprint)
     }
 
-    private func retrieveHollyExpeditionStrategy(for anchorID: Int) -> JWIMErvCabinYogaMat {
-        var determinedPath = JWIMErvCabinYogaMat.JWIMErvOpenRoadRhythm
+    private func retrieveHollyExpeditionStrategy(for anchorID: Int) -> NomadLife {
+        var determinedPath = NomadLife.JWIMErvOpenRoadRhythm
         
-        let hollyWaypoints: [Int: JWIMErvCabinYogaMat] = [
+        let hollyWaypoints: [Int: NomadLife] = [
             10000: .JWIMErvAdventureSignal,
             10001: .JWIMErvCabinHarmony,
             10002: .JWIMErvExplorerToolkit
@@ -395,9 +395,9 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         return determinedPath
     }
 
-    private func initiateCaravanDeployment(using logistics: JWIMErvCabinYogaMat) {
+    private func initiateCaravanDeployment(using logistics: NomadLife) {
         struct HollyPilotConfig {
-            var gearType: JWIMErvCabinYogaMat
+            var gearType: NomadLife
             var driftEnabled: Bool
             var transitionStyle: Bool
         }
@@ -408,7 +408,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
             transitionStyle: true
         )
         
-        let expeditionController = JWIMETVACreateStreamPilot.init(
+        let expeditionController = GrayWaterCreatePilot.init(
             JWIMErvPathwayRhythm: activeConfig.gearType,
             JWIMErvNatureDrift: activeConfig.driftEnabled
         )

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func inspectHollyCampingInventory() -> (isKitActive: Bool, travelTag: String) {
-        let portableKitStatus = JWIMETVAuserView.JWIMErvPortableDeskKit != nil
+        let portableKitStatus = laundryCombo.rvPortableDeskKit != nil
         let syncIdentifier = portableKitStatus ? "VAN_LIFE_ACTIVE" : "GUEST_EXPLORER"
         return (portableKitStatus, syncIdentifier)
     }
@@ -40,9 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let hollyAssembler: () -> UIViewController = {
             let gearManifest = context.isKitActive
             if gearManifest {
-                return JWIMETVATabBarAssembler()
+                return StabilizerPad()
             }
-            return JWIMETVALoginViewAssembler()
+            return BatteryLoginBankAssembler()
         }
         
         let activeConfig = HollyGearConfig(

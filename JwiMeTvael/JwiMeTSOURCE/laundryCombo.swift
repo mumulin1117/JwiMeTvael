@@ -1,5 +1,5 @@
 //
-//  laundryCombo.swift
+//  SequenceHollaundryCombo.swift
 //  JwiMeTvael
 //
 //  Created by JWIMETVA on 2025/12/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class laundryCombo: UICollectionViewCell {
+class SequenceHollaundryCombo: UICollectionViewCell {
     static var rvPortableDeskKit: String? {
         get { UserDefaults.standard.string(forKey: "creativeMood") }
         set { UserDefaults.standard.set(newValue, forKey: "creativeMood") }

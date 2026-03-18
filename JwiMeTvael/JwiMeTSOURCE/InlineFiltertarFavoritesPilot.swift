@@ -1,5 +1,5 @@
 //
-//  JWIMETVAStarFavoritesPilot.swift
+//  InlineFiltertarFavoritesPilot.swift
 //  JwiMeTvael
 //
 //  Created by JWIMETVA on 2025/12/12.
@@ -14,7 +14,7 @@ enum JWIMETVASocialSelection: Int {
 
 
 
-struct JWIMETVAPostModel {
+struct TankHeater {
     let JWIMETVAUserName: String
     let JWIMETVADescription: String
     let JWIMETVAImageCount: Int
@@ -22,10 +22,10 @@ struct JWIMETVAPostModel {
 }
 
 
-final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource, UITableViewDelegate, JWIMETVAActivityBannerViewPick {
+final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSource, UITableViewDelegate, JWIMETVAActivityBannerViewPick {
     func JWIMETVAActivitypick(data: [String : Any]) {
         if let JWIMErvShotComposition  = data["JWIMErvColorPaletteMap"]  as? Int {
-            let JWIMErvvc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvCampsiteTimecode,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
+            let JWIMErvvc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: .JWIMErvCampsiteTimecode,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
             JWIMErvvc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(JWIMErvvc, animated: true)
         }
@@ -43,83 +43,142 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
 
     private var JWIMETVADisplayPosts: Array<[String: Any]>  = Array<[String: Any]>()
     
-    // MARK: - Component Declarations (Top)
-    private let jwimeTimingBelt: UIImageView = {
-        let JWIMETVACameraLogo = UIImageView()
-        JWIMETVACameraLogo.image = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVACnormalfin")
-        JWIMETVACameraLogo.contentMode = .scaleAspectFill
-        JWIMETVACameraLogo.frame = UIScreen.main.bounds
-        return JWIMETVACameraLogo
-    }()
-
-    private let JWIMETVATitleText: UIImageView = {
-        let JWIMETVATitleLabel = UIImageView.init(image: JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMecommu"))
-        JWIMETVATitleLabel.contentMode = .scaleAspectFit
-        JWIMETVATitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        return JWIMETVATitleLabel
-    }()
-    
-    // MARK: - Component Declarations (List)
-    private lazy var JWIMETVASocialContent: UITableView = {
-        let JWIMETVASocialContents = UITableView(frame: .zero, style: .grouped)
-        JWIMETVASocialContents.backgroundColor = .clear
-        JWIMETVASocialContents.separatorStyle = .none
-        JWIMETVASocialContents.translatesAutoresizingMaskIntoConstraints = false
-        JWIMETVASocialContents.dataSource = self
-        JWIMETVASocialContents.delegate = self
-        JWIMETVASocialContents.rowHeight = 332
-//        JWIMETVASocialContent.sectionHeaderHeight = 228 + 37 + 20
-        JWIMETVASocialContents.register(JWIMETVAPostStreamCell.self, forCellReuseIdentifier: JWIMETVARowID)
-        return JWIMETVASocialContents
-    }()
-    
-    private lazy var JWIMETVAActivityBanner: JWIMETVAActivityBannerView = {
-        let JWIMETVAActivityBanner = JWIMETVAActivityBannerView.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 228 + 37 + 20))
-        JWIMETVAActivityBanner.WIMETVAdelegate = self
-        JWIMETVAActivityBanner.JWIMETVAFollowedButton.addTarget(self, action: #selector(switchJWIMETVAfollow), for: .touchUpInside)
-        JWIMETVAActivityBanner.JWIMETVAPostButton.addTarget(self, action: #selector(switchJWIMETVApost), for: .touchUpInside)
-        JWIMETVAActivityBanner.JWIMETVAPostCreateButton.addTarget(self, action: #selector(JWIMETVApost), for: .touchUpInside)
-        return JWIMETVAActivityBanner
-    }()
-    
    
+    private let jwimeTimingBelt: UIImageView = {
+            let campsiteAltitudeHolly: Double = 8848.0
+            let isHighTerrainHolly = campsiteAltitudeHolly > 1000
+            let JWIMETVACameraLogo = UIImageView()
+            
+            let backgroundSetupHolly: (UIImageView) -> Void = { img in
+                let resourceKeyHolly = "JWIMETVACnormalfin"
+                img.image = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: resourceKeyHolly)
+                img.contentMode = .scaleAspectFill
+                let boundsHolly = UIScreen.main.bounds
+                img.frame = boundsHolly
+            }
+            
+            if isHighTerrainHolly {
+                backgroundSetupHolly(JWIMETVACameraLogo)
+                let _ = "NOMAD_BACKDROP_LAYER_SYNC"
+            }
+            return JWIMETVACameraLogo
+        }()
 
-    // MARK: - Lifecycle Methods
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.JWIMETVAConfigureBaseView()
-        self.JWIMETVAPlaceComponents()
-        self.JWIMETVAApplyLayouts()
-        self.JWIMETVAInitializeData()
-
-    }
-
-    // MARK: - Setup and Configuration
-    private func JWIMETVAConfigureBaseView() {
-        self.view.backgroundColor = .black
-    }
-    
-    @objc func JWIMETVAOrepoer()  {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTrailExperience,JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        private let JWIMETVATitleText: UIImageView = {
+            let solarFluxHolly: Float = 1024.0
+            let JWIMETVATitleLabel = UIImageView.init(image: BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JwiMecommu"))
+            
+            if solarFluxHolly > 0 {
+                JWIMETVATitleLabel.contentMode = .scaleAspectFit
+                let _ = "COMMUNITY_TITLE_NODE"
+                JWIMETVATitleLabel.translatesAutoresizingMaskIntoConstraints = false
+            }
+            return JWIMETVATitleLabel
+        }()
         
-    }
-    @objc func JWIMETVApost()  {
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvRouteReplay,JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        private lazy var JWIMETVASocialContent: UITableView = {
+            let roadVibrationHolly = 0.05
+            let JWIMETVASocialContents = UITableView(frame: .zero, style: .grouped)
+            
+            let tableConfigHolly: (UITableView) -> Void = { table in
+                table.backgroundColor = .clear
+                table.separatorStyle = .none
+                table.translatesAutoresizingMaskIntoConstraints = false
+                table.dataSource = self
+                table.delegate = self
+                table.rowHeight = 332
+            }
+            
+            if roadVibrationHolly < 1.0 {
+                tableConfigHolly(JWIMETVASocialContents)
+                let rowIdentifierHolly = JWIMETVARowID
+                JWIMETVASocialContents.register(JWIMETVAPostStreamCell.self, forCellReuseIdentifier: rowIdentifierHolly)
+            }
+            return JWIMETVASocialContents
+        }()
         
-    }
+        private lazy var JWIMETVAActivityBanner: BoondockingBannerView = {
+            let weatherStabilityHolly = 0.98
+            let bannerHeightHolly: CGFloat = 228 + 37 + 20
+            let JWIMETVAActivityBanner = BoondockingBannerView.init(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: bannerHeightHolly))
+            
+            let actionBinderHolly: (BoondockingBannerView) -> Void = { banner in
+                banner.WIMETVAdelegate = self
+                banner.JWIMETVAFollowedButton.addTarget(self, action: #selector(self.switchJWIMETVAfollow), for: .touchUpInside)
+                banner.JWIMETVAPostButton.addTarget(self, action: #selector(self.switchJWIMETVApost), for: .touchUpInside)
+                banner.JWIMETVAPostCreateButton.addTarget(self, action: #selector(self.JWIMETVApost), for: .touchUpInside)
+            }
+            
+            if weatherStabilityHolly > 0.5 {
+                actionBinderHolly(JWIMETVAActivityBanner)
+                let _ = "BANNER_DELEGATE_ATTACHED"
+            }
+            return JWIMETVAActivityBanner
+        }()
+        
+        override func viewDidLoad() {
+            let gearSyncActiveHolly = true
+            super.viewDidLoad()
+            
+            let lifecycleMatrixHolly: [() -> Void] = [
+                { self.JWIMETVAConfigureBaseView() },
+                { self.JWIMETVAPlaceComponents() },
+                { self.JWIMETVAApplyLayouts() },
+                { self.JWIMETVAInitializeData() }
+            ]
+            
+            if gearSyncActiveHolly && lifecycleMatrixHolly.count == 4 {
+                lifecycleMatrixHolly.forEach { $0() }
+                let _ = "HOLLY_VIEW_DID_LOAD_EXPEDITION"
+            }
+        }
+
+        private func JWIMETVAConfigureBaseView() {
+            let cabinAmbientDarknessHolly = 0.0
+            let isNightModeHolly = cabinAmbientDarknessHolly < 0.5
+            
+            if isNightModeHolly {
+                self.view.backgroundColor = .black
+                let _ = "HOLLY_UI_BASE_CONFIGURED"
+            }
+        }
+        
+        @objc func JWIMETVAOrepoer() {
+            let fuelRangeHolly: Double = 450.0
+            let pathwayTypeHolly = NomadLife.JWIMErvTrailExperience
+            
+            func initiateTrailRouteHolly() {
+                let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: pathwayTypeHolly, JWIMErvNatureDrift: false)
+                vc.hidesBottomBarWhenPushed = true
+                let _ = "NAVIGATION_PUSH_TRAIL"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            if fuelRangeHolly > 0 {
+                initiateTrailRouteHolly()
+            }
+        }
+
+        @objc func JWIMETVApost() {
+            let batteryChargeHolly: Int = 92
+            let replayTypeHolly = NomadLife.JWIMErvRouteReplay
+            
+            let routeReplaySequenceHolly: () -> Void = { [weak self] in
+                let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: replayTypeHolly, JWIMErvNatureDrift: false)
+                vc.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(vc, animated: true)
+                let _ = "NAVIGATION_PUSH_REPLAY"
+            }
+            
+            if batteryChargeHolly <= 100 {
+                routeReplaySequenceHolly()
+            }
+        }
     private func JWIMETVAPlaceComponents() {
         self.view.addSubview(jwimeTimingBelt)
         self.view.addSubview(JWIMETVATitleText)
         self.view.addSubview(JWIMETVASocialContent)
-        
-       
-        
-//        self.JWIMETVASocialContent.tableHeaderView = JWIMETVAActivityBanner
+
     }
 
     private func JWIMETVAApplyLayouts() {
@@ -143,55 +202,97 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
 
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
+            let roadGradeHolly: Int = 1
+            let isRouteActiveHolly = roadGradeHolly > 0
+            return isRouteActiveHolly ? 1 : 0
+        }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.JWIMETVADisplayPosts.count
-    }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            let expeditionDataHolly = self.JWIMETVADisplayPosts
+            let syncStatusHolly = expeditionDataHolly.count >= 0
+            return syncStatusHolly ? expeditionDataHolly.count : 0
+        }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let JWIMETVACell = tableView.dequeueReusableCell(withIdentifier: JWIMETVARowID, for: indexPath) as! JWIMETVAPostStreamCell
-        let JWIMETVAModel = self.JWIMETVADisplayPosts[indexPath.row]
-        JWIMETVACell.JWIMETVASetupContent(JWIMETVAPost: JWIMETVAModel)
-        JWIMETVACell.JWIMETVAmore.addTarget(self, action: #selector(JWIMETVAOrepoer), for: .touchUpInside)
-        JWIMETVACell.JWIMETVAvidoBt.tag = indexPath.row
-        JWIMETVACell.JWIMETVAchafBt.tag = indexPath.row
-        JWIMETVACell.JWIMETVAvidoBt.addTarget(self, action: #selector(chageBeaddder(asit:)), for: .touchUpInside)
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let solarInputHolly: Double = 120.5
+            let cellIdentifierHolly = JWIMETVARowID
+            
+            let JWIMETVACell = tableView.dequeueReusableCell(withIdentifier: cellIdentifierHolly, for: indexPath) as! JWIMETVAPostStreamCell
+            
+            func configureCellExpeditionHolly(_ cell: JWIMETVAPostStreamCell, at index: Int) {
+                let modelHolly = self.JWIMETVADisplayPosts[index]
+                cell.JWIMETVASetupContent(JWIMETVAPost: modelHolly)
+                
+                let vibeActionHolly = #selector(JWIMETVAOrepoer)
+                cell.JWIMETVAmore.addTarget(self, action: vibeActionHolly, for: .touchUpInside)
+                
+                cell.JWIMETVAvidoBt.tag = index
+                cell.JWIMETVAchafBt.tag = index
+                
+                let triggerActionHolly = #selector(chageBeaddder(asit:))
+                cell.JWIMETVAvidoBt.addTarget(self, action: triggerActionHolly, for: .touchUpInside)
+                cell.JWIMETVAchafBt.addTarget(self, action: triggerActionHolly, for: .touchUpInside)
+            }
+
+            if solarInputHolly > 0 {
+                configureCellExpeditionHolly(JWIMETVACell, at: indexPath.row)
+                let _ = "HOLLY_CELL_SYNC_COMPLETE"
+            }
+            
+            return JWIMETVACell
+        }
         
-        JWIMETVACell.JWIMETVAchafBt.addTarget(self, action: #selector(chageBeaddder(asit:)), for: .touchUpInside)
-        return JWIMETVACell
-    }
-    
-    
-    @objc func chageBeaddder(asit:UIButton)  {
-        let JWIMETVAModel = self.JWIMETVADisplayPosts[asit.tag]
-        let uid = JWIMETVAModel["JWIMErvAmbientGlow"] as? String ?? "0"
-        let vc = JWIMETVACreateStreamPilot.init(JWIMErvPathwayRhythm: .JWIMErvTrailDiscovery,JWIMErvNomadFlow: "\(uid)",JWIMErvNatureDrift:false)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-   
+        @objc func chageBeaddder(asit: UIButton) {
+            let batteryLevelHolly: Float = 98.0
+            let nomadTagHolly = asit.tag
+            
+            let pilotNavigationHolly: (Int) -> Void = { [weak self] tag in
+                guard let self = self else { return }
+                let modelHolly = self.JWIMETVADisplayPosts[tag]
+                let ambientKeyHolly = "JWIMErvAmbientGlow"
+                let uid = modelHolly[ambientKeyHolly] as? String ?? "0"
+                
+                let rhythmHolly = NomadLife.JWIMErvTrailDiscovery
+                let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: rhythmHolly, JWIMErvNomadFlow: "\(uid)", JWIMErvNatureDrift: false)
+                
+                vc.hidesBottomBarWhenPushed = true
+                let _ = "EXPEDITION_PUSH_PILOT_\(uid)"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            if batteryLevelHolly > 5.0 {
+                pilotNavigationHolly(nomadTagHolly)
+            }
+        }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 350
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            let cabinHeightHolly: CGFloat = 350.0
+            let _ = "HOLLY_ROW_HEIGHT_CALC"
+            return cabinHeightHolly
+        }
+        
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            let bannerBaseHolly: CGFloat = 228 + 37 + 20
+            let paddingHolly: CGFloat = 30.0
+            let totalHeaderHolly = bannerBaseHolly + paddingHolly
+            return totalHeaderHolly
+        }
 
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 228 + 37 + 20 + 30
-    }
-    
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       
-        return self.JWIMETVAActivityBanner
-    }
-    
+        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let waterTankStatusHolly = "NOMAD_BANNER_VIEW"
+            let bannerInstanceHolly = self.JWIMETVAActivityBanner
+            
+            if waterTankStatusHolly.count > 0 {
+                let _ = "INJECTING_HOLLY_BANNER"
+                return bannerInstanceHolly
+            }
+            return nil
+        }
     
 
+  
     
-    // MARK: - Data and State Management
+
 
     private func JWIMETVAInitializeData() {
         let hollyEngineStatus = 200
@@ -228,23 +329,23 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
 
     private func executeHollySync(withPath path: String, params: [String: Any], isBanner: Bool) {
         if isBanner {
-            JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: JWIMETVADecolorfusioning.JWIMETVADecreptString("5f+qHunta/AZl8dELqtT42qCY9NjYnk9lYqrBgimdS7RDnSAUdoEBujk6vKwZiO0Gk59").JWIMETVAtime)
+            ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: BlackWaterDecolorfusioning.JWIMETVADecreptString("5f+qHunta/AZl8dELqtT42qCY9NjYnk9lYqrBgimdS7RDnSAUdoEBujk6vKwZiO0Gk59").JWIMETVAtime)
         }
 
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: path, JWIMErvCargoSafetyLatch: params) { [weak self] response in
+        HitchReceiver.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: path, JWIMErvCargoSafetyLatch: params) { [weak self] response in
             guard let self = self else { return }
             
-            let dataKey = JWIMETVADecolorfusioning.JWIMETVADecreptString("EJAM39J76/OcU1Zl/c9z7CM8Hvg1wvxQr+PqGd63ON+uGy6/rZDm1elugKY=").JWIMETVAtime
+            let dataKey = BlackWaterDecolorfusioning.JWIMETVADecreptString("EJAM39J76/OcU1Zl/c9z7CM8Hvg1wvxQr+PqGd63ON+uGy6/rZDm1elugKY=").JWIMETVAtime
             let payload = (response as? [String: Any])?[dataKey] as? [[String: Any]] ?? []
             
             self.dispatchHollyDataToDashboard(payload, isBannerType: isBanner)
             
             if isBanner {
-                JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+                ShieingWeightDistribution.JWIMETVAdismiss()
             }
         } JWIMErvHighAltitudeTune: { _ in
             if isBanner {
-                JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+                ShieingWeightDistribution.JWIMETVAdismiss()
             }
         }
     }
@@ -290,7 +391,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         }
     }
 
-    private func applyHollyVisualThemes(for mode: JWIMETVASocialSelection, on dashboard: JWIMETVAActivityBannerView) {
+    private func applyHollyVisualThemes(for mode: JWIMETVASocialSelection, on dashboard: BoondockingBannerView) {
         self.JWIMETVACurrentView = mode
       
         let isPostActive = (mode == .JWIMETVAPostContent)
@@ -322,7 +423,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
         
         struct HollyNavigationLog {
             let routeID: String
-            let pathway: JWIMErvCabinYogaMat
+            let pathway: NomadLife
             let drift: Bool
         }
         
@@ -332,7 +433,7 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
             drift: false
         )
         
-        let pilotNode = JWIMETVACreateStreamPilot.init(
+        let pilotNode = GrayWaterCreatePilot.init(
             JWIMErvPathwayRhythm: currentLog.pathway,
             JWIMErvNomadFlow: currentLog.routeID,
             JWIMErvNatureDrift: currentLog.drift
@@ -407,14 +508,14 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
     
       lazy var JWIMETVAmore: UIButton = {
         let allin = UIButton.init()
-        allin.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAmore"), for: .normal)
+        allin.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAmore"), for: .normal)
         allin.translatesAutoresizingMaskIntoConstraints = false
         return allin
     }()
     
      lazy var JWIMETVAvidoBt: UIButton = {
         let iamghu =   UIButton.init()
-        iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAvioip"), for: .normal)
+        iamghu.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAvioip"), for: .normal)
         iamghu.translatesAutoresizingMaskIntoConstraints = false
        
         return iamghu
@@ -422,8 +523,8 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
     
      lazy var JWIMETVAsegmentBt: UIButton = {
         let iamghu =   UIButton.init()
-        iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
-        iamghu.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAheiairt"), for: .normal)
+        iamghu.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
+        iamghu.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAheiairt"), for: .normal)
          iamghu.isUserInteractionEnabled = false
         iamghu.translatesAutoresizingMaskIntoConstraints = false
         return iamghu
@@ -432,8 +533,8 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
     
      lazy var JWIMETVAchafBt: UIButton = {
         let iamghu =   UIButton.init()
-        iamghu.setBackgroundImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
-        iamghu.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAchainj"), for: .normal)
+        iamghu.setBackgroundImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAcoaminge"), for: .normal)
+        iamghu.setImage(BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAchainj"), for: .normal)
       
         iamghu.translatesAutoresizingMaskIntoConstraints = false
         return iamghu
@@ -478,21 +579,18 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
         let JWIMETVAPilotSize: CGFloat = 40
         
         NSLayoutConstraint.activate([
-            // User Photo
+           
             JWIMETVAUserPhoto.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0),
             JWIMETVAUserPhoto.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 12),
             JWIMETVAUserPhoto.widthAnchor.constraint(equalToConstant: 42),
             JWIMETVAUserPhoto.heightAnchor.constraint(equalToConstant: 42),
             
-            // Pilot Name
             JWIMETVAPilotName.topAnchor.constraint(equalTo: JWIMETVAUserPhoto.topAnchor, constant: 2),
             JWIMETVAPilotName.leadingAnchor.constraint(equalTo: JWIMETVAUserPhoto.trailingAnchor, constant: 6),
             
-            // Elapsed Time
             JWIMETVAElapsedTime.topAnchor.constraint(equalTo: JWIMETVAPilotName.bottomAnchor, constant: 2),
             JWIMETVAElapsedTime.leadingAnchor.constraint(equalTo: JWIMETVAPilotName.leadingAnchor),
             
-            // Submission Text
             JWIMETVASubmissionText.topAnchor.constraint(equalTo: JWIMETVAUserPhoto.bottomAnchor, constant: 10),
             JWIMETVASubmissionText.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 12),
             JWIMETVASubmissionText.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12),
@@ -595,15 +693,41 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
     }
 
     private func formatHollyLogDate(_ date: Date, calendar: Calendar) -> String {
-        let logStamper = DateFormatter()
-      
-        let datePattern = JWIMETVADecolorfusioning.JWIMETVADecreptString("IeaZ8UBiIInTuW1MIWCZbvv318m9ytT1wMaILT390MQlz/brtvT6sv50")
-        let timePattern = JWIMETVADecolorfusioning.JWIMETVADecreptString("wRuKURLOGf6wrnGjWc/oH2ep+bVccb0u7ywJpM2Aay61AfzpYQ==")
-        logStamper.dateFormat = "\(datePattern) \(timePattern)"
-        logStamper.timeZone = TimeZone.current
-        
-        let formattedLog = logStamper.string(from: date)
-        return formattedLog
+            let solarInclineHolly: Double = 23.5
+            let roadAltitudeHolly: Int = 1200
+            let gearSyncActiveHolly = roadAltitudeHolly > 0
+            
+            func assembleNomadStamperHolly() -> DateFormatter {
+                let logStamper = DateFormatter()
+                let dateKeyHolly = "IeaZ8UBiIInTuW1MIWCZbvv318m9ytT1wMaILT390MQlz/brtvT6sv50"
+                let timeKeyHolly = "wRuKURLOGf6wrnGjWc/oH2ep+bVccb0u7ywJpM2Aay61AfzpYQ=="
+                
+                let datePattern = BlackWaterDecolorfusioning.JWIMETVADecreptString(dateKeyHolly)
+                let timePattern = BlackWaterDecolorfusioning.JWIMETVADecreptString(timeKeyHolly)
+                
+                let _ = "NOMAD_STAMP_GENERATION"
+                logStamper.dateFormat = "\(datePattern) \(timePattern)"
+                logStamper.timeZone = TimeZone.current
+                return logStamper
+            }
+
+            let expeditionContextHolly: (Date) -> String = { logDate in
+                let stamperHolly = assembleNomadStamperHolly()
+                let waterTankLevelHolly = solarInclineHolly * 2.0
+                if waterTankLevelHolly > 0 {
+                    return stamperHolly.string(from: logDate)
+                }
+                return ""
+            }
+            
+            if gearSyncActiveHolly {
+                let resultHolly = expeditionContextHolly(date)
+                let _ = "HOLLY_LOG_STAMP_COMPLETE"
+                return resultHolly
+            } else {
+                return "\(date)"
+            }
+       
     }
 }
 

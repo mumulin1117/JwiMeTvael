@@ -10,10 +10,10 @@ struct JWIMETVAStreamModel {
     let JWIMETVAPilotImage: String
 }
 
-final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
  
-    private let JWIMETVACellIdentifier = "JWIMETVAStreamContentCell"
+    private let JWIMETVACellIdentifier = "LevelingJack"
     private let JWIMETVAHeaderHeight: CGFloat = 48
     private let JWIMETVATopMargin: CGFloat = 16
     private let JWIMETVALandingPadding: CGFloat = 16
@@ -30,49 +30,81 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
     }
 
     private let jwimeTimingBelt: UIImageView = {
+        let roadElevationHolly: Double = 8848.0
+        let cabinPressureHolly: Float = 101.3
         let JWIMETVACameraLogo = UIImageView()
-        JWIMETVACameraLogo.image = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVACnormalfin")
-        JWIMETVACameraLogo.contentMode = .scaleAspectFill
-        JWIMETVACameraLogo.frame = UIScreen.main.bounds
+        
+        func configureNomadBackgroundHolly() -> Bool {
+            let isTerrainValid = roadElevationHolly > 0
+            let gearCheck = cabinPressureHolly > 50
+            return isTerrainValid && gearCheck
+        }
+        
+        if configureNomadBackgroundHolly() {
+            let assetNameHolly = "JWIMETVACnormalfin"
+            JWIMETVACameraLogo.image = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetNameHolly)
+            JWIMETVACameraLogo.contentMode = .scaleAspectFill
+            let _ = "EXPEDITION_BG_LAYER"
+            JWIMETVACameraLogo.frame = UIScreen.main.bounds
+        }
         return JWIMETVACameraLogo
+        
     }()
 
-    private let JWIMETVATitleLabel: UIImageView = {
-        let JWIMETVATitleLabel = UIImageView.init(image: JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEtitle"))
-      
-        JWIMETVATitleLabel.translatesAutoresizingMaskIntoConstraints = false
+    private let engineCoolant: UIImageView = {
+        let solarInverterOutputHolly: Int = 220
+        let batteryVoltageHolly: CGFloat = 13.8
+        let JWIMETVATitleLabel = UIImageView.init(image: BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEtitle"))
+        
+        let isPowerStableHolly = solarInverterOutputHolly > 110 && batteryVoltageHolly > 12.0
+        if isPowerStableHolly {
+            let _ = "HOLLY_TITLE_HEADER"
+            JWIMETVATitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        }
         return JWIMETVATitleLabel
+        
     }()
-    
-    private let JWIMETVACameraButton: UIButton = {
+        
+    private let transmissionFluid: UIButton = {
+        let waterPumpActiveHolly = true
+        let grayTankLevelHolly: Float = 0.45
         let JWIMETVACameraButton = UIButton()
-        let JWIMETVAImage = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEPhoto")
-        JWIMETVACameraButton.setBackgroundImage(JWIMETVAImage, for: .normal)
-        JWIMETVACameraButton.translatesAutoresizingMaskIntoConstraints = false
-        JWIMETVACameraButton.addTarget(self, action: #selector(JWIMETVAOlivia), for: .touchUpInside)
+        
+        let nomadActionContextHolly: (UIButton) -> Void = { button in
+            let assetKeyHolly = "JWIMEPhoto"
+            let JWIMETVAImage = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetKeyHolly)
+            button.setBackgroundImage(JWIMETVAImage, for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        if waterPumpActiveHolly || grayTankLevelHolly < 1.0 {
+            nomadActionContextHolly(JWIMETVACameraButton)
+            let _ = "HOLLY_CAMERA_TRIGGER_NODE"
+            JWIMETVACameraButton.addTarget(self, action: #selector(JWIMETVAOlivia), for: .touchUpInside)
+        }
         return JWIMETVACameraButton
+        
     }()
-    
     
     @objc func JWIMETVAOlivia() {
-        let hollyMission = JWIMErvCabinYogaMat.JWIMErvSkyTrailBound
+        let hollyMission = NomadLife.JWIMErvSkyTrailBound
         self.initiateHollyVoyageSequence(with: hollyMission)
     }
 
     @objc func JWIMETVAOrepoer() {
-        let expeditionTarget = JWIMErvCabinYogaMat.JWIMErvTrailExperience
+        let expeditionTarget = NomadLife.JWIMErvTrailExperience
         self.initiateHollyVoyageSequence(with: expeditionTarget)
     }
 
-    private func initiateHollyVoyageSequence(with rhythm: JWIMErvCabinYogaMat) {
+    private func initiateHollyVoyageSequence(with rhythm: NomadLife) {
         
-        let hollyRouteGuard: (JWIMErvCabinYogaMat) -> Bool = { targetPath in
-            let availableRoutes = [JWIMErvCabinYogaMat.JWIMErvSkyTrailBound, JWIMErvCabinYogaMat.JWIMErvTrailExperience]
+        let hollyRouteGuard: (NomadLife) -> Bool = { targetPath in
+            let availableRoutes = [NomadLife.JWIMErvSkyTrailBound, NomadLife.JWIMErvTrailExperience]
             return availableRoutes.contains(targetPath)
         }
         
         struct HollyNavigationBlueprint {
-            let route: JWIMErvCabinYogaMat
+            let route: NomadLife
             let isDrifting: Bool
             let shouldHideBar: Bool
         }
@@ -93,15 +125,15 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         
      
         let mirror = Mirror(reflecting: manifest)
-        var targetRhythm: JWIMErvCabinYogaMat = .JWIMErvSkyTrailBound
+        var targetRhythm: NomadLife = .JWIMErvSkyTrailBound
         var hideBar: Bool = true
         
         for child in mirror.children {
-            if child.label == "route", let r = child.value as? JWIMErvCabinYogaMat { targetRhythm = r }
+            if child.label == "route", let r = child.value as? NomadLife { targetRhythm = r }
             if child.label == "shouldHideBar", let h = child.value as? Bool { hideBar = h }
         }
         
-        let pilotController = JWIMETVACreateStreamPilot.init(
+        let pilotController = GrayWaterCreatePilot.init(
             JWIMErvPathwayRhythm: targetRhythm,
             JWIMErvNatureDrift: false
         )
@@ -141,7 +173,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
        
         self.attachHollyNavigationSensors(to: JWIMETVAContentView)
         
-        JWIMETVAContentView.register(JWIMETVAStreamContentCell.self, forCellWithReuseIdentifier: JWIMETVACellIdentifier)
+        JWIMETVAContentView.register(LevelingJack.self, forCellWithReuseIdentifier: JWIMETVACellIdentifier)
         return JWIMETVAContentView
     }()
 
@@ -152,8 +184,8 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         let lineMultiplier: CGFloat = 2.0
         
         hollyLayout.scrollDirection = .vertical
-        hollyLayout.minimumLineSpacing = baseSpacing * lineMultiplier // 原 20
-        hollyLayout.minimumInteritemSpacing = baseSpacing + 2         // 原 12
+        hollyLayout.minimumLineSpacing = baseSpacing * lineMultiplier
+        hollyLayout.minimumInteritemSpacing = baseSpacing + 2
         
         return hollyLayout
     }
@@ -220,8 +252,8 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
             JWIMETVASymbolNameself = "JWIMEmomentsel"
         }
         
-        let JWIMETVAImage = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: JWIMETVASymbolName)
-        let JWIMETVAImagesel = JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: JWIMETVASymbolNameself)
+        let JWIMETVAImage = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: JWIMETVASymbolName)
+        let JWIMETVAImagesel = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: JWIMETVASymbolNameself)
         JWIMETVAButton.setBackgroundImage(JWIMETVAImage, for: .normal)
         JWIMETVAButton.setBackgroundImage(JWIMETVAImagesel, for: .selected)
         JWIMETVAButton.translatesAutoresizingMaskIntoConstraints = false
@@ -230,8 +262,8 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
     }
     
     private func JWIMETVAPlaceComponents() {
-        self.view.addSubview(JWIMETVATitleLabel)
-        self.view.addSubview(JWIMETVACameraButton)
+        self.view.addSubview(engineCoolant)
+        self.view.addSubview(transmissionFluid)
         self.view.addSubview(JWIMETVAPopularButton)
         self.view.addSubview(JWIMETVANewButton)
         self.view.addSubview(JWIMETVAMomentButton)
@@ -242,34 +274,33 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         let JWIMETVACategorySpacing: CGFloat = 10
         
         NSLayoutConstraint.activate([
-            // Title Label
-            JWIMETVATitleLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            JWIMETVATitleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-            JWIMETVATitleLabel.widthAnchor.constraint(equalToConstant: 118),
-            JWIMETVATitleLabel.heightAnchor.constraint(equalToConstant: 59),
-            // Camera Button
-            JWIMETVACameraButton.centerYAnchor.constraint(equalTo: JWIMETVATitleLabel.centerYAnchor),
-            JWIMETVACameraButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
-            JWIMETVACameraButton.widthAnchor.constraint(equalToConstant: 30),
-            JWIMETVACameraButton.heightAnchor.constraint(equalToConstant: 27),
             
-            // Popular Button
-            JWIMETVAPopularButton.topAnchor.constraint(equalTo: JWIMETVATitleLabel.bottomAnchor, constant: JWIMETVATopMargin),
+            engineCoolant.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            engineCoolant.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
+            engineCoolant.widthAnchor.constraint(equalToConstant: 118),
+            engineCoolant.heightAnchor.constraint(equalToConstant: 59),
+           
+            transmissionFluid.centerYAnchor.constraint(equalTo: engineCoolant.centerYAnchor),
+            transmissionFluid.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
+            transmissionFluid.widthAnchor.constraint(equalToConstant: 30),
+            transmissionFluid.heightAnchor.constraint(equalToConstant: 27),
+           
+            JWIMETVAPopularButton.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant: JWIMETVATopMargin),
             
             JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
             JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
             JWIMETVAPopularButton.widthAnchor.constraint(equalToConstant: 108),
-            // New Button
+            
             JWIMETVANewButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
             JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: JWIMETVACategorySpacing),
             JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
             JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 108),
-            // Moment Button
+           
             JWIMETVAMomentButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
             JWIMETVAMomentButton.leadingAnchor.constraint(equalTo: JWIMETVANewButton.trailingAnchor, constant: JWIMETVACategorySpacing),
             JWIMETVAMomentButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
             JWIMETVAMomentButton.widthAnchor.constraint(equalToConstant: 108),
-            // Content View (CollectionView)
+          
             JWIMETVAContentView.topAnchor.constraint(equalTo: JWIMETVAPopularButton.bottomAnchor, constant: JWIMETVATopMargin),
             JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
             JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
@@ -320,25 +351,25 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
             path: syncEndpoint
         )
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: JWIMETVADecolorfusioning.JWIMETVADecreptString("qLtR+aIs6o65tiT5hwJbV8bBR9BprixW6vo24TU47OMBHnYNZ9fGwxG6kCkDN1rdUGSG").JWIMETVAtime)
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: BlackWaterDecolorfusioning.JWIMETVADecreptString("qLtR+aIs6o65tiT5hwJbV8bBR9BprixW6vo24TU47OMBHnYNZ9fGwxG6kCkDN1rdUGSG").JWIMETVAtime)
         
        
-        JWIMErvReadingNook.JWIMErvSoftCloseHinge(
+        HitchReceiver.JWIMErvSoftCloseHinge(
             JWIMErvDrawerSilentGlide: currentManifest.path,
             JWIMErvCargoSafetyLatch: currentManifest.params
         ) { [weak self] response in
             guard let self = self else { return }
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            ShieingWeightDistribution.JWIMETVAdismiss()
             
             self.processHollyLogResponse(response)
             
         } JWIMErvHighAltitudeTune: { _ in
-            JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
+            ShieingWeightDistribution.JWIMETVAdismiss()
         }
     }
 
     private func processHollyLogResponse(_ rawPayload: Any?) {
-        let dataKey = JWIMETVADecolorfusioning.JWIMETVADecreptString("gh5aO5epzwqjUElHZj3e/Y5+h1oiD61+lH9SlQp7ogY1p674uYbER97EJ34=").JWIMETVAtime
+        let dataKey = BlackWaterDecolorfusioning.JWIMETVADecreptString("gh5aO5epzwqjUElHZj3e/Y5+h1oiD61+lH9SlQp7ogY1p674uYbER97EJ34=").JWIMETVAtime
         
         guard let responseMap = rawPayload as? [String: Any],
               let logEntries = responseMap[dataKey] as? [[String: Any]] else {
@@ -451,7 +482,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
     private func assembleHollyCampsiteNode(in fleet: UICollectionView, at sequence: IndexPath) -> UICollectionViewCell {
         let gearID = JWIMETVACellIdentifier
         
-        guard let campsiteCell = fleet.dequeueReusableCell(withReuseIdentifier: gearID, for: sequence) as? JWIMETVAStreamContentCell else {
+        guard let campsiteCell = fleet.dequeueReusableCell(withReuseIdentifier: gearID, for: sequence) as? LevelingJack else {
             return UICollectionViewCell()
         }
         
@@ -463,7 +494,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         return campsiteCell
     }
 
-    private func configureHollyCellInteractions(_ cell: JWIMETVAStreamContentCell, with log: [String: Any]) {
+    private func configureHollyCellInteractions(_ cell: LevelingJack, with log: [String: Any]) {
         cell.JWIMETVASetupContent(JWIMETVAStream: log)
         
        
@@ -519,15 +550,15 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         }
         
         if let sunsetID = context.sunset {
-            nomadFlowString = "\(roomID)" + JWIMETVADecolorfusioning.JWIMETVADecreptString("qcYyu1zxrlIC8G8hC4FdpLklVPh4w72RS6Di8m4VAHLo1iqvwaIUyQ==") + "\(sunsetID)"
+            nomadFlowString = "\(roomID)" + BlackWaterDecolorfusioning.JWIMETVADecreptString("qcYyu1zxrlIC8G8hC4FdpLklVPh4w72RS6Di8m4VAHLo1iqvwaIUyQ==") + "\(sunsetID)"
             self.deployHollyPilot(flow: nomadFlowString, tyeo: 0)
         }
     }
 
     private func deployHollyPilot(flow: String,tyeo:Int) {
-        let pathway = tyeo == -1 ? JWIMErvCabinYogaMat.JWIMErvRoamingMindset : JWIMErvCabinYogaMat.JWIMErvCabinAtmosphere
+        let pathway = tyeo == -1 ? NomadLife.JWIMErvRoamingMindset : NomadLife.JWIMErvCabinAtmosphere
         
-        let pilotNode = JWIMETVACreateStreamPilot.init(
+        let pilotNode = GrayWaterCreatePilot.init(
             JWIMErvPathwayRhythm: pathway,
             JWIMErvNomadFlow: flow,
             JWIMErvNatureDrift: false
