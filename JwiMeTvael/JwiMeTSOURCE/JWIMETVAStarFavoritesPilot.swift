@@ -228,13 +228,13 @@ final class JWIMETVAStarFavoritesPilot: UIViewController, UITableViewDataSource,
 
     private func executeHollySync(withPath path: String, params: [String: Any], isBanner: Bool) {
         if isBanner {
-            JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
+            JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: JWIMETVADecolorfusioning.JWIMETVADecreptString("5f+qHunta/AZl8dELqtT42qCY9NjYnk9lYqrBgimdS7RDnSAUdoEBujk6vKwZiO0Gk59").JWIMETVAtime)
         }
 
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: path, JWIMErvCargoSafetyLatch: params) { [weak self] response in
             guard let self = self else { return }
             
-            let dataKey = "JWIMETVAdata".JWIMETVAtime
+            let dataKey = JWIMETVADecolorfusioning.JWIMETVADecreptString("EJAM39J76/OcU1Zl/c9z7CM8Hvg1wvxQr+PqGd63ON+uGy6/rZDm1elugKY=").JWIMETVAtime
             let payload = (response as? [String: Any])?[dataKey] as? [[String: Any]] ?? []
             
             self.dispatchHollyDataToDashboard(payload, isBannerType: isBanner)
@@ -597,8 +597,8 @@ final class JWIMETVAPostStreamCell: UITableViewCell {
     private func formatHollyLogDate(_ date: Date, calendar: Calendar) -> String {
         let logStamper = DateFormatter()
       
-        let datePattern = "yyyy-MM-dd"
-        let timePattern = "HH:mm"
+        let datePattern = JWIMETVADecolorfusioning.JWIMETVADecreptString("IeaZ8UBiIInTuW1MIWCZbvv318m9ytT1wMaILT390MQlz/brtvT6sv50")
+        let timePattern = JWIMETVADecolorfusioning.JWIMETVADecreptString("wRuKURLOGf6wrnGjWc/oH2ep+bVccb0u7ywJpM2Aay61AfzpYQ==")
         logStamper.dateFormat = "\(datePattern) \(timePattern)"
         logStamper.timeZone = TimeZone.current
         

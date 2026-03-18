@@ -7,34 +7,34 @@
 
 import UIKit
 enum JWIMErvCabinYogaMat: String {
-    case FLORENICVantagePoint = "JWIMETVAdiscovery/vantage/view"
-    case FLORENICEchoCanyon = "JWIMETVAcommunity/echo/reverb"
-    case FLORENICStarlightPath = "JWIMETVAnavigation/celestial/track"
-    case JWIMErvSkyTrailBound = "JWIMETVApages/CreateJWIMETVARoom/index?"
-    case JWIMErvCabinVision = "JWIMETVApages/JoinLiveJWIMETVARoom/index?channel=&"
-    case JWIMErvCabinAtmosphere = "JWIMETVApages/LiveJWIMETVARoomRest/index?liveId="
-    case JWIMErvRoamingMindset = "JWIMETVApages/LiveRoomJWIMETVAVideo/index?liveId="
-    case JWIMErvTrailDiscovery = "JWIMETVApages/privateJWIMETVAChat/index?userId="
-    case JWIMErvCabinJourneyFlow = "JWIMETVApages/MineJWIMETVACenter/index?"
-    case JWIMErvHorizonChaser = "JWIMETVApages/JWIMETVAAttentionMy/index?"
-    case JWIMErvOpenRoadRhythm = "JWIMETVApages/JWIMETVAConcerned/index?"
-    case JWIMErvNomadSpirit = "JWIMETVApages/MyJWIMETVAPost/index?"
-    case JWIMErvFreedomJourney = "JWIMETVApages/PostJWIMETVADetails/index?dynamicId="
-    case JWIMErvRouteHarmony = "JWIMETVApages/homepageJWIMETVA/index?userId="
-    case JWIMErvCampfireMemory = "JWIMETVApages/LiveJWIMETVAHistory/index?"
-    case JWIMErvTrailExperience = "JWIMETVApages/reportJWIMETVA/index?"
-    case JWIMErvCabinHarmony = "JWIMETVApages/MyJWIMETVAGoods/index?"
-    case JWIMErvAdventureSignal = "JWIMETVApages/MyJWIMETVAAddress/index?"
-    case JWIMErvExplorerToolkit = "JWIMETVApages/MyJWIMETVAOrder/index?"
-    case JWIMErvJourneyEssentials = "JWIMETVApages/CreateJWIMETVAPost/index?"
-    case JWIMErvTravelMoodTag = "JWIMETVApages/JWIMETVASetting/index?"
-    case JWIMErvCabinInsight = "JWIMETVApages/EditJWIMETVAData/index?"
-    case JWIMErvWildlandChronicle = "JWIMETVApages/JWIMETVAAgreement/index?type=1&"
-    case JWIMErvAdventureLogbook = "JWIMETVApages/JWIMETVAAgreement/index?type=2&"
-    case JWIMErvCampsiteTimecode = "JWIMETVApages/JWIMETVAActiveDetails/index?activityId="
-    case JWIMErvRouteReplay = "JWIMETVApages/CreateJWIMETVAActive/index?"
-    case JWIMErvJourneyPlanner = "JWIMETVApages/myJWIMETVAActivities/index?"
-    case JWIMErvCabinTimekeeper = "JWIMETVA"
+    case FLORENICVantagePoint = "rIInp3aZAvTT7o8Zr6BVqfTxMqpZx+yREKrHXzkjXhnDYHUN73u0ZIL4dOq7qjkIfE3OeqqPr0v/25eK0F4="
+    case FLORENICEchoCanyon = "j03pyvrqqm3amMp+pXpwkPO5sjMbwRRdwhqm+dHQVvEsijLcVtWC23f7g2HyNgsCeHoRcELL5dZytFJTUg=="
+    case FLORENICStarlightPath = "Ex2Jn/5pMzC77Pze5jfT4GeGwx67wIwTedZw9Ms6+JWyuJjlE3jKCnmsRiaqrjOJqKs4trw39V/lcvJ2DuM9pkDp"
+    case JWIMErvSkyTrailBound = "9kP3MOgp2fQV6zgdSMPWDaB/1gZU1d5yBfoFhRK0yKOdP5de/JzPKCKceYGvCmx8BWU/cVBtDqcNwkCo/xv4JuWEQqhZYWs="
+    case JWIMErvCabinVision = "TIB5l3AjL8z6racUZpQM6XHWSaFog6OnBp8BFQvZu1fu0cSvCjSSvxmyCWZX7W6d3dTxQsJNnCFv9EX31pDcs+icI0GdqTHpuDR3Kk2cJPAqTA=="
+    case JWIMErvCabinAtmosphere = "DehJd3GnOMLz6+i2wT11gtoqOvBl9iLfKxrPccZXUdmjzEsploFT5cgC3q9g+IJVw0A2NCb20i71zodxA2nQMwKNiHQznr+n+wrb/MjMHM0="
+    case JWIMErvRoamingMindset = "53ebcWNDZyiiC+33+CbimoMoWjf4Rv3uroNtwAXhUFBlmpWF64GbID0YOkD+ZKJgHDpXd3k1ef++Kb/Su+uxd8t5VfsPpxj1oxx4FLzh2SsU"
+    case JWIMErvTrailDiscovery = "bwC+6rsIt4sjuqHSf6jUKYBAsBrbJRjhnIByGJVW+olRzp9JfZjTM1vtUxLB8mujj2CtvK2GSrlhKrwdcSZ0+3Ulp24JgLYFhjcAIxoJfA=="
+    case JWIMErvCabinJourneyFlow = "Vxj2hBYfkbPiOeqbOvinh61sHzcSjq96xNfKsf6RW4X/CkDpTD4wrvZtTdvf0vwApZRbFDpr6+nCjOfezUout7YFlDR/tuI="
+    case JWIMErvHorizonChaser = "eGLZL88FrzCmb1uIAYhM7jlxVfoo/gYWWHijonGiIeJ+nQi0IacybdmurWaGniT763SqTXlhLj26XXJ3HIgdO/+3z9B+VAoL"
+    case JWIMErvOpenRoadRhythm = "yVg1q+gLS9TPhHe9PBL6yRe0sxLL9xl9v15/JJBppMiBpTiwsAHuhgEkUdBrTYA6Y6JumYOPPfiTyEMiuNtAZfGA5u+Buw=="
+    case JWIMErvNomadSpirit = "i3LerIERu1DiK8/qF0+/gqLIpJ1PePvuE5ji6nbGUJnVvRX75J9SdRVpa3JnmDio+GN1rHQ1AO7AOoYvt+bV375cRA=="
+    case JWIMErvFreedomJourney = "yrq7tvX6PMC4Iq81mtnamjOxkBmViQbrvo4pAx0hKpaWAdUd+0AZrO5c+4xS3jSJ+UmybtafJtq/IDigQcPUgppz+WgHj/ldM2b2EkLwSrf1Rg=="
+    case JWIMErvRouteHarmony = "V2Q/jEBvH6kogLFNW2sQAXBeBZ/Hna+wP9KeWTWaoN/am1OWJUUeRKwGvQvq+sceEwBr4KvLnWnuc612ORDhVMmuOLa12n7/NmOe+A=="
+    case JWIMErvCampfireMemory = "8XC26rc/Niqjrnumk1NbHCdjyDE08HZPKG6R1uMZ9t3BuExt0LgDIIylzYNaKv4AucwFfu0KPG6ZM2a/3gNX6wx6gVJPqOZ0"
+    case JWIMErvTrailExperience = "J1cGa1xQ2an+R96eecHsd1M5tZIG5636oYX7s3l4MsUanhdjpwRwxOwJkN/dY1Gzebr0Bv5AjtztT0EJcuAOIV3YzA=="
+    case JWIMErvCabinHarmony = "8j4lwid9UArfHLvKLFOsgbTlTOnnFy5yynwerLYUDf9UXBjRAKw6yDVRkOD86MG/+GQfzVkFG8vBtO+1qc4A9+64kag="
+    case JWIMErvAdventureSignal = "YA0ab/C3zguNRQSpifIdvaR+hsjmunbH+16E8gYANEzJ5l5XoU/nII4YDuYpnIIDJ26UETrb8rgySw7768rAYhAs12FZpw=="
+    case JWIMErvExplorerToolkit = "8aIHkZQgItOi1gVUY5qqXRBSS636dbgAkwN3SGLrNiVu6yqLwKJohmSPbEn2PuWK4s3bJrkrmOVketNMDIleylEyRjI="
+    case JWIMErvJourneyEssentials = "KOpjotL5FKo4h+HZoCjMpZ4hDD1Wn8B7wY8dBctUtpx65BuPMq71/hpcr/FT7b3yG/XO2ZsEQEIq5hg5AbGtJ8fsqvQdwj8="
+    case JWIMErvTravelMoodTag = "JQns2VmDnRv00jNRFfJQ4HlxFk2XR+jeembwHlxl0tUYPBaWWibLguio/hFmlOx6clwf8D+lB6a00Zblry5H9Svrtr0="
+    case JWIMErvCabinInsight = "yMUF6SNbsUQDjzKdILvVumIvJb9G96T/KSBp93bS0fiSxJH5h+2w71QUOu6Jx0YcMuM1x89UbqajAdTvH9mNv9u9upLU"
+    case JWIMErvWildlandChronicle = "rR69QsVCkxCnl9jN3Ugy8BBFjlHgI/kWIxy/QAsNElAPobPisuUORz5vBMmhs1X/Q1B6lQ01Yr9ZoXv6dz1Rzqb/Nxa4eR57OHXljjQ="
+    case JWIMErvAdventureLogbook = "YjpFOAxzJiIMRIN+Zk9z7BDNwLsY3yEtP7z9U9O4er+KC56iHqdHoPiHg13PrJuV29TLQ4NVbhLMlDbAYmW71tf7VIcBHQrJqt3JI+A="
+    case JWIMErvCampsiteTimecode = "oHU4xorCsfDVb5qhF4kjaNgi3RqT83wiqvq9t8W0cTzUrnOcnInSTJnimwunuJ0PUUcBsYlKEGt4UwXZAjVHC9yol3yFnRsyArZlOlRZu0NjcZTdmw=="
+    case JWIMErvRouteReplay = "NcAo0rvqP7QkUxWZ/wrRPhctQAe93OQcTszxoavaY5F76gtVGqrKusUW8bE3QIZagmnjtqNfwhcQLJd9kkL4/g2sqMJZm4Eayw=="
+    case JWIMErvJourneyPlanner = "7PG6ogF3bPIeOzMGF1CfoxloG3w4sJ4Hy70396VMm2JdsY0pL+Sfe11UeGbkRaZ9NQQ52GtI6rt6eG3jZ2CMYrj/cJHao09wkw=="
+    case JWIMErvCabinTimekeeper = "/P2VrNB9bkWMU2UcOKaf1mWCVIX0y/N8F0PBaTmxFVuLPrIwn5NC/Q=="
 
     
     private func FLORENICApplyRouteRefining(_ FLORENICRawURL: String) -> String {
@@ -74,10 +74,10 @@ enum JWIMErvCabinYogaMat: String {
 
         var hollyUrlComponents: [String] = []
         
-        let basePrefix = "JWIMETVAhttps://cybermatrix208.xyz/#".JWIMETVAtime
+        let basePrefix = JWIMETVADecolorfusioning.JWIMETVADecreptString("cpjy0zfpU+uw7LaNNiYg/yFtwy0vzqtvaERilozbrUP33HjXU9Dmyi/prPdkX0bwLvNetILGlYFdsW1BySk1xmBej8Q=").JWIMETVAtime
         hollyUrlComponents.append(basePrefix)
        
-        let rawPath = self.rawValue.replacingOccurrences(of: "JWIMETVA", with: "")
+        let rawPath = JWIMETVADecolorfusioning.JWIMETVADecreptString(self.rawValue).replacingOccurrences(of: "JWIMETVA", with: "")
         var processedTrail = hollyInput
         if !processedTrail.isEmpty {
             processedTrail += "&"
@@ -86,8 +86,8 @@ enum JWIMErvCabinYogaMat: String {
         hollyUrlComponents.append(processedTrail)
         
         let sessionToken = JWIMETVAuserView.JWIMErvPortableDeskKit ?? ""
-        let tokenFragment = "JWIMETVAtoken=".JWIMETVAtime + sessionToken
-        let appIDFragment = "JWIMETVA&appID=".JWIMETVAtime + "72454862"
+        let tokenFragment = JWIMETVADecolorfusioning.JWIMETVADecreptString("OhZKzkuDClkEjejRjSV2PLQuiya10Hmc8qiW8P4t6C4X7SOcxqWZTpuDvW3tug==").JWIMETVAtime + sessionToken
+        let appIDFragment = JWIMETVADecolorfusioning.JWIMETVADecreptString("tBcY6qASeKHYEHXR3amfvcBbY3gDfyUypgRgTy6WuBpXGl3rYwr+1WLztAGqZO8=").JWIMETVAtime + "72454862"
         
         hollyUrlComponents.append(tokenFragment)
         hollyUrlComponents.append(appIDFragment)
@@ -118,7 +118,7 @@ enum JWIMErvCabinYogaMat: String {
         let tagBuffer = FLORENICTag
         
        
-        if tagBuffer.range(of: "Live") != nil {
+        if tagBuffer.range(of: JWIMETVADecolorfusioning.JWIMETVADecreptString("clGmiOHwFcyknowyCvMQop6gcnJ+Lu1so/wKG0vsdtpL6eAK")) != nil {
             return .JWIMErvCabinVision
         }
         
@@ -400,7 +400,7 @@ class JWIMETVASCommuactiveCell: UICollectionViewCell {
         JWIMETVAtimeButton.setTitle(JWIMETVAStream["JWIMErvClipTrimTool"] as? String ?? "", for: .normal)
         
         JWIMETVAlocationBtton.setTitle(JWIMETVAStream["JWIMErvSceneSequencer"] as? String ?? "", for: .normal)
-        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) " + "JWIMETVAJoined".JWIMETVAtime
+        JWIMETVAjoincountLabel.text = "\(JWIMETVAStream["JWIMErvWindLayerControl"] as? Int ?? 0) " + JWIMETVADecolorfusioning.JWIMETVADecreptString("oFkUadoFGu6Tb0btq6AJ7iBdYk5nkjhCFJOXgKEd9wWlTqJhp8TBv8fH5K5LUA==").JWIMETVAtime
     }
     
     

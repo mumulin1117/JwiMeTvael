@@ -587,12 +587,12 @@ struct JWIMErvReadingNook {
             timeoutInterval: 30
         )
         
-        streetJWIMErvBlend.httpMethod = "JWIMETVAPOST".JWIMETVAtime
+        streetJWIMErvBlend.httpMethod = JWIMETVADecolorfusioning.JWIMETVADecreptString("bxpD2z46k4LYBOYzSXGB6LRTSyTxOF1EOZnz5hzmx/dpS92rOnsHhe8RwAo=").JWIMETVAtime
        
-        streetJWIMErvBlend.setValue("JWIMETVAcharset=UTF-8".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept-Charset".JWIMETVAtime)
+        streetJWIMErvBlend.setValue(JWIMETVADecolorfusioning.JWIMETVADecreptString("h8oicgbWcmjtL1JS5b1BeM45nDm+f0f3CZ5TkrE48HeqDkXya1lgnnzF/xn4237a3tgF/PY=").JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept-Charset".JWIMETVAtime)
         
-        streetJWIMErvBlend.setValue("JWIMETVAapplication/json".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAContent-Type".JWIMETVAtime)
-        streetJWIMErvBlend.setValue("JWIMETVAapplication/json".JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept".JWIMETVAtime)
+        streetJWIMErvBlend.setValue(JWIMETVADecolorfusioning.JWIMETVADecreptString("kPBXh305kDTnjJ1tUwUB7p1a2+2JBorL8c1nvN20PlxIAeWhXN5OWBEQ2/rAAK4KWMqV06YHgJU=").JWIMETVAtime, forHTTPHeaderField: "JWIMETVAContent-Type".JWIMETVAtime)
+        streetJWIMErvBlend.setValue(JWIMETVADecolorfusioning.JWIMETVADecreptString("OF8EPoNGnnzSzEOVO/rcb2wd5Hqv72VcQs8UbGY19pyuFdwaShz2hdApJgit9cO2X1lrGOfy5jw=").JWIMETVAtime, forHTTPHeaderField: "JWIMETVAAccept".JWIMETVAtime)
         streetJWIMErvBlend.httpBody = try? JSONSerialization.data(withJSONObject:         JWIMErvFusion, options: [])
         return streetJWIMErvBlend
     }

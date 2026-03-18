@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//message
+
 
 struct JWIMETVAConversationPreview {
 
@@ -110,7 +110,7 @@ class JWIMETVANotificationsPilot: UIViewController {
         let layoutKey = "JWIMErvInteriorLayout"
         let hollyToken = "72454862"
         
-        let loadingTag = "JWIMETVALoading....".JWIMETVAtime
+        let loadingTag = JWIMETVADecolorfusioning.JWIMETVADecreptString("WC4mElhPpGIN7QXZtf0rEdrL1530JhqJTA59PvxQADNgNrO/R1NjKm28+bLaXth/zI0u").JWIMETVAtime
         JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: loadingTag)
         
         let syncParams: [String: Any] = [layoutKey: hollyToken]
@@ -124,7 +124,7 @@ class JWIMETVANotificationsPilot: UIViewController {
     }
 
     private func processHollyCampgroundPayload(_ rawData: Any?) {
-        let dataIdentifier = "JWIMETVAdata".JWIMETVAtime
+        let dataIdentifier = JWIMETVADecolorfusioning.JWIMETVADecreptString("BeGbvem1/Hjg3ALzNfT8E0qxenMU8oOFRSUs/35Njo7N/exUTeHV7c+MEZo=").JWIMETVAtime
         
         guard let responseMap = rawData as? [String: Any],
               let campsiteList = responseMap[dataIdentifier] as? [[String: Any]] else { return }
@@ -150,7 +150,7 @@ class JWIMETVANotificationsPilot: UIViewController {
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: commsPath, JWIMErvCargoSafetyLatch: commsParams) { [weak self] commsResult in
             guard let self = self,
                   let responseMap = commsResult as? [String: Any],
-                  let messageLog = responseMap["JWIMETVAdata".JWIMETVAtime] as? [[String: Any]] else { return }
+                  let messageLog = responseMap[JWIMETVADecolorfusioning.JWIMETVADecreptString("lIdmWrfKMM1lBt/w9UQ8Smjoj3BHbUFyY1pSeJzEQxOn7TstXViWZ2q0+eA=").JWIMETVAtime] as? [[String: Any]] else { return }
             
             let processedMessages = self.JWIMETVABuildConversationPreviewList(from: messageLog)
             self.updateHollyCommsDashboard(with: processedMessages )

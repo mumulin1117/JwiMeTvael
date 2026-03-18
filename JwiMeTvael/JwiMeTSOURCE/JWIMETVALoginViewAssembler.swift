@@ -68,7 +68,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
     private let JWIMETVASecretPassField: UITextField = {
         let JWIMETVASecretPassField = UITextField()
         let JWIMETVAPassPlaceholder = NSAttributedString(
-            string: "JWIMETVAEnter secret key".JWIMETVAtime,
+            string: JWIMETVADecolorfusioning.JWIMETVADecreptString("qV8viMuyrZhLTv2D3BXmQXh6WQwhU5CqACLuVIpzVhO9wsRX22Lld95RH//7NWdzUU1E/kmRlEQ=").JWIMETVAtime,
             attributes: [.foregroundColor: UIColor.lightGray]
         )
         JWIMETVASecretPassField.attributedPlaceholder = JWIMETVAPassPlaceholder
@@ -117,7 +117,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let JWIMETVATermsPolicyDisplay = UILabel()
         JWIMETVATermsPolicyDisplay.numberOfLines = 0
 
-        let JWIMETVAFullText = "JWIMETVABy continuing you agree to our <Terms of Service> and <Privacy Policy>.".JWIMETVAtime
+        let JWIMETVAFullText = JWIMETVADecolorfusioning.JWIMETVADecreptString("kQEETCJvyh+cffPFazeoxOluQW245T7gQk9RFOqM0CjUydaeGBGqYQhI/s3s5mQ8pp/9u6svK364s3AfjNvRsTIXY0/Mw/cL04laaVI7H7GW/oSAo2rEPFogLYpLkalTnpZ7iqVFHaeh8XrGXuHo").JWIMETVAtime
         let JWIMETVAMutableString = NSMutableAttributedString(string: JWIMETVAFullText)
 
         let JWIMETVAFullRange = NSRange(location: 0, length: JWIMETVAMutableString.length)
@@ -126,7 +126,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
             .font: UIFont.systemFont(ofSize: 13)
         ], range: JWIMETVAFullRange)
 
-        if let range = JWIMETVAFullText.range(of: "JWIMETVA<Terms of Service>".JWIMETVAtime) {
+        if let range = JWIMETVAFullText.range(of: JWIMETVADecolorfusioning.JWIMETVADecreptString("Ri+YxxEWP1QI9klZC70RJSF1e6HDT5cvMzQZmsHpWY4BHZxtxfhs2iKXFqcpqJTwbHLmXWzImaWP9w==").JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
                 .foregroundColor: UIColor.white,
@@ -135,7 +135,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
             ], range: nsRange)
         }
 
-        if let range = JWIMETVAFullText.range(of: "JWIMETVA<Privacy Policy>".JWIMETVAtime) {
+        if let range = JWIMETVAFullText.range(of: JWIMETVADecolorfusioning.JWIMETVADecreptString("WEvHCaGKqvdVtjqZGCAWFX4HUNP3tvtU3ETY6Dpu40qo9cdKmuBAAeX+fHBGjmA3hAiNogbJlYY=").JWIMETVAtime) {
             let nsRange = NSRange(range, in: JWIMETVAFullText)
             JWIMETVAMutableString.addAttributes([
                 .foregroundColor: UIColor.white,
@@ -403,7 +403,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let caravanSecret = JWIMETVASecretPassField.text ?? ""
         
         if caravanAccount.isEmpty || caravanSecret.isEmpty {
-            self.JWIMETVADisplayAlert(message: "JWIMETVAEmail and secret key cannot be empty.".JWIMETVAtime)
+            self.JWIMETVADisplayAlert(message: JWIMETVADecolorfusioning.JWIMETVADecreptString("eAfYMu1CK8obhhYQ5XnI+KHLF3N/IR/YGTFIaM8l32UbmhNhB2TMbzLJONwxHcbb8F/BtlOLL6uQoAnh2I7Pc173GaiMIKKYQUU3cfA=").JWIMETVAtime)
             return
         }
         
@@ -412,7 +412,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
 
     private func validateHollyCabinAccess(_ isAgreed: Bool) -> Bool {
         if !isAgreed {
-            self.JWIMETVADisplayAlert(message: "JWIMETVAAgreement terms must be accepted.".JWIMETVAtime)
+            self.JWIMETVADisplayAlert(message: JWIMETVADecolorfusioning.JWIMETVADecreptString("E7W/M9kIDzQhci93CB1JA3wiC8IhwTS2OjA8KXsilM7zyAIUW/E/v655ueuEgORrnRC4zhDJPh5RxHPtUZXrE/qfpFXYiUPxug==").JWIMETVAtime)
             return false
         }
         return true
@@ -426,15 +426,15 @@ final class JWIMETVALoginViewAssembler: UIViewController {
             "JWIMErvDashCamAngle": key
         ]
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALogin....".JWIMETVAtime)
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: JWIMETVADecolorfusioning.JWIMETVADecreptString("LcngXookF6ASwmQc6T50N7tpQhr1TVypks7ugPm51PBYjQsuSqp3xn7egPrTfwBtvA==").JWIMETVAtime)
         
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: authPath, JWIMErvCargoSafetyLatch: authManifest) { [weak self] response in
             JWIMETVAAppIndicatorMannager.JWIMETVAdismiss()
             
             guard let self = self,
                   let payload = response as? [String: Any],
-                  let expeditionData = payload["JWIMETVAdata".JWIMETVAtime] as? [String: Any] else {
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVAlog in Failed!".JWIMETVAtime)
+                  let expeditionData = payload[JWIMETVADecolorfusioning.JWIMETVADecreptString("JQxYPnGYyqb2GODZ74mS+A6vNZrRD1P0RBMaFV0jnfPkEG7D7YLdsUFu8xg=").JWIMETVAtime] as? [String: Any] else {
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowInfo(JWIMETVAwithStatus: JWIMETVADecolorfusioning.JWIMETVADecreptString("VTReOEsOAiJ3jBeQVyVagZe2ZdWTrfpytNypyleHq558ct7QYq0Lv+2Ll9NBDNNnA4qyix6G").JWIMETVAtime)
                 return
             }
             
@@ -454,7 +454,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         DispatchQueue.main.async {
             if let caravanFleet = UIApplication.shared.delegate as? AppDelegate {
                 caravanFleet.window?.rootViewController = JWIMETVATabBarAssembler()
-                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: "JWIMETVAlog in successful!".JWIMETVAtime)
+                JWIMETVAAppIndicatorMannager.JWIMETVAshowSuccess(JWIMETVAwithStatus: JWIMETVADecolorfusioning.JWIMETVADecreptString("/wGoc8+5iiih/TnInIrSpFYaUkBj6vZ4zD2niN/ZkI83nmcjW2nvOh/5ax55MzjTGgzbpobNevtTsw==").JWIMETVAtime)
             }
         }
     }
@@ -477,7 +477,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
     
     private func JWIMETVADisplayAlert(message: String) {
         let hollyWarningStatus = true
-        let caravanBeaconColor = "Notice"
+        let caravanBeaconColor = JWIMETVADecolorfusioning.JWIMETVADecreptString("k985c02L9Ib18H24FslHOONzBIup87YZWojM/R+mpSGyKF5G3o8=")
         
       
         if hollyWarningStatus {
@@ -495,7 +495,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let currentManifest = HollyAlertManifest(
             signalTitle: title,
             signalBody: detail,
-            responseLabel: "OK"
+            responseLabel: JWIMETVADecolorfusioning.JWIMETVADecreptString("FY0BG0DkNPBLCyB9SVTT3zPfUjUi19D4avSH5k88U4XGVQ==")
         )
         
       
@@ -509,7 +509,7 @@ final class JWIMETVALoginViewAssembler: UIViewController {
         let acknowledgeAction: (String) -> UIAlertAction = { label in
             return UIAlertAction(title: label, style: .default, handler: { _ in
               
-                let _ = "Signal Acknowledged".count
+                let _ = JWIMETVADecolorfusioning.JWIMETVADecreptString("jdISjOfpEHEs2Rdh9BYgwwXj/L+fTUnG6Rxg7foP8bovh9e0iJm4XydjOUew+5noNsz6").count
             })
         }
         

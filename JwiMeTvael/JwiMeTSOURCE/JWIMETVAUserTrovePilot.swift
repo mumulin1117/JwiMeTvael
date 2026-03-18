@@ -71,7 +71,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVAPersonaName: UILabel = {
         let JWIMETVAPersonaName = UILabel()
-        JWIMETVAPersonaName.text = "JWIMETVAUser Name".JWIMETVAtime
+        JWIMETVAPersonaName.text = JWIMETVADecolorfusioning.JWIMETVADecreptString("2+ked/mLh/YMbD8HIgH5bZE/deokxqNxyJr0NxD2ttyflFUHrDtut32CsOqCaUAIjw==").JWIMETVAtime
         JWIMETVAPersonaName.textColor = .white
         JWIMETVAPersonaName.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         JWIMETVAPersonaName.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +80,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVABioTeaser: UILabel = {
         let JWIMETVABioTeaser = UILabel()
-        JWIMETVABioTeaser.text = "Love stand-up comedy? Join me in this hilarious journey! 😂😂😂"
+        JWIMETVABioTeaser.text = JWIMETVADecolorfusioning.JWIMETVADecreptString("kg+QcvbkNFkxzBX7udvHbxST9dTq/HixVSNWheztyxNqYhL6loJp2nfPoa5VhPrDyjqKmTta4mPJ61LsvXEavXq7xPAyYX/kcTJbnCMhIp38rqhHTzZxKg==") + " 😂😂😂"
         JWIMETVABioTeaser.textColor = .systemPurple
         JWIMETVABioTeaser.font = UIFont.systemFont(ofSize: 14)
         JWIMETVABioTeaser.numberOfLines = 0
@@ -184,8 +184,8 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         
         let currentState = HollyDashboardState(
             auraSource: travelMetrics[visualKey] as? String,
-            personaLabel: travelMetrics[beaconKey] as? String ?? "JWIMETVANoname".JWIMETVAtime,
-            bioSnippet: travelMetrics[beaconKey] as? String ?? "JWIMETVANo signature".JWIMETVAtime
+            personaLabel: travelMetrics[beaconKey] as? String ?? JWIMETVADecolorfusioning.JWIMETVADecreptString("7zVsGYFAuHLryC840f/md9pD0xdCFZWlM3jLIavJj+6ldgWcFLgthjKpbF9qng==").JWIMETVAtime,
+            bioSnippet: travelMetrics[beaconKey] as? String ?? JWIMETVADecolorfusioning.JWIMETVADecreptString("JyHBvBz60P/ySRJ54jkwHnfMWIHHJFvxr1wQCMsA0/+Uz3H2rnK0eypRO4oGijU0MQyvtQ==").JWIMETVAtime
         )
         
         if let aura = currentState.auraSource {
@@ -277,7 +277,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     }
 
     private func JWIMETVAPopulateMetrics() {
-        let JWIMETVAData = [("0", "JWIMETVAFollow me".JWIMETVAtime), ("0", "JWIMETVAPost".JWIMETVAtime), ("0", "JWIMETVAHistory".JWIMETVAtime)]
+        let JWIMETVAData = [("0", JWIMETVADecolorfusioning.JWIMETVADecreptString("Bv5cYR8uyXVXVd1QUnLMhGg0be4Nrpz/Dg/eG5bvza2OHcQMIr/bbQt44bmUCsTAcw==").JWIMETVAtime), ("0", JWIMETVADecolorfusioning.JWIMETVADecreptString("2i599NXV4nFZj97bOVBhz2ek3CphycaYc+U66QI4cvLAZjMNQ8pDHSkUMrA=").JWIMETVAtime), ("0", "JWIMETVAHistory".JWIMETVAtime)]
         for i in 0...(JWIMETVAData.count - 1) {
             let JWIMETVABox = UIStackView()
             JWIMETVABox.axis = .vertical
@@ -358,7 +358,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         
         for JWIMETVAEntry in 0...2 {
             let JWIMETVABtnBase = UIButton.init()
-            JWIMETVABtnBase.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform:["JWIMETVAaddress","JWIMETVAproduc","JWIMETVAorder"][JWIMETVAEntry] ), for: .normal)
+            JWIMETVABtnBase.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform:[JWIMETVADecolorfusioning.JWIMETVADecreptString("5xfX0AUnt6+NcYovfcV+NIHhl5elP3U/4Xv7jwLJCJAv3PlsxJ/c7sb/DG45YYU="),JWIMETVADecolorfusioning.JWIMETVADecreptString("rpeXacTbcmJ9olHhgkS2UBhMLtSSk14YwfCRa39FIk79qPvHwYa0RqN+g+QlyA=="),JWIMETVADecolorfusioning.JWIMETVADecreptString("23kraitPq6w5cvaK4rnKEp3F5bXT0xZbU2lHDt+DeGrHnpCJ32i+K0541OBJ")][JWIMETVAEntry] ), for: .normal)
             JWIMETVABtnBase.tag = 10000 + JWIMETVAEntry
             JWIMETVABtnBase.addTarget(self, action: #selector(JWIMETVAPopulateTAggle(JWIMETtap:)), for: .touchUpInside)
             JWIMETVAFuncGrid.addArrangedSubview(JWIMETVABtnBase)

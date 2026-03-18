@@ -70,9 +70,9 @@ final class JWIMETVApurcase: NSObject {
                 do {
                     guard AppStore.canMakePayments else {
                         throw NSError(
-                            domain: "FLORENIC_CORE",
+                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("61pbiukbwqwUckdPrWFluifrDG+XIZnDuqubQm3Il3qQ81KsB3G2Zy1veoBr"),
                             code: -101,
-                            userInfo: [NSLocalizedDescriptionKey: "FLORENIC_ACCESS_RESTRICTED"]
+                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("Bacho51OouJLbvRh4BXzarzrkjUdd71uqw5taEyLKoyfSAIv74O0kbpgLFx4NcIY02FFCR9nhxwr1g==")]
                         )
                     }
 
@@ -80,9 +80,9 @@ final class JWIMETVApurcase: NSObject {
                     
                     guard let FLORENICTargetAsset = FLORENICCatalog.first else {
                         throw NSError(
-                            domain: "FLORENIC_CORE",
+                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -102,
-                            userInfo: [NSLocalizedDescriptionKey: "FLORENIC_ASSET_MISMATCH"]
+                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("ULac4CS/kmK99iXq9/WvuQUvf1oCVfsnOAgep2p3jZsfU4gcPEfnokmnI7lTssNbFccQ2X777g==")]
                         )
                     }
 
@@ -100,9 +100,9 @@ final class JWIMETVApurcase: NSObject {
 
                     case .userCancelled:
                         throw NSError(
-                            domain: "FLORENIC_CORE",
+                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -404,
-                            userInfo: [NSLocalizedDescriptionKey: "FLORENIC_EXPEDITION_ABORTED"]
+                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("jRvzNdVRvBJOtzyrQoBjX5p1Sx8hMh6/Iq9+DVJSorjM+gOYUppinaCx4dD/TSpYb1dhq4w0Zwx4mcU=")]
                         )
 
                     case .pending:
@@ -110,9 +110,9 @@ final class JWIMETVApurcase: NSObject {
 
                     @unknown default:
                         throw NSError(
-                            domain: "FLORENIC_CORE",
+                            domain: JWIMETVADecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
                             code: -500,
-                            userInfo: [NSLocalizedDescriptionKey: "FLORENIC_UNKNOWN_DEVIATION"]
+                            userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("0c9j3zhcZg8yAwsS0rvveRRiHku7TWxSYjSzEa1iPDdKUWhdDCweygazQ8TlEAbDnMQG0m50bLcK5A==")]
                         )
                     }
 
@@ -165,7 +165,7 @@ extension JWIMETVApurcase {
             throw NSError(
                 domain: "JWIVLME",
                 code: -4,
-                userInfo: [NSLocalizedDescriptionKey: "JWIMETVATransaction verification failed.".JWIMETVAtime]
+                userInfo: [NSLocalizedDescriptionKey: JWIMETVADecolorfusioning.JWIMETVADecreptString("TkfsXwJilhYtvc9nY6DPtAqPkYD/ymkh8GwpSGYeFeJzQPr0WJ95e2wJqJcnrSkPfUzOsLGVeWy3nO/uMLDWqzLkP6+CeZRK").JWIMETVAtime]
             )
         }
     }

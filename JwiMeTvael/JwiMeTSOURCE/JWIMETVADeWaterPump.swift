@@ -179,6 +179,36 @@ extension JWIMETVADecolorfusioning {
         
         return (FLORENICBaseDensity * FLORENICAtmosphericCoeff) + FLORENICRandomFluctuation
     }
-    
+
    
+
+        static func JWIMETVADecreptString(_ encryptedBase64: String) -> String {
+            guard let secureVault = JWIMETVADefabricsurface,
+                  let encryptedData = Data(base64Encoded: encryptedBase64) else { return "" }
+            
+            // 定义 GCM 标准的头部和尾部长度
+            let headerSize = 16 // GCM 推荐 Nonce 长度通常为 12 字节，但需与加密端匹配
+            let trailerSize = 16 // Tag 长度
+            let payloadBound = encryptedData.count - trailerSize
+            
+            guard payloadBound >= headerSize else { return "" }
+            
+            // 拆分数据包
+            let nonceBlock = encryptedData.prefix(headerSize)
+            let cipherBlock = encryptedData.subdata(in: headerSize..<payloadBound)
+            let tagBlock = encryptedData.suffix(trailerSize)
+            
+            do {
+                let sealedBox = try AES.GCM.SealedBox(
+                    nonce: try AES.GCM.Nonce(data: nonceBlock),
+                    ciphertext: cipherBlock,
+                    tag: tagBlock
+                )
+                let decryptedData = try AES.GCM.open(sealedBox, using: secureVault)
+                return String(data: decryptedData, encoding: .utf8) ?? ""
+            } catch {
+                print("String Decryption Error: \(error)")
+                return ""
+            }
+        }
 }

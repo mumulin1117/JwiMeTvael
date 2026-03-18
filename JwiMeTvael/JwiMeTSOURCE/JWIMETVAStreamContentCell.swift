@@ -154,7 +154,7 @@ final class JWIMETVAStreamContentCell: UICollectionViewCell {
         
         if JWIMETVAStream["JWIMErvShotComposition"] as? Int == -1 {
             JWIMETVALiveCountDisplay.isHidden = false
-            JWIMETVALiveCountDisplay.setTitle("JWIMETVA LIVE".JWIMETVAtime, for: .normal)
+            JWIMETVALiveCountDisplay.setTitle(JWIMETVADecolorfusioning.JWIMETVADecreptString("JukoFnqAG1mVhXlsgXojTWcJv2LnVNElJuEbk3VpuJ2ChqRq1wCQZF9usYEr").JWIMETVAtime, for: .normal)
             JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEmusic"), for: .normal)
 //            JWIMETVALiveCountDisplay.setImage(JWIMETVADecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVAitol"), for: .normal)
         }else{

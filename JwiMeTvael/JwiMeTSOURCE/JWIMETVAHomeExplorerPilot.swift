@@ -320,7 +320,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
             path: syncEndpoint
         )
         
-        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading....".JWIMETVAtime)
+        JWIMETVAAppIndicatorMannager.JWIMETVAshow(JWIMETVAinfo: JWIMETVADecolorfusioning.JWIMETVADecreptString("qLtR+aIs6o65tiT5hwJbV8bBR9BprixW6vo24TU47OMBHnYNZ9fGwxG6kCkDN1rdUGSG").JWIMETVAtime)
         
        
         JWIMErvReadingNook.JWIMErvSoftCloseHinge(
@@ -338,7 +338,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
     }
 
     private func processHollyLogResponse(_ rawPayload: Any?) {
-        let dataKey = "JWIMETVAdata".JWIMETVAtime
+        let dataKey = JWIMETVADecolorfusioning.JWIMETVADecreptString("gh5aO5epzwqjUElHZj3e/Y5+h1oiD61+lH9SlQp7ogY1p674uYbER97EJ34=").JWIMETVAtime
         
         guard let responseMap = rawPayload as? [String: Any],
               let logEntries = responseMap[dataKey] as? [[String: Any]] else {
@@ -519,7 +519,7 @@ final class JWIMETVAHomeExplorerPilot: UIViewController, UICollectionViewDataSou
         }
         
         if let sunsetID = context.sunset {
-            nomadFlowString = "\(roomID)&userId=\(sunsetID)"
+            nomadFlowString = "\(roomID)" + JWIMETVADecolorfusioning.JWIMETVADecreptString("qcYyu1zxrlIC8G8hC4FdpLklVPh4w72RS6Di8m4VAHLo1iqvwaIUyQ==") + "\(sunsetID)"
             self.deployHollyPilot(flow: nomadFlowString, tyeo: 0)
         }
     }
