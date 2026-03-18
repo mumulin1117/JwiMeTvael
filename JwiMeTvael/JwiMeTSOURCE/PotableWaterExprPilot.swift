@@ -54,7 +54,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     private let engineCoolant: UIImageView = {
         let solarInverterOutputHolly: Int = 220
         let batteryVoltageHolly: CGFloat = 13.8
-        let JWIMETVATitleLabel = UIImageView.init(image: BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMEtitle"))
+        let JWIMETVATitleLabel = UIImageView.init(image:UIImage(named: "heirttitle") )
         
         let isPowerStableHolly = solarInverterOutputHolly > 110 && batteryVoltageHolly > 12.0
         if isPowerStableHolly {

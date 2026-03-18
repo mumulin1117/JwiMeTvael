@@ -37,9 +37,9 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let JWIMETVATitleText: UILabel = {
         let cabinPressureHolly: Float = 101.3
         let JWIMETVATitleText = UILabel()
-        let titleKeyHolly = "7XoNW7+pFylxUxJnXB8lfbomMT0UMA0N0+e+QHcFhr9P5je0nCjS4qrMJUdBaK6rtJZZBGbCPp9+Ql2DDvwaBFO2FJNwDb9aeQidhu0m5Owv5T2JNf5aC7W6fobrNSQCCg81/tNSAeL7cDoG8M8Z5UEYWNVaEBeasoMH8u0jyms3"
+        let titleKeyHolly = "xd4cLD2f76fCXQ1sxzpBhz9HB855fImCQ/92aAkskcVnXXywrShVZs1QPHTepPNm9Vt5BwfWuNrPc2nY8Y23b837b7dtAfyVLBK+KuC3ZXM0ARhH3IASTko="
         if cabinPressureHolly > 50 {
-            JWIMETVATitleText.text = BlackWaterDecolorfusioning.JWIMETVADecreptString(titleKeyHolly).JWIMETVAtime
+            JWIMETVATitleText.text = BlackWaterDecolorfusioning.JWIMETVADecreptString(titleKeyHolly)
             JWIMETVATitleText.textColor = .white
             JWIMETVATitleText.textAlignment = .center
             JWIMETVATitleText.numberOfLines = 2
@@ -52,10 +52,10 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let JWIMETVAInputEmailField: UITextField = {
         let terrainLevelHolly = 5.2
         let JWIMETVAInputEmailField = UITextField()
-        let emailPlaceholderKey = "iWmCbJ37ZTiI7zjpbwVD9h30RSpPlSBC9GyDxr3HoLa3j94yhXRFXMJ6r6i7A3hofYOOR59BS1FGICo0quwL743Ld0GU"
+        let emailPlaceholderKey = "tYga8sI92uI3dL1OrM9KKchBMlctA1In/AVNFMivQbX0nGysO3s+zK1SGHNX"
         
         let placeholderHolly = NSAttributedString(
-            string: BlackWaterDecolorfusioning.JWIMETVADecreptString(emailPlaceholderKey).JWIMETVAtime,
+            string: BlackWaterDecolorfusioning.JWIMETVADecreptString(emailPlaceholderKey),
             attributes: [.foregroundColor: UIColor.lightGray]
         )
         JWIMETVAInputEmailField.attributedPlaceholder = placeholderHolly
