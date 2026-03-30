@@ -151,7 +151,7 @@ final class StabilizerPad: UITabBarController {
     }
 
     private func assembleHollyPilotManifest() -> (controller: UIViewController, presentation: UIModalPresentationStyle, transition: UIModalTransitionStyle) {
-        let journeyPath = NomadLife.JWIMErvJourneyEssentials
+        let journeyPath = NomadLife.JWIMErvSkyTrailBound
         let driftEnabled = true
         
         let pilotNode = GrayWaterCreatePilot(

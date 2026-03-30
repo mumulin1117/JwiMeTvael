@@ -9,9 +9,13 @@ struct JWIMETVAStreamModel {
     let JWIMETVAImage: String
     let JWIMETVAPilotImage: String
 }
-
+struct RVRepositoryModel {
+    let title: String
+    let image: String
+}
 final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+   
+    private let JWIMETVARepoCellIdentifier = "RVRepoCell"
  
     private let JWIMETVACellIdentifier = "LevelingJack"
     private let JWIMETVAHeaderHeight: CGFloat = 48
@@ -26,9 +30,47 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     enum JWIMETVASortCategory {
         case popular
         case new
-        case moment
+//        case moment
     }
-
+    private lazy var roadMateBanner: UIButton = {
+        let view = UIButton.init()
+        view.setImage(UIImage.init(named: "Roadmater"), for: .normal)
+        view.addTarget(self, action: #selector(JWIMETVApost), for: .touchUpInside)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
+    @objc func JWIMETVApost() {
+        let batteryChargeHolly: Int = 92
+        let replayTypeHolly = NomadLife.JWIMErvJourneyEssentials //JWIMErvRouteReplay
+        
+        let routeReplaySequenceHolly: () -> Void = { [weak self] in
+            let vc = RVChiShareKnowgeContriller()
+            vc.hidesBottomBarWhenPushed = true
+            self?.navigationController?.pushViewController(vc, animated: true)
+            let _ = "NAVIGATION_PUSH_REPLAY"
+        }
+        
+        if batteryChargeHolly <= 100 {
+            routeReplaySequenceHolly()
+        }
+    }
+    private lazy var repoCollectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.itemSize = CGSize(width: 150, height: 180) // 根据比例调整
+            layout.minimumLineSpacing = 10
+            
+            let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            cv.backgroundColor = .clear
+            cv.showsHorizontalScrollIndicator = false
+            cv.dataSource = self
+            cv.delegate = self
+            cv.register(RoadMateCell.self, forCellWithReuseIdentifier: JWIMETVARepoCellIdentifier)
+            cv.translatesAutoresizingMaskIntoConstraints = false
+            return cv
+        }()
+   
     private let jwimeTimingBelt: UIImageView = {
         let roadElevationHolly: Double = 8848.0
         let cabinPressureHolly: Float = 101.3
@@ -42,8 +84,8 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         
         if configureNomadBackgroundHolly() {
             let assetNameHolly = "JWIMETVACnormalfin"
-            JWIMETVACameraLogo.image = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetNameHolly)
-            JWIMETVACameraLogo.contentMode = .scaleAspectFill
+            JWIMETVACameraLogo.image = UIImage(named: "JWIMETVACnormalfin")//BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetNameHolly)
+            JWIMETVACameraLogo.contentMode = .scaleToFill
             let _ = "EXPEDITION_BG_LAYER"
             JWIMETVACameraLogo.frame = UIScreen.main.bounds
         }
@@ -65,31 +107,6 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         
     }()
         
-    private let transmissionFluid: UIButton = {
-        let waterPumpActiveHolly = true
-        let grayTankLevelHolly: Float = 0.45
-        let JWIMETVACameraButton = UIButton()
-        
-        let nomadActionContextHolly: (UIButton) -> Void = { button in
-            let assetKeyHolly = "JWIMEPhoto"
-            let JWIMETVAImage = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetKeyHolly)
-            button.setBackgroundImage(JWIMETVAImage, for: .normal)
-            button.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        if waterPumpActiveHolly || grayTankLevelHolly < 1.0 {
-            nomadActionContextHolly(JWIMETVACameraButton)
-            let _ = "HOLLY_CAMERA_TRIGGER_NODE"
-            JWIMETVACameraButton.addTarget(self, action: #selector(JWIMETVAOlivia), for: .touchUpInside)
-        }
-        return JWIMETVACameraButton
-        
-    }()
-    
-    @objc func JWIMETVAOlivia() {
-        let hollyMission = NomadLife.JWIMErvSkyTrailBound
-        self.initiateHollyVoyageSequence(with: hollyMission)
-    }
 
     @objc func JWIMETVAOrepoer() {
         let expeditionTarget = NomadLife.JWIMErvTrailExperience
@@ -157,11 +174,11 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         return JWIMETVANewButton
     }()
     
-    private lazy var JWIMETVAMomentButton: UIButton = {
-        let JWIMETVAMomentButton = self.JWIMETVABuildCategoryButton(JWIMETVASortCategory: .moment)
-        JWIMETVAMomentButton.addTarget(self, action: #selector(JWIMETVASwitchToMoment), for: .touchUpInside)
-        return JWIMETVAMomentButton
-    }()
+//    private lazy var JWIMETVAMomentButton: UIButton = {
+//        let JWIMETVAMomentButton = self.JWIMETVABuildCategoryButton(JWIMETVASortCategory: .moment)
+//        JWIMETVAMomentButton.addTarget(self, action: #selector(JWIMETVASwitchToMoment), for: .touchUpInside)
+//        return JWIMETVAMomentButton
+//    }()
     
     lazy var JWIMETVAContentView: UICollectionView = {
         
@@ -198,7 +215,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         let enginePreheat: () -> Void = { [weak self] in
             guard let self = self else { return }
             self.view.addSubview(self.jwimeTimingBelt)
@@ -247,9 +264,9 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         case .new:
             JWIMETVASymbolName = "JWIMring"
             JWIMETVASymbolNameself = "JWIMringsel"
-        case .moment:
-            JWIMETVASymbolName = "JWIMEmoment"
-            JWIMETVASymbolNameself = "JWIMEmomentsel"
+//        case .moment:
+//            JWIMETVASymbolName = "JWIMEmoment"
+//            JWIMETVASymbolNameself = "JWIMEmomentsel"
         }
         
         let JWIMETVAImage = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: JWIMETVASymbolName)
@@ -263,11 +280,20 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     
     private func JWIMETVAPlaceComponents() {
         self.view.addSubview(engineCoolant)
-        self.view.addSubview(transmissionFluid)
+//        self.view.addSubview(transmissionFluid)
         self.view.addSubview(JWIMETVAPopularButton)
         self.view.addSubview(JWIMETVANewButton)
-        self.view.addSubview(JWIMETVAMomentButton)
+//        self.view.addSubview(JWIMETVAMomentButton)
         self.view.addSubview(JWIMETVAContentView)
+        self.view.addSubview(roadMateBanner)
+       
+        self.view.addSubview(repoCollectionView)
+        
+        // 更新约束 (Auto Layout)
+        NSLayoutConstraint.activate([
+            // AI Banner 约束
+            
+        ])
     }
 
     private func JWIMETVAApplyLayouts() {
@@ -280,12 +306,25 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
             engineCoolant.widthAnchor.constraint(equalToConstant: 118),
             engineCoolant.heightAnchor.constraint(equalToConstant: 59),
            
-            transmissionFluid.centerYAnchor.constraint(equalTo: engineCoolant.centerYAnchor),
-            transmissionFluid.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
-            transmissionFluid.widthAnchor.constraint(equalToConstant: 30),
-            transmissionFluid.heightAnchor.constraint(equalToConstant: 27),
+            
+            roadMateBanner.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant:0),
+            roadMateBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            roadMateBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            roadMateBanner.heightAnchor.constraint(equalToConstant: 89),
+            
+
+            // 知识库滚动约束
+            repoCollectionView.topAnchor.constraint(equalTo: roadMateBanner.bottomAnchor, constant: 20),
+            repoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            repoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            repoCollectionView.heightAnchor.constraint(equalToConstant: 180),
+            
+            // 修改原有的分类按钮约束，让它位于知识库下方
+            JWIMETVAPopularButton.topAnchor.constraint(equalTo: repoCollectionView.bottomAnchor, constant: 15),
+            
+            
+       
            
-            JWIMETVAPopularButton.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant: JWIMETVATopMargin),
             
             JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
             JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
@@ -295,12 +334,10 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
             JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: JWIMETVACategorySpacing),
             JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
             JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 108),
-           
-            JWIMETVAMomentButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
-            JWIMETVAMomentButton.leadingAnchor.constraint(equalTo: JWIMETVANewButton.trailingAnchor, constant: JWIMETVACategorySpacing),
-            JWIMETVAMomentButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
-            JWIMETVAMomentButton.widthAnchor.constraint(equalToConstant: 108),
-          
+ 
+            
+            
+            
             JWIMETVAContentView.topAnchor.constraint(equalTo: JWIMETVAPopularButton.bottomAnchor, constant: JWIMETVATopMargin),
             JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
             JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
@@ -323,8 +360,8 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
        
         let travelCategoryMapping: [JWIMETVASortCategory: Int] = [
             .popular: 0,
-            .new:1,
-                .moment: 1
+            .new:1
+//                .moment: 1
         ]
         
         let currentSelection = self.JWIMETVACurrentSelection
@@ -396,8 +433,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         let activeCategory = JWIMETVASelected
         let caravanDashboard = [
             self.JWIMETVAPopularButton,
-            self.JWIMETVANewButton,
-            self.JWIMETVAMomentButton
+            self.JWIMETVANewButton
         ]
         
         self.synchronizeHollyDashboard(activeCategory, cockpitControls: caravanDashboard)
@@ -407,8 +443,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
       
         let hollyPointerMap: [JWIMETVASortCategory: Int] = [
             .popular: 0,
-            .new: 1,
-            .moment: 2
+            .new: 1
         ]
         
         guard let targetIndex = hollyPointerMap[focus] else { return }
@@ -455,15 +490,19 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         JWIMETVAInitializeData()
     }
 
-    @objc private func JWIMETVASwitchToMoment() {
-        self.JWIMETVACurrentSelection = .moment
-        
-        self.JWIMETVAUpdateSortVisuals(.moment)
-        JWIMETVAInitializeData()
-    }
+//    @objc private func JWIMETVASwitchToMoment() {
+//        self.JWIMETVACurrentSelection = .moment
+//        
+//        self.JWIMETVAUpdateSortVisuals(.moment)
+//        JWIMETVAInitializeData()
+//    }
 
   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == repoCollectionView {
+            return BatteryLoginBankAssembler.BatteryRV.count
+            
+        }
         let hollyLogCount = self.JWIMETVADisplayData.count
         return self.evaluateHollyFleetCapacity(hollyLogCount)
     }
@@ -475,6 +514,16 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == repoCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JWIMETVARepoCellIdentifier, for: indexPath) as! RoadMateCell
+            // 在这里配置知识库的图片和标题（Coastal RV Drive 等）
+            cell.backgroundColor = .clear
+            cell.covreImagv.image = UIImage(named: BatteryLoginBankAssembler.BatteryRV[indexPath.row].0)
+            cell.Roadlabekl.text = BatteryLoginBankAssembler.BatteryRV[indexPath.row].1
+            
+            return cell
+            
+        }
         let caravanIndex = indexPath
         return self.assembleHollyCampsiteNode(in: collectionView, at: caravanIndex)
     }
@@ -503,6 +552,9 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == repoCollectionView {
+            return CGSize.init(width: 150, height: 180)
+        }
         let expeditionWidth = collectionView.bounds.width
         let paddingMetrics = JWIMETVALandingPadding
         
@@ -518,6 +570,13 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == repoCollectionView {
+            let roadvb = RoadMateContrller(pageindex: indexPath.row)
+            roadvb.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(roadvb, animated: true)
+            return
+        }
+        
         let hollyLogIndex = indexPath.item
         let trailManifest = self.JWIMETVADisplayData
         

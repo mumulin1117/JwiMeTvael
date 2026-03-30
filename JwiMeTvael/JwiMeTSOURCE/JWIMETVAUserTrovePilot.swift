@@ -71,7 +71,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVAPersonaName: UILabel = {
         let JWIMETVAPersonaName = UILabel()
-        JWIMETVAPersonaName.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("2+ked/mLh/YMbD8HIgH5bZE/deokxqNxyJr0NxD2ttyflFUHrDtut32CsOqCaUAIjw==").JWIMETVAtime
+//        JWIMETVAPersonaName.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("2+ked/mLh/YMbD8HIgH5bZE/deokxqNxyJr0NxD2ttyflFUHrDtut32CsOqCaUAIjw==").JWIMETVAtime
         JWIMETVAPersonaName.textColor = .white
         JWIMETVAPersonaName.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         JWIMETVAPersonaName.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +80,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
     private let JWIMETVABioTeaser: UILabel = {
         let JWIMETVABioTeaser = UILabel()
-        JWIMETVABioTeaser.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("kg+QcvbkNFkxzBX7udvHbxST9dTq/HixVSNWheztyxNqYhL6loJp2nfPoa5VhPrDyjqKmTta4mPJ61LsvXEavXq7xPAyYX/kcTJbnCMhIp38rqhHTzZxKg==") + " 😂😂😂"
+//        JWIMETVABioTeaser.text = BlackWaterDecolorfusioning.JWIMETVADecreptString("kg+QcvbkNFkxzBX7udvHbxST9dTq/HixVSNWheztyxNqYhL6loJp2nfPoa5VhPrDyjqKmTta4mPJ61LsvXEavXq7xPAyYX/kcTJbnCMhIp38rqhHTzZxKg==") + " 😂😂😂"
         JWIMETVABioTeaser.textColor = .systemPurple
         JWIMETVABioTeaser.font = UIFont.systemFont(ofSize: 14)
         JWIMETVABioTeaser.numberOfLines = 0

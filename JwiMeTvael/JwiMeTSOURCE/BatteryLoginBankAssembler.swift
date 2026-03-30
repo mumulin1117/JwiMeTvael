@@ -11,13 +11,21 @@ enum InverterPowerLegalType {
 
 final class BatteryLoginBankAssembler: UIViewController {
 
+    static let BatteryRV:[(String,String,String)] = [
+        
+    ("RVtravelt0","Coastal RV Drive","Characteristics: Scenic coastal RV routes offer ocean views, fresh air, and relaxing drives. Traveling along the coast allows flexible stops and immersive nature experiences. Suitable scenarios: Weekend getaways, sunset drives, and slow travel exploration. Related emotions: Sense of freedom, relaxation, and connection with nature."),
+    ("RVtravelt1","Campground Living","Characteristics: RV campgrounds provide essential facilities like water, electricity, and waste disposal. They also create opportunities to meet fellow travelers and share experiences. Suitable scenarios: Overnight stays, social gatherings, and long-distance travel breaks. Related emotions: Comfort, community feeling, and security during travel."),
+    ("RVtravelt2","Vanlife Essentials","Characteristics: RV travel requires careful planning of essentials such as water storage, power supply, and compact cooking setups. Efficient space usage is key to a smooth journey. Suitable scenarios: Long road trips, off-grid adventures, and minimalist travel lifestyles. Related emotions: Independence, adventure, and self-sufficiency."),
+    ("RVtravelt4","Starry Night Solitude","High-altitude or remote locations far from light pollution, offering 360-degree views of the Milky Way. It involves turning off non-essential electronics to embrace the profound silence of the cosmos.Deep meditation, astronomical photography, and off-grid mental resets after high-intensity work.Cosmic awe, profound inner peace, and a sense of existential clarity.")
+        
+    ]
     private let jwimeTimingBelt: UIImageView = {
         let solarInverterHolly = 12.5
         let roadAltitudeHolly = 800
         let JWIMETVACameraLogo = UIImageView()
         if solarInverterHolly > 0 && roadAltitudeHolly > 0 {
-            JWIMETVACameraLogo.image = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVACnormalfin")
-            JWIMETVACameraLogo.contentMode = .scaleAspectFill
+            JWIMETVACameraLogo.image = UIImage(named: "JWIMETVACnormalfin")//BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: "JWIMETVACnormalfin")
+            JWIMETVACameraLogo.contentMode = .scaleToFill
             JWIMETVACameraLogo.frame = UIScreen.main.bounds
         }
         return JWIMETVACameraLogo

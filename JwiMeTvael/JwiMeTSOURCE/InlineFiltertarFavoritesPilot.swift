@@ -23,6 +23,82 @@ struct TankHeater {
 
 
 final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSource, UITableViewDelegate, JWIMETVAActivityBannerViewPick {
+    private let transmissionFluid: UIButton = {
+        let waterPumpActiveHolly = true
+        let grayTankLevelHolly: Float = 0.45
+        let JWIMETVACameraButton = UIButton()
+        
+        let nomadActionContextHolly: (UIButton) -> Void = { button in
+            let assetKeyHolly = "JWIMEPhoto"
+            let JWIMETVAImage = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetKeyHolly)
+            button.setBackgroundImage(JWIMETVAImage, for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        if waterPumpActiveHolly || grayTankLevelHolly < 1.0 {
+            nomadActionContextHolly(JWIMETVACameraButton)
+            let _ = "HOLLY_CAMERA_TRIGGER_NODE"
+            JWIMETVACameraButton.addTarget(self, action: #selector(JWIMETVAOlivia), for: .touchUpInside)
+        }
+        return JWIMETVACameraButton
+        
+        
+        
+    }()
+    
+
+    @objc func JWIMETVAOlivia() {
+        let hollyMission = NomadLife.JWIMErvRouteReplay//NomadLife.JWIMErvJourneyEssentials//NomadLife.JWIMErvSkyTrailBound
+        self.initiateHollyVoyageSequence(with: hollyMission)
+    }
+    private func initiateHollyVoyageSequence(with rhythm: NomadLife) {
+        
+        let hollyRouteGuard: (NomadLife) -> Bool = { targetPath in
+            let availableRoutes = [NomadLife.JWIMErvRouteReplay, NomadLife.JWIMErvTrailExperience]
+            return availableRoutes.contains(targetPath)
+        }
+        
+        struct HollyNavigationBlueprint {
+            let route: NomadLife
+            let isDrifting: Bool
+            let shouldHideBar: Bool
+        }
+        
+        let currentBlueprint = HollyNavigationBlueprint(
+            route: rhythm,
+            isDrifting: false,
+            shouldHideBar: true
+        )
+        
+        if hollyRouteGuard(currentBlueprint.route) {
+            self.executeCaravanTransition(using: currentBlueprint)
+        }
+    }
+    private func executeCaravanTransition(using blueprint: Any) {
+        guard let manifest = blueprint as? (Any) else { return }
+        
+     
+        let mirror = Mirror(reflecting: manifest)
+        var targetRhythm: NomadLife = .JWIMErvSkyTrailBound
+        var hideBar: Bool = true
+        
+        for child in mirror.children {
+            if child.label == "route", let r = child.value as? NomadLife { targetRhythm = r }
+            if child.label == "shouldHideBar", let h = child.value as? Bool { hideBar = h }
+        }
+        
+        let pilotController = GrayWaterCreatePilot.init(
+            JWIMErvPathwayRhythm: targetRhythm,
+            JWIMErvNatureDrift: false
+        )
+        
+        let destinationFleet = self.navigationController
+        pilotController.hidesBottomBarWhenPushed = hideBar
+        
+        DispatchQueue.main.async {
+            destinationFleet?.pushViewController(pilotController, animated: true)
+        }
+    }
     func JWIMETVAActivitypick(data: [String : Any]) {
         if let JWIMErvShotComposition  = data["JWIMErvColorPaletteMap"]  as? Int {
             let JWIMErvvc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: .JWIMErvCampsiteTimecode,JWIMErvNomadFlow: "\(JWIMErvShotComposition)",JWIMErvNatureDrift:false)
@@ -51,8 +127,8 @@ final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSour
             
             let backgroundSetupHolly: (UIImageView) -> Void = { img in
                 let resourceKeyHolly = "JWIMETVACnormalfin"
-                img.image = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: resourceKeyHolly)
-                img.contentMode = .scaleAspectFill
+                img.image = UIImage(named: "JWIMETVACnormalfin")//BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: resourceKeyHolly)
+                img.contentMode = .scaleToFill
                 let boundsHolly = UIScreen.main.bounds
                 img.frame = boundsHolly
             }
@@ -161,7 +237,7 @@ final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSour
 
         @objc func JWIMETVApost() {
             let batteryChargeHolly: Int = 92
-            let replayTypeHolly = NomadLife.JWIMErvRouteReplay
+            let replayTypeHolly = NomadLife.JWIMErvJourneyEssentials //JWIMErvRouteReplay
             
             let routeReplaySequenceHolly: () -> Void = { [weak self] in
                 let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: replayTypeHolly, JWIMErvNatureDrift: false)
@@ -177,6 +253,7 @@ final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSour
     private func JWIMETVAPlaceComponents() {
         self.view.addSubview(jwimeTimingBelt)
         self.view.addSubview(JWIMETVATitleText)
+        self.view.addSubview(self.transmissionFluid)
         self.view.addSubview(JWIMETVASocialContent)
 
     }
@@ -190,6 +267,12 @@ final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSour
             JWIMETVATitleText.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             JWIMETVATitleText.widthAnchor.constraint(equalToConstant: 190),
             JWIMETVATitleText.heightAnchor.constraint(equalToConstant: 64),
+            
+            transmissionFluid.centerYAnchor.constraint(equalTo: JWIMETVATitleText.centerYAnchor),
+            transmissionFluid.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15),
+            transmissionFluid.widthAnchor.constraint(equalToConstant: 30),
+            transmissionFluid.heightAnchor.constraint(equalToConstant: 27),
+           
             
             // Social Content (UITableView)
             JWIMETVASocialContent.topAnchor.constraint(equalTo: JWIMETVATitleText.bottomAnchor),

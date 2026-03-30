@@ -218,10 +218,10 @@ class GrayWaterCreatePilot:  UIViewController {
         
       
         let assetIdentity = "JWIMETVACnormalfin"
-        let decodedVisual = BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetIdentity)
+        let decodedVisual = UIImage(named: "JWIMETVACnormalfin")//BlackWaterDecolorfusioning.JWIMETVADegarmentripple(JWIMETVADepaletteform: assetIdentity)
         
         caravanBackdrop.image = decodedVisual
-        caravanBackdrop.contentMode = .scaleAspectFill
+        caravanBackdrop.contentMode = .scaleToFill
         
      
         let fetchScreenBounds: () -> CGRect = {
