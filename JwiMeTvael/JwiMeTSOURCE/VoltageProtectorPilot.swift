@@ -20,16 +20,47 @@ struct SurgeGuard {
 
 class VoltageProtectorPilot: UIViewController {
     private var JWIMETVADisplayData: Array<[String: Any]> = {
-            let roadConditionsHolly: [String] = ["Mountain", "Highway", "Gravel"]
-            let currentPathHolly = roadConditionsHolly.shuffled()
-            var placeholderHolly: [[String: Any]] = []
-            if currentPathHolly.count > 0 {
-                placeholderHolly = []
-            }
-            return placeholderHolly
-        }()
+        let roadConditionsHolly: [String] = ["Mountain", "Highway", "Gravel"]
+        let currentPathHolly = roadConditionsHolly.shuffled()
+        var placeholderHolly: [[String: Any]] = []
+        if currentPathHolly.count > 0 {
+            placeholderHolly = []
+        }
+        return placeholderHolly
         
+    }()
         
+    private lazy var JWIMETVAEmptyView: UIView = {
+        let emptyView = UIView()
+      
+        let tipLabel = UILabel()
+        tipLabel.text = "No friend messages for now"
+        tipLabel.textColor = .lightGray
+        tipLabel.font = .systemFont(ofSize: 14)
+        tipLabel.textAlignment = .center
+        tipLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let emptyIcon = UIImageView(image: UIImage(named: "JWIMETVA_empty_icon"))
+        emptyIcon.contentMode = .scaleAspectFit
+        emptyIcon.translatesAutoresizingMaskIntoConstraints = false
+        
+        emptyView.addSubview(tipLabel)
+        emptyView.addSubview(emptyIcon)
+        
+        NSLayoutConstraint.activate([
+            // 图片居中
+            emptyIcon.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            emptyIcon.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor, constant: -20),
+            emptyIcon.widthAnchor.constraint(equalToConstant: 100),
+            emptyIcon.heightAnchor.constraint(equalToConstant: 100),
+            
+            // 文字在图片下方
+            tipLabel.topAnchor.constraint(equalTo: emptyIcon.bottomAnchor, constant: 10),
+            tipLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor)
+        ])
+        
+        return emptyView
+    }()
     private var JWIMETVADisplaymesgsData: Array<SurgeGuard> = []
     
     private let jwimeTimingBelt: UIImageView = {
@@ -264,7 +295,13 @@ class VoltageProtectorPilot: UIViewController {
         self.JWIMETVADisplaymesgsData = log 
         
         DispatchQueue.main.async {
-            messageBoard.reloadData()
+            if log.isEmpty {
+                        self.JWIMETVAmesgContentView.backgroundView = self.JWIMETVAEmptyView
+                    } else {
+                        self.JWIMETVAmesgContentView.backgroundView = nil
+                    }
+                    
+                    self.JWIMETVAmesgContentView.reloadData()
         }
     }
 

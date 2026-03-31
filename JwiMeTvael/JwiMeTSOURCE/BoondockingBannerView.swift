@@ -36,7 +36,8 @@ enum NomadLife: String {
     case JWIMErvJourneyPlanner = "7PG6ogF3bPIeOzMGF1CfoxloG3w4sJ4Hy70396VMm2JdsY0pL+Sfe11UeGbkRaZ9NQQ52GtI6rt6eG3jZ2CMYrj/cJHao09wkw=="
     case JWIMErvCabinTimekeeper = "/P2VrNB9bkWMU2UcOKaf1mWCVIX0y/N8F0PBaTmxFVuLPrIwn5NC/Q=="
 
-    
+    case allnertveredit = "s11TAq+zYiF0Gi9M2rkUVsmYDL0HsssbSpOV8F1ugJq7bnwACw5S6HYNZHBK0BpciC/ZlhU="
+    case hollyHoinde = "jRSau7vsObtggV70xrQZ98P7XnNyoRYnyOsrOYSFmXWeOBLTjK47tdyOLhi8Ia8kk15GIXbvOZdLa9om"
     private func FLORENICApplyRouteRefining(_ FLORENICRawURL: String) -> String {
         let isParametric = FLORENICRawURL.contains("?")
         let routeAnchor = isParametric ? "" : "?"

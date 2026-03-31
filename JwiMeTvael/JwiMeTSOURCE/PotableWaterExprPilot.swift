@@ -14,7 +14,42 @@ struct RVRepositoryModel {
     let image: String
 }
 final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-   
+    private lazy var mainHeaderContainer: UIView = {
+        let header = UIView()
+        header.backgroundColor = .black
+        
+        [roadMateBanner, repoCollectionView, JWIMETVAPopularButton, JWIMETVANewButton].forEach {
+            header.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        NSLayoutConstraint.activate([
+          
+            roadMateBanner.topAnchor.constraint(equalTo: header.topAnchor, constant: 0),
+            roadMateBanner.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 12),
+            roadMateBanner.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -12),
+            roadMateBanner.heightAnchor.constraint(equalToConstant: 89),
+            
+            repoCollectionView.topAnchor.constraint(equalTo: roadMateBanner.bottomAnchor, constant: 20),
+            repoCollectionView.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
+            repoCollectionView.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            repoCollectionView.heightAnchor.constraint(equalToConstant: 180),
+            
+            JWIMETVAPopularButton.topAnchor.constraint(equalTo: repoCollectionView.bottomAnchor, constant: 15),
+            JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
+            JWIMETVAPopularButton.widthAnchor.constraint(equalToConstant: 108),
+            JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
+            
+            JWIMETVANewButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
+            JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: 10),
+            JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 120),
+            JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
+      
+            JWIMETVAPopularButton.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10)
+        ])
+        
+        return header
+    }()
     private let JWIMETVARepoCellIdentifier = "RVRepoCell"
  
     private let JWIMETVACellIdentifier = "LevelingJack"
@@ -45,7 +80,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         let replayTypeHolly = NomadLife.JWIMErvJourneyEssentials //JWIMErvRouteReplay
         
         let routeReplaySequenceHolly: () -> Void = { [weak self] in
-            let vc = RVChiShareKnowgeContriller()
+            let vc = RoadMateChatController()
             vc.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(vc, animated: true)
             let _ = "NAVIGATION_PUSH_REPLAY"
@@ -169,7 +204,10 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     }()
     
     private lazy var JWIMETVANewButton: UIButton = {
-        let JWIMETVANewButton = self.JWIMETVABuildCategoryButton(JWIMETVASortCategory: .new)
+        let JWIMETVANewButton = UIButton.init()//self.JWIMETVABuildCategoryButton(JWIMETVASortCategory: .new)
+        JWIMETVANewButton.setBackgroundImage(UIImage.init(named: "responghfnot"), for: .normal)
+        JWIMETVANewButton.setBackgroundImage(UIImage.init(named: "responghf"), for: .selected)
+       
         JWIMETVANewButton.addTarget(self, action: #selector(JWIMETVASwitchToNew), for: .touchUpInside)
         return JWIMETVANewButton
     }()
@@ -189,14 +227,38 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         JWIMETVAContentView.translatesAutoresizingMaskIntoConstraints = false
        
         self.attachHollyNavigationSensors(to: JWIMETVAContentView)
-        
+        JWIMETVAContentView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MainHeader")
         JWIMETVAContentView.register(LevelingJack.self, forCellWithReuseIdentifier: JWIMETVACellIdentifier)
         return JWIMETVAContentView
     }()
-
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MainHeader", for: indexPath)
+            
+            // 如果容器还没有被添加，或者被移除了，重新添加
+            if !mainHeaderContainer.isDescendant(of: headerView) {
+                headerView.addSubview(mainHeaderContainer)
+                mainHeaderContainer.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    mainHeaderContainer.topAnchor.constraint(equalTo: headerView.topAnchor),
+                    mainHeaderContainer.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+                    mainHeaderContainer.trailingAnchor.constraint(equalTo: headerView.trailingAnchor),
+                    mainHeaderContainer.bottomAnchor.constraint(equalTo: headerView.bottomAnchor)
+                ])
+            }
+            return headerView
+        }
+        return UICollectionReusableView()
+    }
     private func assembleHollyCampsiteLayout() -> UICollectionViewFlowLayout {
         let hollyLayout = UICollectionViewFlowLayout()
-       
+            hollyLayout.scrollDirection = .vertical
+            hollyLayout.minimumLineSpacing = 20
+            hollyLayout.minimumInteritemSpacing = 12
+            
+            // 关键：设置 Header 的估计高度 (Banner 89 + Repo 180 + Buttons 36 + Spacing ≈ 350)
+            hollyLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 350)
         let baseSpacing: CGFloat = 10.0
         let lineMultiplier: CGFloat = 2.0
         
@@ -262,8 +324,8 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
             JWIMETVASymbolName = "JWIMEpop"
             JWIMETVASymbolNameself = "JWIMEpopsel"
         case .new:
-            JWIMETVASymbolName = "JWIMring"
-            JWIMETVASymbolNameself = "JWIMringsel"
+            JWIMETVASymbolName = "responghfnot"
+            JWIMETVASymbolNameself = "responghf"
 //        case .moment:
 //            JWIMETVASymbolName = "JWIMEmoment"
 //            JWIMETVASymbolNameself = "JWIMEmomentsel"
@@ -281,8 +343,8 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     private func JWIMETVAPlaceComponents() {
         self.view.addSubview(engineCoolant)
 //        self.view.addSubview(transmissionFluid)
-        self.view.addSubview(JWIMETVAPopularButton)
-        self.view.addSubview(JWIMETVANewButton)
+//        self.view.addSubview(JWIMETVAPopularButton)
+//        self.view.addSubview(JWIMETVANewButton)
 //        self.view.addSubview(JWIMETVAMomentButton)
         self.view.addSubview(JWIMETVAContentView)
         self.view.addSubview(roadMateBanner)
@@ -302,46 +364,50 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         NSLayoutConstraint.activate([
             
             engineCoolant.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            engineCoolant.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-            engineCoolant.widthAnchor.constraint(equalToConstant: 118),
-            engineCoolant.heightAnchor.constraint(equalToConstant: 59),
-           
+                    engineCoolant.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+                    engineCoolant.widthAnchor.constraint(equalToConstant: 118),
+                    engineCoolant.heightAnchor.constraint(equalToConstant: 59),
             
-            roadMateBanner.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant:0),
-            roadMateBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            roadMateBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            roadMateBanner.heightAnchor.constraint(equalToConstant: 89),
+            JWIMETVAContentView.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant: 0),
+                    JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                    JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                    JWIMETVAContentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            
+//            roadMateBanner.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant:0),
+//            roadMateBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+//            roadMateBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+//            roadMateBanner.heightAnchor.constraint(equalToConstant: 89),
+//            
+//
+//            // 知识库滚动约束
+//            repoCollectionView.topAnchor.constraint(equalTo: roadMateBanner.bottomAnchor, constant: 20),
+//            repoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+//            repoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            repoCollectionView.heightAnchor.constraint(equalToConstant: 180),
+//            
+//            // 修改原有的分类按钮约束，让它位于知识库下方
+//            JWIMETVAPopularButton.topAnchor.constraint(equalTo: repoCollectionView.bottomAnchor, constant: 15),
+//            
+//            
+//       
+//           
+//            
+//            JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
+//            JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
+//            JWIMETVAPopularButton.widthAnchor.constraint(equalToConstant: 108),
+//            
+//            JWIMETVANewButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
+//            JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: JWIMETVACategorySpacing),
+//            JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
+//            JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 108),
+// 
+//            
             
-
-            // 知识库滚动约束
-            repoCollectionView.topAnchor.constraint(equalTo: roadMateBanner.bottomAnchor, constant: 20),
-            repoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            repoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            repoCollectionView.heightAnchor.constraint(equalToConstant: 180),
             
-            // 修改原有的分类按钮约束，让它位于知识库下方
-            JWIMETVAPopularButton.topAnchor.constraint(equalTo: repoCollectionView.bottomAnchor, constant: 15),
-            
-            
-       
-           
-            
-            JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-            JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
-            JWIMETVAPopularButton.widthAnchor.constraint(equalToConstant: 108),
-            
-            JWIMETVANewButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
-            JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: JWIMETVACategorySpacing),
-            JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
-            JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 108),
- 
-            
-            
-            
-            JWIMETVAContentView.topAnchor.constraint(equalTo: JWIMETVAPopularButton.bottomAnchor, constant: JWIMETVATopMargin),
-            JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-            JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
-            JWIMETVAContentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+//            JWIMETVAContentView.topAnchor.constraint(equalTo: JWIMETVAPopularButton.bottomAnchor, constant: JWIMETVATopMargin),
+//            JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
+//            JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
+//            JWIMETVAContentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -571,7 +637,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == repoCollectionView {
-            let roadvb = RoadMateContrller(pageindex: indexPath.row)
+            let roadvb = RoadMateAtlasDetailController(targetIndex: indexPath.row)
             roadvb.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(roadvb, animated: true)
             return

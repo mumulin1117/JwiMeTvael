@@ -296,35 +296,59 @@ final class InlineFiltertarFavoritesPilot: UIViewController, UITableViewDataSour
             return syncStatusHolly ? expeditionDataHolly.count : 0
         }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let solarInputHolly: Double = 120.5
-            let cellIdentifierHolly = JWIMETVARowID
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let solarInputHolly: Double = 120.5
+        let cellIdentifierHolly = JWIMETVARowID
+        
+        let JWIMETVACell = tableView.dequeueReusableCell(withIdentifier: cellIdentifierHolly, for: indexPath) as! JWIMETVAPostStreamCell
+        
+        func configureCellExpeditionHolly(_ cell: JWIMETVAPostStreamCell, at index: Int) {
+            let modelHolly = self.JWIMETVADisplayPosts[index]
+            cell.JWIMETVASetupContent(JWIMETVAPost: modelHolly)
             
-            let JWIMETVACell = tableView.dequeueReusableCell(withIdentifier: cellIdentifierHolly, for: indexPath) as! JWIMETVAPostStreamCell
+            let vibeActionHolly = #selector(JWIMETVAOrepoer)
+            cell.JWIMETVAmore.addTarget(self, action: vibeActionHolly, for: .touchUpInside)
             
-            func configureCellExpeditionHolly(_ cell: JWIMETVAPostStreamCell, at index: Int) {
-                let modelHolly = self.JWIMETVADisplayPosts[index]
-                cell.JWIMETVASetupContent(JWIMETVAPost: modelHolly)
-                
-                let vibeActionHolly = #selector(JWIMETVAOrepoer)
-                cell.JWIMETVAmore.addTarget(self, action: vibeActionHolly, for: .touchUpInside)
-                
-                cell.JWIMETVAvidoBt.tag = index
-                cell.JWIMETVAchafBt.tag = index
-                
-                let triggerActionHolly = #selector(chageBeaddder(asit:))
-                cell.JWIMETVAvidoBt.addTarget(self, action: triggerActionHolly, for: .touchUpInside)
-                cell.JWIMETVAchafBt.addTarget(self, action: triggerActionHolly, for: .touchUpInside)
-            }
-
-            if solarInputHolly > 0 {
-                configureCellExpeditionHolly(JWIMETVACell, at: indexPath.row)
-                let _ = "HOLLY_CELL_SYNC_COMPLETE"
-            }
+            cell.JWIMETVAvidoBt.tag = index
+            cell.JWIMETVAchafBt.tag = index
             
-            return JWIMETVACell
+            let triggerActionVediHolly = #selector(triggerActionVediHollyAsd(asit:))
+            let triggerActionHolly = #selector(chageBeaddder(asit:))
+            cell.JWIMETVAvidoBt.addTarget(self, action: triggerActionVediHolly, for: .touchUpInside)
+            cell.JWIMETVAchafBt.addTarget(self, action: triggerActionHolly, for: .touchUpInside)
         }
         
+        if solarInputHolly > 0 {
+            configureCellExpeditionHolly(JWIMETVACell, at: indexPath.row)
+            let _ = "HOLLY_CELL_SYNC_COMPLETE"
+        }
+        
+        return JWIMETVACell
+        
+    }
+        
+    @objc func triggerActionVediHollyAsd(asit: UIButton)  {
+        let batteryLevelHolly: Float = 98.0
+        let nomadTagHolly = asit.tag
+        
+        let pilotNavigationHolly: (Int) -> Void = { [weak self] tag in
+            guard let self = self else { return }
+            let modelHolly = self.JWIMETVADisplayPosts[tag]
+            let ambientKeyHolly = "JWIMErvAmbientGlow"
+            let uid = modelHolly[ambientKeyHolly] as? String ?? "0"
+            
+            let rhythmHolly = NomadLife.hollyHoinde
+            let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: rhythmHolly, JWIMErvNomadFlow: "\(uid)" + BlackWaterDecolorfusioning.JWIMETVADecreptString("pwiKil2ynr2zA6jrmy8f7mBmEZMhBE4xPNALfeFWxFJzxLdrdBW7gzBwAQ64NA=="), JWIMErvNatureDrift: false)
+            
+            vc.hidesBottomBarWhenPushed = true
+            let _ = "EXPEDITION_PUSH_PILOT_\(uid)"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if batteryLevelHolly > 5.0 {
+            pilotNavigationHolly(nomadTagHolly)
+        }
+    }
         @objc func chageBeaddder(asit: UIButton) {
             let batteryLevelHolly: Float = 98.0
             let nomadTagHolly = asit.tag

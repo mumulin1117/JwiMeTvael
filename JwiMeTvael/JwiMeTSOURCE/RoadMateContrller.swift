@@ -2,26 +2,25 @@
 //  RoadMateContrller.swift
 //  JwiMeTvael
 //
-//  Created by mumu on 2026/3/30.
+//  Created by  on 2026/3/30.
 //
 
 import UIKit
 
-
-class RoadMateContrller: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class RoadMateAtlasDetailController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    private var activeNarrativeIndex: Int = 0
     
-    var pageindex: Int = 0
-    
-    // MARK: - UI Components
-    private let backButton: UIButton = {
+    // MARK: - UI Elements
+    private let orbitalDismissTrigger: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setImage(UIImage(named: "back_icon_holu"), for: .normal)
         btn.tintColor = .white
+        btn.addTarget(self, action: #selector(initiateRetreatSequence), for: .touchUpInside)
         return btn
     }()
     
-    private let titleHeader: UILabel = {
+    private let topNavigationTitle: UILabel = {
         let label = UILabel()
         label.text = "Knowledge Base Details"
         label.textColor = .white
@@ -29,22 +28,21 @@ class RoadMateContrller: UIViewController, UICollectionViewDataSource, UICollect
         return label
     }()
     
-    private lazy var imageCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 15
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    private lazy var visualCarouselDisplay: UICollectionView = {
+        let flowPipe = UICollectionViewFlowLayout()
+        flowPipe.scrollDirection = .horizontal
+        flowPipe.minimumLineSpacing = 15
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: flowPipe)
         cv.backgroundColor = .clear
-        cv.isPagingEnabled = false // 使用自定义偏移或调整以匹配设计
         cv.showsHorizontalScrollIndicator = false
         cv.decelerationRate = .fast
         cv.dataSource = self
         cv.delegate = self
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ImageCell")
+        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "AtlasVisualCarrier")
         return cv
     }()
     
-    private let contentTitleLabel: UILabel = {
+    private let primaryHeaderLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 24, weight: .bold)
@@ -52,7 +50,7 @@ class RoadMateContrller: UIViewController, UICollectionViewDataSource, UICollect
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private let secondaryNarrativeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = .systemFont(ofSize: 16)
@@ -60,7 +58,7 @@ class RoadMateContrller: UIViewController, UICollectionViewDataSource, UICollect
         return label
     }()
     
-    private let indicatorStack: UIStackView = {
+    private let progressIndicatorPod: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
@@ -68,133 +66,140 @@ class RoadMateContrller: UIViewController, UICollectionViewDataSource, UICollect
         return stack
     }()
 
-    // MARK: - Init
-    init(pageindex: Int) {
-        self.pageindex = pageindex
+    // MARK: - Initializer
+    init(targetIndex: Int) {
+        self.activeNarrativeIndex = targetIndex
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Atlas Controller Critical Failure")
     }
 
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle Execution
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        updateContent(for: pageindex)
+        configureEnvironmentBase()
+        assembleVisualHierarchy()
+        syncNarrativeContent(at: activeNarrativeIndex)
         
-        // 初始滚动到传递的 index
+        // 延迟滚动以确保布局完成
+        executeInitialFocus()
+    }
+    
+    private func executeInitialFocus() {
         DispatchQueue.main.async {
-            let indexPath = IndexPath(item: self.pageindex, section: 0)
-            self.imageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            let focusPath = IndexPath(item: self.activeNarrativeIndex, section: 0)
+            self.visualCarouselDisplay.scrollToItem(at: focusPath, at: .centeredHorizontally, animated: false)
         }
     }
     
-    private func setupUI() {
+    private func configureEnvironmentBase() {
         view.backgroundColor = .black
+    }
+
+    private func assembleVisualHierarchy() {
+        let atlasSubviews = [orbitalDismissTrigger, topNavigationTitle, visualCarouselDisplay, primaryHeaderLabel, secondaryNarrativeLabel, progressIndicatorPod]
         
-        [backButton, titleHeader, imageCollectionView, contentTitleLabel, descriptionLabel, indicatorStack].forEach {
+        atlasSubviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
         
-        backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
-        
-        // 使用比例适配约束
         NSLayoutConstraint.activate([
-        
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .adaptiveHeight(10)),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            orbitalDismissTrigger.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: .adaptiveHeight(10)),
+            orbitalDismissTrigger.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             
-            titleHeader.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            titleHeader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-           
-            imageCollectionView.topAnchor.constraint(equalTo: titleHeader.bottomAnchor, constant: .adaptiveHeight(30)),
-            imageCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 400.0/852.0),
+            topNavigationTitle.centerYAnchor.constraint(equalTo: orbitalDismissTrigger.centerYAnchor),
+            topNavigationTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            indicatorStack.topAnchor.constraint(equalTo: imageCollectionView.bottomAnchor, constant: .adaptiveHeight(20)),
-            indicatorStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            indicatorStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 200.0/393.0),
-            indicatorStack.heightAnchor.constraint(equalToConstant: 4),
+            visualCarouselDisplay.topAnchor.constraint(equalTo: topNavigationTitle.bottomAnchor, constant: .adaptiveHeight(30)),
+            visualCarouselDisplay.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            visualCarouselDisplay.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            visualCarouselDisplay.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 400.0/852.0),
             
-            contentTitleLabel.topAnchor.constraint(equalTo: indicatorStack.bottomAnchor, constant: .adaptiveHeight(30)),
-            contentTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            contentTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            progressIndicatorPod.topAnchor.constraint(equalTo: visualCarouselDisplay.bottomAnchor, constant: .adaptiveHeight(20)),
+            progressIndicatorPod.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            progressIndicatorPod.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 200.0/393.0),
+            progressIndicatorPod.heightAnchor.constraint(equalToConstant: 4),
             
-            descriptionLabel.topAnchor.constraint(equalTo: contentTitleLabel.bottomAnchor, constant: .adaptiveHeight(15)),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentTitleLabel.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentTitleLabel.trailingAnchor)
+            primaryHeaderLabel.topAnchor.constraint(equalTo: progressIndicatorPod.bottomAnchor, constant: .adaptiveHeight(30)),
+            primaryHeaderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            primaryHeaderLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            secondaryNarrativeLabel.topAnchor.constraint(equalTo: primaryHeaderLabel.bottomAnchor, constant: .adaptiveHeight(15)),
+            secondaryNarrativeLabel.leadingAnchor.constraint(equalTo: primaryHeaderLabel.leadingAnchor),
+            secondaryNarrativeLabel.trailingAnchor.constraint(equalTo: primaryHeaderLabel.trailingAnchor)
         ])
         
-        setupIndicators()
+        constructStatusIndicators()
     }
     
-    private func setupIndicators() {
-        for i in 0..<BatteryLoginBankAssembler.BatteryRV.count {
-            let dot = UIView()
-            dot.backgroundColor = (i == pageindex) ? .systemPurple : .darkGray
-            dot.layer.cornerRadius = 2
-            indicatorStack.addArrangedSubview(dot)
+    private func constructStatusIndicators() {
+        let totalUnits = fetchDataSourceCount()
+        for i in 0..<totalUnits {
+            let segment = UIView()
+            segment.backgroundColor = (i == activeNarrativeIndex) ? .systemPurple : .darkGray
+            segment.layer.cornerRadius = 2
+            progressIndicatorPod.addArrangedSubview(segment)
         }
     }
     
-    private func updateContent(for index: Int) {
-        let data = BatteryLoginBankAssembler.BatteryRV[index]
-        contentTitleLabel.text = data.1
-        descriptionLabel.text = data.2
+    private func syncNarrativeContent(at index: Int) {
+        let unitData = BatteryLoginBankAssembler.BatteryRV[index]
+        primaryHeaderLabel.text = unitData.1
+        secondaryNarrativeLabel.text = unitData.2
         
-        for (idx, view) in indicatorStack.arrangedSubviews.enumerated() {
+        progressIndicatorPod.arrangedSubviews.enumerated().forEach { idx, view in
             view.backgroundColor = (idx == index) ? .systemPurple : .darkGray
         }
     }
     
-    @objc private func handleBack() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-   
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    private func fetchDataSourceCount() -> Int {
         return BatteryLoginBankAssembler.BatteryRV.count
     }
     
+    @objc private func initiateRetreatSequence() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return fetchDataSourceCount()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AtlasVisualCarrier", for: indexPath)
         
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         
-        let imageView = UIImageView(image: UIImage(named: BatteryLoginBankAssembler.BatteryRV[indexPath.item].0))
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 20
-        imageView.frame = cell.contentView.bounds
-        cell.contentView.addSubview(imageView)
+        let resourceName = BatteryLoginBankAssembler.BatteryRV[indexPath.item].0
+        let visualComponent = UIImageView(image: UIImage(named: resourceName))
+        visualComponent.contentMode = .scaleAspectFill
+        visualComponent.clipsToBounds = true
+        visualComponent.layer.cornerRadius = 20
+        visualComponent.frame = cell.contentView.bounds
+        cell.contentView.addSubview(visualComponent)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
-        let itemWidth = collectionView.frame.width * 0.82
-        let itemHeight = collectionView.frame.height
-        return CGSize(width: itemWidth, height: itemHeight)
+        let dynamicWidth = collectionView.frame.width * 0.82
+        return CGSize(width: dynamicWidth, height: collectionView.frame.height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-       
-        let sideInset = (collectionView.frame.width - (collectionView.frame.width * 0.82)) / 2
-        return UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
+        let horizontalPadding = (collectionView.frame.width - (collectionView.frame.width * 0.82)) / 2
+        return UIEdgeInsets(top: 0, left: horizontalPadding, bottom: 0, right: horizontalPadding)
     }
-    
-  
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let visibleRect = CGRect(origin: imageCollectionView.contentOffset, size: imageCollectionView.bounds.size)
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        if let indexPath = imageCollectionView.indexPathForItem(at: visiblePoint) {
-            self.pageindex = indexPath.item
-            updateContent(for: self.pageindex)
+        let corePoint = CGPoint(x: visualCarouselDisplay.contentOffset.x + (visualCarouselDisplay.frame.width / 2),
+                                y: visualCarouselDisplay.frame.height / 2)
+        
+        if let targetPath = visualCarouselDisplay.indexPathForItem(at: corePoint) {
+            self.activeNarrativeIndex = targetPath.item
+            syncNarrativeContent(at: self.activeNarrativeIndex)
         }
     }
 }

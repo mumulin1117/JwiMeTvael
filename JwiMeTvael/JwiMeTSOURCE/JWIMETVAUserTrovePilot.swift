@@ -50,8 +50,21 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         JWIMETVAConfigTrigger.translatesAutoresizingMaskIntoConstraints = false
         return JWIMETVAConfigTrigger
     }()
-    @objc func JWIMETVAConfigTriggerTAggle()  {
-        let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: .JWIMErvTravelMoodTag,JWIMErvNatureDrift:false)
+    
+    private lazy var JWIMETVAEditrigger: UIButton = {
+        let JWIMETVAConfigTrigger = UIButton()
+        JWIMETVAConfigTrigger.setImage(UIImage(named: "JWIMETVAEditrigger"), for: .normal)
+        JWIMETVAConfigTrigger.addTarget(self, action: #selector(JWIMETVAConfigTriggerTAggle(withTrigger: )), for: .touchUpInside)
+        JWIMETVAConfigTrigger.translatesAutoresizingMaskIntoConstraints = false
+        return JWIMETVAConfigTrigger
+    }()
+    @objc func JWIMETVAConfigTriggerTAggle(withTrigger:UIButton)  {
+        var base:NomadLife = NomadLife.JWIMErvTravelMoodTag
+        
+        if withTrigger == JWIMETVAEditrigger {
+            base = .allnertveredit
+        }
+        let vc = GrayWaterCreatePilot.init(JWIMErvPathwayRhythm: base,JWIMErvNatureDrift:false)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -172,7 +185,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
     private func calibrateCaravanDashboard(with payload: [String: Any]) {
         let dataKey = "JWIMETVAdata".JWIMETVAtime
         let visualKey = "JWIMErvMosquitoDeflector"
-        let beaconKey = "JWIMErvLedBeamCaster"
+        let beaconKey = "JWIMErvCabinAirPump"
         
         guard let travelMetrics = payload[dataKey] as? [String: Any] else { return }
         
@@ -193,8 +206,8 @@ class JWIMETVAUserTrovePilot:  UIViewController {
             self.JWIMETVAPortraitFrame.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
         }
         
-        self.JWIMETVAPersonaName.text = currentState.personaLabel
-        self.JWIMETVABioTeaser.text = currentState.bioSnippet
+        self.JWIMETVAPersonaName.text = currentState.bioSnippet
+        self.JWIMETVABioTeaser.text =  "No Brief Yet"
     }
 
     private func JWIMETVAInitialSetup() {
@@ -210,6 +223,8 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         JWIMETVAContentStack.addSubview(JWIMETVAConfigTrigger)
         JWIMETVAContentStack.addSubview(JWIMETVAWalletTrigger)
         JWIMETVAContentStack.addSubview(JWIMETVAPersonaName)
+        JWIMETVAContentStack.addSubview(JWIMETVAEditrigger)
+        
         JWIMETVAContentStack.addSubview(JWIMETVABioTeaser)
         JWIMETVAContentStack.addSubview(JWIMETVAMetricsBoard)
         JWIMETVAContentStack.addSubview(JWIMETVASpaceSectionTitle)
@@ -254,6 +269,11 @@ class JWIMETVAUserTrovePilot:  UIViewController {
             JWIMETVAPersonaName.topAnchor.constraint(equalTo: JWIMETVAPortraitFrame.bottomAnchor, constant: 15),
             JWIMETVAPersonaName.centerXAnchor.constraint(equalTo: JWIMETVAContentStack.centerXAnchor),
 
+            JWIMETVAEditrigger.widthAnchor.constraint(equalToConstant: 30),
+            JWIMETVAEditrigger.heightAnchor.constraint(equalToConstant: 30),
+            JWIMETVAEditrigger.centerYAnchor.constraint(equalTo: JWIMETVAPersonaName.centerYAnchor),
+            JWIMETVAEditrigger.leadingAnchor.constraint(equalTo: JWIMETVAPersonaName.trailingAnchor, constant: 4),
+            
             JWIMETVAMetricsBoard.topAnchor.constraint(equalTo: JWIMETVAPersonaName.bottomAnchor, constant: 20),
             JWIMETVAMetricsBoard.leadingAnchor.constraint(equalTo: JWIMETVAContentStack.leadingAnchor, constant: 20),
             JWIMETVAMetricsBoard.trailingAnchor.constraint(equalTo: JWIMETVAContentStack.trailingAnchor, constant: -20),
