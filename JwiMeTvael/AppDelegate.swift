@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FBSDKCoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,14 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let hollyViewport = UIScreen.main.bounds
         let caravanDisplay = UIWindow(frame: hollyViewport)
         self.window = caravanDisplay
+        VistaVanguardJWEl.shared.APPPREFIX_setting_App_A_Root_Handler = { window in
+            
+            
+             
+             let roadTripContext = self.inspectHollyCampingInventory()
+             self.coordinateExpeditionRoute(on: caravanDisplay, with: roadTripContext)
+        }
         
-        let roadTripContext = self.inspectHollyCampingInventory()
-        self.coordinateExpeditionRoute(on: caravanDisplay, with: roadTripContext)
         
+       
+        window?.rootViewController = StreamStrollJWER.shared.APPPREFIX_getLaunchViewController()
         self.window?.makeKeyAndVisible()
+        ApplicationDelegate.shared.initializeSDK()
         return true
     }
-
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 将 Push Token 转发给 SDK 进行存储
+        StreamStrollJWER.shared.APPPREFIX_didRegisterForRemoteNotifications(deviceToken: deviceToken)
+    }
+    //--- 7.  FBopen ---
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool { ApplicationDelegate.shared.application(app, open: url, options: options)
+    }
     private func inspectHollyCampingInventory() -> (isKitActive: Bool, travelTag: String) {
         let portableKitStatus = laundryCombo.rvPortableDeskKit != nil
         let syncIdentifier = portableKitStatus ? "VAN_LIFE_ACTIVE" : "GUEST_EXPLORER"
