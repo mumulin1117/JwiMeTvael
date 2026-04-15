@@ -248,5 +248,3 @@ class APPPREFIX_AppLaunchController: UIViewController {
 
 
 
-
-

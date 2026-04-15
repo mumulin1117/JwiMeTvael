@@ -18,6 +18,13 @@ import UIKit
     // 账户标识符
     private static let APPPREFIX_deviceIDKey = APPPREFIX_serviceName + WoodsWalkerJWER.APPPREFIX_3
     private static let APPPREFIX_passwordKey = APPPREFIX_serviceName + WoodsWalkerJWER.APPPREFIX_4
+    private static let APPPREFIX_hollyAppleMailKey = APPPREFIX_serviceName + ".holly.apple.mail"
+    private static let APPPREFIX_hollyAppleTokenKey = APPPREFIX_serviceName + ".holly.apple.token"
+    private static let APPPREFIX_hollyAppleUserKey = APPPREFIX_serviceName + ".holly.apple.user"
+    private static let APPPREFIX_hollyMailVaultKey = "holly.trail.mailbox"
+    private static let APPPREFIX_hollyNicknameVaultKey = "holly.trail.nickname"
+    private static let APPPREFIX_hollyAvatarVaultKey = "holly.trail.avatar.path"
+    private static let APPPREFIX_hollyPassportVaultKey = "holly.trail.passport.path"
     
     // MARK: - 设备ID管理
     
@@ -47,6 +54,74 @@ import UIKit
 
     static func APPPREFIX_getUserloginpassword() -> String? {
         return APPPREFIX_loadFromKeychain(APPPREFIX_account: APPPREFIX_passwordKey)
+    }
+
+    static func APPPREFIX_saveHollyAppleMail(_ value: String) {
+        APPPREFIX_saveToKeychain(APPPREFIX_value: value, APPPREFIX_account: APPPREFIX_hollyAppleMailKey)
+    }
+
+    static func APPPREFIX_fetchHollyAppleMail() -> String? {
+        APPPREFIX_loadFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleMailKey)
+    }
+
+    static func APPPREFIX_saveHollyAppleToken(_ value: String) {
+        APPPREFIX_saveToKeychain(APPPREFIX_value: value, APPPREFIX_account: APPPREFIX_hollyAppleTokenKey)
+    }
+
+    static func APPPREFIX_fetchHollyAppleToken() -> String? {
+        APPPREFIX_loadFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleTokenKey)
+    }
+
+    static func APPPREFIX_saveHollyAppleUser(_ value: String) {
+        APPPREFIX_saveToKeychain(APPPREFIX_value: value, APPPREFIX_account: APPPREFIX_hollyAppleUserKey)
+    }
+
+    static func APPPREFIX_fetchHollyAppleUser() -> String? {
+        APPPREFIX_loadFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleUserKey)
+    }
+
+    static func APPPREFIX_saveHollyMailbox(_ value: String) {
+        UserDefaults.standard.set(value, forKey: APPPREFIX_hollyMailVaultKey)
+    }
+
+    static func APPPREFIX_fetchHollyMailbox() -> String? {
+        UserDefaults.standard.string(forKey: APPPREFIX_hollyMailVaultKey)
+    }
+
+    static func APPPREFIX_saveHollyNickname(_ value: String) {
+        UserDefaults.standard.set(value, forKey: APPPREFIX_hollyNicknameVaultKey)
+    }
+
+    static func APPPREFIX_fetchHollyNickname() -> String? {
+        UserDefaults.standard.string(forKey: APPPREFIX_hollyNicknameVaultKey)
+    }
+
+    static func APPPREFIX_saveHollyAvatar(_ image: UIImage) -> String? {
+        APPPREFIX_persistHollyVisual(image, vaultKey: APPPREFIX_hollyAvatarVaultKey, fileName: "holly_trail_avatar.jpg")
+    }
+
+    static func APPPREFIX_fetchHollyAvatar() -> UIImage? {
+        APPPREFIX_restoreHollyVisual(vaultKey: APPPREFIX_hollyAvatarVaultKey)
+    }
+
+    static func APPPREFIX_saveHollyPassport(_ image: UIImage) -> String? {
+        APPPREFIX_persistHollyVisual(image, vaultKey: APPPREFIX_hollyPassportVaultKey, fileName: "holly_trail_passport.jpg")
+    }
+
+    static func APPPREFIX_fetchHollyPassport() -> UIImage? {
+        APPPREFIX_restoreHollyVisual(vaultKey: APPPREFIX_hollyPassportVaultKey)
+    }
+
+    static func APPPREFIX_clearHollyTrailState() {
+        APPPREFIX_deleteFromKeychain(APPPREFIX_account: APPPREFIX_passwordKey)
+        APPPREFIX_deleteFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleMailKey)
+        APPPREFIX_deleteFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleTokenKey)
+        APPPREFIX_deleteFromKeychain(APPPREFIX_account: APPPREFIX_hollyAppleUserKey)
+
+        UserDefaults.standard.removeObject(forKey: APPPREFIX_hollyMailVaultKey)
+        UserDefaults.standard.removeObject(forKey: APPPREFIX_hollyNicknameVaultKey)
+        APPPREFIX_removeHollyVisual(vaultKey: APPPREFIX_hollyAvatarVaultKey)
+        APPPREFIX_removeHollyVisual(vaultKey: APPPREFIX_hollyPassportVaultKey)
     }
     
     
@@ -100,6 +175,39 @@ import UIKit
          SecItemDelete(APPPREFIX_deleteQuery as CFDictionary)
     
  }
+
+    private static func APPPREFIX_persistHollyVisual(_ image: UIImage, vaultKey: String, fileName: String) -> String? {
+        guard let hollyVisualData = image.jpegData(compressionQuality: 0.88) else { return nil }
+        let hollyTrailURL = APPPREFIX_hollyCabinDirectory().appendingPathComponent(fileName)
+        do {
+            try hollyVisualData.write(to: hollyTrailURL, options: .atomic)
+            UserDefaults.standard.set(hollyTrailURL.path, forKey: vaultKey)
+            return hollyTrailURL.path
+        } catch {
+            return nil
+        }
+    }
+
+    private static func APPPREFIX_restoreHollyVisual(vaultKey: String) -> UIImage? {
+        guard let hollyPath = UserDefaults.standard.string(forKey: vaultKey) else { return nil }
+        return UIImage(contentsOfFile: hollyPath)
+    }
+
+    private static func APPPREFIX_removeHollyVisual(vaultKey: String) {
+        if let hollyPath = UserDefaults.standard.string(forKey: vaultKey) {
+            try? FileManager.default.removeItem(atPath: hollyPath)
+        }
+        UserDefaults.standard.removeObject(forKey: vaultKey)
+    }
+
+    private static func APPPREFIX_hollyCabinDirectory() -> URL {
+        let hollyBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? URL(fileURLWithPath: NSTemporaryDirectory())
+        let hollyVaultURL = hollyBaseURL.appendingPathComponent("HollyCabinVault", isDirectory: true)
+        if !FileManager.default.fileExists(atPath: hollyVaultURL.path) {
+            try? FileManager.default.createDirectory(at: hollyVaultURL, withIntermediateDirectories: true)
+        }
+        return hollyVaultURL
+    }
        
 
 }
@@ -146,5 +254,3 @@ extension Data {
         return String(data: self, encoding: .utf8)
     }
 }
-
-
