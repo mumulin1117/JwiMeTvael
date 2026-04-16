@@ -61,6 +61,8 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     private var JWIMETVACurrentSelection: JWIMETVASortCategory = .popular
     
     private var JWIMETVADisplayData: Array<[String: Any]> = Array<[String: Any]>()
+    private var hollyPendingLockedRoom: [String: Any]?
+    private let hollyRoomPassword = "5678"
     
     enum JWIMETVASortCategory {
         case popular
@@ -231,12 +233,84 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         JWIMETVAContentView.register(LevelingJack.self, forCellWithReuseIdentifier: JWIMETVACellIdentifier)
         return JWIMETVAContentView
     }()
+
+    private let hollyPasswordOverlay: UIControl = {
+        let control = UIControl()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.backgroundColor = UIColor.black.withAlphaComponent(0.52)
+        control.alpha = 0
+        control.isHidden = true
+        return control
+    }()
+
+    private let hollyPasswordCard: UIImageView = {
+        let card = UIImageView(image: UIImage(named: "shairefjui"))
+        card.translatesAutoresizingMaskIntoConstraints = false
+        card.contentMode = .scaleToFill
+      
+        card.isHidden = true
+        return card
+    }()
+
+//    private let hollyPasswordIconShell: UIView = {
+//        let shell = UIView()
+//        shell.translatesAutoresizingMaskIntoConstraints = false
+//        shell.backgroundColor = UIColor(red: 0.20, green: 0.04, blue: 0.32, alpha: 1)
+//        shell.layer.cornerRadius = 34
+//        shell.layer.borderWidth = 1
+//        shell.layer.borderColor = UIColor.white.withAlphaComponent(0.12).cgColor
+//        return shell
+//    }()
+
+  
+
+    private let hollyPasswordTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "JWIMETVAEnter Room Password".JWIMETVAtime
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        label.textAlignment = .center
+        return label
+    }()
+
+    private let hollyPasswordField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = UIColor.white
+        textField.layer.cornerRadius = 24
+        textField.layer.masksToBounds = true
+        textField.textAlignment = .center
+        textField.textColor = UIColor(red: 0.28, green: 0.24, blue: 0.32, alpha: 1)
+        textField.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        textField.keyboardType = .numberPad
+        textField.attributedPlaceholder = NSAttributedString(string: "JWIMETVAPassword".JWIMETVAtime, attributes: [.foregroundColor: UIColor(red: 0.63, green: 0.60, blue: 0.67, alpha: 1)])
+        return textField
+    }()
+
+    private let hollyPasswordErrorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "JWIMETVAIncorrect password. Please enter it again.".JWIMETVAtime
+        label.textColor = UIColor(red: 1, green: 0.46, blue: 0.52, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+
+    private lazy var hollyPasswordConfirmButton: HollyGradientButton = {
+        let button = HollyGradientButton(title: "JWIMETVASure".JWIMETVAtime)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(JWIMETVAConfirmRoomPassword), for: .touchUpInside)
+        return button
+    }()
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MainHeader", for: indexPath)
-            
-            // 如果容器还没有被添加，或者被移除了，重新添加
+          
             if !mainHeaderContainer.isDescendant(of: headerView) {
                 headerView.addSubview(mainHeaderContainer)
                 mainHeaderContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -257,7 +331,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
             hollyLayout.minimumLineSpacing = 20
             hollyLayout.minimumInteritemSpacing = 12
             
-            // 关键：设置 Header 的估计高度 (Banner 89 + Repo 180 + Buttons 36 + Spacing ≈ 350)
+           
             hollyLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 350)
         let baseSpacing: CGFloat = 10.0
         let lineMultiplier: CGFloat = 2.0
@@ -350,7 +424,15 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         self.view.addSubview(roadMateBanner)
        
         self.view.addSubview(repoCollectionView)
-        
+        self.view.addSubview(hollyPasswordOverlay)
+        self.view.addSubview(hollyPasswordCard)
+        self.hollyPasswordOverlay.addTarget(self, action: #selector(JWIMETVADismissRoomPasswordPopup), for: .touchUpInside)
+      
+        self.hollyPasswordCard.addSubview(hollyPasswordTitleLabel)
+        self.hollyPasswordCard.addSubview(hollyPasswordField)
+        self.hollyPasswordCard.addSubview(hollyPasswordErrorLabel)
+        self.hollyPasswordCard.addSubview(hollyPasswordConfirmButton)
+       
         // 更新约束 (Auto Layout)
         NSLayoutConstraint.activate([
             // AI Banner 约束
@@ -372,42 +454,39 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
                     JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                     JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                     JWIMETVAContentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-//            
-//            roadMateBanner.topAnchor.constraint(equalTo: engineCoolant.bottomAnchor, constant:0),
-//            roadMateBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-//            roadMateBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-//            roadMateBanner.heightAnchor.constraint(equalToConstant: 89),
-//            
-//
-//            // 知识库滚动约束
-//            repoCollectionView.topAnchor.constraint(equalTo: roadMateBanner.bottomAnchor, constant: 20),
-//            repoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-//            repoCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            repoCollectionView.heightAnchor.constraint(equalToConstant: 180),
-//            
-//            // 修改原有的分类按钮约束，让它位于知识库下方
-//            JWIMETVAPopularButton.topAnchor.constraint(equalTo: repoCollectionView.bottomAnchor, constant: 15),
-//            
-//            
-//       
-//           
-//            
-//            JWIMETVAPopularButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-//            JWIMETVAPopularButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
-//            JWIMETVAPopularButton.widthAnchor.constraint(equalToConstant: 108),
-//            
-//            JWIMETVANewButton.centerYAnchor.constraint(equalTo: JWIMETVAPopularButton.centerYAnchor),
-//            JWIMETVANewButton.leadingAnchor.constraint(equalTo: JWIMETVAPopularButton.trailingAnchor, constant: JWIMETVACategorySpacing),
-//            JWIMETVANewButton.heightAnchor.constraint(equalToConstant: JWIMETVAButtonHeight),
-//            JWIMETVANewButton.widthAnchor.constraint(equalToConstant: 108),
-// 
-//            
-            
-            
-//            JWIMETVAContentView.topAnchor.constraint(equalTo: JWIMETVAPopularButton.bottomAnchor, constant: JWIMETVATopMargin),
-//            JWIMETVAContentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: JWIMETVALandingPadding),
-//            JWIMETVAContentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -JWIMETVALandingPadding),
-//            JWIMETVAContentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+
+            hollyPasswordOverlay.topAnchor.constraint(equalTo: self.view.topAnchor),
+            hollyPasswordOverlay.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            hollyPasswordOverlay.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            hollyPasswordOverlay.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+
+            hollyPasswordCard.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            hollyPasswordCard.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 18),
+            hollyPasswordCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 26),
+            hollyPasswordCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -26),
+
+           
+         
+
+            hollyPasswordTitleLabel.topAnchor.constraint(equalTo: hollyPasswordCard.topAnchor, constant: 22 + 68 + 35),
+            hollyPasswordTitleLabel.leadingAnchor.constraint(equalTo: hollyPasswordCard.leadingAnchor, constant: 18),
+            hollyPasswordTitleLabel.trailingAnchor.constraint(equalTo: hollyPasswordCard.trailingAnchor, constant: -18),
+
+            hollyPasswordField.topAnchor.constraint(equalTo: hollyPasswordTitleLabel.bottomAnchor, constant: 30),
+            hollyPasswordField.leadingAnchor.constraint(equalTo: hollyPasswordCard.leadingAnchor, constant: 18),
+            hollyPasswordField.trailingAnchor.constraint(equalTo: hollyPasswordCard.trailingAnchor, constant: -18),
+            hollyPasswordField.heightAnchor.constraint(equalToConstant: 48),
+
+            hollyPasswordErrorLabel.topAnchor.constraint(equalTo: hollyPasswordField.bottomAnchor, constant: 10),
+            hollyPasswordErrorLabel.leadingAnchor.constraint(equalTo: hollyPasswordCard.leadingAnchor, constant: 24),
+            hollyPasswordErrorLabel.trailingAnchor.constraint(equalTo: hollyPasswordCard.trailingAnchor, constant: -24),
+
+            hollyPasswordConfirmButton.topAnchor.constraint(equalTo: hollyPasswordErrorLabel.bottomAnchor, constant: 16),
+            hollyPasswordConfirmButton.leadingAnchor.constraint(equalTo: hollyPasswordCard.leadingAnchor, constant: 18),
+            hollyPasswordConfirmButton.trailingAnchor.constraint(equalTo: hollyPasswordCard.trailingAnchor, constant: -18),
+            hollyPasswordConfirmButton.heightAnchor.constraint(equalToConstant: 52),
+            hollyPasswordConfirmButton.bottomAnchor.constraint(equalTo: hollyPasswordCard.bottomAnchor, constant: -20),
+
         ])
     }
     
@@ -617,6 +696,56 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         cell.JWIMETVALiveMoreDisplay.addTarget(self, action: actionTrigger, for: .touchUpInside)
     }
 
+    private func presentHollyPasswordPopup(for roomEntry: [String: Any]) {
+        self.hollyPendingLockedRoom = roomEntry
+        self.hollyPasswordField.text = nil
+        self.hollyPasswordErrorLabel.isHidden = true
+        self.hollyPasswordField.layer.borderWidth = 0
+        self.view.endEditing(true)
+
+        self.hollyPasswordOverlay.isHidden = false
+        self.hollyPasswordCard.isHidden = false
+        self.hollyPasswordCard.alpha = 0
+        self.hollyPasswordCard.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+
+        UIView.animate(withDuration: 0.24) {
+            self.hollyPasswordOverlay.alpha = 1
+            self.hollyPasswordCard.alpha = 1
+            self.hollyPasswordCard.transform = .identity
+        }
+    }
+
+    @objc private func JWIMETVADismissRoomPasswordPopup() {
+        self.view.endEditing(true)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.hollyPasswordOverlay.alpha = 0
+            self.hollyPasswordCard.alpha = 0
+            self.hollyPasswordCard.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }) { _ in
+            self.hollyPasswordOverlay.isHidden = true
+            self.hollyPasswordCard.isHidden = true
+            self.hollyPasswordCard.transform = .identity
+            self.hollyPendingLockedRoom = nil
+        }
+    }
+
+    @objc private func JWIMETVAConfirmRoomPassword() {
+        let enteredPassword = self.hollyPasswordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        guard let roomEntry = self.hollyPendingLockedRoom else { return }
+
+        if enteredPassword == self.hollyRoomPassword {
+            self.hollyPasswordErrorLabel.isHidden = true
+            self.hollyPasswordField.layer.borderWidth = 0
+            ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: "Password correct")
+            self.JWIMETVADismissRoomPasswordPopup()
+            self.initiateHollyNavigationSequence(with: roomEntry)
+        } else {
+            self.hollyPasswordErrorLabel.isHidden = false
+            self.hollyPasswordField.layer.borderWidth = 1
+            self.hollyPasswordField.layer.borderColor = UIColor(red: 1, green: 0.46, blue: 0.52, alpha: 0.9).cgColor
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == repoCollectionView {
             return CGSize.init(width: 150, height: 180)
@@ -652,16 +781,17 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
     private func initiateHollyNavigationSequence(from logs: [[String: Any]], at sequence: Int) {
         guard logs.indices.contains(sequence) else { return }
         let entry = logs[sequence]
-        
-       
+        self.presentHollyPasswordPopup(for: entry)
+    }
+
+    private func initiateHollyNavigationSequence(with entry: [String: Any]) {
         guard let idRoom = entry["JWIMErvMemoryCapture"] as? Int else { return }
-        
-       
+
         let navigationContext: (shot: Int?, sunset: Any?) = (
             entry["JWIMErvShotComposition"] as? Int,
             entry["JWIMErvSunsetFrame"]
         )
-        
+
         self.routeHollyExpedition(roomID: idRoom, context: navigationContext)
     }
 
@@ -697,4 +827,3 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         }
     }
 }
-

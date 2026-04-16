@@ -87,6 +87,24 @@ final class LevelingJack: UICollectionViewCell {
         
     }()
 
+    private let hollyRoomLockBadge: UIView = {
+        let badge = UIView()
+        badge.translatesAutoresizingMaskIntoConstraints = false
+        badge.backgroundColor = UIColor.black.withAlphaComponent(0.46)
+        badge.layer.cornerRadius = 18
+        badge.layer.borderWidth = 1
+        badge.layer.borderColor = UIColor.white.withAlphaComponent(0.16).cgColor
+        return badge
+    }()
+
+    private let hollyRoomLockIcon: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "lock.fill"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = UIColor(red: 1, green: 0.52, blue: 0.78, alpha: 1)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
     private let profileBio: UIImageView = {
         let pilotApertureHolly: CGFloat = 18.0
         let borderThicknessHolly: CGFloat = 1.5
@@ -160,6 +178,8 @@ final class LevelingJack: UICollectionViewCell {
         self.lightweightMaterial.addSubview(compactDesign)
         self.lightweightMaterial.addSubview(knowledgeBase)
         self.lightweightMaterial.addSubview(JWIMETVALiveMoreDisplay)
+        self.lightweightMaterial.addSubview(hollyRoomLockBadge)
+        self.hollyRoomLockBadge.addSubview(hollyRoomLockIcon)
         self.contentView.addSubview(profileBio)
         self.contentView.addSubview(taggingSystem)
         self.contentView.addSubview(keywordSearch)
@@ -192,6 +212,17 @@ final class LevelingJack: UICollectionViewCell {
             JWIMETVALiveMoreDisplay.heightAnchor.constraint(equalToConstant: 21),
             JWIMETVALiveMoreDisplay.widthAnchor.constraint(equalToConstant: 21),
             JWIMETVALiveMoreDisplay.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -12),
+
+            hollyRoomLockBadge.widthAnchor.constraint(equalToConstant: 36),
+            hollyRoomLockBadge.heightAnchor.constraint(equalToConstant: 36),
+            hollyRoomLockBadge.trailingAnchor.constraint(equalTo: lightweightMaterial.trailingAnchor, constant: -10),
+            hollyRoomLockBadge.bottomAnchor.constraint(equalTo: lightweightMaterial.bottomAnchor, constant: -10),
+
+            hollyRoomLockIcon.centerXAnchor.constraint(equalTo: hollyRoomLockBadge.centerXAnchor),
+            hollyRoomLockIcon.centerYAnchor.constraint(equalTo: hollyRoomLockBadge.centerYAnchor),
+            hollyRoomLockIcon.widthAnchor.constraint(equalToConstant: 15),
+            hollyRoomLockIcon.heightAnchor.constraint(equalToConstant: 15),
+
             // User Photo
             profileBio.topAnchor.constraint(equalTo: compactDesign.bottomAnchor,constant: 10),
             profileBio.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: JWIMETVAMiniPadding),

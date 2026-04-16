@@ -103,7 +103,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private lazy var hollyWelcomeEmailButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "JWIMETVALogin withJWIMETVA Email".JWIMETVAtime)
+        let button = HollyGradientButton(title: "JWIMETVALogin with Email".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAOpenEmailLogin), for: .touchUpInside)
         return button
@@ -333,10 +333,19 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private lazy var hollySheetCancelButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Cancel".JWIMETVAtime)
+        let button = HollyGradientButton(title: "JWIMETVACancel".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVADismissMediaSheet), for: .touchUpInside)
         return button
+    }()
+
+    private lazy var hollyKeyboardDismissToolbar: UIToolbar = {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "JWIMETVADone".JWIMETVAtime, style: .done, target: self, action: #selector(JWIMETVAHandleKeyboardDismissTap))
+        toolbar.items = [flexibleSpace, doneButton]
+        return toolbar
     }()
 
     override func viewDidLoad() {
@@ -344,6 +353,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         self.JWIMETVAConfigureBaseView()
         self.JWIMETVAEmbedComponents()
         self.JWIMETVAApplyLayouts()
+        self.JWIMETVAConfigureKeyboardAccessory()
         self.JWIMETVAApplyPersistedHollyAccess()
         self.JWIMETVARefreshAgreementState()
         self.JWIMETVAShowStep(.stepowelcome, animated: false)
@@ -353,6 +363,14 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVAConfigureBaseView() {
         self.view.backgroundColor = .black
+    }
+
+    private func JWIMETVAConfigureKeyboardAccessory() {
+        self.hollyRegisterNicknameInput.textHollyField.inputAccessoryView = self.hollyKeyboardDismissToolbar
+        hollyRegisterEmailInput.textHollyField.inputAccessoryView = self.hollyKeyboardDismissToolbar
+        hollyRegisterPasswordInput.textHollyField.inputAccessoryView = self.hollyKeyboardDismissToolbar
+        hollyLoginEmailInput.textHollyField.inputAccessoryView = self.hollyKeyboardDismissToolbar
+        hollyLoginPasswordInput.textHollyField.inputAccessoryView = self.hollyKeyboardDismissToolbar
     }
 
     private func JWIMETVAEmbedComponents() {
@@ -408,7 +426,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         hollyRegisterPanel.addSubview(stack)
 
         NSLayoutConstraint.activate([
-            hollyRegisterTitleLabel.topAnchor.constraint(equalTo: hollyRegisterPanel.topAnchor, constant: 34),
+            hollyRegisterTitleLabel.topAnchor.constraint(equalTo: hollyRegisterPanel.topAnchor, constant: 14),
             hollyRegisterTitleLabel.centerXAnchor.constraint(equalTo: hollyRegisterPanel.centerXAnchor),
 
             hollyAvatarButton.topAnchor.constraint(equalTo: hollyRegisterTitleLabel.bottomAnchor, constant: 28),
@@ -838,7 +856,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         let password = hollyLoginPasswordInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
         guard self.JWIMETVAValidateEmail(email) else {
-            self.JWIMETVADisplayAlert(message: "Please enter a valid email address.".JWIMETVAtime)
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease enter a valid email address.".JWIMETVAtime)
             return
         }
 
@@ -925,13 +943,20 @@ final class BatteryLoginBankAssembler: UIViewController {
         self.coordinateHollyLegalDeployment(for: .JWIMErvAdventureLogbook, active: true)
     }
 
+    @objc private func JWIMETVAHandleKeyboardDismissTap() {
+        self.view.endEditing(true)
+    }
+
     @objc private func JWIMErvCabinClimateTune(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         UIView.animate(withDuration: 0.25) {
-            self.view.frame.origin.y = -(keyboardFrame.height * 0.22)
+            self.view.frame.origin.y = -(keyboardFrame.height * 0.32)
         }
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     @objc private func JWIMErvSceneSequencer() {
         self.view.frame.origin.y = 0
     }
@@ -1024,43 +1049,211 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVAHandleAppleCredential(_ credential: ASAuthorizationAppleIDCredential) {
-        let email = credential.email ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleMail() ?? SummitSentinelJWE.APPPREFIX_fetchHollyMailbox()
-        let user = credential.user.isEmpty ? SummitSentinelJWE.APPPREFIX_fetchHollyAppleUser() : credential.user
-        let authorizationCode = credential.authorizationCode.flatMap { String(data: $0, encoding: .utf8) }
-        let identityToken = credential.identityToken.flatMap { String(data: $0, encoding: .utf8) }
-        let resolvedToken = authorizationCode ?? identityToken ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleToken()
-        let resolvedSecret = [user, resolvedToken].compactMap { value -> String? in
-            guard let value, !value.isEmpty else { return nil }
-            return value
-        }.first
-
-        guard let email, !email.isEmpty, let resolvedSecret else {
+        guard let identityTokenData = credential.identityToken,
+              let identityTokenString = String(data: identityTokenData, encoding: .utf8),
+              !identityTokenString.isEmpty else {
             self.JWIMETVADisplayAlert(message: "JWIMETVAUnable to complete Apple Sign In. Please try again.".JWIMETVAtime)
             return
         }
 
-        let nickname = self.JWIMETVAResolveAppleNickname(from: credential, fallbackMail: email)
-        SummitSentinelJWE.APPPREFIX_saveHollyAppleMail(email)
-        SummitSentinelJWE.APPPREFIX_saveHollyMailbox(email)
+        let fallbackMail = credential.email ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleMail() ?? SummitSentinelJWE.APPPREFIX_fetchHollyMailbox()
+        let fallbackUser = credential.user.isEmpty ? SummitSentinelJWE.APPPREFIX_fetchHollyAppleUser() : credential.user
+        let fallbackNickname = self.JWIMETVAResolveAppleNickname(from: credential, fallbackMail: fallbackMail)
+        self.requestAppleLoginServer(identityToken: identityTokenString, fallbackMail: fallbackMail, fallbackNickname: fallbackNickname, fallbackUser: fallbackUser)
+    }
+
+    private func JWIMETVAResolveAppleNickname(from credential: ASAuthorizationAppleIDCredential, fallbackMail: String?) -> String {
+        let fullName = PersonNameComponentsFormatter().string(from: credential.fullName ?? PersonNameComponents()).trimmingCharacters(in: .whitespacesAndNewlines)
+        if !fullName.isEmpty {
+            return fullName
+        }
+        if let fallbackMail, !fallbackMail.isEmpty {
+            return self.JWIMETVADeriveNickname(from: fallbackMail)
+        }
+        return "Holly"
+    }
+
+    private func JWIMETVAResolveAppleString(from value: Any?) -> String? {
+        if let stringValue = value as? String {
+            let trimmedValue = stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmedValue.isEmpty ? nil : trimmedValue
+        }
+        if let intValue = value as? Int {
+            return "\(intValue)"
+        }
+        if let numberValue = value as? NSNumber {
+            return numberValue.stringValue
+        }
+        return nil
+    }
+
+    private func JWIMETVAResolveAppleInt(from value: Any?) -> Int? {
+        if let intValue = value as? Int {
+            return intValue
+        }
+        if let stringValue = self.JWIMETVAResolveAppleString(from: value) {
+            return Int(stringValue)
+        }
+        return nil
+    }
+
+    private func JWIMETVANormalizeApplePayload(payload: [String: Any], nestedPayload: [String: Any], fallbackMail: String?, fallbackNickname: String, fallbackUser: String?) -> [String: Any]? {
+        guard let token = self.JWIMETVAExtractQuickLoginToken(from: payload, nestedPayload: nestedPayload), !token.isEmpty else {
+            return nil
+        }
+
+        let resolvedID = self.JWIMETVAResolveAppleInt(from: nestedPayload["JWIMErvTirePatchKit"])
+            ?? self.JWIMETVAResolveAppleInt(from: payload["JWIMErvTirePatchKit"])
+            ?? self.JWIMETVAResolveAppleInt(from: nestedPayload["id"])
+            ?? self.JWIMETVAResolveAppleInt(from: payload["id"])
+
+        guard let resolvedID else {
+            return nil
+        }
+
+        let resolvedMail = self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvWaterFilterCore"])
+            ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvWaterFilterCore"])
+            ?? fallbackMail
+            ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleMail()
+            ?? SummitSentinelJWE.APPPREFIX_fetchHollyMailbox()
+
+        let resolvedNickname = self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvJackSupport"])
+            ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvJackSupport"])
+            ?? (resolvedMail?.isEmpty == false ? self.JWIMETVADeriveNickname(from: resolvedMail!) : fallbackNickname)
+
+        let resolvedUser = self.JWIMETVAResolveAppleString(from: nestedPayload["appleId"])
+            ?? self.JWIMETVAResolveAppleString(from: payload["appleId"])
+            ?? self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvAppleOrbit"])
+            ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvAppleOrbit"])
+            ?? self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvTirePatchKit"])
+            ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvTirePatchKit"])
+            ?? fallbackUser
+
+        var normalizedPayload = nestedPayload
+        normalizedPayload["JWIMErvSkylightPanel"] = token
+        normalizedPayload["JWIMErvTirePatchKit"] = resolvedID
+        if let resolvedMail, !resolvedMail.isEmpty {
+            normalizedPayload["JWIMErvWaterFilterCore"] = resolvedMail
+        }
+        if !resolvedNickname.isEmpty {
+            normalizedPayload["JWIMErvJackSupport"] = resolvedNickname
+        }
+        if let resolvedUser, !resolvedUser.isEmpty {
+            normalizedPayload["JWIMErvAppleOrbit"] = resolvedUser
+        }
+        return normalizedPayload
+    }
+
+    private func JWIMETVACompleteAppleLogin(normalizedPayload: [String: Any]) {
+        let resolvedMail = self.JWIMETVAResolveAppleString(from: normalizedPayload["JWIMErvWaterFilterCore"])
+        let resolvedNickname = self.JWIMETVAResolveAppleString(from: normalizedPayload["JWIMErvJackSupport"])
+        let resolvedUser = self.JWIMETVAResolveAppleString(from: normalizedPayload["JWIMErvAppleOrbit"])
+        let resolvedToken = self.JWIMETVAResolveAppleString(from: normalizedPayload["JWIMErvSkylightPanel"])
+
+        self.hollyCurrentAuthEmail = resolvedMail
+        self.hollyCurrentAuthNickname = resolvedNickname ?? (resolvedMail?.isEmpty == false ? self.JWIMETVADeriveNickname(from: resolvedMail!) : nil)
+        self.hollyCurrentAuthSecret = nil
+        self.hollyPendingRegisterSubmission = false
+
+        if let resolvedMail, !resolvedMail.isEmpty {
+            SummitSentinelJWE.APPPREFIX_saveHollyAppleMail(resolvedMail)
+            SummitSentinelJWE.APPPREFIX_saveHollyMailbox(resolvedMail)
+            self.hollyLoginEmailInput.textHollyField.text = resolvedMail
+            self.hollyRegisterEmailInput.textHollyField.text = resolvedMail
+        }
+
+        if let resolvedNickname = self.hollyCurrentAuthNickname, !resolvedNickname.isEmpty {
+            SummitSentinelJWE.APPPREFIX_saveHollyNickname(resolvedNickname)
+            self.hollyRegisterNicknameInput.textHollyField.text = resolvedNickname
+        }
+
+        if let resolvedUser, !resolvedUser.isEmpty {
+            SummitSentinelJWE.APPPREFIX_saveHollyAppleUser(resolvedUser)
+            self.hollyLoginPasswordInput.textHollyField.text = resolvedUser
+        }
+
         if let resolvedToken, !resolvedToken.isEmpty {
             SummitSentinelJWE.APPPREFIX_saveHollyAppleToken(resolvedToken)
-        }
-        if let user, !user.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyAppleUser(user)
-        }
-        if let nickname, !nickname.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyNickname(nickname)
+            UserDefaults.standard.set(resolvedToken, forKey: WoodsWalkerJWER.APPPREFIX_62)
         }
 
-        self.hollyLoginEmailInput.textHollyField.text = email
-        self.hollyLoginPasswordInput.textHollyField.text = resolvedSecret
-        self.JWIMETVAHandleLoginSubmission(email: email, password: resolvedSecret, nickname: nickname)
+        self.finalizeHollyLoginSuccess(with: normalizedPayload)
     }
 
-    private func JWIMETVAResolveAppleNickname(from credential: ASAuthorizationAppleIDCredential, fallbackMail: String) -> String? {
-        let fullName = PersonNameComponentsFormatter().string(from: credential.fullName ?? PersonNameComponents()).trimmingCharacters(in: .whitespacesAndNewlines)
-        return fullName.isEmpty ? self.JWIMETVADeriveNickname(from: fallbackMail) : fullName
+    private func requestAppleLoginServer(identityToken: String, fallbackMail: String?, fallbackNickname: String, fallbackUser: String?) {
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: "JWIMETVASign in...".JWIMETVAtime)
+        let dto: [String: Any] = [
+            "JWIMErvFreshwaterCircuit": "72454862",
+            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.APPPREFIX_getEquipmentOnlyID(),
+            "JWIMErvSolarArray": identityToken
+        ]
+        HitchReceiver.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/urifierz/kffyccaok", JWIMErvCargoSafetyLatch: dto, JWIMErvCabinStability: { [weak self] response in
+            ShieingWeightDistribution.JWIMETVAdismiss()
+            guard let self, let payload = response as? [String: Any] else { return }
+
+            let dataKey = "JQxYPnGYyqb2GODZ74mS+A6vNZrRD1P0RBMaFV0jnfPkEG7D7YLdsUFu8xg="
+            let parsedKey = BlackWaterDecolorfusioning.JWIMETVADecreptString(dataKey).JWIMETVAtime
+            if let expeditionData = payload[parsedKey] as? [String: Any] {
+                self.JWIMETVASyncQuickLoginArtifacts(payload: payload, nestedPayload: expeditionData, fallbackSecret: "applekey")
+                self.finalizeHollyLoginSuccess(with: expeditionData)
+            } else {
+                ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVALogin failed.".JWIMETVAtime)
+            }
+        }, JWIMErvHighAltitudeTune: { error in
+            ShieingWeightDistribution.JWIMETVAdismiss()
+            ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: error.localizedDescription)
+        })
+        
+        
+//        let FLORENICBaseLink = BlackWaterDecolorfusioning.JWIMETVADecreptString("4AKKPasE8WeztaxIXp8L2WIjZSR+O8aBaoqiLMlKGU1K6R5ulW7DQUvnaZEXX6CKhUSuhU5nt5QIAH+HmVByJoV1E78=")
+//        let urlString = FLORENICBaseLink + "/urifierz/kffyccaok"
+//        guard let url = URL(string: urlString) else {
+//            ShieingWeightDistribution.JWIMETVAdismiss()
+//            self.JWIMETVADisplayAlert(message: "JWIMETVAUnable to complete Apple Sign In. Please try again.".JWIMETVAtime)
+//            return
+//        }
+//
+//        let dto: [String: Any] = [
+//            "JWIMErvFreshwaterCircuit": "72454862",
+//            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.APPPREFIX_getEquipmentOnlyID(),
+//            "JWIMErvSolarArray": identityToken
+//        ]
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = try? JSONSerialization.data(withJSONObject: dto, options: [])
+//
+//        URLSession.shared.dataTask(with: request) { data, _, error in
+//            DispatchQueue.main.async {
+//                ShieingWeightDistribution.JWIMETVAdismiss()
+//
+//                if let error {
+//                    self.JWIMETVADisplayAlert(message: error.localizedDescription)
+//                    return
+//                }
+//
+//                guard let data,
+//                      let userResponse = try? JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .allowFragments]),
+//                      let payload = userResponse as? [String: Any] else {
+//                    self.JWIMETVADisplayAlert(message: "JWIMETVALogin failed.".JWIMETVAtime)
+//                    return
+//                }
+//
+//                let dataKey = "JQxYPnGYyqb2GODZ74mS+A6vNZrRD1P0RBMaFV0jnfPkEG7D7YLdsUFu8xg="
+//                let parsedKey = BlackWaterDecolorfusioning.JWIMETVADecreptString(dataKey).JWIMETVAtime
+//                let expeditionData = payload[parsedKey] as? [String: Any] ?? [:]
+//
+//                guard let normalizedPayload = self.JWIMETVANormalizeApplePayload(payload: payload, nestedPayload: expeditionData, fallbackMail: fallbackMail, fallbackNickname: fallbackNickname, fallbackUser: fallbackUser) else {
+//                    self.JWIMETVADisplayAlert(message: "JWIMETVALogin failed.".JWIMETVAtime)
+//                    return
+//                }
+//
+//                self.JWIMETVACompleteAppleLogin(normalizedPayload: normalizedPayload)
+//            }
+//        }.resume()
     }
+
 
     private func JWIMETVADisplayAlert(message: String) {
         let alert = UIAlertController(title: "JWIMETVANotice".JWIMETVAtime, message: message, preferredStyle: .alert)
@@ -1138,5 +1331,3 @@ extension BatteryLoginBankAssembler: UIImagePickerControllerDelegate, UINavigati
         self.hollyCurrentCameraPurpose = nil
     }
 }
-
-

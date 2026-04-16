@@ -270,7 +270,7 @@ class JWIMETVAUserTrovePilot:  UIViewController {
 
             JWIMETVAPersonaName.topAnchor.constraint(equalTo: JWIMETVAPortraitFrame.bottomAnchor, constant: 15),
             JWIMETVAPersonaName.centerXAnchor.constraint(equalTo: JWIMETVAContentStack.centerXAnchor),
-
+            JWIMETVAPersonaName.widthAnchor.constraint(lessThanOrEqualToConstant: 180),
             JWIMETVAEditrigger.widthAnchor.constraint(equalToConstant: 30),
             JWIMETVAEditrigger.heightAnchor.constraint(equalToConstant: 30),
             JWIMETVAEditrigger.centerYAnchor.constraint(equalTo: JWIMETVAPersonaName.centerYAnchor),
