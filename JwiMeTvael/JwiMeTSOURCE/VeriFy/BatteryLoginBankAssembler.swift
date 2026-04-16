@@ -12,24 +12,24 @@ final class BatteryLoginBankAssembler: UIViewController {
     ]
 
     private enum HollyStep {
-        case welcome
-        case login
-        case register
-        case verify
+        case stepowelcome
+        case stepologin
+        case steporegister
+        case stepoverify
     }
 
     private enum HollyCameraPurpose {
-        case avatar
-        case verification
+        case stepoavatar
+        case stepoverification
     }
 
     private struct HollyRegistrationDraft {
-        var nickname: String = ""
-        var email: String = ""
-        var password: String = ""
+        var steponickname: String = ""
+        var stepoemail: String = ""
+        var stepopassword: String = ""
     }
 
-    private var hollyCurrentStep: HollyStep = .welcome
+    private var hollyCurrentStep: HollyStep = .stepowelcome
     private var hollyDraft = HollyRegistrationDraft()
     private var hollyAgreementAccepted = true
     private var hollyPendingRegisterSubmission = false
@@ -103,7 +103,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private lazy var hollyWelcomeEmailButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Login with Email")
+        let button = HollyGradientButton(title: "JWIMETVALogin withJWIMETVA Email".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAOpenEmailLogin), for: .touchUpInside)
         return button
@@ -127,18 +127,18 @@ final class BatteryLoginBankAssembler: UIViewController {
         return imageView
     }()
 
-    private let hollyLoginEmailInput = HollyInputField(iconName: "envelope", placeholder: "Email Address", secure: false)
-    private let hollyLoginPasswordInput = HollyInputField(iconName: "lock", placeholder: "Enter password", secure: true)
+    private let hollyLoginEmailInput = HollyInputField(iconHollyName: "envelope", placeHollyholder: "JWIMETVAEmail Address".JWIMETVAtime, Hollysecure: false)
+    private let hollyLoginPasswordInput = HollyInputField(iconHollyName: "lock", placeHollyholder: "JWIMETVAEnter password".JWIMETVAtime, Hollysecure: true)
 
     private lazy var hollyQuickLoginButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Quick login")
+        let button = HollyGradientButton(title: "JWIMETVAQuick login".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAHandleQuickLogin), for: .touchUpInside)
         return button
     }()
 
     private lazy var hollyRegisterAccountButton: HollyOutlineButton = {
-        let button = HollyOutlineButton(title: "Register an account")
+        let button = HollyOutlineButton(title: "JWIMETVARegister an account".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAOpenRegister), for: .touchUpInside)
         return button
@@ -147,7 +147,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let hollyRegisterTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Create a new\naccount"
+        label.text = "JWIMETVACreate a new\naccount".JWIMETVAtime
         label.textAlignment = .center
         label.numberOfLines = 2
         label.textColor = .white
@@ -168,7 +168,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private let hollyAvatarCameraBadge: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "camera.fill"))
+        let imageView = UIImageView(image: UIImage(systemName: "JWIMETVAcamera.fill".JWIMETVAtime))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .white
         imageView.backgroundColor = UIColor.black.withAlphaComponent(0.55)
@@ -177,13 +177,14 @@ final class BatteryLoginBankAssembler: UIViewController {
         imageView.contentMode = .center
         return imageView
     }()
+    
 
-    private let hollyRegisterNicknameInput = HollyInputField(iconName: "person", placeholder: "Enter nickname", secure: false)
-    private let hollyRegisterEmailInput = HollyInputField(iconName: "envelope", placeholder: "Email Address", secure: false)
-    private let hollyRegisterPasswordInput = HollyInputField(iconName: "lock", placeholder: "Enter password", secure: true)
+    private let hollyRegisterNicknameInput = HollyInputField(iconHollyName: "JWIMETVAperson".JWIMETVAtime, placeHollyholder: "JWIMETVAEnter nickname".JWIMETVAtime, Hollysecure: false)
+    private let hollyRegisterEmailInput = HollyInputField(iconHollyName: "JWIMETVAenvelope".JWIMETVAtime, placeHollyholder: "JWIMETVAEmail Address".JWIMETVAtime, Hollysecure: false)
+    private let hollyRegisterPasswordInput = HollyInputField(iconHollyName: "JWIMETVAlock".JWIMETVAtime, placeHollyholder: "JWIMETVAEnter password".JWIMETVAtime, Hollysecure: true)
 
     private lazy var hollyRegisterButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Register")
+        let button = HollyGradientButton(title: "JWIMETVARegister".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAHandleRegister), for: .touchUpInside)
         return button
@@ -192,7 +193,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let hollyVerifyTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Verify Your\nIdentity"
+        label.text = "JWIMETVAVerify Your\nIdentity".JWIMETVAtime
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .white
@@ -203,7 +204,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let hollyVerifySubtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Take a clear selfie so we can verify your age and help keep the community safe."
+        label.text = "JWIMETVATake a clear selfie so we can verify your age and help keep the community safe.".JWIMETVAtime
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = UIColor.white.withAlphaComponent(0.6)
@@ -232,7 +233,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let hollyVerifyNoteLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "By proceeding, you consent to the processing of your selfie for age verification purposes. Your photo will not be shared with third parties."
+        label.text = "JWIMETVABy proceeding, you consent to the processing of your selfie for age verification purposes. Your photo will not be shared with third parties.".JWIMETVAtime
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = UIColor.white.withAlphaComponent(0.6)
@@ -241,7 +242,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private lazy var hollyShootingButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Shooting")
+        let button = HollyGradientButton(title: "JWIMETVAShooting".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVAHandleShooting), for: .touchUpInside)
         return button
@@ -266,7 +267,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private let hollyAgreementTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "By continuing you agree to our"
+        label.text = "JWIMETVABy continuing you agree to our".JWIMETVAtime
         label.textColor = UIColor.white.withAlphaComponent(0.7)
         label.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         return label
@@ -277,7 +278,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 11, weight: .medium)
-        button.setAttributedTitle(NSAttributedString(string: "Terms of Service", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
+        button.setAttributedTitle(NSAttributedString(string: "Terms of Service".JWIMETVAtime, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
         button.addTarget(self, action: #selector(JWIMETVAOpenTerms), for: .touchUpInside)
         return button
     }()
@@ -287,7 +288,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 11, weight: .medium)
-        button.setAttributedTitle(NSAttributedString(string: "Privacy Policy", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
+        button.setAttributedTitle(NSAttributedString(string: "JWIMETVAPrivacy Policy".JWIMETVAtime, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
         button.addTarget(self, action: #selector(JWIMETVAOpenPrivacy), for: .touchUpInside)
         return button
     }()
@@ -314,7 +315,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private lazy var hollySheetPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Photo", for: .normal)
+        button.setTitle("JWIMETVAPhoto".JWIMETVAtime, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.addTarget(self, action: #selector(JWIMETVASelectPhotoMode), for: .touchUpInside)
@@ -324,7 +325,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     private lazy var hollySheetAlbumButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Album", for: .normal)
+        button.setTitle("JWIMETVAAlbum".JWIMETVAtime, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.addTarget(self, action: #selector(JWIMETVASelectAlbumMode), for: .touchUpInside)
@@ -332,7 +333,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }()
 
     private lazy var hollySheetCancelButton: HollyGradientButton = {
-        let button = HollyGradientButton(title: "Cancel")
+        let button = HollyGradientButton(title: "Cancel".JWIMETVAtime)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(JWIMETVADismissMediaSheet), for: .touchUpInside)
         return button
@@ -345,7 +346,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         self.JWIMETVAApplyLayouts()
         self.JWIMETVAApplyPersistedHollyAccess()
         self.JWIMETVARefreshAgreementState()
-        self.JWIMETVAShowStep(.welcome, animated: false)
+        self.JWIMETVAShowStep(.stepowelcome, animated: false)
         NotificationCenter.default.addObserver(self, selector: #selector(JWIMErvCabinClimateTune(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(JWIMErvSceneSequencer), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -603,17 +604,17 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVAApplyPersistedHollyAccess() {
         if let hollyMailbox = SummitSentinelJWE.APPPREFIX_fetchHollyMailbox() {
-            hollyLoginEmailInput.textField.text = hollyMailbox
-            hollyRegisterEmailInput.textField.text = hollyMailbox
+            hollyLoginEmailInput.textHollyField.text = hollyMailbox
+            hollyRegisterEmailInput.textHollyField.text = hollyMailbox
         }
 
         if let hollyNickname = SummitSentinelJWE.APPPREFIX_fetchHollyNickname() {
-            hollyRegisterNicknameInput.textField.text = hollyNickname
+            hollyRegisterNicknameInput.textHollyField.text = hollyNickname
         }
 
         if let hollySecret = self.JWIMETVARecoverPersistedSecret() {
-            hollyLoginPasswordInput.textField.text = hollySecret
-            hollyRegisterPasswordInput.textField.text = hollySecret
+            hollyLoginPasswordInput.textHollyField.text = hollySecret
+            hollyRegisterPasswordInput.textHollyField.text = hollySecret
         }
 
         if let hollyAvatar = SummitSentinelJWE.APPPREFIX_fetchHollyAvatar() {
@@ -630,14 +631,14 @@ final class BatteryLoginBankAssembler: UIViewController {
         self.hollyCurrentStep = step
 
         let updateBlock = {
-            self.hollyWelcomePanel.isHidden = step != .welcome
-            self.hollyLoginPanel.isHidden = step != .login
-            self.hollyRegisterPanel.isHidden = step != .register
-            self.hollyVerifyPanel.isHidden = step != .verify
-            self.hollyBackButton.isHidden = step == .welcome
-            self.hollyAgreementContainer.isHidden = step == .verify
-            self.hollyHeroImageView.alpha = step == .welcome ? 1 : 0
-            self.hollyBackdropView.backgroundColor = step == .welcome ? UIColor.black.withAlphaComponent(0.38) : UIColor.black
+            self.hollyWelcomePanel.isHidden = step != .stepowelcome
+            self.hollyLoginPanel.isHidden = step != .stepologin
+            self.hollyRegisterPanel.isHidden = step != .steporegister
+            self.hollyVerifyPanel.isHidden = step != .stepoverify
+            self.hollyBackButton.isHidden = step == .stepowelcome
+            self.hollyAgreementContainer.isHidden = step == .stepoverify
+            self.hollyHeroImageView.alpha = step == .stepowelcome ? 1 : 0
+            self.hollyBackdropView.backgroundColor = step == .stepowelcome ? UIColor.black.withAlphaComponent(0.38) : UIColor.black
         }
 
         if animated {
@@ -649,7 +650,7 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVARefreshAgreementState() {
         hollyAgreementToggle.backgroundColor = hollyAgreementAccepted ? UIColor(red: 0.34, green: 0.18, blue: 0.88, alpha: 1) : .clear
-        hollyAgreementToggle.setImage(hollyAgreementAccepted ? UIImage(systemName: "checkmark") : nil, for: .normal)
+        hollyAgreementToggle.setImage(hollyAgreementAccepted ? UIImage(systemName: "JWIMETVAcheckmark".JWIMETVAtime) : nil, for: .normal)
         hollyAgreementToggle.tintColor = .white
     }
 
@@ -686,12 +687,12 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVACompleteRegisterSubmissionIfNeeded() {
         guard hollyPendingRegisterSubmission else {
-            self.JWIMETVAShowStep(.register, animated: true)
+            self.JWIMETVAShowStep(.steporegister, animated: true)
             return
         }
 
         let draft = self.hollyDraft
-        SummitSentinelJWE.APPPREFIX_saveHollyNickname(draft.nickname)
+        SummitSentinelJWE.APPPREFIX_saveHollyNickname(draft.steponickname)
         if let hollySelectedAvatar {
             _ = SummitSentinelJWE.APPPREFIX_saveHollyAvatar(hollySelectedAvatar)
         }
@@ -699,10 +700,10 @@ final class BatteryLoginBankAssembler: UIViewController {
             _ = SummitSentinelJWE.APPPREFIX_saveHollyPassport(hollySelectedPassport)
         }
 
-        self.hollyLoginEmailInput.textField.text = draft.email
-        self.hollyLoginPasswordInput.textField.text = draft.password
+        self.hollyLoginEmailInput.textHollyField.text = draft.stepoemail
+        self.hollyLoginPasswordInput.textHollyField.text = draft.stepopassword
         self.hollyPendingRegisterSubmission = false
-        self.JWIMETVAHandleLoginSubmission(email: draft.email, password: draft.password, nickname: draft.nickname)
+        self.JWIMETVAHandleLoginSubmission(email: draft.stepoemail, password: draft.stepopassword, nickname: draft.steponickname)
     }
 
     private func JWIMETVAExtractQuickLoginToken(from payload: [String: Any], nestedPayload: [String: Any]) -> String? {
@@ -734,7 +735,7 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVAValidateAgreement() -> Bool {
         guard hollyAgreementAccepted else {
-            self.JWIMETVADisplayAlert(message: "Please agree to the Terms of Service and Privacy Policy before continuing.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease agree to the Terms of Service and Privacy Policy before continuing.".JWIMETVAtime)
             return false
         }
         return true
@@ -753,17 +754,17 @@ final class BatteryLoginBankAssembler: UIViewController {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 DispatchQueue.main.async {
-                    granted ? completion() : self.JWIMETVADisplayAlert(message: "Camera access is required to continue.")
+                    granted ? completion() : self.JWIMETVADisplayAlert(message: "JWIMETVACamera access is required to continue.".JWIMETVAtime)
                 }
             }
         default:
-            self.JWIMETVADisplayAlert(message: "Enable camera access in Settings to continue.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAEnable camera access in Settings to continue.".JWIMETVAtime)
         }
     }
 
     private func JWIMETVAPresentCamera() {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            self.JWIMETVADisplayAlert(message: "Camera is not available on this device.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVACamera is not available on this device.".JWIMETVAtime)
             return
         }
 
@@ -803,25 +804,25 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     @objc private func JWIMETVAOpenEmailLogin() {
-        self.JWIMETVAShowStep(.login, animated: true)
+        self.JWIMETVAShowStep(.stepologin, animated: true)
     }
 
     @objc private func JWIMETVAOpenRegister() {
-        self.JWIMETVAShowStep(.register, animated: true)
+        self.JWIMETVAShowStep(.steporegister, animated: true)
     }
 
     @objc private func JWIMETVAHandleBackTap() {
         switch hollyCurrentStep {
-        case .welcome:
+        case .stepowelcome:
             break
-        case .login:
-            self.JWIMETVAShowStep(.welcome, animated: true)
-        case .register:
+        case .stepologin:
+            self.JWIMETVAShowStep(.stepowelcome, animated: true)
+        case .steporegister:
             self.hollyPendingRegisterSubmission = false
-            self.JWIMETVAShowStep(.login, animated: true)
-        case .verify:
+            self.JWIMETVAShowStep(.stepologin, animated: true)
+        case .stepoverify:
             self.hollyPendingRegisterSubmission = false
-            self.JWIMETVAShowStep(.register, animated: true)
+            self.JWIMETVAShowStep(.steporegister, animated: true)
         }
     }
 
@@ -833,16 +834,16 @@ final class BatteryLoginBankAssembler: UIViewController {
     @objc private func JWIMETVAHandleQuickLogin() {
         guard self.JWIMETVAValidateAgreement() else { return }
 
-        let email = hollyLoginEmailInput.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let password = hollyLoginPasswordInput.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let email = hollyLoginEmailInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let password = hollyLoginPasswordInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
         guard self.JWIMETVAValidateEmail(email) else {
-            self.JWIMETVADisplayAlert(message: "Please enter a valid email address.")
+            self.JWIMETVADisplayAlert(message: "Please enter a valid email address.".JWIMETVAtime)
             return
         }
 
         guard !password.isEmpty else {
-            self.JWIMETVADisplayAlert(message: "Please enter your password.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease enter your password.".JWIMETVAtime)
             return
         }
 
@@ -852,28 +853,28 @@ final class BatteryLoginBankAssembler: UIViewController {
     @objc private func JWIMETVAHandleRegister() {
         guard self.JWIMETVAValidateAgreement() else { return }
 
-        let nickname = hollyRegisterNicknameInput.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let email = hollyRegisterEmailInput.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let password = hollyRegisterPasswordInput.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let nickname = hollyRegisterNicknameInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let email = hollyRegisterEmailInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let password = hollyRegisterPasswordInput.textHollyField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
         guard !nickname.isEmpty else {
-            self.JWIMETVADisplayAlert(message: "Please enter your nickname.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease enter your nickname.".JWIMETVAtime)
             return
         }
 
         guard self.JWIMETVAValidateEmail(email) else {
-            self.JWIMETVADisplayAlert(message: "Please enter a valid email address.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease enter a valid email address.".JWIMETVAtime)
             return
         }
 
         guard password.count >= 6 else {
-            self.JWIMETVADisplayAlert(message: "Please enter at least 6 characters for your password.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAPlease enter at least 6 characters for your password.".JWIMETVAtime)
             return
         }
 
-        self.hollyDraft = HollyRegistrationDraft(nickname: nickname, email: email, password: password)
+        self.hollyDraft = HollyRegistrationDraft(steponickname: nickname, stepoemail: email, stepopassword: password)
         self.hollyPendingRegisterSubmission = true
-        self.JWIMETVAShowStep(.verify, animated: true)
+        self.JWIMETVAShowStep(.stepoverify, animated: true)
     }
 
     @objc private func JWIMETVAOpenMediaSheetForAvatar() {
@@ -882,7 +883,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     @objc private func JWIMETVASelectPhotoMode() {
-        self.hollyCurrentCameraPurpose = .avatar
+        self.hollyCurrentCameraPurpose = .stepoavatar
         self.JWIMETVAFinishMediaSheetDismiss {
             self.JWIMETVAOpenCamera {
                 self.JWIMETVAPresentCamera()
@@ -910,7 +911,7 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     @objc private func JWIMETVAHandleShooting() {
-        self.hollyCurrentCameraPurpose = .verification
+        self.hollyCurrentCameraPurpose = .stepoverification
         self.JWIMETVAOpenCamera {
             self.JWIMETVAPresentCamera()
         }
@@ -953,7 +954,7 @@ final class BatteryLoginBankAssembler: UIViewController {
             "JWIMErvDashCamAngle": key
         ]
 
-        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: "Loading...")
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: "JWIMETVALoading...".JWIMETVAtime)
 
         HitchReceiver.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: authPath, JWIMErvCargoSafetyLatch: manifest, JWIMErvCabinStability: { [weak self] response in
             ShieingWeightDistribution.JWIMETVAdismiss()
@@ -965,7 +966,7 @@ final class BatteryLoginBankAssembler: UIViewController {
                 self.JWIMETVASyncQuickLoginArtifacts(payload: payload, nestedPayload: expeditionData, fallbackSecret: key)
                 self.finalizeHollyLoginSuccess(with: expeditionData)
             } else {
-                ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: "Login failed.")
+                ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: "JWIMETVALogin failed.".JWIMETVAtime)
             }
         }, JWIMErvHighAltitudeTune: { error in
             ShieingWeightDistribution.JWIMETVAdismiss()
@@ -981,7 +982,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         DispatchQueue.main.async {
             if let caravanFleet = UIApplication.shared.delegate as? AppDelegate {
                 caravanFleet.window?.rootViewController = StabilizerPad()
-                ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: "Login successful")
+                ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: "JWIMETVALogin successful".JWIMETVAtime)
             }
         }
     }
@@ -1034,7 +1035,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         }.first
 
         guard let email, !email.isEmpty, let resolvedSecret else {
-            self.JWIMETVADisplayAlert(message: "Unable to complete Apple Sign In. Please try again.")
+            self.JWIMETVADisplayAlert(message: "JWIMETVAUnable to complete Apple Sign In. Please try again.".JWIMETVAtime)
             return
         }
 
@@ -1051,8 +1052,8 @@ final class BatteryLoginBankAssembler: UIViewController {
             SummitSentinelJWE.APPPREFIX_saveHollyNickname(nickname)
         }
 
-        self.hollyLoginEmailInput.textField.text = email
-        self.hollyLoginPasswordInput.textField.text = resolvedSecret
+        self.hollyLoginEmailInput.textHollyField.text = email
+        self.hollyLoginPasswordInput.textHollyField.text = resolvedSecret
         self.JWIMETVAHandleLoginSubmission(email: email, password: resolvedSecret, nickname: nickname)
     }
 
@@ -1062,8 +1063,8 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVADisplayAlert(message: String) {
-        let alert = UIAlertController(title: "Notice", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: "JWIMETVANotice".JWIMETVAtime, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "JWIMETVAOK".JWIMETVAtime, style: .default))
         DispatchQueue.main.async {
             self.present(alert, animated: true)
         }
@@ -1102,7 +1103,7 @@ extension BatteryLoginBankAssembler: PHPickerViewControllerDelegate {
                 guard let image = image as? UIImage else { return }
                 self.hollySelectedAvatar = image
                 self.JWIMETVARefreshAvatarPreview()
-                self.JWIMETVAShowStep(.register, animated: true)
+                self.JWIMETVAShowStep(.steporegister, animated: true)
             }
         }
     }
@@ -1121,166 +1122,21 @@ extension BatteryLoginBankAssembler: UIImagePickerControllerDelegate, UINavigati
         guard let image else { return }
 
         switch self.hollyCurrentCameraPurpose {
-        case .verification:
+        case .stepoverification:
             self.hollySelectedPassport = image
             if self.hollySelectedAvatar == nil {
                 self.hollySelectedAvatar = image
             }
             self.JWIMETVARefreshAvatarPreview()
             self.JWIMETVACompleteRegisterSubmissionIfNeeded()
-        case .avatar, .none:
+        case .stepoavatar, .none:
             self.hollySelectedAvatar = image
             self.JWIMETVARefreshAvatarPreview()
-            self.JWIMETVAShowStep(.register, animated: true)
+            self.JWIMETVAShowStep(.steporegister, animated: true)
         }
 
         self.hollyCurrentCameraPurpose = nil
     }
 }
 
-private final class HollyInputField: UIView {
-    let textField = UITextField()
-    private let iconView = UIImageView()
-    private let toggleButton = UIButton(type: .system)
-    private let isSecure: Bool
 
-    init(iconName: String, placeholder: String, secure: Bool) {
-        self.isSecure = secure
-        super.init(frame: .zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor(red: 0.09, green: 0.03, blue: 0.18, alpha: 1)
-        self.layer.cornerRadius = 18
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.white.withAlphaComponent(0.05).cgColor
-
-        iconView.translatesAutoresizingMaskIntoConstraints = false
-        iconView.tintColor = UIColor.white.withAlphaComponent(0.72)
-        iconView.image = UIImage(systemName: iconName)
-        iconView.contentMode = .scaleAspectFit
-
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.33)])
-        textField.textColor = .white
-        textField.autocapitalizationType = .none
-        textField.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        textField.keyboardAppearance = .dark
-        textField.keyboardType = secure ? .default : .emailAddress
-        textField.isSecureTextEntry = secure
-
-        self.addSubview(iconView)
-        self.addSubview(textField)
-
-        if secure {
-            toggleButton.translatesAutoresizingMaskIntoConstraints = false
-            toggleButton.tintColor = UIColor.white.withAlphaComponent(0.68)
-            toggleButton.setImage(UIImage(systemName: "eye"), for: .normal)
-            toggleButton.addTarget(self, action: #selector(toggleSecureMode), for: .touchUpInside)
-            self.addSubview(toggleButton)
-        }
-
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 54),
-            iconView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            iconView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            iconView.widthAnchor.constraint(equalToConstant: 16),
-            iconView.heightAnchor.constraint(equalToConstant: 16)
-        ])
-
-        if secure {
-            NSLayoutConstraint.activate([
-                toggleButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -14),
-                toggleButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                toggleButton.widthAnchor.constraint(equalToConstant: 24),
-                toggleButton.heightAnchor.constraint(equalToConstant: 24),
-                textField.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12),
-                textField.trailingAnchor.constraint(equalTo: toggleButton.leadingAnchor, constant: -10),
-                textField.topAnchor.constraint(equalTo: self.topAnchor),
-                textField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                textField.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12),
-                textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-                textField.topAnchor.constraint(equalTo: self.topAnchor),
-                textField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            ])
-        }
-    }
-
-    @objc private func toggleSecureMode() {
-        textField.isSecureTextEntry.toggle()
-        let imageName = textField.isSecureTextEntry ? "eye" : "eye.slash"
-        toggleButton.setImage(UIImage(systemName: imageName), for: .normal)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private class HollyButtonBase: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setTitleColor(.white, for: .normal)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        self.layer.cornerRadius = 20
-        self.layer.masksToBounds = true
-    }
-
-    convenience init(title: String) {
-        self.init(frame: .zero)
-        self.setTitle(title, for: .normal)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private final class HollyGradientButton: HollyButtonBase {
-    private let gradientLayer = CAGradientLayer()
-
-    convenience init(title: String) {
-        self.init(frame: .zero)
-        self.setTitle(title, for: .normal)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        gradientLayer.colors = [
-            UIColor(red: 0.26, green: 0.74, blue: 0.99, alpha: 1).cgColor,
-            UIColor(red: 0.79, green: 0.11, blue: 0.98, alpha: 1).cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        self.layer.insertSublayer(gradientLayer, at: 0)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = self.bounds
-        gradientLayer.cornerRadius = self.layer.cornerRadius
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-private final class HollyOutlineButton: HollyButtonBase {
-    convenience init(title: String) {
-        self.init(frame: .zero)
-        self.setTitle(title, for: .normal)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor(red: 0.09, green: 0.03, blue: 0.18, alpha: 1)
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 0.37, green: 0.28, blue: 0.82, alpha: 0.7).cgColor
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
