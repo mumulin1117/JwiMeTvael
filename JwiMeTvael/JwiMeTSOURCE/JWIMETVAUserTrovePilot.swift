@@ -197,14 +197,14 @@ class JWIMETVAUserTrovePilot:  UIViewController {
         
         let currentState = HollyDashboardState(
             auraSource: travelMetrics[visualKey] as? String,
-            personaLabel: travelMetrics[beaconKey] as? String ?? SummitSentinelJWE.APPPREFIX_fetchHollyNickname() ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("7zVsGYFAuHLryC840f/md9pD0xdCFZWlM3jLIavJj+6ldgWcFLgthjKpbF9qng==").JWIMETVAtime,
-            bioSnippet: SummitSentinelJWE.APPPREFIX_fetchHollyMailbox() ?? travelMetrics[beaconKey] as? String ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("JyHBvBz60P/ySRJ54jkwHnfMWIHHJFvxr1wQCMsA0/+Uz3H2rnK0eypRO4oGijU0MQyvtQ==").JWIMETVAtime
+            personaLabel: travelMetrics[beaconKey] as? String ?? SummitSentinelJWE.JWIMETVAfetchHollyNickname() ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("7zVsGYFAuHLryC840f/md9pD0xdCFZWlM3jLIavJj+6ldgWcFLgthjKpbF9qng==").JWIMETVAtime,
+            bioSnippet: SummitSentinelJWE.JWIMETVAfetchHollyMailbox() ?? travelMetrics[beaconKey] as? String ?? BlackWaterDecolorfusioning.JWIMETVADecreptString("JyHBvBz60P/ySRJ54jkwHnfMWIHHJFvxr1wQCMsA0/+Uz3H2rnK0eypRO4oGijU0MQyvtQ==").JWIMETVAtime
         )
         
         if let aura = currentState.auraSource {
             self.JWIMETVABackdropLayer.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
             self.JWIMETVAPortraitFrame.JWIMErvCampfireAura(JWIMErvMountainRhythm: aura)
-        } else if let hollyLocalAvatar = SummitSentinelJWE.APPPREFIX_fetchHollyAvatar() {
+        } else if let hollyLocalAvatar = SummitSentinelJWE.JWIMETVAfetchHollyAvatar() {
             self.JWIMETVAPortraitFrame.image = hollyLocalAvatar
         }
         

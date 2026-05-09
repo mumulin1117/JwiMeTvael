@@ -247,7 +247,7 @@ final class PotableWaterExprPilot: UIViewController, UICollectionViewDataSource,
         let card = UIImageView(image: UIImage(named: "shairefjui"))
         card.translatesAutoresizingMaskIntoConstraints = false
         card.contentMode = .scaleToFill
-      
+        card.isUserInteractionEnabled = true
         card.isHidden = true
         return card
     }()

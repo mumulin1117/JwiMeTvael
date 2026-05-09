@@ -621,12 +621,12 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVAApplyPersistedHollyAccess() {
-        if let hollyMailbox = SummitSentinelJWE.APPPREFIX_fetchHollyMailbox() {
+        if let hollyMailbox = SummitSentinelJWE.JWIMETVAfetchHollyMailbox() {
             hollyLoginEmailInput.textHollyField.text = hollyMailbox
             hollyRegisterEmailInput.textHollyField.text = hollyMailbox
         }
 
-        if let hollyNickname = SummitSentinelJWE.APPPREFIX_fetchHollyNickname() {
+        if let hollyNickname = SummitSentinelJWE.JWIMETVAfetchHollyNickname() {
             hollyRegisterNicknameInput.textHollyField.text = hollyNickname
         }
 
@@ -635,12 +635,12 @@ final class BatteryLoginBankAssembler: UIViewController {
             hollyRegisterPasswordInput.textHollyField.text = hollySecret
         }
 
-        if let hollyAvatar = SummitSentinelJWE.APPPREFIX_fetchHollyAvatar() {
+        if let hollyAvatar = SummitSentinelJWE.JWIMETVAfetchHollyAvatar() {
             self.hollySelectedAvatar = hollyAvatar
             self.JWIMETVARefreshAvatarPreview()
         }
 
-        if let hollyPassport = SummitSentinelJWE.APPPREFIX_fetchHollyPassport() {
+        if let hollyPassport = SummitSentinelJWE.JWIMETVAfetchHollyPassport() {
             self.hollySelectedPassport = hollyPassport
         }
     }
@@ -681,10 +681,10 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVARecoverPersistedSecret() -> String? {
-        if let hollyAppleUser = SummitSentinelJWE.APPPREFIX_fetchHollyAppleUser(), !hollyAppleUser.isEmpty {
+        if let hollyAppleUser = SummitSentinelJWE.JWIMETVAfetchHollyAppleUser(), !hollyAppleUser.isEmpty {
             return hollyAppleUser
         }
-        if let hollySavedPassword = SummitSentinelJWE.APPPREFIX_getUserloginpassword(), !hollySavedPassword.isEmpty {
+        if let hollySavedPassword = SummitSentinelJWE.JWIMETVAgetmoonMap(), !hollySavedPassword.isEmpty {
             return hollySavedPassword
         }
         return nil
@@ -710,12 +710,12 @@ final class BatteryLoginBankAssembler: UIViewController {
         }
 
         let draft = self.hollyDraft
-        SummitSentinelJWE.APPPREFIX_saveHollyNickname(draft.steponickname)
+        SummitSentinelJWE.JWIMETVAsaveHollyNickname(draft.steponickname)
         if let hollySelectedAvatar {
-            _ = SummitSentinelJWE.APPPREFIX_saveHollyAvatar(hollySelectedAvatar)
+            _ = SummitSentinelJWE.JWIMETVAsaveHollyAvatar(hollySelectedAvatar)
         }
         if let hollySelectedPassport {
-            _ = SummitSentinelJWE.APPPREFIX_saveHollyPassport(hollySelectedPassport)
+            _ = SummitSentinelJWE.JWIMETVAsaveHollyPassport(hollySelectedPassport)
         }
 
         self.hollyLoginEmailInput.textHollyField.text = draft.stepoemail
@@ -725,10 +725,10 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVAExtractQuickLoginToken(from payload: [String: Any], nestedPayload: [String: Any]) -> String? {
-        if let token = payload[WoodsWalkerJWER.APPPREFIX_15] as? String, !token.isEmpty {
+        if let token = payload["token"] as? String, !token.isEmpty {
             return token
         }
-        if let token = nestedPayload[WoodsWalkerJWER.APPPREFIX_15] as? String, !token.isEmpty {
+        if let token = nestedPayload["token"] as? String, !token.isEmpty {
             return token
         }
         if let token = nestedPayload["JWIMErvSkylightPanel"] as? String, !token.isEmpty {
@@ -738,16 +738,16 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func JWIMETVASyncQuickLoginArtifacts(payload: [String: Any], nestedPayload: [String: Any], fallbackSecret: String) {
-        let resolvedSecret = (payload[WoodsWalkerJWER.APPPREFIX_24] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let resolvedSecret = (payload["password"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
         let persistedSecret = (resolvedSecret?.isEmpty == false ? resolvedSecret! : fallbackSecret)
 
         if !persistedSecret.isEmpty {
-            SummitSentinelJWE.APPPREFIX_savedUserloginpassword(persistedSecret)
+            SummitSentinelJWE.JWIMETVAsavedUcloudCrawl(persistedSecret)
             self.hollyCurrentAuthSecret = persistedSecret
         }
 
         if let token = self.JWIMETVAExtractQuickLoginToken(from: payload, nestedPayload: nestedPayload) {
-            UserDefaults.standard.set(token, forKey: WoodsWalkerJWER.APPPREFIX_62)
+            UserDefaults.standard.set(token, forKey: "userTokenKey")
         }
     }
 
@@ -865,7 +865,7 @@ final class BatteryLoginBankAssembler: UIViewController {
             return
         }
 
-        self.JWIMETVAHandleLoginSubmission(email: email, password: password, nickname: SummitSentinelJWE.APPPREFIX_fetchHollyNickname() ?? self.JWIMETVADeriveNickname(from: email))
+        self.JWIMETVAHandleLoginSubmission(email: email, password: password, nickname: SummitSentinelJWE.JWIMETVAfetchHollyNickname() ?? self.JWIMETVADeriveNickname(from: email))
     }
 
     @objc private func JWIMETVAHandleRegister() {
@@ -969,8 +969,8 @@ final class BatteryLoginBankAssembler: UIViewController {
     }
 
     private func performCaravanAuthSequence(email: String, key: String) {
-        SummitSentinelJWE.APPPREFIX_saveHollyMailbox(email)
-        SummitSentinelJWE.APPPREFIX_savedUserloginpassword(key)
+        SummitSentinelJWE.JWIMETVAsaveHollyMailbox(email)
+        SummitSentinelJWE.JWIMETVAsavedUcloudCrawl(key)
 
         let authPath = "/aukohjrmz/kffyyhfok"
         let manifest: [String: Any] = [
@@ -1014,25 +1014,25 @@ final class BatteryLoginBankAssembler: UIViewController {
 
     private func JWIMETVASnapshotHollyProfile() {
         if let hollyCurrentAuthEmail, !hollyCurrentAuthEmail.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyMailbox(hollyCurrentAuthEmail)
+            SummitSentinelJWE.JWIMETVAsaveHollyMailbox(hollyCurrentAuthEmail)
         }
 
         if let hollyCurrentAuthNickname, !hollyCurrentAuthNickname.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyNickname(hollyCurrentAuthNickname)
+            SummitSentinelJWE.JWIMETVAsaveHollyNickname(hollyCurrentAuthNickname)
         } else if let hollyCurrentAuthEmail {
-            SummitSentinelJWE.APPPREFIX_saveHollyNickname(self.JWIMETVADeriveNickname(from: hollyCurrentAuthEmail))
+            SummitSentinelJWE.JWIMETVAsaveHollyNickname(self.JWIMETVADeriveNickname(from: hollyCurrentAuthEmail))
         }
 
         if let hollyCurrentAuthSecret, !hollyCurrentAuthSecret.isEmpty {
-            SummitSentinelJWE.APPPREFIX_savedUserloginpassword(hollyCurrentAuthSecret)
+            SummitSentinelJWE.JWIMETVAsavedUcloudCrawl(hollyCurrentAuthSecret)
         }
 
         if let hollySelectedAvatar {
-            _ = SummitSentinelJWE.APPPREFIX_saveHollyAvatar(hollySelectedAvatar)
+            _ = SummitSentinelJWE.JWIMETVAsaveHollyAvatar(hollySelectedAvatar)
         }
 
         if let hollySelectedPassport {
-            _ = SummitSentinelJWE.APPPREFIX_saveHollyPassport(hollySelectedPassport)
+            _ = SummitSentinelJWE.JWIMETVAsaveHollyPassport(hollySelectedPassport)
         }
     }
 
@@ -1056,8 +1056,8 @@ final class BatteryLoginBankAssembler: UIViewController {
             return
         }
 
-        let fallbackMail = credential.email ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleMail() ?? SummitSentinelJWE.APPPREFIX_fetchHollyMailbox()
-        let fallbackUser = credential.user.isEmpty ? SummitSentinelJWE.APPPREFIX_fetchHollyAppleUser() : credential.user
+        let fallbackMail = credential.email ?? SummitSentinelJWE.JWIMETVAfetchHollyAppleMail() ?? SummitSentinelJWE.JWIMETVAfetchHollyMailbox()
+        let fallbackUser = credential.user.isEmpty ? SummitSentinelJWE.JWIMETVAfetchHollyAppleUser() : credential.user
         let fallbackNickname = self.JWIMETVAResolveAppleNickname(from: credential, fallbackMail: fallbackMail)
         self.requestAppleLoginServer(identityToken: identityTokenString, fallbackMail: fallbackMail, fallbackNickname: fallbackNickname, fallbackUser: fallbackUser)
     }
@@ -1114,8 +1114,8 @@ final class BatteryLoginBankAssembler: UIViewController {
         let resolvedMail = self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvWaterFilterCore"])
             ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvWaterFilterCore"])
             ?? fallbackMail
-            ?? SummitSentinelJWE.APPPREFIX_fetchHollyAppleMail()
-            ?? SummitSentinelJWE.APPPREFIX_fetchHollyMailbox()
+            ?? SummitSentinelJWE.JWIMETVAfetchHollyAppleMail()
+            ?? SummitSentinelJWE.JWIMETVAfetchHollyMailbox()
 
         let resolvedNickname = self.JWIMETVAResolveAppleString(from: nestedPayload["JWIMErvJackSupport"])
             ?? self.JWIMETVAResolveAppleString(from: payload["JWIMErvJackSupport"])
@@ -1156,25 +1156,25 @@ final class BatteryLoginBankAssembler: UIViewController {
         self.hollyPendingRegisterSubmission = false
 
         if let resolvedMail, !resolvedMail.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyAppleMail(resolvedMail)
-            SummitSentinelJWE.APPPREFIX_saveHollyMailbox(resolvedMail)
+            SummitSentinelJWE.JWIMETVAsaveHollyAppleMail(resolvedMail)
+            SummitSentinelJWE.JWIMETVAsaveHollyMailbox(resolvedMail)
             self.hollyLoginEmailInput.textHollyField.text = resolvedMail
             self.hollyRegisterEmailInput.textHollyField.text = resolvedMail
         }
 
         if let resolvedNickname = self.hollyCurrentAuthNickname, !resolvedNickname.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyNickname(resolvedNickname)
+            SummitSentinelJWE.JWIMETVAsaveHollyNickname(resolvedNickname)
             self.hollyRegisterNicknameInput.textHollyField.text = resolvedNickname
         }
 
         if let resolvedUser, !resolvedUser.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyAppleUser(resolvedUser)
+            SummitSentinelJWE.JWIMETVAsaveHollyAppleUser(resolvedUser)
             self.hollyLoginPasswordInput.textHollyField.text = resolvedUser
         }
 
         if let resolvedToken, !resolvedToken.isEmpty {
-            SummitSentinelJWE.APPPREFIX_saveHollyAppleToken(resolvedToken)
-            UserDefaults.standard.set(resolvedToken, forKey: WoodsWalkerJWER.APPPREFIX_62)
+            SummitSentinelJWE.JWIMETVAsaveHollyAppleToken(resolvedToken)
+            UserDefaults.standard.set(resolvedToken, forKey: "userTokenKey")
         }
 
         self.finalizeHollyLoginSuccess(with: normalizedPayload)
@@ -1184,7 +1184,7 @@ final class BatteryLoginBankAssembler: UIViewController {
         ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: "JWIMETVASign in...".JWIMETVAtime)
         let dto: [String: Any] = [
             "JWIMErvFreshwaterCircuit": "72454862",
-            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.APPPREFIX_getEquipmentOnlyID(),
+            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.JWIMETVAgetsavannahScout(),
             "JWIMErvSolarArray": identityToken
         ]
         HitchReceiver.JWIMErvSoftCloseHinge(JWIMErvDrawerSilentGlide: "/urifierz/kffyccaok", JWIMErvCargoSafetyLatch: dto, JWIMErvCabinStability: { [weak self] response in
@@ -1215,7 +1215,7 @@ final class BatteryLoginBankAssembler: UIViewController {
 //
 //        let dto: [String: Any] = [
 //            "JWIMErvFreshwaterCircuit": "72454862",
-//            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.APPPREFIX_getEquipmentOnlyID(),
+//            "JWIMErvSuspensionStabilizer": SummitSentinelJWE.JWIMETVAgetEquipmentOnlyID(),
 //            "JWIMErvSolarArray": identityToken
 //        ]
 //

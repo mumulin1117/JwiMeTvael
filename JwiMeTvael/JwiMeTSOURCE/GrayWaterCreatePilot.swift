@@ -530,7 +530,7 @@ extension GrayWaterCreatePilot: WKScriptMessageHandler, WKNavigationDelegate, WK
            
             laundryCombo.rvPortableDeskKit = nil
             laundryCombo.WorkspaceFolding = nil
-            SummitSentinelJWE.APPPREFIX_clearHollyTrailState()
+            SummitSentinelJWE.JWIMETVAclearHollyTrailState()
         }
         
         purgeTask()
