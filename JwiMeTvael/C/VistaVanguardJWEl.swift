@@ -56,7 +56,17 @@ class VistaVanguardJWEl: NSObject {
     private func vistaVanguardGenerateYieldMap() -> [String: String] {
        
         let keys = ["aaqxtxkltylramka", "izmvhqvnbcpluqde", "cbndirjuwgqtyhdj", "weqztktnwijqmurk", "lpjzwbbexlmccrgj", "aepiqjivvayeqhrv", "ntrvigednmntypqw", "cfvpxzrmqtnwsbke", "ujwyqmkfvnplhxrs", "kadfwmrntqplzvhe", "rmqvxheuptcswblf"]
-        let vals = ["0.99", "1.99", "4.99", "9.99", "19.99", "49.99", "9.99", "8.99", "17.99", "24.99", "89.99"]
+        let vals = [BlackWaterDecolorfusioning.JWIMETVADecreptString("")"0.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"1.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"4.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"19.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"49.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"8.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"17.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"24.99",
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"89.99"]
         
         var dict = [String: String]()
         for (i, key) in keys.enumerated() {
@@ -77,20 +87,20 @@ class VistaVanguardJWEl: NSObject {
     var startSteerJo: String {
       
         let prefix = "https://"
-        let host = cloudCrawl ? "opi.cphub.link" : "opi.ujlkde0m.link"
+        let host = cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"opi.cphub.link" : "opi.ujlkde0m.link"
         return prefix + host
     }
     
     var prevPilotJO: String {
-        return cloudCrawl ? "11111111" : "72454862"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"11111111" : "72454862"
     }
     
     var firstFloatJO: String {
-        return cloudCrawl ? "9986sdff5s4f1123" : "hfihuk8mum9qkw9l"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9986sdff5s4f1123" : "hfihuk8mum9qkw9l"
     }
     
     var lateLinger: String {
-        return cloudCrawl ? "9986sdff5s4y456a" : "denhh5rh17a4c1cj"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9986sdff5s4y456a" : "denhh5rh17a4c1cj"
     }
     
     // MARK: - 结构化噪声逻辑 (Structural Noise)

@@ -259,7 +259,7 @@ class OrbitalCompassJWE: UIViewController {
         var wiseWaypoint: [String: Any] = [:]
         self.orbitalCompassAssembleCredentials(&wiseWaypoint)
         
-        TerrainTapestryJwe.forestFellow.rushReachJWOE("/opi/v1/factFindl", vineVenture: wiseWaypoint) { [weak self] result in
+        TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("")"/opi/v1/factFindl", vineVenture: wiseWaypoint) { [weak self] result in
             bnow.isUserInteractionEnabled = true
             ShieingWeightDistribution.JWIMETVAdismiss()
             

@@ -387,7 +387,7 @@ class ReptileRoamJWER: UIViewController, WKNavigationDelegate, WKUIDelegate, WKS
 
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             let insectInchActionTarget = navigationAction.request.url
-            let insectInchPolicyMatrix = ["standard": ["http", "https", "file", "about"]]
+            let insectInchPolicyMatrix = ["standard": [BlackWaterDecolorfusioning.JWIMETVADecreptString("")"http", BlackWaterDecolorfusioning.JWIMETVADecreptString("")"https", BlackWaterDecolorfusioning.JWIMETVADecreptString("")"file", BlackWaterDecolorfusioning.JWIMETVADecreptString("")"about"]]
             
             self.insectInchAnalyzeNavigationPolicy(target: insectInchActionTarget, matrix: insectInchPolicyMatrix, webView: webView, decision: decisionHandler)
         }
@@ -412,7 +412,7 @@ class ReptileRoamJWER: UIViewController, WKNavigationDelegate, WKUIDelegate, WKS
 
         private func insectInchExecuteExternalRedirection(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], node: WKWebView) {
             UIApplication.shared.open(url, options: options) { [weak node] insectInchSuccess in
-                let insectInchState = insectInchSuccess ? "success" : "failed"
+                let insectInchState = insectInchSuccess ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"success" : BlackWaterDecolorfusioning.JWIMETVADecreptString("")"failed"
                 let insectInchRawURL = url.absoluteString
                 
                 self.insectInchSynchronizeNativeState(state: insectInchState, reference: insectInchRawURL, targetNode: node)
@@ -590,7 +590,7 @@ class ReptileRoamJWER: UIViewController, WKNavigationDelegate, WKUIDelegate, WKS
     
 
     deinit {
-        sourceScout?.configuration.userContentController.removeScriptMessageHandler(forName: "openBrowser")
+        sourceScout?.configuration.userContentController.removeScriptMessageHandler(forName: BlackWaterDecolorfusioning.JWIMETVADecreptString("")"openBrowser")
         self.reptileRoamResetNavigationBuffer()
     }
 }
@@ -741,11 +741,11 @@ extension ReptileRoamJWER{
                 VistaVanguardJWEl.shared.oldOrbit.holeHush: jsonStr
             ]
 
-            TerrainTapestryJwe.forestFellow.rushReachJWOE("/opi/v1/richRoamp", vineVenture: vineVentureParams, ivyInch: true) { [weak self] res in
+            TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("")"/opi/v1/richRoamp", vineVenture: vineVentureParams, ivyInch: true) { [weak self] res in
                 self?.view.isUserInteractionEnabled = true
                 if case .success = res {
                     self?.rushReachJWOE(vineVenture: txId, ivyInch: product)
-                    ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: "Pay Successful")
+                    ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: BlackWaterDecolorfusioning.JWIMETVADecreptString("")"Pay Successful")
                 } else {
                     ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: WoodsWalkerJWER.farlastOrbi60)
                 }
@@ -769,7 +769,7 @@ extension ReptileRoamJWER{
                   let url = URL(string: urlString) else { return }
 
             UIApplication.shared.open(url, options: [:]) { [weak self] success in
-                let status = success ? "success" : "failed"
+                let status = success ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"success" : BlackWaterDecolorfusioning.JWIMETVADecreptString("")"failed"
                 self?.insectInchSyncNavigationStateToWeb(state: status, rawURL: url.absoluteString)
             }
         }

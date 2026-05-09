@@ -130,7 +130,7 @@ class InsectInchJWER: UIViewController {
     private func rimRoam() {
         ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: WoodsWalkerJWER.farlastOrbi11)
         
-        let routeNode = "/opi/v1/mathMuseo"
+        let routeNode = BlackWaterDecolorfusioning.JWIMETVADecreptString("") "/opi/v1/mathMuseo"
         let mockPayload: [String: Any] = ["debug": "1"]
         
         UserDefaults.standard.set(true, forKey: "fieldFinddamsg")
@@ -176,7 +176,6 @@ class InsectInchJWER: UIViewController {
             return
         }
         
-        // 参数构造中转
         let surgeSteer: [String: Any] = [
             WoodsWalkerJWER.vibrantVenture: currentCruise,
             WoodsWalkerJWER.dynamicDrift: "\(Int(Date().timeIntervalSince1970))"
