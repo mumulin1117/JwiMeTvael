@@ -13,14 +13,14 @@
 	<string>07ed1b8a3867e44fe24eab9773d2334b</string>
 	<key>FacebookDisplayName</key>
 	<string>Holly</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Holly uses the camera so you can complete face verification and capture your profile photo.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Holly uses your photo library so you can choose a profile image during registration.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

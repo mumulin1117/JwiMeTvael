@@ -97,9 +97,9 @@ public class VistaVanguardJWEl: NSObject {
         APPPREFIX_localeLaunguge: "...e",//语言 填"" 或者 nil 时代表不设置该限制
         APPPREFIX_ajresult: "...a",//fb的包。需要在请求开关接口的时候，上传adjust归因参数：
        
-        APPPREFIX_ifDebug: "....g",//是否调试 填"" 或者 nil 时代表不设置该限制
-        APPPREFIX_ADID: "....i",//adid  FB必须有
-        APPPREFIX_Reason: "....a"//Ajresult  FB必须有
+        APPPREFIX_ifDebug: "....g"//是否调试 填"" 或者 nil 时代表不设置该限制
+  
+//        APPPREFIX_Reason: "....a"//Ajresult  FB必须有
     )
     
     public var APPPREFIX_loginParamaKey: SavannahScout = SavannahScout(

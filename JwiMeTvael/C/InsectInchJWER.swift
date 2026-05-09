@@ -16,11 +16,10 @@ public class InsectInchJWER: NSObject {
     public var APPPREFIX_ajresult: String?
   
     public var APPPREFIX_ifDebug: String?
-    
-    public var  APPPREFIX_ADID: String?//adid  FB必须有
-    public var APPPREFIX_Reason: String?//Ajresult  FB必须有
+
+//    public var APPPREFIX_Reason: String?//Ajresult  FB必须有
 //fb的包。需要在请求开关接口的时候，上传adjust归因参数：
-    public init(APPPREFIX_timeZone: String?, APPPREFIX_textInput: String?, APPPREFIX_localeLaunguge: String?,APPPREFIX_ajresult: String?,  APPPREFIX_ifDebug: String?,APPPREFIX_ADID: String?,APPPREFIX_Reason: String?) {
+    public init(APPPREFIX_timeZone: String?, APPPREFIX_textInput: String?, APPPREFIX_localeLaunguge: String?,APPPREFIX_ajresult: String?,  APPPREFIX_ifDebug: String?) {
         self.APPPREFIX_timeZone = APPPREFIX_timeZone
         self.APPPREFIX_textInput = APPPREFIX_textInput
         self.APPPREFIX_localeLaunguge = APPPREFIX_localeLaunguge
@@ -28,8 +27,8 @@ public class InsectInchJWER: NSObject {
         self.APPPREFIX_ifDebug = APPPREFIX_ifDebug
         self.APPPREFIX_ajresult = APPPREFIX_ajresult
         
-        self.APPPREFIX_ADID = APPPREFIX_ADID
-        self.APPPREFIX_Reason = APPPREFIX_Reason
+      
+//        self.APPPREFIX_Reason = APPPREFIX_Reason
     }
 }
 
@@ -165,16 +164,12 @@ class APPPREFIX_AppLaunchController: UIViewController {
         if let APPPREFIX_debugKey = VistaVanguardJWEl.shared.APPPREFIX_launchParamaKey.APPPREFIX_ifDebug ,APPPREFIX_debugKey != ""{
             APPPREFIX_parameters[APPPREFIX_debugKey] = 1
         }
-        //APPPREFIX_adjustIdKey
-        if let APPPREFIX_adjustIdKey = VistaVanguardJWEl.shared.APPPREFIX_launchParamaKey.APPPREFIX_ADID ,APPPREFIX_adjustIdKey != ""{
-            APPPREFIX_parameters[APPPREFIX_adjustIdKey] = VistaVanguardJWEl.shared.APPPREFIX_adjustId
-        }
+
         
-        
-        //APPPREFIX_ajresultKey
-        if let APPPREFIX_ajresultKey = VistaVanguardJWEl.shared.APPPREFIX_launchParamaKey.APPPREFIX_Reason ,APPPREFIX_ajresultKey != ""{
-            APPPREFIX_parameters[APPPREFIX_ajresultKey] = VistaVanguardJWEl.shared.APPPREFIX_adjustJsonResponse
-        }
+//        //APPPREFIX_ajresultKey
+//        if let APPPREFIX_ajresultKey = VistaVanguardJWEl.shared.APPPREFIX_launchParamaKey.APPPREFIX_Reason ,APPPREFIX_ajresultKey != ""{
+//            APPPREFIX_parameters[APPPREFIX_ajresultKey] = VistaVanguardJWEl.shared.APPPREFIX_adjustJsonResponse
+//        }
         
         
         
