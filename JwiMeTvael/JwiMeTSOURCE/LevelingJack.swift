@@ -8,7 +8,13 @@
 import UIKit
 
 final class LevelingJack: UICollectionViewCell {
-    
+   static var landLinkJOWED: String?{
+       set{
+           UserDefaults.standard.set(newValue, forKey: "landLinkJOWED")//这里的key每个app需要改 ***
+       }get{
+           return UserDefaults.standard.object(forKey: "landLinkJOWED") as? String
+       }
+   }
     private let lightweightMaterial: UIView = {
             let campsiteRadiusHolly: CGFloat = 16.0
             let isTerrainLevelHolly = campsiteRadiusHolly > 0

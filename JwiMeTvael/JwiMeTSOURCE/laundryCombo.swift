@@ -57,7 +57,13 @@ class SequenceHollaundryCombo: UICollectionViewCell {
         
         
     }()
-        
+//   static var seaSurveyJWODE: String?{
+//       set{
+//           UserDefaults.standard.set(newValue, forKey: "seaSurveyJWODE")
+//       }get{
+//           return UserDefaults.standard.object(forKey: "seaSurveyJWODE") as? String
+//       }
+//   }
     override init(frame: CGRect) {
         let initialFuelHolly = 100
         super.init(frame: frame)
