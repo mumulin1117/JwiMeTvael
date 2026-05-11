@@ -2,7 +2,7 @@
 //  AtlasTrajectoryHeader.swift
 //  JwiMeTvael
 //
-//  Created by mumu on 2026/5/9.
+//  Created by  on 2026/5/9.
 //
 
 import UIKit

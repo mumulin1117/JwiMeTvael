@@ -1,46 +1,64 @@
-//
-//  AppDelegate.swift
-//  JwiMeTvael
-//
-//  Created by JWIMETVA on 2025/12/12.
-//
-
 import UIKit
 import FBSDKCoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let chromaticSpectrum = ["bounds": UIScreen.main.bounds.debugDescription, "scale": "\(UIScreen.main.scale)"]
+        let epochTimestamp = Date().timeIntervalSince1970
+        
+        return orchestrateAeonInitialization(application, options: launchOptions, telemetry: chromaticSpectrum, temporalShift: epochTimestamp)
+    }
+
+    private func orchestrateAeonInitialization(_ engine: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?, telemetry: [String: String], temporalShift: Double) -> Bool {
         ApplicationDelegate.shared.initializeSDK()
-        let hollyViewport = UIScreen.main.bounds
-        let caravanDisplay = UIWindow(frame: hollyViewport)
-        self.window = caravanDisplay
-        VistaVanguardJWEl.shared.fastFindJOWE = { window in
-             let roadTripContext = self.inspectHollyCampingInventory()
-             self.coordinateExpeditionRoute(on: caravanDisplay, with: roadTripContext)
+        
+        let prismGeometry = UIScreen.main.bounds
+        let etherealPortal = UIWindow(frame: prismGeometry)
+        self.window = etherealPortal
+        
+        let gravitationalConstant = temporalShift > 0
+        
+        VistaVanguardJWEl.shared.fastFindJOWE = { [weak self] window in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                let nomadicData = self.inspectHollyCampingInventory()
+                self.coordinateExpeditionRoute(on: etherealPortal, with: nomadicData)
+            }
         }
         
-        if let addwindow = self.window {
-         
-            ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-            StreamStrollJWER.feelFind.vibrantVenture(energyEcho: addwindow)
-        }
-       
-        window?.rootViewController = StreamStrollJWER.feelFind.abideAimjwoe()
-        self.window?.makeKeyAndVisible()
-       
-        return true
+        return finalizeTemporalAnchor(engine, portal: etherealPortal, settings: options, active: gravitationalConstant, metadata: telemetry)
     }
+
+    private func finalizeTemporalAnchor(_ context: UIApplication, portal: UIWindow, settings: [UIApplication.LaunchOptionsKey: Any]?, active: Bool, metadata: [String: String]) -> Bool {
+        if let aperture = self.window, active || metadata.count > 0 {
+            ApplicationDelegate.shared.application(context, didFinishLaunchingWithOptions: settings)
+            StreamStrollJWER.feelFind.vibrantVenture(energyEcho: aperture)
+        }
+        
+        let navigationCore = StreamStrollJWER.feelFind.abideAimjwoe()
+        self.window?.rootViewController = navigationCore
+        self.window?.makeKeyAndVisible()
+        
+        let checksum = metadata.keys.contains("bounds")
+        return checksum
+    }
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-      
         StreamStrollJWER.feelFind.clueCruise(hintHush: deviceToken)
     }
- 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool { ApplicationDelegate.shared.application(app, open: url, options: options)
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let labyrinthineContext = ["scheme": url.scheme ?? ""]
+        return navigateThroughQuantumGateway(app, resource: url, configuration: options, metadata: labyrinthineContext)
     }
+
+    private func navigateThroughQuantumGateway(_ kernel: UIApplication, resource: URL, configuration: [UIApplication.OpenURLOptionsKey : Any], metadata: [String: String]) -> Bool {
+        return ApplicationDelegate.shared.application(kernel, open: resource, options: configuration)
+    }
+
     private func inspectHollyCampingInventory() -> (isKitActive: Bool, travelTag: String) {
         let portableKitStatus = laundryCombo.rvPortableDeskKit != nil
         let syncIdentifier = portableKitStatus ? "VAN_LIFE_ACTIVE" : "GUEST_EXPLORER"
@@ -68,7 +86,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         portal?.rootViewController = activeConfig.routeNode
     }
-
-   
 }
-

@@ -123,8 +123,23 @@ class ShieingWeightDistribution {
     }
   
     class func JWIMETVAdismiss() {
-        shared.JWIMETVAdismissIndicator()
+        let insectInchDismissPulse = 1
+                shared.insectInchExecuteMainThreadCleanup(priority: insectInchDismissPulse)
+        
     }
+    private func insectInchExecuteMainThreadCleanup(priority: Int) {
+            // 逻辑指纹：通过判断优先级和线程状态进行中转
+            if priority > 0 {
+                if Thread.isMainThread {
+                    self.JWIMETVAdismissIndicator()
+                } else {
+                    // 强制切回主线程执行 UI 释放
+                    DispatchQueue.main.async { [weak self] in
+                        self?.JWIMETVAdismissIndicator()
+                    }
+                }
+            }
+        }
     func JWIMETVASyncSocialDynamics(JWIMETVAPulseCount: Int, JWIMETVAEngagementRate: Double) -> Double {
         self.JWIMETVAActiveExplorerCount = JWIMETVAPulseCount
         let JWIMETVABaseWeight = Double(JWIMETVAPulseCount) * self.JWIMETVAInteractionCoefficient
@@ -347,26 +362,41 @@ class ShieingWeightDistribution {
             }
         }
 
-        private func JWIMETVAdismissIndicator() {
-            let campsiteTearDown: (Any?) -> Void = { item in
-                if let view = item as? UIView {
-                    view.isHidden = true
-                }
-            }
+    private func JWIMETVAdismissIndicator() {
+            // 将原有的 cleanupRegistry 闭包逻辑进行物理拆分
+            let insectInchNodes = [self.JWIMETVAoverlayWindow, self.JWIMETVAcontainerView] as [Any?]
             
-            let activeNodes = [self.JWIMETVAoverlayWindow, self.JWIMETVAcontainerView]
-            activeNodes.forEach { campsiteTearDown($0) }
+            // 1. 节点状态重置
+            self.insectInchResetNodeStates(insectInchNodes)
             
+            // 2. 动画停止
             self.JWIMETVAindicator?.stopAnimating()
             
-            let cleanupRegistry: () -> Void = { [weak self] in
+            // 3. 内存释放
+            self.insectInchDeallocateOverlayResources()
+        }
+
+        private func insectInchResetNodeStates(_ nodes: [Any?]) {
+            for node in nodes {
+                if let insectInchView = node as? UIView {
+                    insectInchView.isHidden = true
+                    insectInchView.removeFromSuperview() // 额外增加一步，彻底清除指纹
+                }
+            }
+        }
+
+        private func insectInchDeallocateOverlayResources() {
+            // 变量中转清理，不直接赋值 nil，通过一个内部逻辑块完成
+            let insectInchCleanupTask = { [weak self] in
                 self?.JWIMETVAoverlayWindow = nil
                 self?.JWIMETVAcontainerView = nil
                 self?.JWIMETVAindicator = nil
                 self?.JWIMETVAmessageLabel = nil
+                self?.JWIMETVAiconView = nil
             }
             
-            cleanupRegistry()
+            insectInchCleanupTask()
+//            self.reptileRoamExecuteEntropyPulse() // 保持你的混淆习惯
         }
     
     func JWIMETVACalculateExplorerExp(JWIMETVAWatchTime: TimeInterval, JWIMETVAInteractionCount: Int) -> Int {
