@@ -56,17 +56,17 @@ class VistaVanguardJWEl: NSObject {
     private func vistaVanguardGenerateYieldMap() -> [String: String] {
        
         let keys = ["aaqxtxkltylramka", "izmvhqvnbcpluqde", "cbndirjuwgqtyhdj", "weqztktnwijqmurk", "lpjzwbbexlmccrgj", "aepiqjivvayeqhrv", "ntrvigednmntypqw", "cfvpxzrmqtnwsbke", "ujwyqmkfvnplhxrs", "kadfwmrntqplzvhe", "rmqvxheuptcswblf"]
-        let vals = [BlackWaterDecolorfusioning.JWIMETVADecreptString("")"0.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"1.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"4.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"19.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"49.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"8.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"17.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"24.99",
-                    BlackWaterDecolorfusioning.JWIMETVADecreptString("")"89.99"]
+        let vals = [BlackWaterDecolorfusioning.JWIMETVADecreptString("52+cfopQBI7niIUhMHOiZeCmb8Nlq3z2yiDV/Gb3xuVpAWLy"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("9W+BQnd8tWzvOQIKPn/EM0WsUZhNpZRck9Qf7yhU5YQP0t+c"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("ZdmAODc85lryuSaqBakkP52+/1mxsc/StWueBeZiIWIu+xfp"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("Bi2D7IrUl+OIUjvrOvZcv7Y4XjKtorUxK5WCSKg1oqNCaa5i"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("5HSC8PaxlTUuWs9ZbE+XNW78By9llb167zyAlnWMJMQR/Waxiw=="),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("vN6U/hsgFcqoQ+UD2oNzjPzx9hh9M3H6tcjDzk6Ey/wi3fQDlg=="),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("7+g7p5QLmVeHGv7HwngRmsV4wIapM5/EdcrVbKFRyjqoANjp"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("58d2+I+2SjC3hWwS/C1gf4N/rxxK/YGh5yYOHvTooMwq8Bx9"),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("dLuyKuEsKfeBAWUXGyvw2Y1amxXvNRC0V9mDjNSNoaBqmmvskQ=="),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("YxfTAbsVOaOrUhHTVIZz57sAiOowuZcZcxn4GvRCFvj7XKMu3g=="),
+                    BlackWaterDecolorfusioning.JWIMETVADecreptString("AojkiEStGQ4e2Ztkyq3FjLWMyGsJ4VClN7nqDrZ4cQ8SgD/6Rw==")]
         
         var dict = [String: String]()
         for (i, key) in keys.enumerated() {
@@ -87,20 +87,20 @@ class VistaVanguardJWEl: NSObject {
     var startSteerJo: String {
       
         let prefix = "https://"
-        let host = cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"opi.cphub.link" : "opi.ujlkde0m.link"
+        let host = cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("B3/gf7C15FakasSE5SqSJlT54xciC0nnyphSIWNJR4GEgXVX+HI6E2jlsp7U3g=="): "opi.ujlkde0m.link"
         return prefix + host
     }
     
     var prevPilotJO: String {
-        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"11111111" : "72454862"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("cG9wvF2MhkXLIr+goGwbSBv/ju5FG+zw/8RWV5dU1YVagNhQJke+mw==") : "72454862"
     }
     
     var firstFloatJO: String {
-        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9986sdff5s4f1123" : "hfihuk8mum9qkw9l"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("dnQrWqFrCP2l3KvyNrvrl2GqSW0KObit32MvMGwgZXWU4illURTyal72h+ClvaP+") : "hfihuk8mum9qkw9l"
     }
     
     var lateLinger: String {
-        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("")"9986sdff5s4y456a" : "denhh5rh17a4c1cj"
+        return cloudCrawl ? BlackWaterDecolorfusioning.JWIMETVADecreptString("q8izaztU+QikaLgpwJxehtroE8eETKFYCduvzsDrWf6ihEhIwH76tIs4lGGS8afw"): "denhh5rh17a4c1cj"
     }
     
     // MARK: - 结构化噪声逻辑 (Structural Noise)

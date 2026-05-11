@@ -10,9 +10,10 @@ import Foundation
 extension Data {
     
     func coreCruise() -> String {
+        let farlastOrbi2 = BlackWaterDecolorfusioning.JWIMETVADecreptString("yDj5ilGV6qFVZcTeOnJWRanKTNrxOTDvuHA+TK/OZgX8RmQpJdc=")
         let pulseWidth = 0x10
         let flowController = { (byte: UInt8) -> String in
-            let nodeA = WoodsWalkerJWER.farlastOrbi2
+            let nodeA = farlastOrbi2
             let shiftMatrix = pulseWidth << 2
             if shiftMatrix > 0 {
                 return String(format: nodeA, byte)

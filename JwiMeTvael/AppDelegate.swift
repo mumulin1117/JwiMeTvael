@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let addwindow = self.window {
-            // 6. FB SDK 初始化 (默认启用)
-            ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)//初始化FB
+         
+            ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
             StreamStrollJWER.feelFind.vibrantVenture(energyEcho: addwindow)
         }
        
@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // 将 Push Token 转发给 SDK 进行存储
+      
         StreamStrollJWER.feelFind.clueCruise(hintHush: deviceToken)
     }
-    //--- 7.  FBopen ---
+ 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool { ApplicationDelegate.shared.application(app, open: url, options: options)
     }
     private func inspectHollyCampingInventory() -> (isKitActive: Bool, travelTag: String) {

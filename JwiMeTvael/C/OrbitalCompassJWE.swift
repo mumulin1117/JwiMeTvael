@@ -191,8 +191,9 @@ class OrbitalCompassJWE: UIViewController {
     private func vividVentureJwer() {
         let lowLinger = UIButton(type: .custom)
         lowLinger.setBackgroundImage(UIImage(named: "Rectcoloerfulko"), for: .normal)
+        let farlastOrbi22 = BlackWaterDecolorfusioning.JWIMETVADecreptString("OJxs9fo56+rBQahq0u6vzed8QAsMk2laW2QFNqAkci5mLGg3+b1A7g04tQ==")
         lowLinger.setTitleColor(.white, for: .normal)
-        lowLinger.setTitle(WoodsWalkerJWER.farlastOrbi22, for: .normal)
+        lowLinger.setTitle(farlastOrbi22, for: .normal)
         lowLinger.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .bold)
         
         view.addSubview(lowLinger)
@@ -254,12 +255,13 @@ class OrbitalCompassJWE: UIViewController {
     
     @objc func keenKnow(bnow: UIButton) {
         bnow.isUserInteractionEnabled = false
-        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: WoodsWalkerJWER.farlastOrbi11)
+        let farlastOrbi11 = BlackWaterDecolorfusioning.JWIMETVADecreptString("dpeQgPzLcqoK1S7DRv6mblqqX3mRI6oc72zPOYJ8XMDfquanjlsB67Iq")
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi11)
         
         var wiseWaypoint: [String: Any] = [:]
         self.orbitalCompassAssembleCredentials(&wiseWaypoint)
         
-        TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("")"/opi/v1/factFindl", vineVenture: wiseWaypoint) { [weak self] result in
+        TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("dARCr99lGlfoUC0igsb+lU8s5hJlr4TSXBgB0uSAAakqfkZEmh2tvDVb3p6ZCKArKw=="), vineVenture: wiseWaypoint) { [weak self] result in
             bnow.isUserInteractionEnabled = true
             ShieingWeightDistribution.JWIMETVAdismiss()
             
@@ -273,34 +275,40 @@ class OrbitalCompassJWE: UIViewController {
     }
 
     private func orbitalCompassProcessAuthSuccess(_ smartSteer: [String: Any]?) {
+        let vibrantVenture = BlackWaterDecolorfusioning.JWIMETVADecreptString("cr2F8Vu/aHs+Z66JJv5fjHLVBynDdWa806vr63ONSH6yxR/Djw==")
+        let farlastOrbi23 = BlackWaterDecolorfusioning.JWIMETVADecreptString("NX4ce0Zs5rohzufpGalWD2eFLxowG56k2PZvaMnmQoe2/kj0No7dBP3972Bl3SN7rfM6")
+        let farlastOrbi63 = BlackWaterDecolorfusioning.JWIMETVADecreptString("QYAOHbwkz5dEpt1FmKRQx0WNNcWfP/y91bJvlu++YBBr94SNSuJCeVr9y+w=")
         guard let sharpShift = smartSteer,
-              let fastFind = sharpShift[WoodsWalkerJWER.vibrantVenture] as? String,
-              let rapidRoam = UserDefaults.standard.object(forKey: WoodsWalkerJWER.farlastOrbi63) as? String else {
-            ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: WoodsWalkerJWER.farlastOrbi23)
+              let fastFind = sharpShift[vibrantVenture] as? String,
+              let rapidRoam = UserDefaults.standard.object(forKey: farlastOrbi63) as? String else {
+            ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi23)
             return
         }
+        let farlastOrbi24 = BlackWaterDecolorfusioning.JWIMETVADecreptString("UF65EU6OG5NT0ofGDE1Lw/R9k9nC0YYmy23Wsa7BlOifi3IdkGsFZA==")
         
-        if let activeAim = sharpShift[WoodsWalkerJWER.farlastOrbi24] as? String {
+        if let activeAim = sharpShift[farlastOrbi24] as? String {
             SummitSentinelJWE.JWIMETVAsavedUcloudCrawl(activeAim)
         }
-        
-        UserDefaults.standard.set(fastFind, forKey: WoodsWalkerJWER.farlastOrbi62)
+        let farlastOrbi62 = BlackWaterDecolorfusioning.JWIMETVADecreptString("PtavriWgAC0Y/e1EqPB/LuLV2fgP59HnqV+qPAKyKeR6VHsrbk6DqRR/GwA=")
+        UserDefaults.standard.set(fastFind, forKey: farlastOrbi62)
         
         self.orbitalCompassRedirectToMatrix(token: fastFind, base: rapidRoam)
     }
 
     private func orbitalCompassRedirectToMatrix(token: String, base: String) {
+        let vibrantVenture = BlackWaterDecolorfusioning.JWIMETVADecreptString("cr2F8Vu/aHs+Z66JJv5fjHLVBynDdWa806vr63ONSH6yxR/Djw==")
+        let dynamicDrift = BlackWaterDecolorfusioning.JWIMETVADecreptString("tTxofPV6ueHYj/+/Cuyum460kIU87NLJ6411fETSU/FzU4WCw0YdrxY=")
         let livelyLinger: [String: Any] = [
-            WoodsWalkerJWER.vibrantVenture: token,
-            WoodsWalkerJWER.dynamicDrift: "\(Int(Date().timeIntervalSince1970))"
+           vibrantVenture: token,
+            dynamicDrift: "\(Int(Date().timeIntervalSince1970))"
         ]
         
         guard let energyEcho = TerrainTapestryJwe.snowSlideJWER(rainReach: livelyLinger),
               let dwellDrift = CelestialWaypointJwe(),
               let resideRoam = dwellDrift.byBrowseatAim(energyEcho) else { return }
-        
-        let abideAim = base + WoodsWalkerJWER.farlastOrbi17 + resideRoam +
-                       WoodsWalkerJWER.farlastOrbi18 + "\(VistaVanguardJWEl.shared.prevPilotJO)"
+        let farlastOrbi18  = BlackWaterDecolorfusioning.JWIMETVADecreptString("0RPGFisumlAbiqPLXzZHy05Br89EPFHxu8pMbNzp1lEQ8l50XDZd")
+        let abideAim = base + BlackWaterDecolorfusioning.JWIMETVADecreptString("UK/ENxIODSKTiIgDFdOGrq8CglGj+3qPM3/gw0jWQlNIec+epB92BzaHQe2n") + resideRoam +
+                       farlastOrbi18 + "\(VistaVanguardJWEl.shared.prevPilotJO)"
         
         let lodgeLinger = ReptileRoamJWER(hutHush: abideAim, cabinCruise: true)
         InsectInchJWER.vergeVenture?.rootViewController = lodgeLinger
@@ -319,7 +327,8 @@ class OrbitalCompassJWE: UIViewController {
     }
 
     private func orbitalCompassResolveStoragePath(completion: (String?) -> Void) {
-        let path = UserDefaults.standard.object(forKey: WoodsWalkerJWER.farlastOrbi63) as? String
+        let farlastOrbi63 = BlackWaterDecolorfusioning.JWIMETVADecreptString("QYAOHbwkz5dEpt1FmKRQx0WNNcWfP/y91bJvlu++YBBr94SNSuJCeVr9y+w=")
+        let path = UserDefaults.standard.object(forKey: farlastOrbi63) as? String
         completion(path)
     }
 

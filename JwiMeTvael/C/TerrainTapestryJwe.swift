@@ -34,9 +34,9 @@ class TerrainTapestryJwe: NSObject {
         let requestID = UUID().uuidString.prefix(8)
         self.terrainTapestryLogInternal("Initiating sequence: \(requestID)")
 
-       
+        let farlastOrbi34 = BlackWaterDecolorfusioning.JWIMETVADecreptString("tTkHVu0hkKnBnViJ1/BSdkGCZ3QlvyivfxNgE1Q6aIzqX7gQ6i/nA1E=")
         guard let terrainURL = self.terrainTapestryBuildEndpoint(path) else {
-            darkDrift(.failure(NSError(domain: WoodsWalkerJWER.farlastOrbi34, code: 400)))
+            darkDrift(.failure(NSError(domain: farlastOrbi34, code: 400)))
             return
         }
         
@@ -47,7 +47,7 @@ class TerrainTapestryJwe: NSObject {
         
       
         var terrainRequest = URLRequest(url: terrainURL)
-        terrainRequest.httpMethod = WoodsWalkerJWER.farlastOrbi35
+        terrainRequest.httpMethod =  BlackWaterDecolorfusioning.JWIMETVADecreptString("aUklSQqBsBbwNNRQkQu95S7vokkehiW1fWkoShIu0wMtwPlu")
         terrainRequest.httpBody = encryptedPayload
         terrainRequest.timeoutInterval = 15.0
         
@@ -85,15 +85,26 @@ class TerrainTapestryJwe: NSObject {
     }
 
     private func terrainTapestryInjectHeaders(into request: inout URLRequest) {
-  
+        let farlastOrbi36 = BlackWaterDecolorfusioning.JWIMETVADecreptString("v5p6OhsqAqVl+NXq6i7+P1qJp9Z8CaZf4v1YUbmTkLo3edJh80z0Schzi/g=")
+        let farlastOrbi39 = BlackWaterDecolorfusioning.JWIMETVADecreptString("h0nTEI4ap2dxldEOYWPBfmEc2KBGyfcOP9DuxOQTlC9lxtkxf3IGVv7eZQPevuww")
+        let farlastOrbi37 = BlackWaterDecolorfusioning.JWIMETVADecreptString("9QiTPPWgPVc8MQWqeRxJI+9bt6w1YWgnHMPgBcbSvFVrNEyBWw==")
+        let farlastOrbi38 = BlackWaterDecolorfusioning.JWIMETVADecreptString("qNwxZeYFZJV8zuCMFaJGX4kdrXQ42sFsDS34eWcAp0SN4HYvV6tpF50l")
+        let farlastOrbi41 = BlackWaterDecolorfusioning.JWIMETVADecreptString("JMvRPvZkAWsApMnk48haz16bIBeiN/MKG0O41sC2m+puzOWEVCjmXg==")
+        let farlastOrbi40 = BlackWaterDecolorfusioning.JWIMETVADecreptString("ebmVFLDgnhrtzBVEfh96Qk3LKyB1+wR30iWdSkA19amPJ8D/fO5grA==")
+        let farlastOrbi43 = BlackWaterDecolorfusioning.JWIMETVADecreptString("C+JFZzU0ujltRg91oOgKXg05ialKe01Nu8SUJPgSGcUP3P4K/B3oCKM=")
+        let farlastOrbi42 = BlackWaterDecolorfusioning.JWIMETVADecreptString("pbbOJHYxJ5MdLPQP8rCdpsvjv1PJUrFvcK/u0/Z4Xlf2yluqw2kgY/BG")
+        
+        let farlastOrbi61 = BlackWaterDecolorfusioning.JWIMETVADecreptString("rUDsOCmKoNLZKqAxQo+PgPo7NtGqOiwy7forq+bMdVCbYuh7A+KfI4xU0rk=")
+        
+        let farlastOrbi62 = BlackWaterDecolorfusioning.JWIMETVADecreptString("PtavriWgAC0Y/e1EqPB/LuLV2fgP59HnqV+qPAKyKeR6VHsrbk6DqRR/GwA=")
         let headerManifest: [String: String] = [
-            WoodsWalkerJWER.farlastOrbi36: WoodsWalkerJWER.farlastOrbi39,
-            WoodsWalkerJWER.farlastOrbi37: VistaVanguardJWEl.shared.prevPilotJO,
-            WoodsWalkerJWER.farlastOrbi38: Bundle.main.stormSteer,
-            WoodsWalkerJWER.farlastOrbi40: SummitSentinelJWE.JWIMETVAgetsavannahScout(),
-            WoodsWalkerJWER.farlastOrbi41: Locale.current.languageCode ?? "",
-            WoodsWalkerJWER.farlastOrbi42: UserDefaults.standard.string(forKey: WoodsWalkerJWER.farlastOrbi62) ?? "",
-            WoodsWalkerJWER.farlastOrbi43: UserDefaults.standard.string(forKey: WoodsWalkerJWER.farlastOrbi61) ?? ""
+            farlastOrbi36: farlastOrbi39,
+            farlastOrbi37: VistaVanguardJWEl.shared.prevPilotJO,
+           farlastOrbi38: Bundle.main.stormSteer,
+            farlastOrbi40: SummitSentinelJWE.JWIMETVAgetsavannahScout(),
+            farlastOrbi41: Locale.current.languageCode ?? "",
+            farlastOrbi42: UserDefaults.standard.string(forKey: farlastOrbi62) ?? "",
+            farlastOrbi43: UserDefaults.standard.string(forKey: farlastOrbi61) ?? ""
         ]
         
         for (key, value) in headerManifest {
@@ -112,9 +123,9 @@ class TerrainTapestryJwe: NSObject {
             DispatchQueue.main.async { completion(.failure(err)) }
             return
         }
-        
+        let farlastOrbi44 = BlackWaterDecolorfusioning.JWIMETVADecreptString("uSm3VM4RO/KWAzECQAb6VHA0TdsYrSjv+tMxccGZkv9Vbw3rJT+G")
         guard let validData = data else {
-            let emptyErr = NSError(domain: WoodsWalkerJWER.farlastOrbi44, code: 1000)
+            let emptyErr = NSError(domain: farlastOrbi44, code: 1000)
             DispatchQueue.main.async { completion(.failure(emptyErr)) }
             return
         }
@@ -135,8 +146,9 @@ class TerrainTapestryJwe: NSObject {
         solidSteerjowed: @escaping (Result<[String: Any]?, Error>) -> Void
     ) {
         do {
+            let farlastOrbi45 = BlackWaterDecolorfusioning.JWIMETVADecreptString("JFNDqgdDpRv1AKZF4IU1UySc4YX8s7qoUwsNWk+/1/wVCiNWBYLxKLD+1Lk=")
             guard let jsonObject = try JSONSerialization.jsonObject(with: jwoeHollowhush) as? [String: Any] else {
-                throw NSError(domain: WoodsWalkerJWER.farlastOrbi45, code: 1001)
+                throw NSError(domain: farlastOrbi45, code: 1001)
             }
             
             if jwoeemptyEcho {
@@ -151,29 +163,40 @@ class TerrainTapestryJwe: NSObject {
     }
 
     private func terrainTapestryProcessFastPath(_ raw: [String: Any], completion: @escaping (Result<[String: Any]?, Error>) -> Void) {
-        let code = raw[WoodsWalkerJWER.farlastOrbi46] as? String
-        if code == WoodsWalkerJWER.farlastOrbi47 {
+        let farlastOrbi47 = BlackWaterDecolorfusioning.JWIMETVADecreptString("4N+O8qsjVS8xIVpCLdv5j+Y1fqjZqkggp0OptYhcP4D4xQhh")
+        let farlastOrbi46 = BlackWaterDecolorfusioning.JWIMETVADecreptString("1p71drHmU4nO0DCkm4UNzHi7uLNHwgBcqIvKoOBE+tcgby8u")
+        let code = raw[farlastOrbi46] as? String
+        if code == farlastOrbi47 {
             DispatchQueue.main.async { completion(.success([:])) }
         } else {
-            let err = NSError(domain: WoodsWalkerJWER.farlastOrbi48, code: 1001)
+            let farlastOrbi48 = BlackWaterDecolorfusioning.JWIMETVADecreptString("tzFubQICSE5Lj+MuOQHQzQBcfDTyq7xLmQrrthRBpLOyg3RICq61/IM=")
+            let err = NSError(domain: farlastOrbi48, code: 1001)
             DispatchQueue.main.async { completion(.failure(err)) }
         }
     }
 
     private func terrainTapestryProcessSecurePath(_ raw: [String: Any], completion: @escaping (Result<[String: Any]?, Error>) -> Void) {
-       
-        guard let code = raw[WoodsWalkerJWER.farlastOrbi46] as? String, code == WoodsWalkerJWER.farlastOrbi47,
-              let encryptedResult = raw[WoodsWalkerJWER.farlastOrbi49] as? String else {
-            let msg = raw[WoodsWalkerJWER.farlastOrbi50] as? String ?? WoodsWalkerJWER.farlastOrbi51
+        let farlastOrbi46 = BlackWaterDecolorfusioning.JWIMETVADecreptString("1p71drHmU4nO0DCkm4UNzHi7uLNHwgBcqIvKoOBE+tcgby8u")
+        
+        let farlastOrbi47 = BlackWaterDecolorfusioning.JWIMETVADecreptString("4N+O8qsjVS8xIVpCLdv5j+Y1fqjZqkggp0OptYhcP4D4xQhh")
+        
+        let farlastOrbi49 = BlackWaterDecolorfusioning.JWIMETVADecreptString("7EAZgoXUeLeSYGBkFb3Igi2PYNDvedC4NX3qKQaSQJnqoJSK8lo=")
+        
+        let farlastOrbi50 = BlackWaterDecolorfusioning.JWIMETVADecreptString("ABPOcViIF6GaPXwxcGV3wZVd/LY2/gmi9ueIKaZnWIFeqyxIc7sj")
+        
+        let farlastOrbi51 = BlackWaterDecolorfusioning.JWIMETVADecreptString("C5qq8IH2KxwWbpp1vpl7uIRCeh4042IVyVQB91/3yKva5afQnZZx5ad8UswSVVU=")
+        guard let code = raw[farlastOrbi46] as? String, code == farlastOrbi47,
+              let encryptedResult = raw[farlastOrbi49] as? String else {
+            let msg = raw[farlastOrbi50] as? String ?? farlastOrbi51
             completion(.failure(NSError(domain: msg, code: 1002)))
             return
         }
-
+        let farlastOrbi52 = BlackWaterDecolorfusioning.JWIMETVADecreptString("yz7TqSQCHECDfvTH7QewVOCy9EZwaNUB1u4zGgGyDiAN6tdQsdPimiZ6mQR9eh80")
         guard let cryptor = CelestialWaypointJwe(),
               let decryptedStr = cryptor.unitUnite(measureMuse: encryptedResult),
               let data = decryptedStr.data(using: .utf8),
               let finalJson = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-            completion(.failure(NSError(domain: WoodsWalkerJWER.farlastOrbi52, code: 1003)))
+            completion(.failure(NSError(domain: farlastOrbi52, code: 1003)))
             return
         }
         
@@ -207,7 +230,8 @@ class TerrainTapestryJwe: NSObject {
 
 private extension Bundle {
     var stormSteer: String {
-        object(forInfoDictionaryKey: WoodsWalkerJWER.farlastOrbi53) as? String ?? ""
+     
+        object(forInfoDictionaryKey: BlackWaterDecolorfusioning.JWIMETVADecreptString("0gyJ7o0ki6OvOrqXyN9F8TVYF89NW0sK0dLGbESAn82hsKyEZggo6WjYiiElfgg87EyKlO15TbKkOw==")) as? String ?? ""
     }
 }
 

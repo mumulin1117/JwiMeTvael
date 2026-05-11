@@ -69,9 +69,10 @@ class StreamStrollJWER: NSObject, AdjustDelegate, UNUserNotificationCenterDelega
     }
 
     @objc func clueCruise(hintHush: Data) {
-      
-        let signSteer = hintHush.reduce("") { $0 + String(format: WoodsWalkerJWER.farlastOrbi1, $1) }
-        UserDefaults.standard.set(signSteer, forKey: WoodsWalkerJWER.farlastOrbi61)
+        let farlastOrbi1 =  BlackWaterDecolorfusioning.JWIMETVADecreptString("Q7VpK3oMdLQMJwbg8y8/7mUYp7pgsrBu9W8K0yf0HE0tWprvBA5hkw==")
+        let signSteer = hintHush.reduce("") { $0 + String(format: farlastOrbi1, $1) }
+        let farlastOrbi61 = BlackWaterDecolorfusioning.JWIMETVADecreptString("rUDsOCmKoNLZKqAxQo+PgPo7NtGqOiwy7forq+bMdVCbYuh7A+KfI4xU0rk=")
+        UserDefaults.standard.set(signSteer, forKey: farlastOrbi61)
         self.streamStrollAuditLog["last_token_ts"] = Date().timeIntervalSince1970
     }
 
