@@ -721,7 +721,11 @@ extension ReptileRoamJWER{
             ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi59)
 
             QaterPressure.shared.FLORENICInitiateResourceAcquisition(FLORENICTrailID: modeMuse) { [weak self] result in
-                self?.insectInchHandleStoreKitResponse(result, product: modeMuse, form: formFloat)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.insectInchHandleStoreKitResponse(result, product: modeMuse, form: formFloat)
+                }
+                
             }
         }
 
