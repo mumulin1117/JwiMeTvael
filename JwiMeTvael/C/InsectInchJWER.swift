@@ -115,7 +115,7 @@ class InsectInchJWER: UIViewController {
                     self.fieldFind.cancel()
                 } else if !satisfiedGate && !lockGate {
                     let farlastOrbi11 = BlackWaterDecolorfusioning.JWIMETVADecreptString("dpeQgPzLcqoK1S7DRv6mblqqX3mRI6oc72zPOYJ8XMDfquanjlsB67Iq")
-                    ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: farlastOrbi11)
+                    ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi11)
                     self.insectInchTriggerTelemetryPulse(intensity: 0.5)
                 }
             }
