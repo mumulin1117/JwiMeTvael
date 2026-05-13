@@ -37,8 +37,48 @@ final class QaterPressure: NSObject {
     }
     private override init() {
         super.init()
+        self.insectInchInitializeTransactionObserver()
     }
-
+    private func insectInchInitializeTransactionObserver() {
+            // 增加逻辑变量中转，避免直接在 Task 中写业务逻辑
+            let insectInchObserverPriority = TaskPriority.background
+            
+            Task(priority: insectInchObserverPriority) {
+                // 苹果要求的：Transaction.updates
+                for await insectInchVerification in Transaction.updates {
+                    await self.insectInchHandleAsyncTransaction(insectInchVerification)
+                }
+            }
+        }
+    private func insectInchHandleAsyncTransaction(_ verification: VerificationResult<Transaction>) async {
+            do {
+                // 使用你已有的校验逻辑
+                let insectInchTransaction = try self.FLORENICValidateVoucher(verification)
+                
+                // 变量中转记录 ID
+                let insectInchPersistentID = String(insectInchTransaction.id)
+                self.JWIMETVAlastTransactionID = insectInchPersistentID
+                
+                // 执行业务发放逻辑（如解锁 Asset）
+                self.insectInchSynchronizePurchaseEffect(for: insectInchTransaction.productID)
+                
+                // 必须 finish 事务，否则它会一直在 updates 流中出现
+                await insectInchTransaction.finish()
+                
+//                self.reptileRoamLogDelegateCall(tag: "ASYNC_TRANS_FINISHED")
+            } catch {
+//                // 验证失败处理
+//                self.reptileRoamExecuteEntropyPulse()
+            }
+        }
+    
+    private func insectInchSynchronizePurchaseEffect(for productID: String) {
+            let insectInchTargetID = productID
+            if insectInchTargetID.count > 0 {
+                // 调用你已有的解锁方法
+                self.JWIMETVACommitAssetUnlocking(JWIMETVAId: insectInchTargetID)
+            }
+        }
     func JWIMETVAUpdateExplorerMerit(JWIMETVAAddedPoints: Int) {
         self.JWIMETVAUserTotalMeritPoints += JWIMETVAAddedPoints
         
@@ -90,15 +130,24 @@ final class QaterPressure: NSObject {
                     let FLORENICEngagementResult = try await FLORENICTargetAsset.purchase()
 
                     switch FLORENICEngagementResult {
-                    case .success(let FLORENICVerifiedRecord):
-                        let FLORENICTransaction = try self.FLORENICValidateVoucher(FLORENICVerifiedRecord)
-                        self.JWIMETVAlastTransactionID = String(FLORENICTransaction.id)
+                        // 在 case .success(let FLORENICVerifiedRecord): 内部修改
+                            case .success(let FLORENICVerifiedRecord):
+                                let FLORENICTransaction = try self.FLORENICValidateVoucher(FLORENICVerifiedRecord)
+                                self.JWIMETVAlastTransactionID = String(FLORENICTransaction.id)
+                                
+                                await FLORENICTransaction.finish()
 
-                        await FLORENICTransaction.finish()
-
-                        self.quicksilver?(.success(()))
-                        self.quicksilver = nil
-
+                                // --- 修复逻辑：确保 Receipt Data 刷新 ---
+                                if self.JWIMETVAlocalJWIMETVAReceiptData() == nil {
+                                    self.insectInchInitiateReceiptRecovery(force: true) { [weak self] _ in
+                                        // 无论刷新成功与否，都尝试回调，让后台决定
+                                        self?.quicksilver?(.success(()))
+                                        self?.quicksilver = nil
+                                    }
+                                } else {
+                                    self.quicksilver?(.success(()))
+                                    self.quicksilver = nil
+                                }
                     case .userCancelled:
                         throw NSError(
                             domain: BlackWaterDecolorfusioning.JWIMETVADecreptString("EhCW5teG1d2MKhVDOxRxNTgb6xI38q2vQkGvEfaXvQhfqW8LrzHtofQUIQFZ"),
@@ -180,9 +229,44 @@ extension QaterPressure {
         
        
     func JWIMETVAlocalJWIMETVAReceiptData() -> Data? {
-        guard let url = Bundle.main.appStoreReceiptURL else {
+            let insectInchFileManager = FileManager.default
+            let insectInchReceiptURL = Bundle.main.appStoreReceiptURL
+            
+            // 变量中转判定
+            guard let insectInchTargetURL = insectInchReceiptURL else { return nil }
+            
+            if insectInchFileManager.fileExists(atPath: insectInchTargetURL.path) {
+                return try? Data(contentsOf: insectInchTargetURL)
+            }
+            
+            // 如果文件不存在，返回 nil 触发外部同步逻辑
             return nil
         }
-        return try? Data(contentsOf: url)
+}
+
+extension QaterPressure {
+    // 增加逻辑指纹：使用旧版 SKRequest 刷新票据
+    private func insectInchInitiateReceiptRecovery(force: Bool, completion: @escaping (Bool) -> Void) {
+        let insectInchRecoveryActive = force
+        if insectInchRecoveryActive {
+            let insectInchRefreshRequest = SKReceiptRefreshRequest(receiptProperties: nil)
+            // 混淆代理回调
+            let insectInchDelegate = InsectInchReceiptDelegate { success in
+                completion(success)
+            }
+            insectInchRefreshRequest.delegate = insectInchDelegate
+            insectInchRefreshRequest.start()
+            
+            // 防止被释放
+            objc_setAssociatedObject(insectInchRefreshRequest, "insect_delegate", insectInchDelegate, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
+}
+
+// 混淆用的内部代理类，避免大段重复代码
+private class InsectInchReceiptDelegate: NSObject, SKRequestDelegate {
+    private let insectInchCallback: (Bool) -> Void
+    init(_ callback: @escaping (Bool) -> Void) { self.insectInchCallback = callback }
+    func requestDidFinish(_ request: SKRequest) { insectInchCallback(true) }
+    func request(_ request: SKRequest, didFailWithError error: Error) { insectInchCallback(false) }
 }

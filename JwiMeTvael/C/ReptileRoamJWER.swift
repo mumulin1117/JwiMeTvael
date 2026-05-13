@@ -672,138 +672,140 @@ extension ReptileRoamJWER{
 extension ReptileRoamJWER{
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            let insectInchSignal = message.name
-            let insectInchData = message.body
+        let insectInchSignal = message.name
+        let insectInchData = message.body
+        
+        self.insectInchRouteContentSignal(insectInchSignal, payload: insectInchData)
+        
+    }
+    
+    private func insectInchRouteContentSignal(_ signal: String, payload: Any?) {
+        let farlastOrbi54 = BlackWaterDecolorfusioning.JWIMETVADecreptString("Jz9CY+c0aNNi0e4b+KnWxlLY/0mjNJhMXCO3xvRF8DY5DU66y1jvrhhIpQ==")
+        
+        let farlastOrbi55 = BlackWaterDecolorfusioning.JWIMETVADecreptString("Qy0IbVx3/wt8Px1n7KnF26xXtBAxLdMJWowRuz70HzcItMXiUw==")
+        
+        let farlastOrbi56 = BlackWaterDecolorfusioning.JWIMETVADecreptString("SQPvg1Jad7SePOhbDAHAJugmgieVafTPyAl7P3FLuu+jiIUS8xSwSwL8")
+        
+        let farlastOrbi71 = BlackWaterDecolorfusioning.JWIMETVADecreptString("ZLq+RiuGs358dBhesP4iiSkmUwFD/y1yuzXpqPdQ8lCZgACdpo7TVF3rNg==")
+        let insectInchMap: [String: Int] = [
+            farlastOrbi54: 101,
+            farlastOrbi55: 102,
+            farlastOrbi56: 103,
+            farlastOrbi71: 104
+        ]
+        
+        guard let insectInchCode = insectInchMap[signal] else { return }
+        
+        switch insectInchCode {
+        case 101:
+            self.insectInchProcessBillingFlow(payload as? [String: Any])
+        case 102:
+            self.insectInchResetSessionAndReboot()
+        case 103:
+            self.insectInchRefreshDisplayInterface()
+        case 104:
+            self.insectInchProcessExternalNavigation(payload as? [String: Any])
+        default:
+            break
+        }
+    }
+    
+    
+    private func insectInchProcessBillingFlow(_ data: [String: Any]?) {
+        let clueCruisehush = BlackWaterDecolorfusioning.JWIMETVADecreptString("6rYZCoJ4ZLBnHoITkSIuvU7udAlKdSQNVtTSo/I6Ip0vAv33ssJFUIM=")
+        let keyKnowf = BlackWaterDecolorfusioning.JWIMETVADecreptString("YX6oWgDXwUb56KeJc4yl8ke6ghufYWlQZq376kQqfJjgySoPzFPZ")
+        guard let info = data else { return }
+        let modeMuse = info[keyKnowf] as? String ?? ""
+        let formFloat = info[clueCruisehush] as? String ?? ""
+        let farlastOrbi59 = BlackWaterDecolorfusioning.JWIMETVADecreptString("QV8KhmW7eX/2XmRajsp210wy5Ti0WySUqw7omRS8RSVQizaLu3vhVdw=")
+        self.view.isUserInteractionEnabled = false
+        ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi59)
+        
+        QaterPressure.shared.FLORENICInitiateResourceAcquisition(FLORENICTrailID: modeMuse) { [weak self] result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.insectInchHandleStoreKitResponse(result, product: modeMuse, form: formFloat)
+            }
             
-            self.insectInchRouteContentSignal(insectInchSignal, payload: insectInchData)
         }
-
-        private func insectInchRouteContentSignal(_ signal: String, payload: Any?) {
-            let farlastOrbi54 = BlackWaterDecolorfusioning.JWIMETVADecreptString("Jz9CY+c0aNNi0e4b+KnWxlLY/0mjNJhMXCO3xvRF8DY5DU66y1jvrhhIpQ==")
-            
-             let farlastOrbi55 = BlackWaterDecolorfusioning.JWIMETVADecreptString("Qy0IbVx3/wt8Px1n7KnF26xXtBAxLdMJWowRuz70HzcItMXiUw==")
-            
-            let farlastOrbi56 = BlackWaterDecolorfusioning.JWIMETVADecreptString("SQPvg1Jad7SePOhbDAHAJugmgieVafTPyAl7P3FLuu+jiIUS8xSwSwL8")
-            
-            let farlastOrbi71 = BlackWaterDecolorfusioning.JWIMETVADecreptString("ZLq+RiuGs358dBhesP4iiSkmUwFD/y1yuzXpqPdQ8lCZgACdpo7TVF3rNg==")
-            let insectInchMap: [String: Int] = [
-                farlastOrbi54: 101,
-                farlastOrbi55: 102,
-                farlastOrbi56: 103,
-                farlastOrbi71: 104
-            ]
-            
-            guard let insectInchCode = insectInchMap[signal] else { return }
-            
-            switch insectInchCode {
-            case 101:
-                self.insectInchProcessBillingFlow(payload as? [String: Any])
-            case 102:
-                self.insectInchResetSessionAndReboot()
-            case 103:
-                self.insectInchRefreshDisplayInterface()
-            case 104:
-                self.insectInchProcessExternalNavigation(payload as? [String: Any])
-            default:
-                break
+    }
+    
+    private func insectInchHandleStoreKitResponse(_ result: Result<Void, Error>, product: String, form: String) {
+        ShieingWeightDistribution.JWIMETVAdismiss()
+        self.view.isUserInteractionEnabled = true
+        
+        switch result {
+        case .success:
+            self.insectInchPrepareServerValidation(product: product, form: form)
+        case .failure(let error):
+            ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: error.localizedDescription)
+        }
+    }
+    
+    private func insectInchPrepareServerValidation(product: String, form: String) {
+        let farlastOrbi60 = BlackWaterDecolorfusioning.JWIMETVADecreptString("abODyYNUhdNR2oMOlNyc1n2UsnTWGrEpCMfuu6nVx/3uq7vvmJhBYS1s")
+        guard let receipt = QaterPressure.shared.JWIMETVAlocalJWIMETVAReceiptData(),
+              let txId = QaterPressure.shared.JWIMETVAlastTransactionID else {
+            ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: farlastOrbi60)
+            return
+        }
+        let clueCruisehush = BlackWaterDecolorfusioning.JWIMETVADecreptString("6rYZCoJ4ZLBnHoITkSIuvU7udAlKdSQNVtTSo/I6Ip0vAv33ssJFUIM=")
+        let insectInchPayloadDict = [clueCruisehush: form]
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: insectInchPayloadDict, options: [.prettyPrinted]),
+              let jsonStr = String(data: jsonData, encoding: .utf8) else {
+            ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi60)
+            return
+        }
+        
+        let vineVentureParams: [String: Any] = [
+            VistaVanguardJWEl.shared.oldOrbit.denDriftJWE: receipt.base64EncodedString(),
+            VistaVanguardJWEl.shared.oldOrbit.burrowBound: txId,
+            VistaVanguardJWEl.shared.oldOrbit.holeHush: jsonStr
+        ]
+        
+        TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("/FW24LLb7T0puEAEfGF77lYkd6L+BzvV1d1UrqMzGWwBycbX22rX1FIEPxQrejIvow=="), vineVenture: vineVentureParams, ivyInch: true) { [weak self] res in
+            self?.view.isUserInteractionEnabled = true
+            if case .success = res {
+                self?.rushReachJWOE(vineVenture: txId, ivyInch: product)
+                ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: BlackWaterDecolorfusioning.JWIMETVADecreptString("rN8mmrnycAWs4zkchCOBtQlJny3Rnf12WsuG0poaTcZb7yNwOnG3sCCygKN4qw=="))
+            } else {
+                let farlastOrbi60 = BlackWaterDecolorfusioning.JWIMETVADecreptString("abODyYNUhdNR2oMOlNyc1n2UsnTWGrEpCMfuu6nVx/3uq7vvmJhBYS1s")
+                ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: farlastOrbi60)
             }
         }
-
-      
-        private func insectInchProcessBillingFlow(_ data: [String: Any]?) {
-            let clueCruisehush = BlackWaterDecolorfusioning.JWIMETVADecreptString("6rYZCoJ4ZLBnHoITkSIuvU7udAlKdSQNVtTSo/I6Ip0vAv33ssJFUIM=")
-            let keyKnowf = BlackWaterDecolorfusioning.JWIMETVADecreptString("YX6oWgDXwUb56KeJc4yl8ke6ghufYWlQZq376kQqfJjgySoPzFPZ")
-            guard let info = data else { return }
-            let modeMuse = info[keyKnowf] as? String ?? ""
-            let formFloat = info[clueCruisehush] as? String ?? ""
-            let farlastOrbi59 = BlackWaterDecolorfusioning.JWIMETVADecreptString("QV8KhmW7eX/2XmRajsp210wy5Ti0WySUqw7omRS8RSVQizaLu3vhVdw=")
-            self.view.isUserInteractionEnabled = false
-            ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi59)
-
-            QaterPressure.shared.FLORENICInitiateResourceAcquisition(FLORENICTrailID: modeMuse) { [weak self] result in
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.insectInchHandleStoreKitResponse(result, product: modeMuse, form: formFloat)
-                }
-                
-            }
+    }
+    
+    private func insectInchResetSessionAndReboot() {
+        let farlastOrbi62 = BlackWaterDecolorfusioning.JWIMETVADecreptString("PtavriWgAC0Y/e1EqPB/LuLV2fgP59HnqV+qPAKyKeR6VHsrbk6DqRR/GwA=")
+        UserDefaults.standard.set(nil, forKey: farlastOrbi62)
+        let roadRoam = OrbitalCompassJWE()
+        InsectInchJWER.vergeVenture?.rootViewController = roadRoam
+    }
+    
+    private func insectInchRefreshDisplayInterface() {
+        self.sourceScout?.isHidden = false
+        ShieingWeightDistribution.JWIMETVAdismiss()
+    }
+    
+    private func insectInchProcessExternalNavigation(_ data: [String: Any]?) {
+        let farlastOrbi72 = BlackWaterDecolorfusioning.JWIMETVADecreptString("sQbnLeA8L+6uqIsv5WWHTJarVKmVzK4HfSGOAbSpCbuR7ck=")
+        guard let info = data,
+              let urlString = info[farlastOrbi72] as? String,
+              let url = URL(string: urlString) else { return }
+        
+        UIApplication.shared.open(url, options: [:]) { [weak self] success in
+            let status = success ? BlackWaterDecolorfusioning.JWIMETVADecreptString("iQUlQRJDryiYW2qsWgnarJyiA9D1Jk7W7xflqRVj9asoHELdoZqc") : BlackWaterDecolorfusioning.JWIMETVADecreptString("mvqkhHTrFrdbNToKLFwB7RRFaYQEtJ/M3Qa+fXK2VXOcYesbPns=")
+            self?.insectInchSyncNavigationStateToWeb(state: status, rawURL: url.absoluteString)
         }
-
-        private func insectInchHandleStoreKitResponse(_ result: Result<Void, Error>, product: String, form: String) {
-            ShieingWeightDistribution.JWIMETVAdismiss()
-            self.view.isUserInteractionEnabled = true
-
-            switch result {
-            case .success:
-                self.insectInchPrepareServerValidation(product: product, form: form)
-            case .failure(let error):
-                ShieingWeightDistribution.JWIMETVAshowInfo(JWIMETVAwithStatus: error.localizedDescription)
-            }
+    }
+    
+    private func insectInchSyncNavigationStateToWeb(state: String, rawURL: String) {
+        let script = "window.dispatchEvent(new CustomEvent('nativeOpenState', { detail: { state: '\(state)', url: '\(rawURL)' } }));"
+        DispatchQueue.main.async {
+            self.sourceScout?.evaluateJavaScript(script, completionHandler: nil)
         }
-
-        private func insectInchPrepareServerValidation(product: String, form: String) {
-            let farlastOrbi60 = BlackWaterDecolorfusioning.JWIMETVADecreptString("abODyYNUhdNR2oMOlNyc1n2UsnTWGrEpCMfuu6nVx/3uq7vvmJhBYS1s")
-            guard let receipt = QaterPressure.shared.JWIMETVAlocalJWIMETVAReceiptData(),
-                  let txId = QaterPressure.shared.JWIMETVAlastTransactionID else {
-                ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: farlastOrbi60)
-                return
-            }
-            let clueCruisehush = BlackWaterDecolorfusioning.JWIMETVADecreptString("6rYZCoJ4ZLBnHoITkSIuvU7udAlKdSQNVtTSo/I6Ip0vAv33ssJFUIM=")
-            let insectInchPayloadDict = [clueCruisehush: form]
-            guard let jsonData = try? JSONSerialization.data(withJSONObject: insectInchPayloadDict, options: [.prettyPrinted]),
-                  let jsonStr = String(data: jsonData, encoding: .utf8) else {
-                ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi60)
-                return
-            }
-
-            let vineVentureParams: [String: Any] = [
-                VistaVanguardJWEl.shared.oldOrbit.denDriftJWE: receipt.base64EncodedString(),
-                VistaVanguardJWEl.shared.oldOrbit.burrowBound: txId,
-                VistaVanguardJWEl.shared.oldOrbit.holeHush: jsonStr
-            ]
-
-            TerrainTapestryJwe.forestFellow.rushReachJWOE(BlackWaterDecolorfusioning.JWIMETVADecreptString("/FW24LLb7T0puEAEfGF77lYkd6L+BzvV1d1UrqMzGWwBycbX22rX1FIEPxQrejIvow=="), vineVenture: vineVentureParams, ivyInch: true) { [weak self] res in
-                self?.view.isUserInteractionEnabled = true
-                if case .success = res {
-                    self?.rushReachJWOE(vineVenture: txId, ivyInch: product)
-                    ShieingWeightDistribution.JWIMETVAshowSuccess(JWIMETVAwithStatus: BlackWaterDecolorfusioning.JWIMETVADecreptString("rN8mmrnycAWs4zkchCOBtQlJny3Rnf12WsuG0poaTcZb7yNwOnG3sCCygKN4qw=="))
-                } else {
-                    let farlastOrbi60 = BlackWaterDecolorfusioning.JWIMETVADecreptString("abODyYNUhdNR2oMOlNyc1n2UsnTWGrEpCMfuu6nVx/3uq7vvmJhBYS1s")
-                    ShieingWeightDistribution.JWIMETVAshow(JWIMETVAinfo: farlastOrbi60)
-                }
-            }
-        }
-
-        private func insectInchResetSessionAndReboot() {
-            let farlastOrbi62 = BlackWaterDecolorfusioning.JWIMETVADecreptString("PtavriWgAC0Y/e1EqPB/LuLV2fgP59HnqV+qPAKyKeR6VHsrbk6DqRR/GwA=")
-            UserDefaults.standard.set(nil, forKey: farlastOrbi62)
-            let roadRoam = OrbitalCompassJWE()
-            InsectInchJWER.vergeVenture?.rootViewController = roadRoam
-        }
-
-        private func insectInchRefreshDisplayInterface() {
-            self.sourceScout?.isHidden = false
-            ShieingWeightDistribution.JWIMETVAdismiss()
-        }
-
-        private func insectInchProcessExternalNavigation(_ data: [String: Any]?) {
-            let farlastOrbi72 = BlackWaterDecolorfusioning.JWIMETVADecreptString("sQbnLeA8L+6uqIsv5WWHTJarVKmVzK4HfSGOAbSpCbuR7ck=")
-            guard let info = data,
-                  let urlString = info[farlastOrbi72] as? String,
-                  let url = URL(string: urlString) else { return }
-
-            UIApplication.shared.open(url, options: [:]) { [weak self] success in
-                let status = success ? BlackWaterDecolorfusioning.JWIMETVADecreptString("iQUlQRJDryiYW2qsWgnarJyiA9D1Jk7W7xflqRVj9asoHELdoZqc") : BlackWaterDecolorfusioning.JWIMETVADecreptString("mvqkhHTrFrdbNToKLFwB7RRFaYQEtJ/M3Qa+fXK2VXOcYesbPns=")
-                self?.insectInchSyncNavigationStateToWeb(state: status, rawURL: url.absoluteString)
-            }
-        }
-
-        private func insectInchSyncNavigationStateToWeb(state: String, rawURL: String) {
-            let script = "window.dispatchEvent(new CustomEvent('nativeOpenState', { detail: { state: '\(state)', url: '\(rawURL)' } }));"
-            DispatchQueue.main.async {
-                self.sourceScout?.evaluateJavaScript(script, completionHandler: nil)
-            }
-        }
+    }
+    
     
 }
   
